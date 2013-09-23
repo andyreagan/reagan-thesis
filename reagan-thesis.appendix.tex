@@ -1,0 +1,36 @@
+\appendix
+\addappheadtotoc
+
+\titleformat{\chapter}[hang] 
+{\normalfont\huge\bfseries}{\chaptertitlename\ \thechapter:}{1em}{} 
+
+\chapter{Parameters}
+\label{params}
+\begin{table}[h!]
+\caption{EKF Covariance Inflation}
+\begin{center}
+\begin{tabularx}{\textwidth}{ |X|X|X| }
+%\begin{tabular}{|l|l|}
+\hline
+ {\bf Window Length} & {\bf Additive Inflataion} & {\bf Multiplicative Inflation} \\ \hline \hline
+ 30s  & 0.05 & 0.15 \\
+ \hline
+\end{tabularx}
+\end{center}
+\vspace{-0.4cm}
+\label{params:EKF:covInf}
+\end{table} 
+
+
+
+\chapter{Code}
+\label{code}
+The core components of the code necessary to reproduce all results herein is as follows.
+None of OpenFOAM version 2.2.1 is included, as it is freely available for download online.
+\lstinputlisting{../2013-05data-assimilation/OpenFOAM/OpenFOAM.m}
+
+
+
+
+
+

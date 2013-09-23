@@ -1,0 +1,874 @@
+checking reagan-thesis.chapter*-standard.tex
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013)
+ restricted \write18 enabled.
+entering extended mode
+(./reagan-thesis-main.tex
+LaTeX2e <2011/06/27>
+Babel <3.9f> and hyphenation patterns for 78 languages loaded.
+(/usr/local/texlive/2013/texmf-dist/tex/latex/base/report.cls
+Document Class: report 2007/10/19 v1.4h Standard LaTeX document class
+(/usr/local/texlive/2013/texmf-dist/tex/latex/base/size10.clo)) (./thesis.sty
+UVM Thesis Style, Version 0.1
+Copyright (c) 2005 David Van Horn
+Licensed under the Academic Free License version 2.0
+Updated 2013 by Joshua Auerbach
+(/usr/local/texlive/2013/texmf-dist/tex/latex/setspace/setspace.sty)
+(./chicago.sty
+Using Chicago Manual of Style bibliography: 31 August 1992
+) (/usr/local/texlive/2013/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty)
+(/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/ifpdf.sty)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/psnfss/times.sty))
+(/usr/local/texlive/2013/texmf-dist/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(/usr/local/texlive/2013/texmf-dist/tex/latex/amsmath/amstext.sty
+(/usr/local/texlive/2013/texmf-dist/tex/latex/amsmath/amsgen.sty))
+(/usr/local/texlive/2013/texmf-dist/tex/latex/amsmath/amsbsy.sty)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/amsmath/amsopn.sty))
+(/usr/local/texlive/2013/texmf-dist/tex/latex/url/url.sty)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/subfigure/subfigure.sty
+****************************************
+* Local config file subfigure.cfg used *
+****************************************
+(/usr/local/texlive/2013/texmf-dist/tex/latex/subfigure/subfigure.cfg))
+(/usr/local/texlive/2013/texmf-dist/tex/latex/graphics/graphicx.sty
+(/usr/local/texlive/2013/texmf-dist/tex/latex/graphics/keyval.sty)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/graphics/graphics.sty
+(/usr/local/texlive/2013/texmf-dist/tex/latex/graphics/trig.sty)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/latexconfig/graphics.cfg)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/pdftex-def/pdftex.def
+(/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/infwarerr.sty)
+(/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/ltxcmds.sty))))
+(/usr/local/texlive/2013/texmf-dist/tex/latex/multirow/multirow.sty)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/cite/chapterbib.sty)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/amsfonts/amssymb.sty
+(/usr/local/texlive/2013/texmf-dist/tex/latex/amsfonts/amsfonts.sty))
+(/usr/local/texlive/2013/texmf-dist/tex/latex/appendix/appendix.sty)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/titlesec/titlesec.sty)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/listings/listings.sty
+(/usr/local/texlive/2013/texmf-dist/tex/latex/listings/lstmisc.sty)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/listings/listings.cfg))
+(/usr/local/texlive/2013/texmf-dist/tex/latex/cite/cite.sty)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/tools/tabularx.sty
+(/usr/local/texlive/2013/texmf-dist/tex/latex/tools/array.sty))
+(/usr/local/texlive/2013/texmf-dist/tex/latex/currfile/currfile.sty
+(/usr/local/texlive/2013/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+(/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+(/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+(/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/ifluatex.sty))))
+(/usr/local/texlive/2013/texmf-dist/tex/latex/filehook/filehook.sty))
+(./reagan-thesis-main.settings.tex) (./reagan-thesis.title.tex)
+(./reagan-thesis.committee.tex) (./reagan-thesis-main.aux
+
+LaTeX Warning: Label `fig:EnKFhist' multiply defined.
+
+
+LaTeX Warning: Label `fig:EnKFhist' multiply defined.
+
+
+LaTeX Warning: Label `fig:EnKFhist' multiply defined.
+
+) (/usr/local/texlive/2013/texmf-dist/tex/latex/psnfss/ot1ptm.fd)
+(/usr/local/texlive/2013/texmf-dist/tex/context/base/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+) (/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+(/usr/local/texlive/2013/texmf-dist/tex/latex/oberdiek/grfext.sty
+(/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty))
+(/usr/local/texlive/2013/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg))
+[1{/usr/local/texlive/2013/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+(/usr/local/texlive/2013/texmf-dist/tex/latex/amsfonts/umsa.fd)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/amsfonts/umsb.fd) [2]
+(./reagan-thesis.abs.tex [1]) (./reagan-thesis.dedication.tex [2])
+(./reagan-thesis.acknowledgements.tex [3]) (./reagan-thesis-main.toc [4])
+[5] (./reagan-thesis-main.lof) [6] (./reagan-thesis-main.lot) [7]
+(./reagan-thesis.chapter1-introduction.tex
+Chapter 1.
+[1] [2]
+
+LaTeX Warning: Citation `charney1950' on page 3 undefined on input line 42.
+
+[3]
+
+LaTeX Warning: Citation `charney1950' on page 4 undefined on input line 79.
+
+[4] [5] [6]) (./reagan-thesis.chapter2-DA.tex [7]
+Chapter 2.
+
+LaTeX Warning: Reference `fig:lorenzattractor' on page 8 undefined on input lin
+e 10.
+
+[8] [9] <figures/EnKF_spaghetti.pdf, id=68, 516.93124pt x 424.58624pt>
+<use figures/EnKF_spaghetti.pdf>
+<figures/window_experiment_plot001.pdf, id=69, 476.78125pt x 392.46625pt>
+<use figures/window_experiment_plot001.pdf>
+<figures/DA_test_noname2.pdf, id=70, 478.78876pt x 386.44376pt>
+<use figures/DA_test_noname2.pdf> [10 <./figures/EnKF_spaghetti.pdf> <./figures
+/window_experiment_plot001.pdf>]
+<figures/EnKF-histogram-analysis.pdf, id=89, 501.875pt x 412.54124pt>
+<use figures/EnKF-histogram-analysis.pdf> [11 <./figures/DA_test_noname2.pdf>]
+[12 <./figures/EnKF-histogram-analysis.pdf>]
+<figures/TLM-explanation.pdf, id=119, 687.56876pt x 343.2825pt>
+<use figures/TLM-explanation.pdf>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: Reference `fig:lorenzattractor' on page 13 undefined on input li
+ne 162.
+
+) (./reagan-thesis.chapter3-CFD.tex [13 <./figures/TLM-explanation.pdf>]
+[14]
+Chapter 3.
+(/usr/local/texlive/2013/texmf-dist/tex/latex/psnfss/ot1pcr.fd)
+Underfull \hbox (badness 10000) in paragraph at lines 8--9
+[]\OT1/ptm/m/n/10 Follow: $\OT1/pcr/m/n/10 http : / / www . allstar . fiu . edu
+ / aero / Flow2 . htm$ \OT1/ptm/m/n/10 and $\OT1/pcr/m/n/10 http : / / www .
+[15] <figures/loop-screenshot.png, id=141, 534.99875pt x 401.5pt>
+<use figures/loop-screenshot.png>
+<figures/mesh.png, id=143, 665.48625pt x 355.3275pt> <use figures/mesh.png>)
+(./reagan-thesis.chapter4-looop.tex [16 <./figures/loop-screenshot.png>]
+[17 <./figures/mesh.png>]
+Chapter 4.
+<danforth.jpg, id=152, 501.875pt x 276.03125pt> <use danforth.jpg>)
+(./reagan-thesis.chapter5-results.tex [18] [19 <./danforth.jpg>]
+Chapter 5.
+[20]) (./reagan-thesis.chapter6-conclusion.tex [21]
+Chapter 6.
+) (./reagan-thesis-main.bbl [22] [23] [24]) (./reagan-thesis.appendix.tex
+Appendix A.
+[25]
+Appendix B.
+(../2013-05data-assimilation/OpenFOAM/OpenFOAM.m
+(/usr/local/texlive/2013/texmf-dist/tex/latex/psnfss/omlptm.fd)
+Overfull \hbox (22.38464pt too wide) in paragraph at lines 7--8
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+(/usr/local/texlive/2013/texmf-dist/tex/latex/psnfss/omsptm.fd)
+Overfull \hbox (286.38733pt too wide) in paragraph at lines 17--18
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][][][][][][][][][][][][][][] 
+[26]
+Overfull \hbox (88.38531pt too wide) in paragraph at lines 21--22
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+[27]
+Overfull \hbox (100.38544pt too wide) in paragraph at lines 58--59
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+
+Overfull \hbox (778.39233pt too wide) in paragraph at lines 70--71
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+
+Overfull \hbox (334.38782pt too wide) in paragraph at lines 74--75
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+[28]
+Overfull \hbox (250.38696pt too wide) in paragraph at lines 79--80
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+
+Overfull \hbox (460.3891pt too wide) in paragraph at lines 83--84
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][][][][][][][][][][][][][][][][][][][][][][][] 
+
+Overfull \hbox (10.38452pt too wide) in paragraph at lines 86--87
+[][][][][][][][][][][][][][][][][][][][][][][] 
+
+Overfull \hbox (100.38544pt too wide) in paragraph at lines 88--89
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+
+Overfull \hbox (874.39331pt too wide) in paragraph at lines 93--94
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][][][][][] 
+
+Overfull \hbox (34.38477pt too wide) in paragraph at lines 101--102
+[][][][][][][][][][][][][][][][][][][][][][][] 
+[29]
+Overfull \hbox (28.3847pt too wide) in paragraph at lines 110--111
+[][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+
+Overfull \hbox (70.38513pt too wide) in paragraph at lines 118--119
+[][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+)) [30] (./reagan-thesis-main.aux)
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
+ )
+(see the transcript file for additional information){/usr/local/texlive/2013/te
+xmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2013/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2013/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2013/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2013/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/urw/co
+urier/ucrr8a.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/urw/times/utmb
+8a.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></u
+sr/local/texlive/2013/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on reagan-thesis-main.pdf (39 pages, 348804 bytes).
+Transcript written on reagan-thesis-main.log.
+This is BibTeX, Version 0.99d (TeX Live 2013)
+The top-level auxiliary file: reagan-thesis-main.aux
+The style file: chicago.bst
+Database file #1: example.bib
+Database file #2: reagan-thesis.bib
+I was expecting a `,' or a `}'---line 354 of file reagan-thesis.bib
+ :   author={Keller, JB}
+ :                      .
+I'm skipping whatever remains of this entry
+Warning--I didn't find a database entry for "charney1950"
+Warning--no number and no volume in beitelmal2002two
+Warning--page numbers missing in beitelmal2002two
+Warning--no volume for gorman1984
+Warning--no volume for gorman1986
+Warning--no number and no volume in harris2011predicting
+Warning--page numbers missing in harris2011predicting
+Warning--page numbers missing in weather-violence2013
+Warning--no volume for jiang2003
+Warning--empty year in keller1966
+Warning--no journal in keller1966
+Warning--no number and no volume in keller1966
+Warning--page numbers missing in keller1966
+Warning--no number and no volume in savely1972
+Warning--page numbers missing in savely1972
+Warning--empty publisher in stokes
+Warning--no number and no volume in thompson1990
+Warning--page numbers missing in welander1967
+Warning--no volume for yuen1999
+(There was 1 error message)
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013)
+ restricted \write18 enabled.
+entering extended mode
+(./reagan-thesis-main.tex
+LaTeX2e <2011/06/27>
+Babel <3.9f> and hyphenation patterns for 78 languages loaded.
+(/usr/local/texlive/2013/texmf-dist/tex/latex/base/report.cls
+Document Class: report 2007/10/19 v1.4h Standard LaTeX document class
+(/usr/local/texlive/2013/texmf-dist/tex/latex/base/size10.clo)) (./thesis.sty
+UVM Thesis Style, Version 0.1
+Copyright (c) 2005 David Van Horn
+Licensed under the Academic Free License version 2.0
+Updated 2013 by Joshua Auerbach
+(/usr/local/texlive/2013/texmf-dist/tex/latex/setspace/setspace.sty)
+(./chicago.sty
+Using Chicago Manual of Style bibliography: 31 August 1992
+) (/usr/local/texlive/2013/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty)
+(/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/ifpdf.sty)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/psnfss/times.sty))
+(/usr/local/texlive/2013/texmf-dist/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(/usr/local/texlive/2013/texmf-dist/tex/latex/amsmath/amstext.sty
+(/usr/local/texlive/2013/texmf-dist/tex/latex/amsmath/amsgen.sty))
+(/usr/local/texlive/2013/texmf-dist/tex/latex/amsmath/amsbsy.sty)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/amsmath/amsopn.sty))
+(/usr/local/texlive/2013/texmf-dist/tex/latex/url/url.sty)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/subfigure/subfigure.sty
+****************************************
+* Local config file subfigure.cfg used *
+****************************************
+(/usr/local/texlive/2013/texmf-dist/tex/latex/subfigure/subfigure.cfg))
+(/usr/local/texlive/2013/texmf-dist/tex/latex/graphics/graphicx.sty
+(/usr/local/texlive/2013/texmf-dist/tex/latex/graphics/keyval.sty)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/graphics/graphics.sty
+(/usr/local/texlive/2013/texmf-dist/tex/latex/graphics/trig.sty)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/latexconfig/graphics.cfg)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/pdftex-def/pdftex.def
+(/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/infwarerr.sty)
+(/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/ltxcmds.sty))))
+(/usr/local/texlive/2013/texmf-dist/tex/latex/multirow/multirow.sty)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/cite/chapterbib.sty)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/amsfonts/amssymb.sty
+(/usr/local/texlive/2013/texmf-dist/tex/latex/amsfonts/amsfonts.sty))
+(/usr/local/texlive/2013/texmf-dist/tex/latex/appendix/appendix.sty)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/titlesec/titlesec.sty)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/listings/listings.sty
+(/usr/local/texlive/2013/texmf-dist/tex/latex/listings/lstmisc.sty)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/listings/listings.cfg))
+(/usr/local/texlive/2013/texmf-dist/tex/latex/cite/cite.sty)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/tools/tabularx.sty
+(/usr/local/texlive/2013/texmf-dist/tex/latex/tools/array.sty))
+(/usr/local/texlive/2013/texmf-dist/tex/latex/currfile/currfile.sty
+(/usr/local/texlive/2013/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+(/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+(/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+(/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/ifluatex.sty))))
+(/usr/local/texlive/2013/texmf-dist/tex/latex/filehook/filehook.sty))
+(./reagan-thesis-main.settings.tex) (./reagan-thesis.title.tex)
+(./reagan-thesis.committee.tex) (./reagan-thesis-main.aux
+
+LaTeX Warning: Label `fig:EnKFhist' multiply defined.
+
+
+LaTeX Warning: Label `fig:EnKFhist' multiply defined.
+
+
+LaTeX Warning: Label `fig:EnKFhist' multiply defined.
+
+) (/usr/local/texlive/2013/texmf-dist/tex/latex/psnfss/ot1ptm.fd)
+(/usr/local/texlive/2013/texmf-dist/tex/context/base/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+) (/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+(/usr/local/texlive/2013/texmf-dist/tex/latex/oberdiek/grfext.sty
+(/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty))
+(/usr/local/texlive/2013/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg))
+[1{/usr/local/texlive/2013/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+(/usr/local/texlive/2013/texmf-dist/tex/latex/amsfonts/umsa.fd)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/amsfonts/umsb.fd) [2]
+(./reagan-thesis.abs.tex [1]) (./reagan-thesis.dedication.tex [2])
+(./reagan-thesis.acknowledgements.tex [3]) (./reagan-thesis-main.toc [4])
+[5] (./reagan-thesis-main.lof) [6] (./reagan-thesis-main.lot) [7]
+(./reagan-thesis.chapter1-introduction.tex
+Chapter 1.
+[1] [2]
+
+LaTeX Warning: Citation `charney1950' on page 3 undefined on input line 42.
+
+[3]
+
+LaTeX Warning: Citation `charney1950' on page 4 undefined on input line 79.
+
+[4] [5] [6]) (./reagan-thesis.chapter2-DA.tex [7]
+Chapter 2.
+
+LaTeX Warning: Reference `fig:lorenzattractor' on page 8 undefined on input lin
+e 10.
+
+[8] [9] <figures/EnKF_spaghetti.pdf, id=68, 516.93124pt x 424.58624pt>
+<use figures/EnKF_spaghetti.pdf>
+<figures/window_experiment_plot001.pdf, id=69, 476.78125pt x 392.46625pt>
+<use figures/window_experiment_plot001.pdf>
+<figures/DA_test_noname2.pdf, id=70, 478.78876pt x 386.44376pt>
+<use figures/DA_test_noname2.pdf> [10 <./figures/EnKF_spaghetti.pdf> <./figures
+/window_experiment_plot001.pdf>]
+<figures/EnKF-histogram-analysis.pdf, id=89, 501.875pt x 412.54124pt>
+<use figures/EnKF-histogram-analysis.pdf> [11 <./figures/DA_test_noname2.pdf>]
+[12 <./figures/EnKF-histogram-analysis.pdf>]
+<figures/TLM-explanation.pdf, id=119, 687.56876pt x 343.2825pt>
+<use figures/TLM-explanation.pdf>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: Reference `fig:lorenzattractor' on page 13 undefined on input li
+ne 162.
+
+) (./reagan-thesis.chapter3-CFD.tex [13 <./figures/TLM-explanation.pdf>]
+[14]
+Chapter 3.
+(/usr/local/texlive/2013/texmf-dist/tex/latex/psnfss/ot1pcr.fd)
+Underfull \hbox (badness 10000) in paragraph at lines 8--9
+[]\OT1/ptm/m/n/10 Follow: $\OT1/pcr/m/n/10 http : / / www . allstar . fiu . edu
+ / aero / Flow2 . htm$ \OT1/ptm/m/n/10 and $\OT1/pcr/m/n/10 http : / / www .
+[15] <figures/loop-screenshot.png, id=141, 534.99875pt x 401.5pt>
+<use figures/loop-screenshot.png>
+<figures/mesh.png, id=143, 665.48625pt x 355.3275pt> <use figures/mesh.png>)
+(./reagan-thesis.chapter4-looop.tex [16 <./figures/loop-screenshot.png>]
+[17 <./figures/mesh.png>]
+Chapter 4.
+<danforth.jpg, id=152, 501.875pt x 276.03125pt> <use danforth.jpg>)
+(./reagan-thesis.chapter5-results.tex [18] [19 <./danforth.jpg>]
+Chapter 5.
+[20]) (./reagan-thesis.chapter6-conclusion.tex [21]
+Chapter 6.
+) (./reagan-thesis-main.bbl [22] [23] [24]) (./reagan-thesis.appendix.tex
+Appendix A.
+[25]
+Appendix B.
+(../2013-05data-assimilation/OpenFOAM/OpenFOAM.m
+(/usr/local/texlive/2013/texmf-dist/tex/latex/psnfss/omlptm.fd)
+Overfull \hbox (22.38464pt too wide) in paragraph at lines 7--8
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+(/usr/local/texlive/2013/texmf-dist/tex/latex/psnfss/omsptm.fd)
+Overfull \hbox (286.38733pt too wide) in paragraph at lines 17--18
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][][][][][][][][][][][][][][] 
+[26]
+Overfull \hbox (88.38531pt too wide) in paragraph at lines 21--22
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+[27]
+Overfull \hbox (100.38544pt too wide) in paragraph at lines 58--59
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+
+Overfull \hbox (778.39233pt too wide) in paragraph at lines 70--71
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+
+Overfull \hbox (334.38782pt too wide) in paragraph at lines 74--75
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+[28]
+Overfull \hbox (250.38696pt too wide) in paragraph at lines 79--80
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+
+Overfull \hbox (460.3891pt too wide) in paragraph at lines 83--84
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][][][][][][][][][][][][][][][][][][][][][][][] 
+
+Overfull \hbox (10.38452pt too wide) in paragraph at lines 86--87
+[][][][][][][][][][][][][][][][][][][][][][][] 
+
+Overfull \hbox (100.38544pt too wide) in paragraph at lines 88--89
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+
+Overfull \hbox (874.39331pt too wide) in paragraph at lines 93--94
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][][][][][] 
+
+Overfull \hbox (34.38477pt too wide) in paragraph at lines 101--102
+[][][][][][][][][][][][][][][][][][][][][][][] 
+[29]
+Overfull \hbox (28.3847pt too wide) in paragraph at lines 110--111
+[][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+
+Overfull \hbox (70.38513pt too wide) in paragraph at lines 118--119
+[][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+)) [30] (./reagan-thesis-main.aux)
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
+ )
+(see the transcript file for additional information){/usr/local/texlive/2013/te
+xmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2013/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2013/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2013/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2013/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/urw/co
+urier/ucrr8a.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/urw/times/utmb
+8a.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></u
+sr/local/texlive/2013/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on reagan-thesis-main.pdf (39 pages, 348804 bytes).
+Transcript written on reagan-thesis-main.log.
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013)
+ restricted \write18 enabled.
+entering extended mode
+(./reagan-thesis-main.tex
+LaTeX2e <2011/06/27>
+Babel <3.9f> and hyphenation patterns for 78 languages loaded.
+(/usr/local/texlive/2013/texmf-dist/tex/latex/base/report.cls
+Document Class: report 2007/10/19 v1.4h Standard LaTeX document class
+(/usr/local/texlive/2013/texmf-dist/tex/latex/base/size10.clo)) (./thesis.sty
+UVM Thesis Style, Version 0.1
+Copyright (c) 2005 David Van Horn
+Licensed under the Academic Free License version 2.0
+Updated 2013 by Joshua Auerbach
+(/usr/local/texlive/2013/texmf-dist/tex/latex/setspace/setspace.sty)
+(./chicago.sty
+Using Chicago Manual of Style bibliography: 31 August 1992
+) (/usr/local/texlive/2013/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty)
+(/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/ifpdf.sty)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/psnfss/times.sty))
+(/usr/local/texlive/2013/texmf-dist/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(/usr/local/texlive/2013/texmf-dist/tex/latex/amsmath/amstext.sty
+(/usr/local/texlive/2013/texmf-dist/tex/latex/amsmath/amsgen.sty))
+(/usr/local/texlive/2013/texmf-dist/tex/latex/amsmath/amsbsy.sty)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/amsmath/amsopn.sty))
+(/usr/local/texlive/2013/texmf-dist/tex/latex/url/url.sty)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/subfigure/subfigure.sty
+****************************************
+* Local config file subfigure.cfg used *
+****************************************
+(/usr/local/texlive/2013/texmf-dist/tex/latex/subfigure/subfigure.cfg))
+(/usr/local/texlive/2013/texmf-dist/tex/latex/graphics/graphicx.sty
+(/usr/local/texlive/2013/texmf-dist/tex/latex/graphics/keyval.sty)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/graphics/graphics.sty
+(/usr/local/texlive/2013/texmf-dist/tex/latex/graphics/trig.sty)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/latexconfig/graphics.cfg)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/pdftex-def/pdftex.def
+(/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/infwarerr.sty)
+(/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/ltxcmds.sty))))
+(/usr/local/texlive/2013/texmf-dist/tex/latex/multirow/multirow.sty)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/cite/chapterbib.sty)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/amsfonts/amssymb.sty
+(/usr/local/texlive/2013/texmf-dist/tex/latex/amsfonts/amsfonts.sty))
+(/usr/local/texlive/2013/texmf-dist/tex/latex/appendix/appendix.sty)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/titlesec/titlesec.sty)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/listings/listings.sty
+(/usr/local/texlive/2013/texmf-dist/tex/latex/listings/lstmisc.sty)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/listings/listings.cfg))
+(/usr/local/texlive/2013/texmf-dist/tex/latex/cite/cite.sty)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/tools/tabularx.sty
+(/usr/local/texlive/2013/texmf-dist/tex/latex/tools/array.sty))
+(/usr/local/texlive/2013/texmf-dist/tex/latex/currfile/currfile.sty
+(/usr/local/texlive/2013/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+(/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+(/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+(/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/ifluatex.sty))))
+(/usr/local/texlive/2013/texmf-dist/tex/latex/filehook/filehook.sty))
+(./reagan-thesis-main.settings.tex) (./reagan-thesis.title.tex)
+(./reagan-thesis.committee.tex) (./reagan-thesis-main.aux
+
+LaTeX Warning: Label `fig:EnKFhist' multiply defined.
+
+
+LaTeX Warning: Label `fig:EnKFhist' multiply defined.
+
+
+LaTeX Warning: Label `fig:EnKFhist' multiply defined.
+
+) (/usr/local/texlive/2013/texmf-dist/tex/latex/psnfss/ot1ptm.fd)
+(/usr/local/texlive/2013/texmf-dist/tex/context/base/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+) (/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+(/usr/local/texlive/2013/texmf-dist/tex/latex/oberdiek/grfext.sty
+(/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty))
+(/usr/local/texlive/2013/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg))
+[1{/usr/local/texlive/2013/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+(/usr/local/texlive/2013/texmf-dist/tex/latex/amsfonts/umsa.fd)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/amsfonts/umsb.fd) [2]
+(./reagan-thesis.abs.tex [1]) (./reagan-thesis.dedication.tex [2])
+(./reagan-thesis.acknowledgements.tex [3]) (./reagan-thesis-main.toc [4])
+[5] (./reagan-thesis-main.lof) [6] (./reagan-thesis-main.lot) [7]
+(./reagan-thesis.chapter1-introduction.tex
+Chapter 1.
+[1] [2]
+
+LaTeX Warning: Citation `charney1950' on page 3 undefined on input line 42.
+
+[3]
+
+LaTeX Warning: Citation `charney1950' on page 4 undefined on input line 79.
+
+[4] [5] [6]) (./reagan-thesis.chapter2-DA.tex [7]
+Chapter 2.
+
+LaTeX Warning: Reference `fig:lorenzattractor' on page 8 undefined on input lin
+e 10.
+
+[8] [9] <figures/EnKF_spaghetti.pdf, id=68, 516.93124pt x 424.58624pt>
+<use figures/EnKF_spaghetti.pdf>
+<figures/window_experiment_plot001.pdf, id=69, 476.78125pt x 392.46625pt>
+<use figures/window_experiment_plot001.pdf>
+<figures/DA_test_noname2.pdf, id=70, 478.78876pt x 386.44376pt>
+<use figures/DA_test_noname2.pdf> [10 <./figures/EnKF_spaghetti.pdf> <./figures
+/window_experiment_plot001.pdf>]
+<figures/EnKF-histogram-analysis.pdf, id=89, 501.875pt x 412.54124pt>
+<use figures/EnKF-histogram-analysis.pdf> [11 <./figures/DA_test_noname2.pdf>]
+[12 <./figures/EnKF-histogram-analysis.pdf>]
+<figures/TLM-explanation.pdf, id=119, 687.56876pt x 343.2825pt>
+<use figures/TLM-explanation.pdf>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: Reference `fig:lorenzattractor' on page 13 undefined on input li
+ne 162.
+
+) (./reagan-thesis.chapter3-CFD.tex [13 <./figures/TLM-explanation.pdf>]
+[14]
+Chapter 3.
+(/usr/local/texlive/2013/texmf-dist/tex/latex/psnfss/ot1pcr.fd)
+Underfull \hbox (badness 10000) in paragraph at lines 8--9
+[]\OT1/ptm/m/n/10 Follow: $\OT1/pcr/m/n/10 http : / / www . allstar . fiu . edu
+ / aero / Flow2 . htm$ \OT1/ptm/m/n/10 and $\OT1/pcr/m/n/10 http : / / www .
+[15] <figures/loop-screenshot.png, id=141, 534.99875pt x 401.5pt>
+<use figures/loop-screenshot.png>
+<figures/mesh.png, id=143, 665.48625pt x 355.3275pt> <use figures/mesh.png>)
+(./reagan-thesis.chapter4-looop.tex [16 <./figures/loop-screenshot.png>]
+[17 <./figures/mesh.png>]
+Chapter 4.
+<danforth.jpg, id=152, 501.875pt x 276.03125pt> <use danforth.jpg>)
+(./reagan-thesis.chapter5-results.tex [18] [19 <./danforth.jpg>]
+Chapter 5.
+[20]) (./reagan-thesis.chapter6-conclusion.tex [21]
+Chapter 6.
+) (./reagan-thesis-main.bbl [22] [23] [24]) (./reagan-thesis.appendix.tex
+Appendix A.
+[25]
+Appendix B.
+(../2013-05data-assimilation/OpenFOAM/OpenFOAM.m
+(/usr/local/texlive/2013/texmf-dist/tex/latex/psnfss/omlptm.fd)
+Overfull \hbox (22.38464pt too wide) in paragraph at lines 7--8
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+(/usr/local/texlive/2013/texmf-dist/tex/latex/psnfss/omsptm.fd)
+Overfull \hbox (286.38733pt too wide) in paragraph at lines 17--18
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][][][][][][][][][][][][][][] 
+[26]
+Overfull \hbox (88.38531pt too wide) in paragraph at lines 21--22
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+[27]
+Overfull \hbox (100.38544pt too wide) in paragraph at lines 58--59
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+
+Overfull \hbox (778.39233pt too wide) in paragraph at lines 70--71
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+
+Overfull \hbox (334.38782pt too wide) in paragraph at lines 74--75
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+[28]
+Overfull \hbox (250.38696pt too wide) in paragraph at lines 79--80
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+
+Overfull \hbox (460.3891pt too wide) in paragraph at lines 83--84
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][][][][][][][][][][][][][][][][][][][][][][][] 
+
+Overfull \hbox (10.38452pt too wide) in paragraph at lines 86--87
+[][][][][][][][][][][][][][][][][][][][][][][] 
+
+Overfull \hbox (100.38544pt too wide) in paragraph at lines 88--89
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+
+Overfull \hbox (874.39331pt too wide) in paragraph at lines 93--94
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][][][][][] 
+
+Overfull \hbox (34.38477pt too wide) in paragraph at lines 101--102
+[][][][][][][][][][][][][][][][][][][][][][][] 
+[29]
+Overfull \hbox (28.3847pt too wide) in paragraph at lines 110--111
+[][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+
+Overfull \hbox (70.38513pt too wide) in paragraph at lines 118--119
+[][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+)) [30] (./reagan-thesis-main.aux)
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
+ )
+(see the transcript file for additional information){/usr/local/texlive/2013/te
+xmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2013/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2013/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2013/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2013/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/urw/co
+urier/ucrr8a.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/urw/times/utmb
+8a.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></u
+sr/local/texlive/2013/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on reagan-thesis-main.pdf (39 pages, 348804 bytes).
+Transcript written on reagan-thesis-main.log.
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013)
+ restricted \write18 enabled.
+entering extended mode
+(./reagan-thesis-main.tex
+LaTeX2e <2011/06/27>
+Babel <3.9f> and hyphenation patterns for 78 languages loaded.
+(/usr/local/texlive/2013/texmf-dist/tex/latex/base/report.cls
+Document Class: report 2007/10/19 v1.4h Standard LaTeX document class
+(/usr/local/texlive/2013/texmf-dist/tex/latex/base/size10.clo)) (./thesis.sty
+UVM Thesis Style, Version 0.1
+Copyright (c) 2005 David Van Horn
+Licensed under the Academic Free License version 2.0
+Updated 2013 by Joshua Auerbach
+(/usr/local/texlive/2013/texmf-dist/tex/latex/setspace/setspace.sty)
+(./chicago.sty
+Using Chicago Manual of Style bibliography: 31 August 1992
+) (/usr/local/texlive/2013/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty)
+(/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/ifpdf.sty)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/psnfss/times.sty))
+(/usr/local/texlive/2013/texmf-dist/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(/usr/local/texlive/2013/texmf-dist/tex/latex/amsmath/amstext.sty
+(/usr/local/texlive/2013/texmf-dist/tex/latex/amsmath/amsgen.sty))
+(/usr/local/texlive/2013/texmf-dist/tex/latex/amsmath/amsbsy.sty)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/amsmath/amsopn.sty))
+(/usr/local/texlive/2013/texmf-dist/tex/latex/url/url.sty)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/subfigure/subfigure.sty
+****************************************
+* Local config file subfigure.cfg used *
+****************************************
+(/usr/local/texlive/2013/texmf-dist/tex/latex/subfigure/subfigure.cfg))
+(/usr/local/texlive/2013/texmf-dist/tex/latex/graphics/graphicx.sty
+(/usr/local/texlive/2013/texmf-dist/tex/latex/graphics/keyval.sty)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/graphics/graphics.sty
+(/usr/local/texlive/2013/texmf-dist/tex/latex/graphics/trig.sty)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/latexconfig/graphics.cfg)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/pdftex-def/pdftex.def
+(/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/infwarerr.sty)
+(/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/ltxcmds.sty))))
+(/usr/local/texlive/2013/texmf-dist/tex/latex/multirow/multirow.sty)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/cite/chapterbib.sty)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/amsfonts/amssymb.sty
+(/usr/local/texlive/2013/texmf-dist/tex/latex/amsfonts/amsfonts.sty))
+(/usr/local/texlive/2013/texmf-dist/tex/latex/appendix/appendix.sty)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/titlesec/titlesec.sty)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/listings/listings.sty
+(/usr/local/texlive/2013/texmf-dist/tex/latex/listings/lstmisc.sty)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/listings/listings.cfg))
+(/usr/local/texlive/2013/texmf-dist/tex/latex/cite/cite.sty)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/tools/tabularx.sty
+(/usr/local/texlive/2013/texmf-dist/tex/latex/tools/array.sty))
+(/usr/local/texlive/2013/texmf-dist/tex/latex/currfile/currfile.sty
+(/usr/local/texlive/2013/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+(/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+(/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+(/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/ifluatex.sty))))
+(/usr/local/texlive/2013/texmf-dist/tex/latex/filehook/filehook.sty))
+(./reagan-thesis-main.settings.tex) (./reagan-thesis.title.tex)
+(./reagan-thesis.committee.tex) (./reagan-thesis-main.aux
+
+LaTeX Warning: Label `fig:EnKFhist' multiply defined.
+
+
+LaTeX Warning: Label `fig:EnKFhist' multiply defined.
+
+
+LaTeX Warning: Label `fig:EnKFhist' multiply defined.
+
+) (/usr/local/texlive/2013/texmf-dist/tex/latex/psnfss/ot1ptm.fd)
+(/usr/local/texlive/2013/texmf-dist/tex/context/base/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+) (/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+(/usr/local/texlive/2013/texmf-dist/tex/latex/oberdiek/grfext.sty
+(/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty))
+(/usr/local/texlive/2013/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg))
+[1{/usr/local/texlive/2013/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+(/usr/local/texlive/2013/texmf-dist/tex/latex/amsfonts/umsa.fd)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/amsfonts/umsb.fd) [2]
+(./reagan-thesis.abs.tex [1]) (./reagan-thesis.dedication.tex [2])
+(./reagan-thesis.acknowledgements.tex [3]) (./reagan-thesis-main.toc [4])
+[5] (./reagan-thesis-main.lof) [6] (./reagan-thesis-main.lot) [7]
+(./reagan-thesis.chapter1-introduction.tex
+Chapter 1.
+[1] [2]
+
+LaTeX Warning: Citation `charney1950' on page 3 undefined on input line 42.
+
+[3]
+
+LaTeX Warning: Citation `charney1950' on page 4 undefined on input line 79.
+
+[4] [5] [6]) (./reagan-thesis.chapter2-DA.tex [7]
+Chapter 2.
+
+LaTeX Warning: Reference `fig:lorenzattractor' on page 8 undefined on input lin
+e 10.
+
+[8] [9] <figures/EnKF_spaghetti.pdf, id=68, 516.93124pt x 424.58624pt>
+<use figures/EnKF_spaghetti.pdf>
+<figures/window_experiment_plot001.pdf, id=69, 476.78125pt x 392.46625pt>
+<use figures/window_experiment_plot001.pdf>
+<figures/DA_test_noname2.pdf, id=70, 478.78876pt x 386.44376pt>
+<use figures/DA_test_noname2.pdf> [10 <./figures/EnKF_spaghetti.pdf> <./figures
+/window_experiment_plot001.pdf>]
+<figures/EnKF-histogram-analysis.pdf, id=89, 501.875pt x 412.54124pt>
+<use figures/EnKF-histogram-analysis.pdf> [11 <./figures/DA_test_noname2.pdf>]
+[12 <./figures/EnKF-histogram-analysis.pdf>]
+<figures/TLM-explanation.pdf, id=119, 687.56876pt x 343.2825pt>
+<use figures/TLM-explanation.pdf>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: Reference `fig:lorenzattractor' on page 13 undefined on input li
+ne 162.
+
+) (./reagan-thesis.chapter3-CFD.tex [13 <./figures/TLM-explanation.pdf>]
+[14]
+Chapter 3.
+(/usr/local/texlive/2013/texmf-dist/tex/latex/psnfss/ot1pcr.fd)
+Underfull \hbox (badness 10000) in paragraph at lines 8--9
+[]\OT1/ptm/m/n/10 Follow: $\OT1/pcr/m/n/10 http : / / www . allstar . fiu . edu
+ / aero / Flow2 . htm$ \OT1/ptm/m/n/10 and $\OT1/pcr/m/n/10 http : / / www .
+[15] <figures/loop-screenshot.png, id=141, 534.99875pt x 401.5pt>
+<use figures/loop-screenshot.png>
+<figures/mesh.png, id=143, 665.48625pt x 355.3275pt> <use figures/mesh.png>)
+(./reagan-thesis.chapter4-looop.tex [16 <./figures/loop-screenshot.png>]
+[17 <./figures/mesh.png>]
+Chapter 4.
+<danforth.jpg, id=152, 501.875pt x 276.03125pt> <use danforth.jpg>)
+(./reagan-thesis.chapter5-results.tex [18] [19 <./danforth.jpg>]
+Chapter 5.
+[20]) (./reagan-thesis.chapter6-conclusion.tex [21]
+Chapter 6.
+) (./reagan-thesis-main.bbl [22] [23] [24]) (./reagan-thesis.appendix.tex
+Appendix A.
+[25]
+Appendix B.
+(../2013-05data-assimilation/OpenFOAM/OpenFOAM.m
+(/usr/local/texlive/2013/texmf-dist/tex/latex/psnfss/omlptm.fd)
+Overfull \hbox (22.38464pt too wide) in paragraph at lines 7--8
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+(/usr/local/texlive/2013/texmf-dist/tex/latex/psnfss/omsptm.fd)
+Overfull \hbox (286.38733pt too wide) in paragraph at lines 17--18
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][][][][][][][][][][][][][][] 
+[26]
+Overfull \hbox (88.38531pt too wide) in paragraph at lines 21--22
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+[27]
+Overfull \hbox (100.38544pt too wide) in paragraph at lines 58--59
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+
+Overfull \hbox (778.39233pt too wide) in paragraph at lines 70--71
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+
+Overfull \hbox (334.38782pt too wide) in paragraph at lines 74--75
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+[28]
+Overfull \hbox (250.38696pt too wide) in paragraph at lines 79--80
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+
+Overfull \hbox (460.3891pt too wide) in paragraph at lines 83--84
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][][][][][][][][][][][][][][][][][][][][][][][] 
+
+Overfull \hbox (10.38452pt too wide) in paragraph at lines 86--87
+[][][][][][][][][][][][][][][][][][][][][][][] 
+
+Overfull \hbox (100.38544pt too wide) in paragraph at lines 88--89
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+
+Overfull \hbox (874.39331pt too wide) in paragraph at lines 93--94
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][][][][][] 
+
+Overfull \hbox (34.38477pt too wide) in paragraph at lines 101--102
+[][][][][][][][][][][][][][][][][][][][][][][] 
+[29]
+Overfull \hbox (28.3847pt too wide) in paragraph at lines 110--111
+[][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+
+Overfull \hbox (70.38513pt too wide) in paragraph at lines 118--119
+[][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+)) [30] (./reagan-thesis-main.aux)
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
+ )
+(see the transcript file for additional information){/usr/local/texlive/2013/te
+xmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2013/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2013/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2013/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2013/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/urw/co
+urier/ucrr8a.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/urw/times/utmb
+8a.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></u
+sr/local/texlive/2013/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on reagan-thesis-main.pdf (39 pages, 348804 bytes).
+Transcript written on reagan-thesis-main.log.

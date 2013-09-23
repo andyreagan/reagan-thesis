@@ -1,0 +1,64 @@
+\chapter{Computational Fluid Dynamics}
+\chaptermark{CFD} %this is the chapter heading that will show on subsequent pages
+
+\section{Derivation of Governing Equations}
+
+Closely following the original derivation of Stokes \shortcite{stokes}, I present a derivation of the main equations governing the flow of water at temperatures near 300K and Rayleigh number within reason.
+
+Follow: \url{http://www.allstar.fiu.edu/aero/Flow2.htm} and \url{http://www.cfd-online.com/Wiki/Navier-Stokes_equations}
+
+
+\section{Discretization and Solving Algorithms}
+
+A spatial and temporal discretization of the governing equations is necessary for their solution numerically.
+
+Specifically, a combined SIMPLE/PISO algorithm is used.
+The PISO (Pressure-Implicit with Splitting of Operators) algorithm derives from the work of \shortcite{issa1986solution}, and is complementary to the SIMPLE (Semi-Implicit Method for Pressure-Linked Equations) \shortcite{patankar1972calculation} iterative method.
+
+Simple algorithm:
+\url{http://www.cfd-online.com/Wiki/SIMPLE_algorithm}
+
+The proper inclusion of turbulent effects with calculated Raleigh number are important, and are modeled using LES (Large Eddy Simulation).
+
+\section{Solving with OpenFOAM}
+
+Using the aforementioned numerical schemes, I perform a computational fluid dynamic simulation of the entire thermosyphon using the open-source software OpenFOAM.
+First, we begin by creating 2 and 3-dimensional meshes of the thermosyphon natively in OpenFOAM's blockMesh utility.
+To reduce computational bandwidth, it was important to first create the mesh and then renumber using the renumberMesh utility.
+The 2D mesh contains 36000 points, and is imposed with fixed flux boundary conditions on the top and bottom of the loop.
+This fixed flux boundary condition is implemented through the externalWallHeatFluxTemperature library, with some difficulty.
+The 3D mesh contains over 1M points, and we have chosen to explore the 2D model for now.
+
+Links for OpenFOAM code documentation:
+
+\url{http://www.openfoam.org/docs/user/compiling-applications.php}
+
+\url{http://www.openfoam.org/docs/cpp/}
+
+Here is a picture of the thermosyphon colored by temperature.
+\begin{figure}[tpb!]
+  \centering
+  \includegraphics[width=0.49\textwidth]{figures/loop-screenshot.png}
+  \caption{
+  A snapshot of the mesh used for CFD simulations.
+  }
+  \label{fig:EnKFhist}
+\end{figure}
+
+And here is the 2D mesh:
+\begin{figure}[tpb!]
+  \centering
+  \includegraphics[width=0.49\textwidth]{figures/mesh.png}
+  \caption{
+  A snapshot of the mesh used for CFD simulations.
+  }
+  \label{fig:EnKFhist}
+\end{figure}
+
+The solver used is buoyantBoussinesqPimpleFoam, which I'll now explain. 
+
+The Boussinesq approximation makes the assumption that density changes due to temperature differences are sufficiently small so that they can be neglected without affecting the flow, except when multiplied by gravity.
+The non-dimensionalized density difference $\Delta \rho / \rho$ depends on the value of heat flux into the loop, but remains small even for large values of flux. (derive an equation for this ratio in terms of flux $q''$).
+
+
+

@@ -1,0 +1,30 @@
+\chapter{Results}
+\chaptermark{} %this is the chapter heading that will show on subsequent pages
+
+\section{Prediction Skill for Synthetic Data}
+
+I first present the results pertaining to the accurarcy of forecasts for synthetic data.
+
+\subsection{Sampling frequency, distribution}
+
+Increasing sampling frequency led to improved forecast accurary, up to a finite cutoff where the error covariance inflation requirement becomes unstable.
+
+Observational network density also improves forecast accuracy, as would be expected, up to limit of the computational memory avaiable for computing large non-sparse covariance matrices.
+For example the full system, with 216,000 variables, produces an error covariance matrix of 347GB in double precision.
+With the expected continuation of Moore's Law, however, this simulation may be possible in a few as 5 years (assuming a doubling of memory every 18 months, starting now with my 8GB lapop) on a laptop computer.
+
+\subsection{Random error vs PMD perturbation scheme}
+
+The computational implementation of the NS equations is dispersive, meaning that small perturbations are quickly resolved.
+
+In other words, we beat the hell of out random error.
+
+\subsection{Maintaining hydrostatic balance}
+
+The importance of maintaining balance in the model variables, originally dooming the efforts of Richardson, was taken into consideration.
+
+\section{Real-time Flow Reversal Prediction Skill}
+
+Now the real business: running CFD in real time and assimilating observations from temperature probes.
+
+

@@ -1,0 +1,81 @@
+%% -*- LaTeX -*-
+\documentclass{report}
+
+\usepackage{thesis}
+
+%some other packages I found useful, comment out or remove if you do not need them
+\usepackage{amsmath}
+\usepackage{url}
+\usepackage{subfigure}
+\usepackage[pdftex]{graphicx}
+\usepackage{multirow}
+\usepackage{chapterbib}
+\usepackage{amssymb}
+\usepackage[titletoc,toc,title]{appendix}
+\usepackage{titlesec}
+\usepackage{listings}
+\usepackage{cite}
+\usepackage{tabularx}
+
+\widowpenalty=1000000
+\clubpenalty=1000000
+
+% for splitting this main file into sane parts
+% via Peter Dodds
+\usepackage{currfile}
+\input{\currfilebase.settings}
+
+\input{\filenamebase.title}
+\input{\filenamebase.committee}
+
+\begin{document}
+\maketitle
+\makeacceptance
+
+\input{\filenamebase.abs}
+
+% for a journal-style dissertation only
+%\input{\filenamebase.citations}
+
+%% Optional
+% dedication page
+\input{\filenamebase.dedication}
+
+
+%% Optional
+% acknowledgement page
+\input{\filenamebase.acknowledgements}
+
+\tableofcontents
+\listoffigures
+\listoftables
+
+\mainmatter
+\sloppy
+
+%for journal format dissertation each chapter needs its own reference section, and want references to be included in global bibliography
+%this is accomplished using include commands
+%but, for things like the lit review (chapter 1) or an appendix, should use input so it does not get it's own references section
+
+% Journal Article format:
+%\input{\filenamebase.chapter1-JA}
+%\include{\filenamebase.chapter2-JA}
+%\include{\filenamebase.chapter3-JA}
+
+% Standard format:
+\input{\filenamebase.chapter1-introduction}
+\input{\filenamebase.chapter2-DA}
+\input{\filenamebase.chapter3-CFD}
+\input{\filenamebase.chapter4-looop}
+\input{\filenamebase.chapter5-results}
+\input{\filenamebase.chapter6-conclusion}
+
+\bibliographystyle{chicago}
+\bibliography{example,\filenamebase}
+
+\input{\filenamebase.appendix}
+
+\end{document}
+
+
+

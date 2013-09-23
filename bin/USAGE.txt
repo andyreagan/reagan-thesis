@@ -1,0 +1,7 @@
+Here's how to use these scripts (on the example file example.txt)
+
+perl lexical-illusion-spotter.pl example.txt
+
+./weasel-word-spotter.sh example.txt
+
+./passive-word-spotter.sh example.txt

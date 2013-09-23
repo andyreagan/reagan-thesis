@@ -1,0 +1,35 @@
+\contentsline {section}{Dedication}{ii}
+\contentsline {section}{Acknowledgements}{iii}
+\contentsline {section}{List of Figures}{vi}
+\contentsline {section}{List of Tables}{vii}
+\contentsline {chapter}{\numberline {1}Introduction}{1}
+\contentsline {section}{\numberline {1.1}Introduction}{1}
+\contentsline {section}{\numberline {1.2}History of NWP}{2}
+\contentsline {section}{\numberline {1.3}IC determination: data assimilation}{6}
+\contentsline {section}{\numberline {1.4}NWP and fluid dynamics: computational models}{6}
+\contentsline {section}{\numberline {1.5}Toy climate experiments}{7}
+\contentsline {chapter}{\numberline {2}Data Assimilation}{8}
+\contentsline {subsection}{\numberline {2.0.1}3D-Var}{8}
+\contentsline {subsection}{\numberline {2.0.2}Extended Kalman Filter}{8}
+\contentsline {subsection}{\numberline {2.0.3}Ensemble Kalman Filter}{9}
+\contentsline {section}{\numberline {2.1}Coding the TLM}{12}
+\contentsline {chapter}{\numberline {3}Computational Fluid Dynamics}{15}
+\contentsline {section}{\numberline {3.1}Derivation of Governing Equations}{15}
+\contentsline {section}{\numberline {3.2}Discretization and Solving Algorithms}{15}
+\contentsline {section}{\numberline {3.3}Solving with OpenFOAM}{16}
+\contentsline {chapter}{\numberline {4}Thermal Convection Loop Experiment}{18}
+\contentsline {section}{\numberline {4.1}Thermal Convection Loops}{18}
+\contentsline {section}{\numberline {4.2}Detailed Experimental Setup}{18}
+\contentsline {chapter}{\numberline {5}Results}{20}
+\contentsline {section}{\numberline {5.1}Prediction Skill for Synthetic Data}{20}
+\contentsline {subsection}{\numberline {5.1.1}Sampling frequency, distribution}{20}
+\contentsline {subsection}{\numberline {5.1.2}Random error vs PMD perturbation scheme}{20}
+\contentsline {subsection}{\numberline {5.1.3}Maintaining hydrostatic balance}{21}
+\contentsline {section}{\numberline {5.2}Real-time Flow Reversal Prediction Skill}{21}
+\contentsline {chapter}{\numberline {6}Conclusion}{22}
+\contentsline {section}{\numberline {6.1}Main Result}{22}
+\contentsline {subsection}{\numberline {6.1.1}More Details}{22}
+\contentsline {section}{Bibliography}{23}
+\contentsline {chapter}{Appendices}{25}
+\contentsline {chapter}{\numberline {A}Parameters}{25}
+\contentsline {chapter}{\numberline {B}Code}{26}
