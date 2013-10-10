@@ -4,9 +4,20 @@
 \section{Derivation of Governing Equations}
 
 Closely following the original derivation of Stokes \shortcite{stokes}, I present a derivation of the main equations governing the flow of water at temperatures near 300K and Rayleigh number within reason.
+These three equations are given by
+
+\begin{align*}
+&\frac{\partial \rho}{\partial t} +
+\frac{\partial}{\partial x_j}\left[ \rho u_j \right] = 0\\
+&\frac{\partial}{\partial t}\left( \rho u_i \right) +
+\frac{\partial}{\partial x_j}
+\left[ \rho u_i u_j + p \delta_{ij} - \tau_{ji} \right] = 0, \quad i=1,2,3\\
+&\frac{\partial}{\partial t}\left( \rho e_0 \right) +
+\frac{\partial}{\partial x_j}
+\left[ \rho u_j e_0 + u_j p + q_j - u_i \tau_{ij} \right] = 0\\
+\end{align*}
 
 Follow: \url{http://www.allstar.fiu.edu/aero/Flow2.htm} and \url{http://www.cfd-online.com/Wiki/Navier-Stokes_equations}
-
 
 \section{Discretization and Solving Algorithms}
 
@@ -40,9 +51,9 @@ Here is a picture of the thermosyphon colored by temperature.
   \centering
   \includegraphics[width=0.49\textwidth]{figures/loop-screenshot.png}
   \caption{
-  A snapshot of the mesh used for CFD simulations.
+  A screenshot of the loop.
   }
-  \label{fig:EnKFhist}
+  \label{fig:CFDloopSS}
 \end{figure}
 
 And here is the 2D mesh:
@@ -52,7 +63,7 @@ And here is the 2D mesh:
   \caption{
   A snapshot of the mesh used for CFD simulations.
   }
-  \label{fig:EnKFhist}
+  \label{fig:CFDmesh1}
 \end{figure}
 
 The solver used is buoyantBoussinesqPimpleFoam, which I'll now explain. 

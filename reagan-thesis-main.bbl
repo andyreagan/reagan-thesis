@@ -65,6 +65,12 @@ Burroughs, E., E.~Coutsias, and L.~Romero (2005).
   thermosyphon.
 \newblock {\em Journal of Fluid Mechanics\/}~{\em 543}, 203--238.
 
+\bibitem[\protect\citeauthoryear{Charney}{Charney}{1951}]{charney1950}
+Charney, J. (1951).
+\newblock Dynamic forecasting by numerical process.
+\newblock {\em Compendium of Meteorology, American Meteorological Society,
+  Boston\/}, 470--482.
+
 \bibitem[\protect\citeauthoryear{Cherry, Dan, and Lustgarten}{Cherry
   et~al.}{2006}]{cherry2006next}
 Cherry, B., Z.~Dan, and A.~Lustgarten (2006).
@@ -76,6 +82,13 @@ Cherry, B., Z.~Dan, and A.~Lustgarten (2006).
 Creveling, H., D.~PAZ, J.~Baladi, and R.~Schoenhals (1975).
 \newblock Stability characteristics of a single-phase free convection loop.
 \newblock {\em Journal of Fluid Mechanics\/}~{\em 67\/}(part 1), 65--84.
+
+\bibitem[\protect\citeauthoryear{Dee and Da~Silva}{Dee and
+  Da~Silva}{1998}]{dee1998data}
+Dee, D.~P. and A.~M. Da~Silva (1998).
+\newblock Data assimilation in the presence of forecast bias.
+\newblock {\em Quarterly Journal of the Royal Meteorological Society\/}~{\em
+  124\/}(545), 269--295.
 
 \bibitem[\protect\citeauthoryear{Desrayaud, Fichera, and Marcoux}{Desrayaud
   et~al.}{2006}]{desrayaud2006numerical}
@@ -90,11 +103,36 @@ Detman, R.~F. (1968, July~16).
 \newblock Thermos iphon depp pool reactor.
 \newblock US Patent 3,393,127.
 
+\bibitem[\protect\citeauthoryear{Edwards}{Edwards}{1984}]{edwards1984likelihood}
+Edwards, A. W.~F. (1984).
+\newblock Likelihood: An account of the statistical concept of likelihood and
+  its application to scientific inferences.
+
 \bibitem[\protect\citeauthoryear{Ehrhard and M{\"u}ller}{Ehrhard and
   M{\"u}ller}{1990}]{ehrhard1990dynamical}
 Ehrhard, P. and U.~M{\"u}ller (1990).
 \newblock Dynamical behaviour of natural convection in a single-phase loop.
 \newblock {\em Journal of Fluid mechanics\/}~{\em 217}, 487--518.
+
+\bibitem[\protect\citeauthoryear{Evensen}{Evensen}{2003}]{evensen2003ensemble}
+Evensen, G. (2003).
+\newblock The ensemble kalman filter: Theoretical formulation and practical
+  implementation.
+\newblock {\em Ocean dynamics\/}~{\em 53\/}(4), 343--367.
+
+\bibitem[\protect\citeauthoryear{for Aerology, Eliassen, and Bessemoulin}{for
+  Aerology et~al.}{1960}]{eliassen1954}
+for Aerology, W. M. O.~C., A.~Eliassen, and J.~Bessemoulin (1960).
+\newblock {\em Upper Air Network Requirements for Numerical Weather Prediction:
+  Report of a Working Group of the Commission for Aerology}.
+\newblock Secretariat of the World Meteorological Organization.
+
+\bibitem[\protect\citeauthoryear{Gandin}{Gandin}{1965}]{gandin1965}
+Gandin, L. (1965).
+\newblock Objective analysis of meteorological fields gidrometeorologicheskoe
+  izdatel'-stvo, leningrad, 1960.
+\newblock {\em Translated from Russian into English, Israel Program for
+  Scientific Translations, Jerusalem\/}, 242.
 
 \bibitem[\protect\citeauthoryear{Ginsberg, Mohebbi, Patel, Brammer, Smolinski,
   and Brilliant}{Ginsberg et~al.}{2008}]{ginsberg2008detecting}
@@ -147,6 +185,12 @@ Kalnay, E. (2003).
 \newblock {\em Atmospheric modeling, data assimilation, and predictability}.
 \newblock Cambridge university press.
 
+\bibitem[\protect\citeauthoryear{Kalnay, Li, Miyoshi, YANG, and
+  BALLABRERA-POY}{Kalnay et~al.}{2007}]{kalnay20074}
+Kalnay, E., H.~Li, T.~Miyoshi, S.-C. YANG, and J.~BALLABRERA-POY (2007).
+\newblock 4-d-var or ensemble kalman filter?
+\newblock {\em Tellus A\/}~{\em 59\/}(5), 758--773.
+
 \bibitem[\protect\citeauthoryear{Keller}{Keller}{}]{keller1966}
 Keller, J.
 \newblock Periodic oscillations in a model of thermal convection.
@@ -156,6 +200,18 @@ Keller, J.
 Kwant, W. and C.~Boardman (1992).
 \newblock Prism—liquid metal cooled reactor plant design and performance.
 \newblock {\em Nuclear engineering and design\/}~{\em 136\/}(1), 111--120.
+
+\bibitem[\protect\citeauthoryear{Lorenc}{Lorenc}{1981}]{lorenc1981global}
+Lorenc, A. (1981).
+\newblock A global three-dimensional multivariate statistical interpolation
+  scheme.
+\newblock {\em Monthly Weather Review\/}~{\em 109\/}(4), 701--721.
+
+\bibitem[\protect\citeauthoryear{Lorenc}{Lorenc}{1986}]{lorenc1986analysis}
+Lorenc, A.~C. (1986).
+\newblock Analysis methods for numerical weather prediction.
+\newblock {\em Quarterly Journal of the Royal Meteorological Society\/}~{\em
+  112\/}(474), 1177--1194.
 
 \bibitem[\protect\citeauthoryear{Lorenz}{Lorenz}{1963}]{lorenz1963}
 Lorenz, E.~N. (1963).
@@ -184,12 +240,24 @@ Patankar, S.~V. and D.~B. Spalding (1972).
 \newblock {\em International Journal of Heat and Mass Transfer\/}~{\em
   15\/}(10), 1787--1806.
 
+\bibitem[\protect\citeauthoryear{Purser}{Purser}{1984}]{purser1984new}
+Purser, R.~J. (1984).
+\newblock A new approach to the optimal assimilation of meteorological data by
+  iterative bayesian analysis.
+\newblock In {\em Conference on Weather Forecasting and Analysis, 10 th,
+  Clearwater Beach, FL}, pp.\  102--105.
+
 \bibitem[\protect\citeauthoryear{Ridouane, Danforth, and Hitt}{Ridouane
   et~al.}{2010}]{ridouane2010}
 Ridouane, E.~H., C.~M. Danforth, and D.~L. Hitt (2010).
 \newblock A 2-d numerical study of chaotic flow in a natural convection loop.
 \newblock {\em International Journal of Heat and Mass Transfer\/}~{\em
   53\/}(1), 76--84.
+
+\bibitem[\protect\citeauthoryear{Saltzman}{Saltzman}{1962}]{saltzman1962finite}
+Saltzman, B. (1962).
+\newblock Finite amplitude free convection as an initial value problem-i.
+\newblock {\em Journal of the Atmospheric Sciences\/}~{\em 19\/}(4), 329--341.
 
 \bibitem[\protect\citeauthoryear{Savely, Cockrell, , and Pines}{Savely
   et~al.}{1972}]{savely1972}

@@ -7,7 +7,7 @@ FILENAME_BASE="reagan-thesis"
 STYLE="standard"
 
 # first test the body versus our style scripts
-for FILE in $FILENAME_BASE.chapter*-$STYLE.tex
+for FILE in $FILENAME_BASE.chapter*
 do
   echo "checking $FILE"
   perl bin/lexical-illusion-spotter.pl $FILE
@@ -15,23 +15,23 @@ do
   bin/passive-word-spotter.sh $FILE
 done
 
-pdflatex $FILENAME_BASE-main;
+pdflatex $FILENAME_BASE-main #> make-dissertation.texout
 
 if [ $STYLE == "JA" ]; then
   for auxfile in $FILENAME_BASE.chapter*-JA.aux
   do
-      bibtex `basename $auxfile .aux`
+      bibtex `basename $auxfile .aux` #>> make-dissertation.texout
   done
   
   for bblfile in $FILENAME_BASE.chapter*-JA.bbl
   do
-          sed -i 's/thebibliography/references/' $bblfile
+      sed -i 's/thebibliography/references/' $bblfile
   done
 fi
 
-bibtex $FILENAME_BASE-main;
-pdflatex $FILENAME_BASE-main;
-pdflatex $FILENAME_BASE-main;
-pdflatex $FILENAME_BASE-main;
+bibtex $FILENAME_BASE-main #>> make-dissertation.texout
+pdflatex $FILENAME_BASE-main #>> make-dissertation.texout
+pdflatex $FILENAME_BASE-main #>> make-dissertation.texout
+pdflatex $FILENAME_BASE-main #>> make-dissertation.texout
 
 

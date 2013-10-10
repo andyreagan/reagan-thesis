@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.5.30)  22 SEP 2013 23:58
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.5.30)  10 OCT 2013 14:51
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -251,6 +251,9 @@ Package: array 2008/09/09 v2.4c Tabular extension package (FMi)
 \TX@cols=\count117
 \TX@ftn=\toks23
 )
+(/usr/local/texlive/2013/texmf-dist/tex/latex/cancel/cancel.sty
+Package: cancel 2000/03/12 v2.1 Cancel math terms
+)
 (/usr/local/texlive/2013/texmf-dist/tex/latex/currfile/currfile.sty
 Package: currfile 2013/02/01 v0.7b Provides the file path elements of the curre
 nt input file
@@ -279,33 +282,24 @@ Package: filehook 2011/10/12 v0.5d Hooks for input files
 \c@currfiledepth=\count118
 )
 (./reagan-thesis-main.settings.tex) (./reagan-thesis.title.tex)
-(./reagan-thesis.committee.tex) (./reagan-thesis-main.aux
-
-LaTeX Warning: Label `fig:EnKFhist' multiply defined.
-
-
-LaTeX Warning: Label `fig:EnKFhist' multiply defined.
-
-
-LaTeX Warning: Label `fig:EnKFhist' multiply defined.
-
-)
+(./reagan-thesis.committee.tex) (./reagan-thesis-main.aux)
 \openout1 = `reagan-thesis-main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Try loading font information for OT1+ptm on input line 31.
- (/usr/local/texlive/2013/texmf-dist/tex/latex/psnfss/ot1ptm.fd
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 32.
+
+(/usr/local/texlive/2013/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
 (/usr/local/texlive/2013/texmf-dist/tex/context/base/supp-pdf.mkii
@@ -352,12 +346,12 @@ e
 [1
 
 {/usr/local/texlive/2013/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-LaTeX Font Info:    Try loading font information for U+msa on input line 33.
+LaTeX Font Info:    Try loading font information for U+msa on input line 34.
 
 (/usr/local/texlive/2013/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 33.
+LaTeX Font Info:    Try loading font information for U+msb on input line 34.
 
 (/usr/local/texlive/2013/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -391,116 +385,177 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <24.88> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1.
 [1
 
-] [2]
+] [2] [3] [4] [5] [6] [7]
+<figures/Energy-Balance-Model-Schematic.png, id=60, 588.1975pt x 249.93375pt>
+File: figures/Energy-Balance-Model-Schematic.png Graphic file (type png)
 
-LaTeX Warning: Citation `charney1950' on page 3 undefined on input line 42.
+<use figures/Energy-Balance-Model-Schematic.png>
+Package pdftex.def Info: figures/Energy-Balance-Model-Schematic.png used on inp
+ut line 184.
+(pdftex.def)             Requested size: 212.47617pt x 90.28499pt.
+ [8]
+<figures/Earth-System-Model-Schematic.png, id=65, 509.905pt x 448.67625pt>
+File: figures/Earth-System-Model-Schematic.png Graphic file (type png)
 
-[3]
-
-LaTeX Warning: Citation `charney1950' on page 4 undefined on input line 79.
-
-[4] [5] [6]) (./reagan-thesis.chapter2-DA.tex [7]
+<use figures/Earth-System-Model-Schematic.png>
+Package pdftex.def Info: figures/Earth-System-Model-Schematic.png used on input
+ line 197.
+(pdftex.def)             Requested size: 212.47617pt x 186.96394pt.
+ [9 <./figures/Energy-Balance-Model-Schematic.png> <./figures/Earth-System-Mode
+l-Schematic.png>])
+(./reagan-thesis.chapter2-DA.tex [10]
 Chapter 2.
 
-LaTeX Warning: Reference `fig:lorenzattractor' on page 8 undefined on input lin
-e 10.
+<figures/attractor-colored-by-innovation-prevPos3.pdf, id=73, 483.8075pt x 416.
+55624pt>
+File: figures/attractor-colored-by-innovation-prevPos3.pdf Graphic file (type p
+df)
+ <use figures/attractor-colored-by-innovation-prevPos3.pdf>
+Package pdftex.def Info: figures/attractor-colored-by-innovation-prevPos3.pdf u
+sed on input line 28.
+(pdftex.def)             Requested size: 212.47617pt x 182.94208pt.
 
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[11
+
+] [12 <./figures/attractor-colored-by-innovation-prevPos3.pdf>] [13]
+[14] [15] [16]
+Overfull \hbox (5.6028pt too wide) in paragraph at lines 162--162
+[] 
+ []
+
+[17] [18] [19]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 12.
-[8
-
-] [9] <figures/EnKF_spaghetti.pdf, id=68, 516.93124pt x 424.58624pt>
-File: figures/EnKF_spaghetti.pdf Graphic file (type pdf)
-
-<use figures/EnKF_spaghetti.pdf>
-Package pdftex.def Info: figures/EnKF_spaghetti.pdf used on input line 57.
-(pdftex.def)             Requested size: 212.47617pt x 174.51555pt.
-
-<figures/window_experiment_plot001.pdf, id=69, 476.78125pt x 392.46625pt>
-File: figures/window_experiment_plot001.pdf Graphic file (type pdf)
-
-<use figures/window_experiment_plot001.pdf>
-Package pdftex.def Info: figures/window_experiment_plot001.pdf used on input li
-ne 67.
-(pdftex.def)             Requested size: 212.47617pt x 174.90143pt.
-
-<figures/DA_test_noname2.pdf, id=70, 478.78876pt x 386.44376pt>
-File: figures/DA_test_noname2.pdf Graphic file (type pdf)
-
-<use figures/DA_test_noname2.pdf>
-Package pdftex.def Info: figures/DA_test_noname2.pdf used on input line 79.
-(pdftex.def)             Requested size: 212.47617pt x 171.49225pt.
- [10 <./figures/EnKF_spaghetti.pdf> <./figures/window_experiment_plot001.pdf>]
-<figures/EnKF-histogram-analysis.pdf, id=89, 501.875pt x 412.54124pt>
-File: figures/EnKF-histogram-analysis.pdf Graphic file (type pdf)
-
-<use figures/EnKF-histogram-analysis.pdf>
-Package pdftex.def Info: figures/EnKF-histogram-analysis.pdf used on input line
- 97.
-(pdftex.def)             Requested size: 212.47617pt x 174.6573pt.
- [11 <./figures/DA_test_noname2.pdf>]
-[12 <./figures/EnKF-histogram-analysis.pdf>]
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 236.
+ [20]
 <figures/TLM-explanation.pdf, id=119, 687.56876pt x 343.2825pt>
 File: figures/TLM-explanation.pdf Graphic file (type pdf)
 
 <use figures/TLM-explanation.pdf>
-Package pdftex.def Info: figures/TLM-explanation.pdf used on input line 130.
+Package pdftex.def Info: figures/TLM-explanation.pdf used on input line 252.
 (pdftex.def)             Requested size: 212.47617pt x 106.08122pt.
 
 
-LaTeX Warning: `h' float specifier changed to `ht'.
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[21]
+<figures/TLM-verification003_noname.pdf, id=123, 472.76625pt x 467.7475pt>
+File: figures/TLM-verification003_noname.pdf Graphic file (type pdf)
+
+<use figures/TLM-verification003_noname.pdf>
+Package pdftex.def Info: figures/TLM-verification003_noname.pdf used on input l
+ine 271.
+(pdftex.def)             Requested size: 212.47617pt x 210.22034pt.
+ [22 <./figures/TLM-explanation.pdf> <./figures/TLM-verification003_noname.pdf>
+]
+<figures/EnKF-histogram-analysis.pdf, id=155, 501.875pt x 412.54124pt>
+File: figures/EnKF-histogram-analysis.pdf Graphic file (type pdf)
+
+<use figures/EnKF-histogram-analysis.pdf>
+Package pdftex.def Info: figures/EnKF-histogram-analysis.pdf used on input line
+ 295.
+(pdftex.def)             Requested size: 212.47617pt x 174.6573pt.
 
 
-LaTeX Warning: Reference `fig:lorenzattractor' on page 13 undefined on input li
-ne 162.
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-) (./reagan-thesis.chapter3-CFD.tex [13 <./figures/TLM-explanation.pdf>]
-[14]
+<figures/EnKF_spaghetti.pdf, id=156, 516.93124pt x 424.58624pt>
+File: figures/EnKF_spaghetti.pdf Graphic file (type pdf)
+
+<use figures/EnKF_spaghetti.pdf>
+Package pdftex.def Info: figures/EnKF_spaghetti.pdf used on input line 315.
+(pdftex.def)             Requested size: 212.47617pt x 174.51555pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[23] <figures/DA_test_noname2.pdf, id=160, 478.78876pt x 386.44376pt>
+File: figures/DA_test_noname2.pdf Graphic file (type pdf)
+
+<use figures/DA_test_noname2.pdf>
+Package pdftex.def Info: figures/DA_test_noname2.pdf used on input line 332.
+(pdftex.def)             Requested size: 212.47617pt x 171.49225pt.
+ [24 <./figures/EnKF-histogram-analysis.pdf> <./figures/EnKF_spaghetti.pdf>]
+<figures/window_experiment_plot001.pdf, id=177, 476.78125pt x 392.46625pt>
+File: figures/window_experiment_plot001.pdf Graphic file (type pdf)
+
+<use figures/window_experiment_plot001.pdf>
+Package pdftex.def Info: figures/window_experiment_plot001.pdf used on input li
+ne 349.
+(pdftex.def)             Requested size: 212.47617pt x 174.90143pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[25 <./figures/DA_test_noname2.pdf>]
+<figures/EKF_210s_infl_error.pdf, id=197, 503.8825pt x 408.52625pt>
+File: figures/EKF_210s_infl_error.pdf Graphic file (type pdf)
+
+<use figures/EKF_210s_infl_error.pdf>
+Package pdftex.def Info: figures/EKF_210s_infl_error.pdf used on input line 371
+.
+(pdftex.def)             Requested size: 212.47617pt x 172.26555pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[26 <./figures/window_experiment_plot001.pdf>] [27 <./figures/EKF_210s_infl_err
+or.pdf>]
+
+LaTeX Warning: Citation `fisher' on page 28 undefined on input line 435.
+
+[28]
+
+LaTeX Warning: Citation `someone' on page 29 undefined on input line 444.
+
+) (./reagan-thesis.chapter3-CFD.tex [29]
 Chapter 3.
-LaTeX Font Info:    Try loading font information for OT1+pcr on input line 8.
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 20.
 (/usr/local/texlive/2013/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
-Underfull \hbox (badness 10000) in paragraph at lines 8--9
+Underfull \hbox (badness 10000) in paragraph at lines 20--21
 []\OT1/ptm/m/n/10 Follow: $\OT1/pcr/m/n/10 http : / / www . allstar . fiu . edu
  / aero / Flow2 . htm$ \OT1/ptm/m/n/10 and $\OT1/pcr/m/n/10 http : / / www .
  []
 
-[15
+[30
 
-] <figures/loop-screenshot.png, id=141, 534.99875pt x 401.5pt>
+] <figures/loop-screenshot.png, id=249, 534.99875pt x 401.5pt>
 File: figures/loop-screenshot.png Graphic file (type png)
 
 <use figures/loop-screenshot.png>
-Package pdftex.def Info: figures/loop-screenshot.png used on input line 41.
+Package pdftex.def Info: figures/loop-screenshot.png used on input line 52.
 (pdftex.def)             Requested size: 212.47617pt x 159.45764pt.
 
-<figures/mesh.png, id=143, 665.48625pt x 355.3275pt>
+<figures/mesh.png, id=251, 665.48625pt x 355.3275pt>
 File: figures/mesh.png Graphic file (type png)
  <use figures/mesh.png>
-Package pdftex.def Info: figures/mesh.png used on input line 51.
+Package pdftex.def Info: figures/mesh.png used on input line 62.
 (pdftex.def)             Requested size: 212.47617pt x 113.44687pt.
 )
-(./reagan-thesis.chapter4-looop.tex [16 <./figures/loop-screenshot.png>]
-[17 <./figures/mesh.png>]
+(./reagan-thesis.chapter4-looop.tex [31] [32 <./figures/loop-screenshot.png> <.
+/figures/mesh.png>]
 Chapter 4.
-<danforth.jpg, id=152, 501.875pt x 276.03125pt>
-File: danforth.jpg Graphic file (type jpg)
- <use danforth.jpg>
-Package pdftex.def Info: danforth.jpg used on input line 20.
+<figures/danforth.jpg, id=259, 501.875pt x 276.03125pt>
+File: figures/danforth.jpg Graphic file (type jpg)
+
+<use figures/danforth.jpg>
+Package pdftex.def Info: figures/danforth.jpg used on input line 20.
 (pdftex.def)             Requested size: 212.47617pt x 116.86316pt.
-)
-(./reagan-thesis.chapter5-results.tex [18
+) (./reagan-thesis.chapter5-results.tex [33
 
-] [19 <./danforth.jpg>]
+] [34 <./figures/danforth.jpg>]
 Chapter 5.
-[20
+[35
 
-]) (./reagan-thesis.chapter6-conclusion.tex [21]
+]) (./reagan-thesis.chapter6-conclusion.tex [36]
 Chapter 6.
-) (./reagan-thesis-main.bbl [22
+) (./reagan-thesis-main.bbl [37
 
-] [23]
+] [38]
 Missing character: There is no â in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
 Missing character: There is no ” in font ptmr7t!
@@ -510,9 +565,9 @@ Missing character: There is no ™ in font ptmri7t!
 Missing character: There is no â in font ptmri7t!
 Missing character: There is no € in font ptmri7t!
 Missing character: There is no ™ in font ptmri7t!
- [24]) (./reagan-thesis.appendix.tex
+ [39] [40]) (./reagan-thesis.appendix.tex
 Appendix A.
-[25
+[41
 
 ]
 Appendix B.
@@ -541,106 +596,113 @@ Overfull \hbox (286.38733pt too wide) in paragraph at lines 17--18
 ][][][][][][][][][][][][][][] 
  []
 
-[26
+[42
 
 ]
 Overfull \hbox (88.38531pt too wide) in paragraph at lines 21--22
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[27]
+[43]
 Overfull \hbox (100.38544pt too wide) in paragraph at lines 58--59
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (778.39233pt too wide) in paragraph at lines 70--71
+Overfull \hbox (100.38544pt too wide) in paragraph at lines 68--69
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+[44]
+Overfull \hbox (778.39233pt too wide) in paragraph at lines 79--80
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
 ][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (334.38782pt too wide) in paragraph at lines 74--75
+Overfull \hbox (334.38782pt too wide) in paragraph at lines 83--84
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
 ][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[28]
-Overfull \hbox (250.38696pt too wide) in paragraph at lines 79--80
+
+Overfull \hbox (250.38696pt too wide) in paragraph at lines 88--89
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (460.3891pt too wide) in paragraph at lines 83--84
+Overfull \hbox (460.3891pt too wide) in paragraph at lines 92--93
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
 ][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (10.38452pt too wide) in paragraph at lines 86--87
+Overfull \hbox (10.38452pt too wide) in paragraph at lines 95--96
 [][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (100.38544pt too wide) in paragraph at lines 88--89
+Overfull \hbox (100.38544pt too wide) in paragraph at lines 97--98
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (874.39331pt too wide) in paragraph at lines 93--94
+Overfull \hbox (874.39331pt too wide) in paragraph at lines 102--103
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
 ][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
 ][][][][][] 
  []
 
-
-Overfull \hbox (34.38477pt too wide) in paragraph at lines 101--102
+[45]
+Overfull \hbox (34.38477pt too wide) in paragraph at lines 110--111
 [][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[29]
-Overfull \hbox (28.3847pt too wide) in paragraph at lines 110--111
+
+Overfull \hbox (28.3847pt too wide) in paragraph at lines 119--120
 [][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (70.38513pt too wide) in paragraph at lines 118--119
+Overfull \hbox (70.38513pt too wide) in paragraph at lines 127--128
 [][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-)) [30] (./reagan-thesis-main.aux)
+)) [46] (./reagan-thesis-main.aux)
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: There were multiply-defined labels.
-
  ) 
 Here is how much of TeX's memory you used:
- 5079 strings out of 493315
- 72102 string characters out of 6137904
- 157483 words of memory out of 5000000
- 8339 multiletter control sequences out of 15000+600000
- 24845 words of font info for 48 fonts, out of 8000000 for 9000
+ 5175 strings out of 493315
+ 74110 string characters out of 6137904
+ 161813 words of memory out of 5000000
+ 8422 multiletter control sequences out of 15000+600000
+ 27864 words of font info for 54 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 39i,11n,45p,850b,1470s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 39i,19n,45p,850b,1470s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2013/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
-exlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/te
-xlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/tex
-live/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texli
-ve/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive
-/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/20
-13/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/201
-3/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2013/
-texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/2013/texmf-di
-st/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2013/texmf-dist/fonts/t
-ype1/urw/times/utmr8a.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/urw/t
-imes/utmri8a.pfb>
-Output written on reagan-thesis-main.pdf (39 pages, 348804 bytes).
+exlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/te
+xlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/tex
+live/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texl
+ive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texliv
+e/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/
+2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/20
+13/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2013/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2013/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2013/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2013/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2013/texmf-di
+st/fonts/type1/public/amsfonts/latxfont/line10.pfb></usr/local/texlive/2013/tex
+mf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/2013/texmf-dist/
+fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2013/texmf-dist/fonts/type
+1/urw/times/utmr8a.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/urw/time
+s/utmri8a.pfb>
+Output written on reagan-thesis-main.pdf (55 pages, 3805160 bytes).
 PDF statistics:
- 234 PDF objects out of 1000 (max. 8388607)
- 160 compressed objects within 2 object streams
+ 360 PDF objects out of 1000 (max. 8388607)
+ 247 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
- 41 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 66 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -86,7 +86,7 @@ Charney already saw the success of models with filtered equations of motion woul
 The discussion so far has dealt exclusively with the quasi-geostrophic equations as the basis for numerical forecasting.
 Yet there has been no intention to exclude the possibility that the primitive Eulerian equations can also be used for this purpose.
 The outlook for numerical forecasting would be indeed dismal if the quasi-geostrophic approximation represnted the upper limit of attainable accuracy, for it is known that it applies only indifferently, if at all, to many of the small-scale but meteorologically significant motions..
-We have merely indicated two obstacles that stand in the way of the applications of the primitive equations: first, there is the difficulty raised by Richardson that the horizontal divergence cannt be measured with significant accuracy.
+We have merely indicated two obstacles that stand in the way of the applications of the primitive equations: first, there is the difficulty raised by Richardson that the horizontal divergence cannot be measured with significant accuracy.
 Moreover, the horizontal divergence is only one of a class of meteorological unobservables which also includes the horizontal acceleration.
 And second, if the primitive Eulerian equations are employed, a stringent and seemingly artificial bound is imposed on the size of the time interval for the finite difference equations.
 The first obstacle is the most formidable, for the second only means that the integration must proceed in the steps of the order of fifteen minutes rather than two hours.
@@ -120,30 +120,108 @@ The upper limit of predictability exists for even a perfect model, as E. Lorenz 
 The purpose of data assimilation is defined by Talagrand \shortcite{talagrand1997assimilation} as ``using all the available information, to determine as accurately as possible the state of the atmospheric (or oceanic) flow.''
 Broadly, data assimilation algorithms are used from areas as disparate as quadcopter stabilization \shortcite{achtelik2009visual} to finance (?).
 
-Describe statistical problem, OI 3D-VAR EKF EnKF 4D-VAR
+Data assimilation algorithms work on predict, observe, and assimilate cycle.
+Formally, the data assimilation problem is solved by minimizing the error in the presence of the above constraints.
+The prediction step involves making a prediction of the future state of the system, as well as the error of the model in some capacity.
+Observing various systems comes in many flavors: rawindsomes and satellite irradiance for the atmosphere, temperature and velocity reconstruction of experiments from simple sensors, or sampling the market in finance.
+Assimilation is the combination of these observations and the predicitive model in such a way that minimizes the error of the future prediction based on this analysis.
+
+The difficulties of this process arise in many fashions, and are addressed by parameter adjustments of existing algorithms or new approaches altogether.
+The first problem is ensuring the analysis respects the core balances of the model.
+In the atmosphere this is the geostrophic balance, and in other systems this can arise in the conservation of physical (or otherwise) quantities.
+
+In real applications, observations are made at timesteps that are not always in agreement with the analysis increment and can be made more frequently.
+However the incorporation of more observations will not always improve forecasts: in the case where these observation can only be incorporated at the assimilation time the forecasts can degrade in quality \shortcite{kalnay20074}.
+Algorithms which are capable of assimilating observations at the time they are made have a disctinct advantage in this respect.
+In addition, the observations are not always direct measurements of the variables of the model. 
+This can create non-linearities in the observation operator, the function that transforms observations in the pyhsical space into model space.
+In Chapter 2 we will see where a non-linear operator complicates the minimization of the analysis error.
+
+Models aren't perfect.
+The incorporation of model bias into the assimilation becomes important with imperfect models, which for the weather all of our models are, and although this issue is well-studied it is a constant concern.
+
+The final difficulty we need to address is the computational cost of the various algorithms.
+The complexity of models creates issues for both the computation speed and storage requirements, an example of each follows.
+The direct computation of the model covariance can be performed by integrating a linear tangent model which propogates errors in the model forward in time, but integrating this model amounts to $n^2$ model integrations where $n$ is the number of variables in the model.
+For large systems, this is well beyond reach.
+Storing a covariance matrix at the full rank of model variables is not possible even for a model of the experiment we will address, which has 216,000 model variables.
+Workarounds for these specific problems include approximating the covariance without updating it or updating it using an ensemble of model runs, and reformulating the assimilation problem such that the covariance is only computed in observation space, which is orders of magnitude smaller in general.
 
 \section{NWP and fluid dynamics: computational models}
 
 Derived from Newton's law of motion, the basic equations governing flow of a viscous, heat-conducting fluid have been known since as early as 1823 \shortcite{navier} and in their current form since 1846 \shortcite{stokes}.
-The principle equations is the momemtum equation, supplemented by the continuity equation and the energy equation.
-These three equations are given by
-\begin{align*}
-&\frac{\partial \rho}{\partial t} +
-\frac{\partial}{\partial x_j}\left[ \rho u_j \right] = 0\\
-&\frac{\partial}{\partial t}\left( \rho u_i \right) +
-\frac{\partial}{\partial x_j}
-\left[ \rho u_i u_j + p \delta_{ij} - \tau_{ji} \right] = 0, \quad i=1,2,3\\
-&\frac{\partial}{\partial t}\left( \rho e_0 \right) +
-\frac{\partial}{\partial x_j}
-\left[ \rho u_j e_0 + u_j p + q_j - u_i \tau_{ij} \right] = 0\\
-\end{align*}
+These are the Navier-Stokes equations.
+For the atmosphere, we can make various approximations to simplify the problem to arrive at what are known of equations of Geophysical Fluid Dynamics, which differ mainly in the incorporation of the corilois effect and the neglecting of vertical components of advection.
+In both cases, the principle equations is the momemtum equation, supplemented by the continuity equation and the energy.
+
+As stated, my interest here is not the accuracy of computational fluid dynamic simulations themselves, but rather their incorporation into the prediction problem.
+For this reason, the depth of exploration of available models is limited.
+
+We chose to perform simulations in the open-source C++ library OpenFOAM.
+Because the code is open-source I can modify it as necessary for data assimilation, and of particular importance becomes the discretized grid.
+
+There are two main directions in which I do explore the computational model: meshing and solving.
+Creating the mesh is the discretization of the governing equations.
+The importance of properly designing and characterizing the mesh is profound: without the use of unreliable turbulence models, and without a scale small enough to resolve all of the scales of turbulence, we enevitably fail to capture the effects of sub-grid scale phenomena.
+In weather models, this is a known problem and correcting for these is an open area of research.
+Turbulence models include $k-\epsilon$ models, LES, and laminar (dummy) modes.
+
+Secondly, the choice of solving technique is a source of aleatoric uncertainty.
+The schemes which OpenFOAM has available are known to be dissapative.
+That is, small perturbations such as those from a random error perturbation to an ensemble member in the EnKF are damped away.
+Without properly correcting this problem, the ensemble does not adequately capture the uncertainties in observations to obtain an approximation of the model error growth.
+
+We investigate these meshing and solving techniques in greater detail in Chapter 3.
 
 \section{Toy climate experiments}
 
+Mathematical and computational models span from simple to kitchen-sink, and both have their place.
+Simple, or ``toy'', models and experiments are important to gain theoretical understanding of the key processes at play.
+An example of such a conceptual model used to study climate is the energy balance model, pictured below.
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.49\textwidth]{figures/Energy-Balance-Model-Schematic.png}
+  \caption{
+    A schematic of the Energy Balance Model, a conceptual climate model based on the conservation of energy.
+  }
+  \label{fig:EBM}
+\end{figure}
+
+With a simple model it is possible to capture the key properties of simple concepts (e.g. the greenhouse effect in the above energy balance model) and for this reason they have been and continue to be employed throughout scientific displicines.
+The ``kitchen-sink'' models, like the Earth System Models (ESMs) used to study climate, incorporate all of the known physical, chemical, and biological processes for the fullest picture of the system.
+In this case, we are living in our experiment.
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.49\textwidth]{figures/Earth-System-Model-Schematic.png}
+  \caption{
+    The ``kitchen-sink'' Earth System Model captures as many known processes as computationally feasible.
+  }
+  \label{fig:ESM}
+\end{figure}
+
+We study a model that is more complex than the EBM but is still analytically tractable, known as the Lorenz 1963 system (Lorenz 63 for short).
+In 1962, Saltzmann attempted to make weather predictions by reducing the equations of motion of the atmosphere into their core processes \shortcite{saltzman1962finite}.
+Then in 1963 Edward Lorenz reduced this system ever further to 3 eqautions, and used them to demonstrate his landmark discovery of deterministic non-periodic flow \shortcite{lorenz1963}.
+These equations have since been the subject of intense study and have changed the way we view prediction and determinism, remaining the simple system of choice for examining nonlinear behaivor today \cite{kalnay20074}.
+
 Thermal convection loops are one of the few known experimental implementations of Lorenz's 1963 system of equations.
-The convection loop is a hula-hoop shaped tube of water, heated on the bottom by a fixed temperature water bath and cooled on the top by room temperature circulating air.
-Varying the forcing of temperature applied to the bottom half of the loop there are three experimentally accessible flow regimes of interest to us: conduction, steady convection, and convection of oscillating directions.
-The latter regime exhibits the much studied phenomenon of chaos: the approximate past does not approximately determine the future.
+Put simply, a thermal convection loop is a hula-hoop shaped tube of water, heated on the bottom half and cooled on the top half.
+As a nonmechanical heat pump, thermal convection loops have found applications for heat transfer in solar hot water heaters \shortcite{belessiotis2002analytical}, cooling systems for computers \shortcite{beitelmal2002two}, roads and railways that cross permafrost \shortcite{cherry2006next}, nuclear power plants \shortcite{detman1968thermos,beine1992integrated,kwant1992prism}, and other industrial applications.
+Our particular experiment consists of a thick-walled plastic tube, heated on the bottom by a constant temperature water bath, and cooled on top by room temperature air.
+
+Varying the forcing of temperature applied to the bottom half of the loop there are three experimentally accessible flow regimes of interest to us: conduction, steady convection, and unsteady convection.
+The latter regime exhibits the much studied phenomenon of chaos in its changes of rotational direction.
+This regime can be described by the Lorenz 1963 system with the canonical parameter values listed in \ref{table:lorenz63params}.
+Edward Lorenz discovered and studied chaos most of his life, and it said to have jotted this simple description on a visit to the University of Maryland:
+\begin{quote}
+Chaos: the approximate past does not approximately determine the future.
+\end{quote}
+
+In chapter 4, we present a derivation of Ernhard-M\"{u}ller Equations governing the flow in the loop following the work of \cite{harris2011predicting}.
+These equations are akin to the Lorenz 63 system, as we shall see, and the experimental implementation is described in more detail in Chapter 4 as well.
+
 
 
 

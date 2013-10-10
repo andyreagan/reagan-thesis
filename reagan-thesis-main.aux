@@ -1,7 +1,7 @@
 \relax 
 \@writefile{toc}{\contentsline {section}{Dedication}{ii}}
 \@writefile{toc}{\contentsline {section}{Acknowledgements}{iii}}
-\@writefile{toc}{\contentsline {section}{List of Figures}{vi}}
+\@writefile{toc}{\contentsline {section}{List of Figures}{vii}}
 \@writefile{toc}{\contentsline {section}{List of Tables}{vii}}
 \citation{weather-violence2013}
 \citation{ginsberg2008detecting}
@@ -23,72 +23,115 @@
 \citation{lorenz1963}
 \citation{talagrand1997assimilation}
 \citation{achtelik2009visual}
+\@writefile{toc}{\contentsline {section}{\numberline {1.3}IC determination: data assimilation}{6}}
+\citation{kalnay20074}
 \citation{navier}
 \citation{stokes}
-\@writefile{toc}{\contentsline {section}{\numberline {1.3}IC determination: data assimilation}{6}}
-\@writefile{toc}{\contentsline {section}{\numberline {1.4}NWP and fluid dynamics: computational models}{6}}
-\@writefile{toc}{\contentsline {section}{\numberline {1.5}Toy climate experiments}{7}}
-\citation{kalnay2003}
-\@writefile{toc}{\contentsline {chapter}{\numberline {2}Data Assimilation}{8}}
-\@writefile{lof}{\addvspace {10\p@ }}
-\@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.0.1}3D-Var}{8}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.0.2}Extended Kalman Filter}{8}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.0.3}Ensemble Kalman Filter}{9}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.1}{\ignorespaces  A sample timeseries of the ensembles used in the EnKF. In all tests, as seen here, 10 ensemble members are used. }}{10}}
-\newlabel{fig:spaghetti}{{2.1}{10}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.2}{\ignorespaces  The RMS error (unscaled by climatology) is reported for our EKF and EnKF filters, measured as the difference between forecast and truth at the end of an assimiliation window for the latter 2500 assimiliation windows in a 3000 assimilation window model run. Error is measured in the only observed variable, $x_1$. Increasing the assimilation window led to an decrease in predictive skill, as expected. Additive and multiplicative covariance inflation is the same as Harris et. al., I've ran a few experiments to tune these, I should have my own tuning for every window length soon. }}{10}}
-\newlabel{fig:window_test}{{2.2}{10}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.3}{\ignorespaces  For near-perfect initial knowledge of the atmospheric state, the RMS error of a prediction using DA is compared against a prediction that does not. Initial error is normal with mean 0 and variance 0.01, and the RMS errors reported are averages of 100 runs. Observational noise is normally distributed with mean 0 and variance 0.5, and an assimilation window length of 0.261 is used (approximately 5\% of climatological variation). As would be expected, in the long run DA greatly improves forecast skill, as forecasts without DA saturate to climatological error. The initial period where a forecast exceeds the skill of DA is potentially due to the spin-up time required by the filter to dial in the analysis error covariance. }}{11}}
-\newlabel{fig:DA_test}{{2.3}{11}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.4}{\ignorespaces  The difference of ensemble forecasts from the analysis is reported for 760 assimilation windows in one model run of length 200, with 10 ensemble members and an assimilation window of length 0.261. This has the same shape of as the difference between enseble forecasts and the mean of the forecasts (I have this as well). This spread of ensemble forecasts is what allows us to estimate the error covariance of the forecast model, and appears fall from a normal distribution. }}{12}}
-\newlabel{fig:EnKFhist}{{2.4}{12}}
-\@writefile{toc}{\contentsline {section}{\numberline {2.1}Coding the TLM}{12}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.5}{\ignorespaces  An explanation of how and why the best way to obtain a TLM is with a differentiated numerical scheme. }}{13}}
-\newlabel{fig:TLMscheme}{{2.5}{13}}
-\@writefile{lot}{\contentsline {table}{\numberline {2.1}{\ignorespaces Summary of Lorenz '63 parameters}}{14}}
-\citation{stokes}
-\citation{issa1986solution}
-\citation{patankar1972calculation}
-\@writefile{toc}{\contentsline {chapter}{\numberline {3}Computational Fluid Dynamics}{15}}
-\@writefile{lof}{\addvspace {10\p@ }}
-\@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {3.1}Derivation of Governing Equations}{15}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.2}Discretization and Solving Algorithms}{15}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.1}{\ignorespaces  A snapshot of the mesh used for CFD simulations. }}{16}}
-\newlabel{fig:EnKFhist}{{3.1}{16}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.3}Solving with OpenFOAM}{16}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.2}{\ignorespaces  A snapshot of the mesh used for CFD simulations. }}{17}}
-\newlabel{fig:EnKFhist}{{3.2}{17}}
-\citation{harris2011predicting}
+\@writefile{toc}{\contentsline {section}{\numberline {1.4}NWP and fluid dynamics: computational models}{8}}
+\citation{saltzman1962finite}
+\citation{lorenz1963}
+\citation{kalnay20074}
+\@writefile{toc}{\contentsline {section}{\numberline {1.5}Toy climate experiments}{9}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1.1}{\ignorespaces  A schematic of the Energy Balance Model, a conceptual climate model based on the conservation of energy. }}{9}}
+\newlabel{fig:EBM}{{1.1}{9}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1.2}{\ignorespaces  The ``kitchen-sink'' Earth System Model captures as many known processes as computationally feasible. }}{9}}
+\newlabel{fig:ESM}{{1.2}{9}}
 \citation{belessiotis2002analytical}
 \citation{beitelmal2002two}
 \citation{cherry2006next}
 \citation{detman1968thermos,beine1992integrated,kwant1992prism}
-\@writefile{toc}{\contentsline {chapter}{\numberline {4}Thermal Convection Loop Experiment}{18}}
+\citation{harris2011predicting}
+\@writefile{toc}{\contentsline {chapter}{\numberline {2}Data Assimilation}{11}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {4.1}Thermal Convection Loops}{18}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.2}Detailed Experimental Setup}{18}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces  Professor Chris Danforth with the aluminum rig. }}{19}}
-\newlabel{fig:EnKFhist}{{4.1}{19}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {5}Results}{20}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.1}{\ignorespaces  The Lorenz 63 attractor colored by the norm of the analysis increment. In other words, larger numbers represent where forecasts are poor, and the data assimilation algorithm puts more weight on the observation. }}{12}}
+\newlabel{fig:lorenzattractor}{{2.1}{12}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.1}Basic derivation, OI}{12}}
+\newlabel{eq:analproblem}{{2.3}{13}}
+\citation{kalnay2003}
+\citation{eliassen1954}
+\citation{gandin1965}
+\citation{kalnay2003}
+\newlabel{eq:analprec}{{2.4}{14}}
+\citation{dee1998data}
+\citation{lorenc1981global}
+\citation{lorenc1986analysis}
+\citation{purser1984new}
+\citation{edwards1984likelihood}
+\@writefile{toc}{\contentsline {section}{\numberline {2.2}3D-Var}{18}}
+\citation{lorenc1986analysis}
+\citation{kalnay2003}
+\citation{kalnay2003}
+\@writefile{toc}{\contentsline {section}{\numberline {2.3}Extended Kalman Filter}{19}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.1}Coding the TLM}{21}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.2}{\ignorespaces  An explanation of how and why the best way to obtain a TLM is with a differentiated numerical scheme. }}{22}}
+\newlabel{fig:TLMscheme}{{2.2}{22}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.3}{\ignorespaces  The future error predicted by the TLM is compared to the error growth in Lorenz 63 system for an initial perturbation with standard deviation of 0.1, averaged over 1000 TLM integrations. The $\epsilon $ is not the error predicted by the TLM, but rather the error of the TLM in predicting the error growth. }}{22}}
+\newlabel{fig:TLMverification}{{2.3}{22}}
+\citation{harris2011predicting}
+\citation{evensen2003ensemble}
+\@writefile{toc}{\contentsline {section}{\numberline {2.4}Ensemble Kalman Filter}{23}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.4}{\ignorespaces  The difference of ensemble forecasts from the analysis is reported for 760 assimilation windows in one model run of length 200, with 10 ensemble members and an assimilation window of length 0.261. This has the same shape of as the difference between enseble forecasts and the mean of the forecasts (I have this as well). This spread of ensemble forecasts is what allows us to estimate the error covariance of the forecast model, and appears fall from a normal distribution. }}{24}}
+\newlabel{fig:EnKFhist}{{2.4}{24}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.5}{\ignorespaces  A sample timeseries of the ensembles used in the EnKF. In all tests, as seen here, 10 ensemble members are used. }}{24}}
+\newlabel{fig:spaghetti}{{2.5}{24}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4.1}Performace of EnKF, EKF on Lorenz 63}{24}}
+\citation{yang2006}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.6}{\ignorespaces  For near-perfect initial knowledge of the atmospheric state, the RMS error of a prediction using DA is compared against a prediction that does not. Initial error is normal with mean 0 and variance 0.01, and the RMS errors reported are averages of 100 runs. Observational noise is normally distributed with mean 0 and variance 0.5, and an assimilation window length of 0.261 is used (approximately 5\% of climatological variation). As would be expected, in the long run DA greatly improves forecast skill, as forecasts without DA saturate to climatological error. The initial period where a forecast exceeds the skill of DA is potentially due to the spin-up time required by the filter to dial in the analysis error covariance. }}{25}}
+\newlabel{fig:DA_test}{{2.6}{25}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.7}{\ignorespaces  The RMS error (unscaled by climatology) is reported for our EKF and EnKF filters, measured as the difference between forecast and truth at the end of an assimiliation window for the latter 2500 assimiliation windows in a 3000 assimilation window model run. Error is measured in the only observed variable, $x_1$. Increasing the assimilation window led to an decrease in predictive skill, as expected. Additive and multiplicative covariance inflation is the same as Harris et. al. }}{26}}
+\newlabel{fig:window_test}{{2.7}{26}}
+\citation{kalnay20074}
+\citation{kalnay20074}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.8}{\ignorespaces  The RMS error averaged over 100 model runs of length 1000 windows is reported for the EKF for varying additive and multiplicative inflation factors $\Delta $ and $\mu $. Each of the 100 model runs starts with a random IC, and the analysis forecast starts randomly. The filter performance RMS is computed as the RMS value of the difference between forecast and truth at the assimilation window for the latter 500 windows, allowing a spin-up of 500 windows. }}{27}}
+\newlabel{fig:EKF_cov_tuning_210s}{{2.8}{27}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4.2}Ensemble Transform Kalman Filter (ETKF)}{27}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4.3}Local Ensemble Transform Kalman Filter (LETKF)}{27}}
+\citation{fisher}
+\@writefile{lot}{\contentsline {table}{\numberline {2.1}{\ignorespaces Summary of Lorenz '63 parameters}}{28}}
+\newlabel{table:lorenz63params}{{2.1}{28}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.5}4D-Var}{28}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.5.1}Ensemble-variational hybrids}{28}}
+\citation{someone}
+\newlabel{eq:En4DVarCost}{{2.45}{29}}
+\citation{stokes}
+\citation{issa1986solution}
+\citation{patankar1972calculation}
+\@writefile{toc}{\contentsline {chapter}{\numberline {3}Computational Fluid Dynamics}{30}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {5.1}Prediction Skill for Synthetic Data}{20}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1.1}Sampling frequency, distribution}{20}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1.2}Random error vs PMD perturbation scheme}{20}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1.3}Maintaining hydrostatic balance}{21}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.2}Real-time Flow Reversal Prediction Skill}{21}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.1}Derivation of Governing Equations}{30}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.2}Discretization and Solving Algorithms}{30}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.3}Solving with OpenFOAM}{31}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.1}{\ignorespaces  A screenshot of the loop. }}{32}}
+\newlabel{fig:CFDloopSS}{{3.1}{32}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.2}{\ignorespaces  A snapshot of the mesh used for CFD simulations. }}{32}}
+\newlabel{fig:CFDmesh1}{{3.2}{32}}
+\citation{harris2011predicting}
+\@writefile{toc}{\contentsline {chapter}{\numberline {4}Thermal Convection Loop Experiment}{33}}
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\@writefile{toc}{\contentsline {section}{\numberline {4.1}Thermal Convection Loops}{33}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.2}Detailed Experimental Setup}{33}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces  Professor Chris Danforth with the aluminum rig. }}{34}}
+\newlabel{fig:chrisLoop}{{4.1}{34}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {5}Results}{35}}
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\@writefile{toc}{\contentsline {section}{\numberline {5.1}Prediction Skill for Synthetic Data}{35}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1.1}Sampling frequency, distribution}{35}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1.2}Random error vs PMD perturbation scheme}{35}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1.3}Maintaining hydrostatic balance}{36}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.2}Real-time Flow Reversal Prediction Skill}{36}}
 \citation{Bongard2000}
 \citation{AuerbachBongard2010}
 \bibstyle{chicago}
 \bibdata{example,reagan-thesis}
-\@writefile{toc}{\contentsline {chapter}{\numberline {6}Conclusion}{22}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {6}Conclusion}{37}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {6.1}Main Result}{22}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.1.1}More Details}{22}}
+\@writefile{toc}{\contentsline {section}{\numberline {6.1}Main Result}{37}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1.1}More Details}{37}}
 \bibcite{achtelik2009visual}{\citeauthoryear {Achtelik, Zhang, Kuhnlenz, and Buss}{Achtelik et\nobreakspace  {}al.}{2009}}
 \bibcite{asur2010predicting}{\citeauthoryear {Asur and Huberman}{Asur and Huberman}{2010}}
 \bibcite{AuerbachBongard2010}{\citeauthoryear {Auerbach and Bongard}{Auerbach and Bongard}{2010}}
@@ -98,27 +141,38 @@
 \bibcite{bollen2011twitter}{\citeauthoryear {Bollen, Mao, and Zeng}{Bollen et\nobreakspace  {}al.}{2011}}
 \bibcite{Bongard2000}{\citeauthoryear {Bongard and Paul}{Bongard and Paul}{2000}}
 \bibcite{burroughs2005reduced}{\citeauthoryear {Burroughs, Coutsias, and Romero}{Burroughs et\nobreakspace  {}al.}{2005}}
+\bibcite{charney1950}{\citeauthoryear {Charney}{Charney}{1951}}
 \bibcite{cherry2006next}{\citeauthoryear {Cherry, Dan, and Lustgarten}{Cherry et\nobreakspace  {}al.}{2006}}
 \bibcite{creveling1975stability}{\citeauthoryear {Creveling, PAZ, Baladi, and Schoenhals}{Creveling et\nobreakspace  {}al.}{1975}}
+\bibcite{dee1998data}{\citeauthoryear {Dee and Da\nobreakspace  {}Silva}{Dee and Da\nobreakspace  {}Silva}{1998}}
 \bibcite{desrayaud2006numerical}{\citeauthoryear {Desrayaud, Fichera, and Marcoux}{Desrayaud et\nobreakspace  {}al.}{2006}}
 \bibcite{detman1968thermos}{\citeauthoryear {Detman}{Detman}{1968}}
+\bibcite{edwards1984likelihood}{\citeauthoryear {Edwards}{Edwards}{1984}}
 \bibcite{ehrhard1990dynamical}{\citeauthoryear {Ehrhard and M{\"u}ller}{Ehrhard and M{\"u}ller}{1990}}
+\bibcite{evensen2003ensemble}{\citeauthoryear {Evensen}{Evensen}{2003}}
+\bibcite{eliassen1954}{\citeauthoryear {for Aerology, Eliassen, and Bessemoulin}{for Aerology et\nobreakspace  {}al.}{1960}}
+\bibcite{gandin1965}{\citeauthoryear {Gandin}{Gandin}{1965}}
+\@writefile{toc}{\contentsline {section}{Bibliography}{38}}
 \bibcite{ginsberg2008detecting}{\citeauthoryear {Ginsberg, Mohebbi, Patel, Brammer, Smolinski, and Brilliant}{Ginsberg et\nobreakspace  {}al.}{2008}}
 \bibcite{gorman1984}{\citeauthoryear {Gorman and Widmann}{Gorman and Widmann}{1984}}
 \bibcite{gorman1986}{\citeauthoryear {Gorman, Widmann, and Robbins}{Gorman et\nobreakspace  {}al.}{1986}}
 \bibcite{harris2011predicting}{\citeauthoryear {Harris, Ridouane, Hitt, and Danforth}{Harris et\nobreakspace  {}al.}{2011}}
 \bibcite{weather-violence2013}{\citeauthoryear {Hsiang, Burke, and Miguel}{Hsiang et\nobreakspace  {}al.}{2013}}
 \bibcite{issa1986solution}{\citeauthoryear {Issa}{Issa}{1986}}
-\@writefile{toc}{\contentsline {section}{Bibliography}{23}}
 \bibcite{jiang2003}{\citeauthoryear {Jiang and Shoji}{Jiang and Shoji}{2003}}
 \bibcite{kalnay2003}{\citeauthoryear {Kalnay}{Kalnay}{2003}}
+\bibcite{kalnay20074}{\citeauthoryear {Kalnay, Li, Miyoshi, YANG, and BALLABRERA-POY}{Kalnay et\nobreakspace  {}al.}{2007}}
 \bibcite{keller1966}{\citeauthoryear {Keller}{Keller}{}}
 \bibcite{kwant1992prism}{\citeauthoryear {Kwant and Boardman}{Kwant and Boardman}{1992}}
+\bibcite{lorenc1981global}{\citeauthoryear {Lorenc}{Lorenc}{1981}}
+\bibcite{lorenc1986analysis}{\citeauthoryear {Lorenc}{Lorenc}{1986}}
 \bibcite{lorenz1963}{\citeauthoryear {Lorenz}{Lorenz}{1963}}
 \bibcite{louisos2013}{\citeauthoryear {Louisos, Hitt, and Danforth}{Louisos et\nobreakspace  {}al.}{2013}}
 \bibcite{navier}{\citeauthoryear {Navier}{Navier}{1823}}
 \bibcite{patankar1972calculation}{\citeauthoryear {Patankar and Spalding}{Patankar and Spalding}{1972}}
+\bibcite{purser1984new}{\citeauthoryear {Purser}{Purser}{1984}}
 \bibcite{ridouane2010}{\citeauthoryear {Ridouane, Danforth, and Hitt}{Ridouane et\nobreakspace  {}al.}{2010}}
+\bibcite{saltzman1962finite}{\citeauthoryear {Saltzman}{Saltzman}{1962}}
 \bibcite{savely1972}{\citeauthoryear {Savely, Cockrell, , and Pines}{Savely et\nobreakspace  {}al.}{1972}}
 \bibcite{sornette2006predictability}{\citeauthoryear {Sornette and Zhou}{Sornette and Zhou}{2006}}
 \bibcite{stokes}{\citeauthoryear {Stokes}{Stokes}{1846}}
@@ -127,15 +181,15 @@
 \bibcite{welander1967}{\citeauthoryear {Welander}{Welander}{1995}}
 \bibcite{yang2006}{\citeauthoryear {Yang, Baker, Li, Cordes, Huff, Nagpal, Okereke, Villafane, Kalnay, and Duane}{Yang et\nobreakspace  {}al.}{2006}}
 \bibcite{yuen1999}{\citeauthoryear {Yuen and Bau}{Yuen and Bau}{1999}}
-\@writefile{toc}{\contentsline {chapter}{Appendices}{25}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {A}Parameters}{25}}
+\@writefile{toc}{\contentsline {chapter}{Appendices}{41}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {A}Parameters}{41}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{params}{{A}{25}}
-\@writefile{lot}{\contentsline {table}{\numberline {A.1}{\ignorespaces EKF Covariance Inflation}}{25}}
-\newlabel{params:EKF:covInf}{{A.1}{25}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {B}Code}{26}}
+\newlabel{params}{{A}{41}}
+\@writefile{lot}{\contentsline {table}{\numberline {A.1}{\ignorespaces EKF Covariance Inflation}}{41}}
+\newlabel{params:EKF:covInf}{{A.1}{41}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {B}Code}{42}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{code}{{B}{26}}
-\@writefile{lol}{\contentsline {lstlisting}{../2013\textendash 05data\textendash assimilation/OpenFOAM/OpenFOAM.m}{26}}
+\newlabel{code}{{B}{42}}
+\@writefile{lol}{\contentsline {lstlisting}{../2013\textendash 05data\textendash assimilation/OpenFOAM/OpenFOAM.m}{42}}
