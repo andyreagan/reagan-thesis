@@ -8,6 +8,11 @@ Achtelik, M., T.~Zhang, K.~Kuhnlenz, and M.~Buss (2009).
 \newblock In {\em Mechatronics and Automation, 2009. ICMA 2009. International
   Conference on}, pp.\  2863--2869. IEEE.
 
+\bibitem[\protect\citeauthoryear{Anderson}{Anderson}{2001}]{anderson2001new}
+Anderson, M.~J. (2001).
+\newblock A new method for non-parametric multivariate analysis of variance.
+\newblock {\em Austral Ecology\/}~{\em 26\/}(1), 32--46.
+
 \bibitem[\protect\citeauthoryear{Asur and Huberman}{Asur and
   Huberman}{2010}]{asur2010predicting}
 Asur, S. and B.~A. Huberman (2010).
@@ -44,6 +49,13 @@ Belessiotis, V. and E.~Mathioulakis (2002).
   performance.
 \newblock {\em Solar Energy\/}~{\em 72\/}(4), 307--315.
 
+\bibitem[\protect\citeauthoryear{Bishop, Etherton, and Majumdar}{Bishop
+  et~al.}{2001}]{bishop2001adaptive}
+Bishop, C.~H., B.~J. Etherton, and S.~J. Majumdar (2001).
+\newblock Adaptive sampling with the ensemble transform kalman filter. part i:
+  Theoretical aspects.
+\newblock {\em Monthly weather review\/}~{\em 129\/}(3), 420--436.
+
 \bibitem[\protect\citeauthoryear{Bollen, Mao, and Zeng}{Bollen
   et~al.}{2011}]{bollen2011twitter}
 Bollen, J., H.~Mao, and X.~Zeng (2011).
@@ -57,6 +69,12 @@ Bongard, J.~C. and C.~Paul (2000).
   virtual embodied evolution.
 \newblock In {\em From Animals to Animats: The Sixth International Conference
   on the Simulation of Adaptive Behaviour}, pp.\  420--429. MIT Press.
+
+\bibitem[\protect\citeauthoryear{Burgers, Jan~van Leeuwen, and Evensen}{Burgers
+  et~al.}{1998}]{burgers1998analysis}
+Burgers, G., P.~Jan~van Leeuwen, and G.~Evensen (1998).
+\newblock Analysis scheme in the ensemble kalman filter.
+\newblock {\em Monthly weather review\/}~{\em 126\/}(6), 1719--1724.
 
 \bibitem[\protect\citeauthoryear{Burroughs, Coutsias, and Romero}{Burroughs
   et~al.}{2005}]{burroughs2005reduced}
@@ -154,6 +172,13 @@ Gorman, M., P.~Widmann, and K.~Robbins (1986).
   experiment with theory.
 \newblock {\em Physica D\/}~(19), 255--267.
 
+\bibitem[\protect\citeauthoryear{Hamill, Whitaker, and Snyder}{Hamill
+  et~al.}{2001}]{hamill2001distance}
+Hamill, T.~M., J.~S. Whitaker, and C.~Snyder (2001).
+\newblock Distance-dependent filtering of background error covariance estimates
+  in an ensemble kalman filter.
+\newblock {\em Monthly Weather Review\/}~{\em 129\/}(11), 2776--2790.
+
 \bibitem[\protect\citeauthoryear{Harris, Ridouane, Hitt, and Danforth}{Harris
   et~al.}{2011}]{harris2011predicting}
 Harris, K.~D., E.~H. Ridouane, D.~L. Hitt, and C.~M. Danforth (2011).
@@ -166,6 +191,13 @@ Harris, K.~D., E.~H. Ridouane, D.~L. Hitt, and C.~M. Danforth (2011).
 Hsiang, S.~M., M.~Burke, and E.~Miguel (2013).
 \newblock Quantifying the influence of climate on human conflict.
 \newblock {\em Science\/}~{\em 341\/}(6151).
+
+\bibitem[\protect\citeauthoryear{Hunt, Kostelich, and Szunyogh}{Hunt
+  et~al.}{2007}]{hunt2007efficient}
+Hunt, B.~R., E.~J. Kostelich, and I.~Szunyogh (2007).
+\newblock Efficient data assimilation for spatiotemporal chaos: A local
+  ensemble transform kalman filter.
+\newblock {\em Physica D: Nonlinear Phenomena\/}~{\em 230\/}(1), 112--126.
 
 \bibitem[\protect\citeauthoryear{Issa}{Issa}{1986}]{issa1986solution}
 Issa, R.~I. (1986).
@@ -232,6 +264,13 @@ Navier, C. (1823).
 \newblock {\em M{\'e}moires de l’Acad{\'e}mie Royale des Sciences de
   l’Institut de France\/}~{\em 6}, 389--440.
 
+\bibitem[\protect\citeauthoryear{Ott, Hunt, Szunyogh, Zimin, Kostelich,
+  Corazza, Kalnay, Patil, and Yorke}{Ott et~al.}{2004}]{ott2004local}
+Ott, E., B.~R. Hunt, I.~Szunyogh, A.~V. Zimin, E.~J. Kostelich, M.~Corazza,
+  E.~Kalnay, D.~Patil, and J.~A. Yorke (2004).
+\newblock A local ensemble kalman filter for atmospheric data assimilation.
+\newblock {\em Tellus A\/}~{\em 56\/}(5), 415--428.
+
 \bibitem[\protect\citeauthoryear{Patankar and Spalding}{Patankar and
   Spalding}{1972}]{patankar1972calculation}
 Patankar, S.~V. and D.~B. Spalding (1972).
@@ -287,6 +326,13 @@ Talagrand, O. (1997).
 Thompson, P. (1990).
 \newblock Charney and the revival of nwp.
 \newblock {\em The Atmosphere - a challenge\/}, 93--119.
+
+\bibitem[\protect\citeauthoryear{Tippett, Anderson, Bishop, Hamill, and
+  Whitaker}{Tippett et~al.}{2003}]{tippett2003ensemble}
+Tippett, M.~K., J.~L. Anderson, C.~H. Bishop, T.~M. Hamill, and J.~S. Whitaker
+  (2003).
+\newblock Ensemble square root filters*.
+\newblock {\em Monthly Weather Review\/}~{\em 131\/}(7), 1485--1490.
 
 \bibitem[\protect\citeauthoryear{Welander}{Welander}{1995}]{welander1967}
 Welander, P. (1995).

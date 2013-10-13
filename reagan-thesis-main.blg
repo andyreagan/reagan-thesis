@@ -4,10 +4,11 @@ The top-level auxiliary file: reagan-thesis-main.aux
 The style file: chicago.bst
 Database file #1: example.bib
 Database file #2: reagan-thesis.bib
-I was expecting a `,' or a `}'---line 456 of file reagan-thesis.bib
+I was expecting a `,' or a `}'---line 475 of file reagan-thesis.bib
  :   author={Keller, JB}
  :                      .
 I'm skipping whatever remains of this entry
+Warning--I didn't find a database entry for "tippet2003ensemble"
 Warning--I didn't find a database entry for "fisher"
 Warning--I didn't find a database entry for "someone"
 Warning--no number and no volume in beitelmal2002two
@@ -30,45 +31,45 @@ Warning--empty publisher in stokes
 Warning--no number and no volume in thompson1990
 Warning--page numbers missing in welander1967
 Warning--no volume for yuen1999
-You've used 48 entries,
+You've used 55 entries,
             2861 wiz_defined-function locations,
-            918 strings with 13108 characters,
-and the built_in function-call counts, 33796 in all, are:
-= -- 2859
-> -- 2453
+            959 strings with 14405 characters,
+and the built_in function-call counts, 39654 in all, are:
+= -- 3317
+> -- 2981
 < -- 6
-+ -- 730
-- -- 842
-* -- 3032
-:= -- 6133
-add.period$ -- 145
-call.type$ -- 48
-change.case$ -- 348
-chr.to.int$ -- 48
-cite$ -- 68
-duplicate$ -- 905
-empty$ -- 2048
-format.name$ -- 962
-if$ -- 6275
++ -- 896
+- -- 1008
+* -- 3659
+:= -- 7191
+add.period$ -- 166
+call.type$ -- 55
+change.case$ -- 410
+chr.to.int$ -- 55
+cite$ -- 75
+duplicate$ -- 1031
+empty$ -- 2360
+format.name$ -- 1152
+if$ -- 7358
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 49
-newline$ -- 240
-num.names$ -- 480
-pop$ -- 256
+missing$ -- 56
+newline$ -- 275
+num.names$ -- 550
+pop$ -- 297
 preamble$ -- 1
-purify$ -- 639
+purify$ -- 743
 quote$ -- 0
-skip$ -- 946
+skip$ -- 1065
 stack$ -- 0
-substring$ -- 1901
-swap$ -- 307
+substring$ -- 2232
+swap$ -- 349
 text.length$ -- 6
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 930
+type$ -- 1070
 warning$ -- 20
-while$ -- 488
+while$ -- 548
 width$ -- 0
-write$ -- 630
+write$ -- 721
 (There was 1 error message)

@@ -8,6 +8,7 @@
 \newcommand{\mbH}{\mathbf{H}}
 \newcommand{\mbK}{\mathbf{K}}
 \newcommand{\mbP}{\mathbf{P}}
+\newcommand{\mbZ}{\mathbf{Z}}
 \newcommand{\expv}[1]{E \left [ #1 \right ]}
 
 \chapter{Data Assimilation}
@@ -205,8 +206,9 @@ with on the order of 50 different short range forecasts.
 
 \section{Extended Kalman Filter}
 
-The EKF is the ``gold standard'' of data assimilation methods.
-It works by updating our knowledge of error covariance matrix for each assimilation window, using a Tangent Linear Model (TLM).
+The Extended Kalman Filter (EKF) is the ``gold standard'' of data assimilation methods.
+It is the Kalman Filter ``extended'' for application to a nonlinear model.
+It works by updating our knowledge of error covariance matrix for each assimilation window, using a Tangent Linear Model (TLM), whereas in a traditional Kalman Filter the model itself can update the error covariance.
 The TLM is precisely the model (written as a matrix) that transforms a pertubation at time $t$ to a perturbation at time $t+\Delta t$, analytically equivalent to the Jacobian of the model.
 Using the notation of Kalnay \cite{kalnay2003}, this amounts to making a forecast with the nonlinear model $M$, and updating the error covariance matrix $\mbP$ with the TLM $L$, and adjoint model $L^T$
 
@@ -278,15 +280,19 @@ In order to verify my implementation of the TLM, I propogate a small error in th
 
 \section{Ensemble Kalman Filter}
 
-The computational cost of the EKF is mitigated through the approximation of the error covariance matrix $\mbP_f$ from an ensemble of predictions.
+The computational cost of the EKF is mitigated through the approximation of the error covariance matrix $\mbP_f$ from the model itself, without the use of a TLM.
+
 
 One such approach is the use of a forecast ensemble, where a collection of models (ensemble members) are initialized from the prior analysis $\mbx_a$ with random error.
 The spread of these models with randoms errors is then used to estimate the error covariance.
+In the limit of infinite ensemble size, the EnKF is equivalent to the EKF \shortcite{evensen2003ensemble}.
 There are two prevailing methodologies for maintaining independent ensemble members: adding errors to the observation used by each forecast and assimilating each ensemble individually or distributing ensemble initial conditions from the analysis prediction.
-In the prior, the random error added to the observation can be truly random \shortcite{harris2011predicting} or be drawn from a distribution related to the analysis covariance, which I chose.
-Distributing ensemble members around the analysis forecast, with initial conditions perturbed as (for example) the square root of the ensemble has advantages compared to perturbed observations \shortcite{evensen2003ensemble}.
+In the prior, the random error added to the observation can be truly random \shortcite{harris2011predicting} or be drawn from a distribution related to the analysis covariance, which I chose for this type of filter.
+The latter method of distributing ensemble members around the analysis forecast, with initial conditions perturbed as (for example) the square root of the ensemble has advantages compared to perturbed observations \shortcite{evensen2003ensemble}.
+It has been show that the perturbed observation approach introduces additional sampling error that reduces the analysis covariance accuracy and increases the probability of of underestimating analysis error covariance \shortcite{hamill2001distance}.
 
-Since this method is only an approximation, it often fails to capture the full spread of error, and so additive and multiplicative inflation factors are used to obtain a good estimate of the error covariance.
+With a finite ensemble size this method is only an approximation and therefore in practice it often fails to capture the full spread of error
+To better capture the model variance, additive and multiplicative inflation factors are used to obtain a good estimate of the error covariance matrix.
 The specific factors used are tuned through an exhaustive search, and included in the next section.
 The spread of ensemble members in the $x_1$ variable of the Lorenz model, as distance from the analysis, can be seen in Figure \ref{fig:EnKFhist}
 
@@ -301,7 +307,7 @@ The spread of ensemble members in the $x_1$ variable of the Lorenz model, as dis
   \label{fig:EnKFhist}
 \end{figure}
 
-The only difference between this approach and the EKF, numerically, is that the forecast error covariance $\mbP^f$ is computed from the ensemble members, without the need for a tangent linear model:
+The only difference between this approach and the EKF, in general, is that the forecast error covariance $\mbP^f$ is computed from the ensemble members, without the need for a tangent linear model:
 \[ \mbP^f \approx \frac{1}{K-2} \sum _{k\neq l} \left ( \mbx_k ^f - \overline{\mbx} ^f _l \right ) \left (\mbx_k ^f - \overline{\mbx} ^f _l \right ) ^T .\]
 
 In computing the error covariance $\mbP_f$ from the ensemble, we wish to add up the error covariance of each forecast with respect to the mean forecast. 
@@ -320,6 +326,12 @@ We can see the classic spaghetti of the ensemble with this filter implemented on
   \label{fig:spaghetti}
 \end{figure}
 
+The forecast from an ensemble is the average of the ensemble forecasts, and an explanation for this choice is substantiated by Burgers \shortcite{burgers1998analysis}.
+The general EnKF which I use is most similar to that of Burgers.
+Many algorithms based on the EnKF have been proposed and include the Ensemble Transform Kalman Filter (ETKF) \shortcite{ott2004local}, Ensemble Analysis Filter (EAF) \shortcite{anderson2001new}, Ensemble Square Root Filter (EnSRF) \shortcite{tippett2003ensemble}, Local Ensemble Kalman Filter (LEKF) \shortcite{ott2004local}, and finally the Local Ensemble Transform Kalman Filter (LETKF) \shortcite{hunt2007efficient}.
+I explore some of these in the following sections.
+A comprehensive overview through 2003 is provided by Evensen \shortcite{evensen2003ensemble}.
+Next, I present the results of a MATLAB implementation of the EKF and basic EnKF.
 
 \subsection{Performace of EnKF, EKF on Lorenz 63}
 
@@ -378,32 +390,77 @@ In Figure \ref{fig:EKF_cov_tuning_210s} we see that there is a clear region of p
 
 \end{figure}
 
-
 \subsection{Ensemble Transform Kalman Filter (ETKF)}
 
-This is another type of square root filter.
+The ETKF introduced by Bishop is one type of square root filter, and I present it here to provide background for the formulation of the LETKF \shortcite{bishop2001adaptive}.
+For a square root filter in general, we begin by writing the covariance matrices as the product of their matrix square roots.
+Because $\mbP_a,\mbP_f$ are symmetric positive-definite (by defintion) we can write
+\begin{equation} \mbP_a = \mbZ_a \mbZ_a^T ~~,~~~ \mbP_f = \mbZ_f \mbZ_f^T \end{equation}
+for $\mbZ_a,\mbZ_f$ the matrix square roots of $\mbP_a,\mbP_f$ respectively.
+We are not concerned that this decomposition is not unique, and note that $\mbZ$ must have the same rank as $\mbP$ which will prove computationally advantageous.
+The power of the SRF is now seen as we represent the columns of the matrix $\mbZ_f$ as the difference from the ensemble members from the ensemble mean, to avoid forming the full forecast covariance matrix $\mbP_f$.
+The ensemble members are updated by applying the model $M$ to the states $\mbZ_f$ such that an update is performed by
+\begin{equation} \mbZ_f = M \mbZ_a .\end{equation}
+
+Per \shortcite{tippet2003ensemble}, the solution for $\mbZ_a$ can be solved by perturbed observations
+\begin{equation} \mbZ_a = (\mathbf{I} -\mbK \mbH ) \mbZ _f + \mbK \mbW \end{equation}
+where $\mbW$ is the observation perturbation of Gaussian random noise
+This gives the analysis with the expected statistics
+\begin{align} \langle \mbZ_a \mbZ_a^T \rangle &= (\mathbf{I}-\mbK\mbH)\mbP_f(\mathbf{I}-\mbK\mbH)^T + \mbK\mbR\mbK^T\\
+&=\mbP_a \end{align}
+but as mentioned earlier, this has been shown to decrease the resulting covariance accuracy.
+
+In the SRF approach, the ``Potter Method'' provides a deterministic update by rewriting
+\begin{align} \mbP_a &= \mbZ_a \mbZ_a^T = \left(\mathbf{I}-\mbP_f\mbH^T(\mbR+\mbH\mbP_f\mbH^T)^{-1}\mbH\right)\mbP_f \\
+&= \mbZ_f\left(\mathbf{I}-\mbZ_f\mbH^T(\mbH\mbZ_f\mbZ_f^T\mbH^T+\mbR)^{-1}\mbH\mbZ_f\right)\mbZ_f^T\\
+&= \mbZ_f\left(\mathbf{I}-\mathbf{V}\mathbf{D}^{-1}\mathbf{Z}^T\right)\mbZ_f^T. \end{align}
+We have defined $\mathbf{V}\equiv(\mbH\mbZ_f)^T$ and $\mathbf{D}\equiv\mathbf{V}^T\mathbf{V}+\mbR$.
+Now for the ETFK step, we use the Sherman-Morrison-Woodbury identity to show
+\begin{equation} \mathbf{I} - \mathbf{Z}\mathbf{D}^{-1}\mathbf{Z}^T = (\mathbf{I}+\mathbf{Z}_f\mathbf{H}^T\mathbf{R}^{-1}\mathbf{H}\mathbf{Z}_f)^{-1}.\end{equation}
+The matrix on the right hand side is practical to compute because it is of dimension of the rank of the ensemble, assuming that the matrix inverse $\mbR^{-1}$ is available.
+This is the case in our experiment, as the observation are uncorrelated.
+The analysis update is thus
+\begin{equation} \mbZ_a = \mbZ_f \mathbf{C}(\mathbf{\Gamma} +\mathbf{I})^{-1/2} ,\end{equation}
+where $\mathbf{C}\mathbf{\Gamma}\mathbf{C}^T$ is the eigenvalue decomposition of $\mbZ_f^T\mbH^T\mbR^{-1}\mbH\mbZ_f$.
+From \shortcite{tippet2003ensemble} we note that the matrix $\mathbf{C}$ of orthonormal vectors is not unique.
+
+Then the analysis perturbation is calculated from
+\begin{equation} \mbZ_a = \mbZ_f \mathbf{X} \mathbf{U}, \end{equation}
+where $\mathbf{X}\mathbf{X}^T = (\mathbf{I}-\mathbf{Z}\mathbf{D}^{-1}\mathbf{V}^T)$ and $\mathbf{U}$ is an arbitrary orthogonal matrix.
+
 In this filter, the analysis perturbations are assumed to be equal to the backgroud perturbations postmultiplied by a transformation matrix $\mathbf{T}$ so that that the analysis error covariance satisifies
-$$ \mathbf{A}_k = (1- \mbK_k \mbH ) \mbB _k .$$
+$$ \mbP_a = (1- \mbK \mbH ) \mbP_f .$$
 
-The analysis covariance is written
-
-$$ \mathbf{A} = \frac{1}{P-1}\mathbf{X}^a (\mathbf{X}^a) ^T = \mathbf{X} ^b \hat{\mathbf{A}} (\mathbf{X} ^b) ^T $$
-
+The analysis covariance is also written
+$$ \mbP_f = \frac{1}{P-1} ( \mathbf{X}_a (\mathbf{X}_a) ^T = \mathbf{X} ^b \hat{\mathbf{A}} (\mathbf{X} ^b) ^T $$
 where $\hat{\mathbf{A}} = [(P-1) \mathbf{I} + (\mathbf{H} \mathbf{X} ^b ) ^T \mathbf{R} ^{-1} (\mathbf{H} \mathbf{X} ^b ) ] ^{-1} $.
 The analysis perturbations are $\mathbf{X} ^a = \mathbf{X} ^b \mathbf{T}$ where $\mathbf{T} = [(P-1)\hat{\mathbf{A}} ] ^{1/2} $.
-See \shortcite{kalnay20074} for more detail.
 
-\subsection{Local Ensemble Transform Kalman Filter (LETKF)}
+To summarize, the steps for the ETKF are to (1) form $\mbZ_f^T\mbH^T\mbR^{-1}\mbH\mbZ_f$, assuming $\mathbf{R}^{-1}$ is easy. Then (2) compute the eigenvalue decomposition of this, and apply it $\mbZ_f$.
 
-The LETKF implements a strategy that becomes very important for large simulations.
+
+\subsection{Local Ensemble Kalman Filter (LEKF)}
+
+The LEKF implements a strategy that becomes very important for large simulations: localization.
 Namely, the analysis is computed for each gridpoint using only local observations, without the need to build matrices that represent the entire analysis space.
 This localization removes long-distance correlations from $\mathbf{B}$ and allows greater flexibility in the global analysis by allowing different linear combintations of ensemble members at different spatial locations \shortcite{kalnay20074}.
 
 Difficulties are presented however, in the form of computational grid dependence for the localization procedure.
 The toroidal shape of our experiment, when discretized by OpenFOAM's mesher and grid numbering optimized for computational bandwidth for solving, does not require that adjacent grid points have adjacent indices.
 In fact, they are decidely non-adjacent for certain meshes, with every other index corresponding to opposing sides of the loops.
+We overcome this difficulty by placing a more stringent requirement on the mesh of localization of indexing, and extracting the adjacecy matrix for use in filtering.
 
-We overcome this difficulty by placing a more stringent requirement on the mesh of localization of indexing, and extract the adjacecy matrix for use in filtering.
+The general formulation of the LEKF by Ott \shortcite{ott2004local} goes as follows.
+First, determine the 
+
+\subsection{Local Ensemble Transform Kalman Filter (LETKF)}
+
+Proposed by Hunt in 2007 with the stated objective of computational efficiency, the LETKF is named from its most similar algorithms from which it draws \shortcite{hunt2007efficient}.
+With the formulation of the LEKF and the ETKF there is not much new to be said here, but rather a systhesis of the advantages of both of these approaches.
+This is the method that was efficient enough for implementation on the full OpenFOAM CFD model, and so I present it in more detail.
+
+
+
 
 \begin{table}[h]\caption{Summary of Lorenz '63 parameters}
 \label{table:lorenz63params}

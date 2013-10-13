@@ -11,10 +11,10 @@
 \contentsline {figure}{\numberline {2.7}{\ignorespaces The RMS error (unscaled by climatology) is reported for our EKF and EnKF filters, measured as the difference between forecast and truth at the end of an assimiliation window for the latter 2500 assimiliation windows in a 3000 assimilation window model run. Error is measured in the only observed variable, $x_1$. Increasing the assimilation window led to an decrease in predictive skill, as expected. Additive and multiplicative covariance inflation is the same as Harris et. al. }}{26}
 \contentsline {figure}{\numberline {2.8}{\ignorespaces The RMS error averaged over 100 model runs of length 1000 windows is reported for the EKF for varying additive and multiplicative inflation factors $\Delta $ and $\mu $. Each of the 100 model runs starts with a random IC, and the analysis forecast starts randomly. The filter performance RMS is computed as the RMS value of the difference between forecast and truth at the assimilation window for the latter 500 windows, allowing a spin-up of 500 windows. }}{27}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces A screenshot of the loop. }}{32}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces A snapshot of the mesh used for CFD simulations. }}{32}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces A screenshot of the loop. }}{34}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces A snapshot of the mesh used for CFD simulations. }}{34}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Professor Chris Danforth with the aluminum rig. }}{34}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Professor Chris Danforth with the aluminum rig. }}{36}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
