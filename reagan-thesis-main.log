@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.5.30)  10 OCT 2013 20:18
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.5.30)  13 OCT 2013 15:40
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -372,11 +372,11 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
 \tf@lof=\write4
 \openout4 = `reagan-thesis-main.lof'.
 
- [6] (./reagan-thesis-main.lot)
+ [6] [7] (./reagan-thesis-main.lot)
 \tf@lot=\write5
 \openout5 = `reagan-thesis-main.lot'.
 
- [7]
+ [8]
 (./reagan-thesis.chapter1-introduction.tex
 Chapter 1.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <20.74> not available
@@ -386,7 +386,7 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <24.88> not available
 [1
 
 ] [2] [3] [4] [5] [6] [7]
-<figures/Energy-Balance-Model-Schematic.png, id=60, 588.1975pt x 249.93375pt>
+<figures/Energy-Balance-Model-Schematic.png, id=63, 588.1975pt x 249.93375pt>
 File: figures/Energy-Balance-Model-Schematic.png Graphic file (type png)
 
 <use figures/Energy-Balance-Model-Schematic.png>
@@ -394,7 +394,7 @@ Package pdftex.def Info: figures/Energy-Balance-Model-Schematic.png used on inp
 ut line 184.
 (pdftex.def)             Requested size: 212.47617pt x 90.28499pt.
  [8]
-<figures/Earth-System-Model-Schematic.png, id=65, 509.905pt x 448.67625pt>
+<figures/Earth-System-Model-Schematic.png, id=68, 509.905pt x 448.67625pt>
 File: figures/Earth-System-Model-Schematic.png Graphic file (type png)
 
 <use figures/Earth-System-Model-Schematic.png>
@@ -406,13 +406,13 @@ l-Schematic.png>])
 (./reagan-thesis.chapter2-DA.tex [10]
 Chapter 2.
 
-<figures/attractor-colored-by-innovation-prevPos3.pdf, id=73, 483.8075pt x 416.
+<figures/attractor-colored-by-innovation-prevPos3.pdf, id=76, 483.8075pt x 416.
 55624pt>
 File: figures/attractor-colored-by-innovation-prevPos3.pdf Graphic file (type p
 df)
  <use figures/attractor-colored-by-innovation-prevPos3.pdf>
 Package pdftex.def Info: figures/attractor-colored-by-innovation-prevPos3.pdf u
-sed on input line 29.
+sed on input line 33.
 (pdftex.def)             Requested size: 212.47617pt x 182.94208pt.
 
 
@@ -422,93 +422,97 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 ] [12 <./figures/attractor-colored-by-innovation-prevPos3.pdf>] [13]
 [14] [15] [16]
-Overfull \hbox (5.6028pt too wide) in paragraph at lines 163--163
+Overfull \hbox (5.6028pt too wide) in paragraph at lines 167--167
 [] 
  []
 
 [17] [18] [19]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 238.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 242.
  [20]
-<figures/TLM-explanation.pdf, id=119, 687.56876pt x 343.2825pt>
+<figures/TLM-explanation.pdf, id=122, 687.56876pt x 343.2825pt>
 File: figures/TLM-explanation.pdf Graphic file (type pdf)
 
 <use figures/TLM-explanation.pdf>
-Package pdftex.def Info: figures/TLM-explanation.pdf used on input line 254.
+Package pdftex.def Info: figures/TLM-explanation.pdf used on input line 258.
 (pdftex.def)             Requested size: 212.47617pt x 106.08122pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [21]
-<figures/TLM-verification003_noname.pdf, id=123, 472.76625pt x 467.7475pt>
+<figures/TLM-verification003_noname.pdf, id=127, 472.76625pt x 467.7475pt>
 File: figures/TLM-verification003_noname.pdf Graphic file (type pdf)
 
 <use figures/TLM-verification003_noname.pdf>
 Package pdftex.def Info: figures/TLM-verification003_noname.pdf used on input l
-ine 273.
+ine 277.
 (pdftex.def)             Requested size: 212.47617pt x 210.22034pt.
  [22 <./figures/TLM-explanation.pdf> <./figures/TLM-verification003_noname.pdf>
 ]
-<figures/EnKF-histogram-analysis.pdf, id=155, 501.875pt x 412.54124pt>
+<figures/EnKF-histogram-analysis.pdf, id=158, 501.875pt x 412.54124pt>
 File: figures/EnKF-histogram-analysis.pdf Graphic file (type pdf)
 
 <use figures/EnKF-histogram-analysis.pdf>
 Package pdftex.def Info: figures/EnKF-histogram-analysis.pdf used on input line
- 301.
+ 305.
 (pdftex.def)             Requested size: 212.47617pt x 174.6573pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[23] <figures/EnKF_spaghetti.pdf, id=159, 516.93124pt x 424.58624pt>
+[23] <figures/EnKF_spaghetti.pdf, id=162, 516.93124pt x 424.58624pt>
 File: figures/EnKF_spaghetti.pdf Graphic file (type pdf)
 
 <use figures/EnKF_spaghetti.pdf>
-Package pdftex.def Info: figures/EnKF_spaghetti.pdf used on input line 321.
+Package pdftex.def Info: figures/EnKF_spaghetti.pdf used on input line 325.
 (pdftex.def)             Requested size: 212.47617pt x 174.51555pt.
  [24 <./figures/EnKF-histogram-analysis.pdf> <./figures/EnKF_spaghetti.pdf>]
-<figures/DA_test_noname2.pdf, id=176, 478.78876pt x 386.44376pt>
+<figures/DA_test_noname2.pdf, id=179, 478.78876pt x 386.44376pt>
 File: figures/DA_test_noname2.pdf Graphic file (type pdf)
 
 <use figures/DA_test_noname2.pdf>
-Package pdftex.def Info: figures/DA_test_noname2.pdf used on input line 344.
+Package pdftex.def Info: figures/DA_test_noname2.pdf used on input line 348.
 (pdftex.def)             Requested size: 212.47617pt x 171.49225pt.
  [25 <./figures/DA_test_noname2.pdf>]
-<figures/window_experiment_plot001.pdf, id=196, 476.78125pt x 392.46625pt>
+<figures/window_experiment_plot001.pdf, id=199, 476.78125pt x 392.46625pt>
 File: figures/window_experiment_plot001.pdf Graphic file (type pdf)
 
 <use figures/window_experiment_plot001.pdf>
 Package pdftex.def Info: figures/window_experiment_plot001.pdf used on input li
-ne 361.
+ne 365.
 (pdftex.def)             Requested size: 212.47617pt x 174.90143pt.
  [26 <./figures/window_experiment_plot001.pdf>]
-<figures/EKF_210s_infl_error.pdf, id=208, 503.8825pt x 408.52625pt>
+<figures/EKF_210s_infl_error.pdf, id=211, 503.8825pt x 408.52625pt>
 File: figures/EKF_210s_infl_error.pdf Graphic file (type pdf)
 
 <use figures/EKF_210s_infl_error.pdf>
-Package pdftex.def Info: figures/EKF_210s_infl_error.pdf used on input line 383
+Package pdftex.def Info: figures/EKF_210s_infl_error.pdf used on input line 387
 .
 (pdftex.def)             Requested size: 212.47617pt x 172.26555pt.
  [27 <./figures/EKF_210s_infl_error.pdf>]
 
 LaTeX Warning: Citation `tippet2003ensemble' on page 28 undefined on input line
- 405.
+ 409.
 
 [28]
 
 LaTeX Warning: Citation `tippet2003ensemble' on page 29 undefined on input line
- 425.
+ 429.
 
-[29]
+[29] <figures/ott2004algorithmPic.png, id=248, 525.965pt x 365.365pt>
+File: figures/ott2004algorithmPic.png Graphic file (type png)
 
-LaTeX Warning: Citation `fisher' on page 30 undefined on input line 491.
+<use figures/ott2004algorithmPic.png>
+Package pdftex.def Info: figures/ott2004algorithmPic.png used on input line 472
+.
+(pdftex.def)             Requested size: 212.47617pt x 147.59848pt.
 
-[30]
 
-LaTeX Warning: Citation `someone' on page 31 undefined on input line 500.
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-) (./reagan-thesis.chapter3-CFD.tex [31]
+[30] [31 <./figures/ott2004algorithmPic.png>] [32] [33] [34])
+(./reagan-thesis.chapter3-CFD.tex [35] [36]
 Chapter 3.
 LaTeX Font Info:    Try loading font information for OT1+pcr on input line 20.
 (/usr/local/texlive/2013/texmf-dist/tex/latex/psnfss/ot1pcr.fd
@@ -519,53 +523,54 @@ Underfull \hbox (badness 10000) in paragraph at lines 20--21
  / aero / Flow2 . htm$ \OT1/ptm/m/n/10 and $\OT1/pcr/m/n/10 http : / / www .
  []
 
-[32
+[37
 
-] <figures/loop-screenshot.png, id=255, 534.99875pt x 401.5pt>
+] <figures/loop-screenshot.png, id=275, 534.99875pt x 401.5pt>
 File: figures/loop-screenshot.png Graphic file (type png)
 
 <use figures/loop-screenshot.png>
 Package pdftex.def Info: figures/loop-screenshot.png used on input line 52.
 (pdftex.def)             Requested size: 212.47617pt x 159.45764pt.
 
-<figures/mesh.png, id=257, 665.48625pt x 355.3275pt>
+<figures/mesh.png, id=277, 665.48625pt x 355.3275pt>
 File: figures/mesh.png Graphic file (type png)
  <use figures/mesh.png>
 Package pdftex.def Info: figures/mesh.png used on input line 62.
 (pdftex.def)             Requested size: 212.47617pt x 113.44687pt.
 )
-(./reagan-thesis.chapter4-looop.tex [33] [34 <./figures/loop-screenshot.png> <.
+(./reagan-thesis.chapter4-looop.tex [38] [39 <./figures/loop-screenshot.png> <.
 /figures/mesh.png>]
 Chapter 4.
-<figures/danforth.jpg, id=266, 501.875pt x 276.03125pt>
+<figures/danforth.jpg, id=286, 501.875pt x 276.03125pt>
 File: figures/danforth.jpg Graphic file (type jpg)
 
 <use figures/danforth.jpg>
 Package pdftex.def Info: figures/danforth.jpg used on input line 20.
 (pdftex.def)             Requested size: 212.47617pt x 116.86316pt.
-) (./reagan-thesis.chapter5-results.tex [35
+) (./reagan-thesis.chapter5-results.tex [40
 
-] [36 <./figures/danforth.jpg>]
+] [41 <./figures/danforth.jpg>]
 Chapter 5.
-[37
+[42
 
-]) (./reagan-thesis.chapter6-conclusion.tex [38]
+]) (./reagan-thesis.chapter6-conclusion.tex [43]
 Chapter 6.
-) (./reagan-thesis-main.bbl [39
+) (./reagan-thesis-main.bbl [44
 
-] [40]
+] [45]
 Missing character: There is no â in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
 Missing character: There is no ” in font ptmr7t!
+ [46]
 Missing character: There is no â in font ptmri7t!
 Missing character: There is no € in font ptmri7t!
 Missing character: There is no ™ in font ptmri7t!
 Missing character: There is no â in font ptmri7t!
 Missing character: There is no € in font ptmri7t!
 Missing character: There is no ™ in font ptmri7t!
- [41] [42]) (./reagan-thesis.appendix.tex
+ [47]) (./reagan-thesis.appendix.tex
 Appendix A.
-[43
+[48
 
 ]
 Appendix B.
@@ -594,14 +599,14 @@ Overfull \hbox (286.38733pt too wide) in paragraph at lines 17--18
 ][][][][][][][][][][][][][][] 
  []
 
-[44
+[49
 
 ]
 Overfull \hbox (88.38531pt too wide) in paragraph at lines 21--22
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[45]
+[50]
 Overfull \hbox (100.38544pt too wide) in paragraph at lines 58--59
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
@@ -611,7 +616,7 @@ Overfull \hbox (100.38544pt too wide) in paragraph at lines 68--69
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[46]
+[51]
 Overfull \hbox (778.39233pt too wide) in paragraph at lines 79--80
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
 ][][][][][][][][][][][][][][][][][][][][][][][][][][] 
@@ -652,7 +657,7 @@ Overfull \hbox (874.39331pt too wide) in paragraph at lines 102--103
 ][][][][][] 
  []
 
-[47]
+[52]
 Overfull \hbox (34.38477pt too wide) in paragraph at lines 110--111
 [][][][][][][][][][][][][][][][][][][][][][][] 
  []
@@ -667,16 +672,16 @@ Overfull \hbox (70.38513pt too wide) in paragraph at lines 127--128
 [][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-)) [48] (./reagan-thesis-main.aux)
+)) [53] (./reagan-thesis-main.aux)
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 5184 strings out of 493315
- 74265 string characters out of 6137904
- 162252 words of memory out of 5000000
- 8431 multiletter control sequences out of 15000+600000
+ 5198 strings out of 493315
+ 74561 string characters out of 6137904
+ 162360 words of memory out of 5000000
+ 8444 multiletter control sequences out of 15000+600000
  27864 words of font info for 54 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  39i,19n,45p,850b,1470s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -697,10 +702,10 @@ mf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/2013/texmf-dist/
 fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2013/texmf-dist/fonts/type
 1/urw/times/utmr8a.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/urw/time
 s/utmri8a.pfb>
-Output written on reagan-thesis-main.pdf (57 pages, 3813240 bytes).
+Output written on reagan-thesis-main.pdf (63 pages, 3874171 bytes).
 PDF statistics:
- 366 PDF objects out of 1000 (max. 8388607)
- 251 compressed objects within 3 object streams
+ 386 PDF objects out of 1000 (max. 8388607)
+ 264 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
- 66 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 71 words of extra memory for PDF output out of 10000 (max. 10000000)
 

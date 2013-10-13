@@ -95,6 +95,13 @@ Cherry, B., Z.~Dan, and A.~Lustgarten (2006).
 \newblock Next stop, lhasa.
 \newblock {\em Fortune\/}~{\em 153}, 154.
 
+\bibitem[\protect\citeauthoryear{Clayton, Lorenc, and Barker}{Clayton
+  et~al.}{2012}]{clayton2012operational}
+Clayton, A., A.~Lorenc, and D.~Barker (2012).
+\newblock Operational implementation of a hybrid ensemble/4d-var global data
+  assimilation system at the met office.
+\newblock {\em Quarterly Journal of the Royal Meteorological Society\/}.
+
 \bibitem[\protect\citeauthoryear{Creveling, PAZ, Baladi, and
   Schoenhals}{Creveling et~al.}{1975}]{creveling1975stability}
 Creveling, H., D.~PAZ, J.~Baladi, and R.~Schoenhals (1975).
@@ -137,6 +144,12 @@ Evensen, G. (2003).
 \newblock The ensemble kalman filter: Theoretical formulation and practical
   implementation.
 \newblock {\em Ocean dynamics\/}~{\em 53\/}(4), 343--367.
+
+\bibitem[\protect\citeauthoryear{Fisher and Andersson}{Fisher and
+  Andersson}{2001}]{fisher}
+Fisher, M. and E.~Andersson (2001).
+\newblock {\em Developments in 4D-Var and Kalman filtering}.
+\newblock European Centre for Medium-Range Weather Forecasts.
 
 \bibitem[\protect\citeauthoryear{for Aerology, Eliassen, and Bessemoulin}{for
   Aerology et~al.}{1960}]{eliassen1954}

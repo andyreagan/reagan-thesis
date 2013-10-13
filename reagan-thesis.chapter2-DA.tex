@@ -9,6 +9,10 @@
 \newcommand{\mbK}{\mathbf{K}}
 \newcommand{\mbP}{\mathbf{P}}
 \newcommand{\mbZ}{\mathbf{Z}}
+\newcommand{\mbw}{\mathbf{w}}
+\newcommand{\mbX}{\mathbf{X}}
+\newcommand{\mbY}{\mathbf{Y}}
+\newcommand{\mb}{\mathbf{}}
 \newcommand{\expv}[1]{E \left [ #1 \right ]}
 
 \chapter{Data Assimilation}
@@ -450,15 +454,98 @@ The toroidal shape of our experiment, when discretized by OpenFOAM's mesher and 
 In fact, they are decidely non-adjacent for certain meshes, with every other index corresponding to opposing sides of the loops.
 We overcome this difficulty by placing a more stringent requirement on the mesh of localization of indexing, and extracting the adjacecy matrix for use in filtering.
 
-The general formulation of the LEKF by Ott \shortcite{ott2004local} goes as follows.
-First, determine the 
+The general formulation of the LEKF by Ott \shortcite{ott2004local} goes as follows, directly from his paper:
+\begin{enumerate}
+\item Globally advance each ensemble member to the next analysis timestep. Steps 2-5 are performed for each grid point
+\item Create local vectors from each ensemble member
+\item Project that point's local vectors from each ensemble member into a low dimensional subspace as represented by perturbations from the mean
+\item Perform the data assimilation step to obtain a local analysis mean and covariance
+\item Generate local analysis ensemble of states
+\item Form a new global analysis ensemble from all of the local analyses
+\item Wash, rinse, and repeat.
+\end{enumerate}
+
+Figure \ref{fig:ott2004algorithm} depicts this cycle in greater detail, with similar notations to that used thus far (from \shortcite{ott2004local}).
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.49\textwidth]{figures/ott2004algorithmPic.png}
+  \caption{
+    The algorithm for the LEKF as described by Ott.
+    Building on previous work, the algorithm is as one would expect.
+  }
+  \label{fig:ott2004algorithm}
+\end{figure}
+
+There is not much difference than from what one would build naturally to perform the EnKF with localization in Ott's work \shortcite{ott2004local}, with the exception of the reconstruction of the global analysis from local analyses.
+Since each of the assimilations were performed locally, we cannot be sure that there is any smoothness, or physical balance, between adjacent points.
+To ensure a unique solution of local analysis perturbations that has some respect of this balance, utilization of the prior background forecasts as reasonably accurate is used to constrain the construction of local analysis perturbations to minimize the difference from the background.
+
 
 \subsection{Local Ensemble Transform Kalman Filter (LETKF)}
 
 Proposed by Hunt in 2007 with the stated objective of computational efficiency, the LETKF is named from its most similar algorithms from which it draws \shortcite{hunt2007efficient}.
 With the formulation of the LEKF and the ETKF there is not much new to be said here, but rather a systhesis of the advantages of both of these approaches.
-This is the method that was efficient enough for implementation on the full OpenFOAM CFD model, and so I present it in more detail.
+This is the method that was sufficiently efficient for implementation on the full OpenFOAM CFD model of 216,000 model variables, and so I present it in more detail and follow the notation of \shortcite{hunt2007efficient}.
 
+As in the LEKF we explicitly perform the analysis for each grid point of the model.
+The choice of observations to use for each grid point can be selected a priori, and tuned adaptively.
+The simplest choice is to define a radius of influence for each point, and use observations within that.
+In addition to this simple scheme, Hunt proposes weighing observations by their proximity to smoothly transistion across them.
+The goal is to avoid sharp boundaries between neighboring points.
+
+Regarding the LETKF analysis problem as the construction of an analysis ensemble from the background ensemble, where we specify that the mean of the analysis ensemble minimizes a cost function, we state the equations in terms of a cost function.
+The LETKF is thus
+\begin{equation} \left\{ \mbx _{b(i)}\,:\, i=1..k \right\} \underrightarrow{~~~~~~~\text{LETKF}~~~~~~} \left\{ \mbx _{a(i)}\,:\,i=1..k\right\} \end{equation}
+where
+\begin{align*} J(\mbx) = &(\mbx - \overline{\mbx}_b) ^T (\mbP_b)^T(\mbx - \overline{\mbx}_b)\\
+&+\left(\mby_o-H(\mbx)\right)^T \mbR^{-1} \left(\mby_o-H(\mbx)\right). \end{align*}
+Since we have defined $\mbP_b = (1/(k-1))\mbX_b \mbX_b^T$ for the $m\times k$ matrix $\mbX_b = (\mbx_{b(1)},\ldots,\mbx_{b(k)})$, the rank of $\mbP_b$ is at most $k-1$, and the inverse of $\mbP$ is not defined.
+To ameliorate this, we consider the analysis computation to take place in the subspace $S$ spanned by the columns of $\mbX_b$ (the ensemble states), and regard $\mbX_b$ as a linear transformation from a $k$-dimensional space $\tilde{S}$ into $S$.
+Letting $\mbw$ be a vector in $\tilde{S}$, then $\mbX_b\mbw$ belongs to $S$ and $\mbx = \overline{\mbx}_b + \mbX_b \mbw$.
+We can therefore write the cost function as
+\begin{align*} \tilde{J} = &\frac{1}{k-1}\mbw^T\mbw + (\mby_o - H(\overline{\mbx}_b+\mbX_b\mbw))^T\\
+&\times \mbR^{-1}\left(\mby_o - H(\overline{\mbx}_b+\mbX_b\mbw)\right)\end{align*}
+and it has been shown that this is an equivalent formulation by \shortcite{hunt2007efficient}.
+
+Finally, we linearize $H$ by applying it to each $\mbx_{b(i)}$ and inerpolating.
+This is accomplished by defining
+\begin{equation} \mby _{b(i)} = H( \mbx_{b(i)}) \end{equation}
+such that 
+\begin{equation} H(\overline{\mbx}_b - \mbX_b \mbw) = \overline{\mby}_b - \mbY _b \mbw \end{equation}
+where $\mbY$ is the $l\times k$ matrix whose columns are $\mby_{b(i)} - \overline{\mby}_b$ for $\overline{\mby}_b$ the average of the $\mby_{b(i)}$ over $i$.
+Now we rewrite the cost function for the linearize observation operator as
+\begin{align*} \tilde{J}^* = &(k-1)\mbw^T \mbw + (\mby _o -\overline{\mby} _b - \mbY _b \mbw )^T\\
+&\times\mbR^{-1} (\mby _o -\overline{\mby} _b - \mbY _b \mbw ) \end{align*}
+This cost function minimum is the form of the Kalman Filter as I have written it before:
+\begin{align*} \overline{\mbw}_a &= \tilde{\mbP}_a (\mbY _b )^T \mbR ^{-1} (\mby_o - \overline{\mby}_b),\\
+\tilde{P}_a &= \left( (k-1)\mathbf{I}+(\mbY_b)^T\mbR^{-1}\mbY_b\right ) ^{-1} .\end{align*}
+In model space these are
+\begin{align*} \tilde{\mbx}_a &= \overline{\mbx} _b + \mbX _b \overline{\mbw}_a \\
+\mbP _a &= \mbX _b \tilde{\mbP}_a (\mbX _b)^T . \end{align*}
+
+We move directly to a detailed description of the computational implementation of this filter.
+Starting with a collection of background forecast vectors $\{ \mbx_{b(i)} \,:\,i=1..k \}$, we perform steps 1 and 2 in a global variable space, then steps 3-8 for each grid point:
+
+\begin{enumerate}
+\item apply $H$ to $\mbx_{b(i)}$ to form $\mby_{b(i)}$, average the $\mby_b$ for $\overline{\mby_b}$, and form $\mbY b$.
+\item similarly form $\mbX_b$. (now for each grid point)
+\item form the local vectors
+\item compute $\mathbf{C}=(\mbY_b)^T\mbR^{-1}$ (perhaps by solving $\mbR \mathbf{C}^T = \mbY_b$
+\item compute $\tilde{\mbP}_a = \left( (k-1)\mathbf{I} / \rho + \mathbf{C} \mbY _b \right ) ^{-1}$ where $\rho > 1$ is a tunable covariance inflation factor
+\item compute $\mbW_a = \left ( (k-1) \tilde{\mbP} _a \right ) ^{1/2}$
+\item comptue $\overline{\mbw} _a  = \tilde{\mbP}_a \mathbf{C} \left ( \mby_o - \overline{\mby} _b \right )$ and add it to the column of $\mbW_a$
+\item multiply $\mbX_b$ by each $\mbw_{a(i)}$ and add $\tilde{\mbx}_b$ to get $\left\{ \mbx_{a(i)}\,:\,i=1..k\right \}$ to complete each grid point
+\item combine all of the local analysis into the global analysis
+\end{enumerate}
+
+The greatest implementation difficulty in the OpenFOAM model comes back to the spatial discretization and defining the local vectors for each grid point.
+
+\subsubsection{Four Dimensional Local Ensemble Transform Kalman Filter (4D-LETKF)}
+
+Extending the LETKF to incorporate observations from within the assimilation time window also become useful with high-frequency temperature sensors.
+This is implemented without great difficulty on top of the LETKF, by projecting observations as they are made into the space $\tilde{S}$ with the observation time-specific matrix $H_\tau$ and concatenating each successive observation onto $\mby_o$.
+Then with the background forecast at the time $\tau$, we compute $( \overline{\mby}_b )_\tau$ and $ (\mbY _b ) _\tau$, concatenating onto $\overline{\mby}_b$ and $\mbY_b$, respectively.
 
 
 
@@ -482,25 +569,46 @@ $r$ & 28 & \\
 The cannonical choice of $\sigma = 10, b = 8/3$ and $r = 28$ is used for all tests here, which produce the well known butterfly attractor (Figure \ref{fig:lorenzattractor}).
 
 
-
-
 \section{4D-Var}
 
 The formulation of 4D-Var aims to incorporate observations at the time they are observed.
 This inclusion of observations has resulted in significant improvements in forecast skill, cite.
 The next generation supercomputers that will be used in numerical weather prediction will allow for increased model resolution, but the proper scaling of this computation with the number of processors.
-Main issues with the 4D-Var approach include attempting to parallelize what is otherwise a sequential algorithm, see work done by \shortcite{fisher}.
+Main issues with the 4D-Var approach include attempting to parallelize what is otherwise a sequential algorithm and the computational difficulty of the strong-constraint formulation with many TLM integrations, see work done by \shortcite{fisher}.
 
+The formulation of 4D-Var is not so different from 3D-Var, with the inclusion of a TLM and adjoint model to assimilation observations made within the assimilation window.
+At the ECMWF, their 4D-Var is run on a long-window cycle (24 and 48 hours) so that many observations are made within the time window.
+Generally, there are two main 4D-Var formulations in use: strong-constraint and weak-constaint.
+The strong-constraint formulation uses the forecast model as a strong constraint, and is therefore significantly easier to solve.
+From \shortcite{kalnay20074} we have the standard weak-constaint formultation with superscript denoting the timestep within the assimilation window (say there are $0,\ldots,N$ observation time steps within the assimilation window):
+\begin{align*} J(\mbx^0) = &\frac{1}{2} (\mbx^0 - \mbx^0_b) ^T \mbB ^{-1} (\mbx^0 - \mbx_b^0 \frac{1}{2} \sum _{i=0}^N \left( H^i(\mbx^i)-\mby^i\right)^T\\
+&(\mbR^i) ^{-1} \left( H^i(\mbx^i)-\mby^i \right ) .\end{align*}
+
+The weak-constraint formulation has only recently been implemented operationally.
+This is \shortcite{kalnay20074}:
+\begin{align*} J(\mbx^0 , \beta) = &\frac{1}{2} (\mbx^0 - \mbx^0_b)^T \mbB^{-1} (\mbx^0 - \mbx^0_b) + \frac{1}{2} \sum _{i=1} ^N\\
+& \left(H^i(\mbx^i+\beta)-\mby^i\right)^T (\mbR^i)^{-1} \left(H^i(\mbx^i+\beta)-\mby^i\right) \\
+&+\frac{1}{2}\beta^T\mathbf{Q}^{-1}\beta = J_b +J_o+J_\beta.\end{align*}
+
+Future directions of operational data assimilation combine what is best about 4D-Var and ensemble-based algorithms, and these methods are reffered to as ensemble-variational hybrids.
+We have already discussed a few such related appraches: the use of the Kalman gain matrix $\mbK$ used within the 3D-Var cost function, the ``NCEP'' method for 3D-Var, and inflating the ETKF covariance with the 3D-Var static (climatological) covariance $\mbB$.
 
 \subsection{Ensemble-variational hybrids}
 
-In ensemble-variational hybrid approaches, benefits of flow dependent covariance estimates obtained from an ensemble method and the computational efficiency of interatively solving a cost function to obtain the analysis are combined.
-An ensemble of forecasts is used to update the static error covariance $B$ in the formulation of 4D-Var (this could be done in 3D-Var as well) and one possible reformulation is to rewrite the cost function with error covariance $P^f$.
-\begin{equation} \label{eq:En4DVarCost} J(\delta x) = ... \end{equation}
+In ensemble-variational hybrid approaches benefits of flow dependent covariance estimates obtained from an ensemble method, and the computational efficiency of iteratively solving a cost function to obtain the analysis, are combined.
+An ensemble of forecasts is used to update the static error covariance $\mbB$ in the formulation of 4D-Var (this could be done in 3D-Var as well) with some weighting from the climatological covariance $\mbB$ and the ensemble covariance.
+This amounts to a formulation of
+\begin{equation} \mbB = \alpha \mbP_f + (1-\alpha) \mbB \end{equation}
+for some $\alpha$ between 0 and 1.
+Combining the static error covariance $\mbB$ and the flow dependent error covariance $\mbP_f$ is an active area of research \shortcite{clayton2012operational}.
 
-Combining the static error covariance $B$ and the flow dependent error covariance $P^f$ is an active area of research, cite someone: \shortcite{someone}.
+%% \begin{equation} \label{eq:En4DVarCost} J(\delta \mbx) = ... \end{equation}
 
 
+%% \subsection{En4D-Var and 4D-EnVar}
+
+%% First, in data assimilation circles, these do refer to different things.
+%% The goal, however, is the same: avoid use of the TLM and its adjoint in the 4D-Var by substituting an ensemble of forecasts.
 
 
 
