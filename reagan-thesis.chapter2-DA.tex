@@ -117,7 +117,7 @@ We can now write the write that analysis with similar notation as for the scalar
 \mbd &=  \mby_0 - H (\mbx _b ) \\
 \mbe _a  &= \mbx_t - \mbx_a . \end{align}
 
-Note that it is advatageous to write $H$ as an $n \times n_{\text{obs}}$ matrix, where $H$ is not required to be linear.
+Note that it is advatageous to write $H$ as an $n_{\text{obs}} \times n$ matrix, where $H$ is not required to be linear.
 
 Again, our goal is to obtain the weight matrix $\mbW$ that minimizes the analysis error $\mbe_a$. In Kalman Filtering, the weight matrix $\mbW$ is called the gain matrix $\mbK$.
 First, we assume that the background and observations are unbiased.
@@ -601,6 +601,8 @@ This amounts to a formulation of
 \begin{equation} \mbB = \alpha \mbP_f + (1-\alpha) \mbB \end{equation}
 for some $\alpha$ between 0 and 1.
 Combining the static error covariance $\mbB$ and the flow dependent error covariance $\mbP_f$ is an active area of research \shortcite{clayton2012operational}.
+
+
 
 %% \begin{equation} \label{eq:En4DVarCost} J(\delta \mbx) = ... \end{equation}
 

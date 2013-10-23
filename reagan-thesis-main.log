@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.5.30)  13 OCT 2013 15:40
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.5.30)  23 OCT 2013 18:19
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -254,6 +254,314 @@ Package: array 2008/09/09 v2.4c Tabular extension package (FMi)
 (/usr/local/texlive/2013/texmf-dist/tex/latex/cancel/cancel.sty
 Package: cancel 2000/03/12 v2.1 Cancel math terms
 )
+(/usr/local/texlive/2013/texmf-dist/tex/latex/todonotes/todonotes.sty
+Package: todonotes 2012/07/25 .dtx Todonotes source and documentation.
+Package: todonotes 2012/07/25
+
+(/usr/local/texlive/2013/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
+)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+Package: xkeyval 2012/10/14 v2.6b package option processing (HA)
+
+(/usr/local/texlive/2013/texmf-dist/tex/generic/xkeyval/xkeyval.tex
+\XKV@toks=\toks24
+\XKV@tempa@toks=\toks25
+\XKV@depth=\count118
+File: xkeyval.tex 2012/10/14 v2.6b key=value parser (HA)
+))
+(/usr/local/texlive/2013/texmf-dist/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2007/01/21 v2.11 LaTeX color extensions (UK)
+
+(/usr/local/texlive/2013/texmf-dist/tex/latex/latexconfig/color.cfg
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package xcolor Info: Driver file: pdftex.def on input line 225.
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1337.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1341.
+Package xcolor Info: Model `RGB' extended on input line 1353.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1355.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1356.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1357.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1358.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1359.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1360.
+)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty
+(/usr/local/texlive/2013/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty
+(/usr/local/texlive/2013/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty
+(/usr/local/texlive/2013/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.te
+x
+\pgfutil@everybye=\toks26
+)
+(/usr/local/texlive/2013/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def
+\pgfutil@abb=\box31
+(/usr/local/texlive/2013/texmf-dist/tex/latex/ms/everyshi.sty
+Package: everyshi 2001/05/15 v3.00 EveryShipout Package (MS)
+))
+(/usr/local/texlive/2013/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex
+Package: pgfrcs 2010/10/25 v2.10 (rcs-revision 1.24)
+))
+Package: pgf 2008/01/15 v2.10 (rcs-revision 1.12)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty
+(/usr/local/texlive/2013/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty
+(/usr/local/texlive/2013/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
+Package: pgfsys 2010/06/30 v2.10 (rcs-revision 1.37)
+(/usr/local/texlive/2013/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
+\pgfkeys@pathtoks=\toks27
+\pgfkeys@temptoks=\toks28
+
+(/usr/local/texlive/2013/texmf-dist/tex/generic/pgf/utilities/pgfkeysfiltered.c
+ode.tex
+\pgfkeys@tmptoks=\toks29
+))
+\pgf@x=\dimen134
+\pgf@y=\dimen135
+\pgf@xa=\dimen136
+\pgf@ya=\dimen137
+\pgf@xb=\dimen138
+\pgf@yb=\dimen139
+\pgf@xc=\dimen140
+\pgf@yc=\dimen141
+\w@pgf@writea=\write3
+\r@pgf@reada=\read1
+\c@pgf@counta=\count119
+\c@pgf@countb=\count120
+\c@pgf@countc=\count121
+\c@pgf@countd=\count122
+
+(/usr/local/texlive/2013/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
+File: pgf.cfg 2008/05/14  (rcs-revision 1.7)
+)
+Package pgfsys Info: Driver file for pgf: pgfsys-pdftex.def on input line 900.
+
+(/usr/local/texlive/2013/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-pdftex.d
+ef
+File: pgfsys-pdftex.def 2009/05/22  (rcs-revision 1.26)
+
+(/usr/local/texlive/2013/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-p
+df.def
+File: pgfsys-common-pdf.def 2008/05/19  (rcs-revision 1.10)
+)))
+(/usr/local/texlive/2013/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.
+code.tex
+File: pgfsyssoftpath.code.tex 2008/07/18  (rcs-revision 1.7)
+\pgfsyssoftpath@smallbuffer@items=\count123
+\pgfsyssoftpath@bigbuffer@items=\count124
+)
+(/usr/local/texlive/2013/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.
+code.tex
+File: pgfsysprotocol.code.tex 2006/10/16  (rcs-revision 1.4)
+))
+(/usr/local/texlive/2013/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
+Package: pgfcore 2010/04/11 v2.10 (rcs-revision 1.7)
+(/usr/local/texlive/2013/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex
+(/usr/local/texlive/2013/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex
+(/usr/local/texlive/2013/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex)
+(/usr/local/texlive/2013/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
+\pgfmath@dimen=\dimen142
+\pgfmath@count=\count125
+\pgfmath@box=\box32
+\pgfmath@toks=\toks30
+\pgfmath@stack@operand=\toks31
+\pgfmath@stack@operation=\toks32
+)
+(/usr/local/texlive/2013/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.
+tex
+(/usr/local/texlive/2013/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic
+.code.tex)
+(/usr/local/texlive/2013/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigo
+nometric.code.tex)
+(/usr/local/texlive/2013/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.rando
+m.code.tex)
+(/usr/local/texlive/2013/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.compa
+rison.code.tex)
+(/usr/local/texlive/2013/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.
+code.tex)
+(/usr/local/texlive/2013/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round
+.code.tex)
+(/usr/local/texlive/2013/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.
+code.tex)))
+(/usr/local/texlive/2013/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
+\c@pgfmathroundto@lastzeros=\count126
+))
+(/usr/local/texlive/2013/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.co
+de.tex
+File: pgfcorepoints.code.tex 2010/04/09  (rcs-revision 1.20)
+\pgf@picminx=\dimen143
+\pgf@picmaxx=\dimen144
+\pgf@picminy=\dimen145
+\pgf@picmaxy=\dimen146
+\pgf@pathminx=\dimen147
+\pgf@pathmaxx=\dimen148
+\pgf@pathminy=\dimen149
+\pgf@pathmaxy=\dimen150
+\pgf@xx=\dimen151
+\pgf@xy=\dimen152
+\pgf@yx=\dimen153
+\pgf@yy=\dimen154
+\pgf@zx=\dimen155
+\pgf@zy=\dimen156
+)
+(/usr/local/texlive/2013/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconst
+ruct.code.tex
+File: pgfcorepathconstruct.code.tex 2010/08/03  (rcs-revision 1.24)
+\pgf@path@lastx=\dimen157
+\pgf@path@lasty=\dimen158
+)
+(/usr/local/texlive/2013/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage
+.code.tex
+File: pgfcorepathusage.code.tex 2008/04/22  (rcs-revision 1.12)
+\pgf@shorten@end@additional=\dimen159
+\pgf@shorten@start@additional=\dimen160
+)
+(/usr/local/texlive/2013/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.co
+de.tex
+File: pgfcorescopes.code.tex 2010/09/08  (rcs-revision 1.34)
+\pgfpic=\box33
+\pgf@hbox=\box34
+\pgf@layerbox@main=\box35
+\pgf@picture@serial@count=\count127
+)
+(/usr/local/texlive/2013/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicst
+ate.code.tex
+File: pgfcoregraphicstate.code.tex 2008/04/22  (rcs-revision 1.9)
+\pgflinewidth=\dimen161
+)
+(/usr/local/texlive/2013/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransform
+ations.code.tex
+File: pgfcoretransformations.code.tex 2009/06/10  (rcs-revision 1.11)
+\pgf@pt@x=\dimen162
+\pgf@pt@y=\dimen163
+\pgf@pt@temp=\dimen164
+)
+(/usr/local/texlive/2013/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.cod
+e.tex
+File: pgfcorequick.code.tex 2008/10/09  (rcs-revision 1.3)
+)
+(/usr/local/texlive/2013/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreobjects.c
+ode.tex
+File: pgfcoreobjects.code.tex 2006/10/11  (rcs-revision 1.2)
+)
+(/usr/local/texlive/2013/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathproce
+ssing.code.tex
+File: pgfcorepathprocessing.code.tex 2008/10/09  (rcs-revision 1.8)
+)
+(/usr/local/texlive/2013/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.co
+de.tex
+File: pgfcorearrows.code.tex 2008/04/23  (rcs-revision 1.11)
+)
+(/usr/local/texlive/2013/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.cod
+e.tex
+File: pgfcoreshade.code.tex 2008/11/23  (rcs-revision 1.13)
+\pgf@max=\dimen165
+\pgf@sys@shading@range@num=\count128
+)
+(/usr/local/texlive/2013/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.cod
+e.tex
+File: pgfcoreimage.code.tex 2010/03/25  (rcs-revision 1.16)
+
+(/usr/local/texlive/2013/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.
+code.tex
+File: pgfcoreexternal.code.tex 2010/09/01  (rcs-revision 1.17)
+\pgfexternal@startupbox=\box36
+))
+(/usr/local/texlive/2013/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.co
+de.tex
+File: pgfcorelayers.code.tex 2010/08/27  (rcs-revision 1.2)
+)
+(/usr/local/texlive/2013/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretranspare
+ncy.code.tex
+File: pgfcoretransparency.code.tex 2008/01/17  (rcs-revision 1.2)
+)
+(/usr/local/texlive/2013/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepatterns.
+code.tex
+File: pgfcorepatterns.code.tex 2009/07/02  (rcs-revision 1.3)
+)))
+(/usr/local/texlive/2013/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.cod
+e.tex
+File: pgfmoduleshapes.code.tex 2010/09/09  (rcs-revision 1.13)
+\pgfnodeparttextbox=\box37
+)
+(/usr/local/texlive/2013/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.
+tex
+File: pgfmoduleplot.code.tex 2010/10/22  (rcs-revision 1.8)
+)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version
+-0-65.sty
+Package: pgfcomp-version-0-65 2007/07/03 v2.10 (rcs-revision 1.7)
+\pgf@nodesepstart=\dimen166
+\pgf@nodesepend=\dimen167
+)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version
+-1-18.sty
+Package: pgfcomp-version-1-18 2007/07/23 v2.10 (rcs-revision 1.1)
+))
+(/usr/local/texlive/2013/texmf-dist/tex/latex/pgf/utilities/pgffor.sty
+(/usr/local/texlive/2013/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty
+(/usr/local/texlive/2013/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex)
+) (/usr/local/texlive/2013/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex
+Package: pgffor 2010/03/23 v2.10 (rcs-revision 1.18)
+\pgffor@iter=\dimen168
+\pgffor@skip=\dimen169
+\pgffor@stack=\toks33
+\pgffor@toks=\toks34
+))
+(/usr/local/texlive/2013/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.cod
+e.tex
+Package: tikz 2010/10/13 v2.10 (rcs-revision 1.76)
+
+(/usr/local/texlive/2013/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothan
+dlers.code.tex
+File: pgflibraryplothandlers.code.tex 2010/05/31 v2.10 (rcs-revision 1.15)
+\pgf@plot@mark@count=\count129
+\pgfplotmarksize=\dimen170
+)
+\tikz@lastx=\dimen171
+\tikz@lasty=\dimen172
+\tikz@lastxsaved=\dimen173
+\tikz@lastysaved=\dimen174
+\tikzleveldistance=\dimen175
+\tikzsiblingdistance=\dimen176
+\tikz@figbox=\box38
+\tikz@tempbox=\box39
+\tikztreelevel=\count130
+\tikznumberofchildren=\count131
+\tikznumberofcurrentchild=\count132
+\tikz@fig@count=\count133
+
+(/usr/local/texlive/2013/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.cod
+e.tex
+File: pgfmodulematrix.code.tex 2010/08/24  (rcs-revision 1.4)
+\pgfmatrixcurrentrow=\count134
+\pgfmatrixcurrentcolumn=\count135
+\pgf@matrix@numberofcolumns=\count136
+)
+\tikz@expandcount=\count137
+
+(/usr/local/texlive/2013/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarytopaths.code.tex
+File: tikzlibrarytopaths.code.tex 2008/06/17 v2.10 (rcs-revision 1.2)
+)))
+(/usr/local/texlive/2013/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarypositioning.code.tex
+File: tikzlibrarypositioning.code.tex 2008/10/06 v2.10 (rcs-revision 1.7)
+)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/tools/calc.sty
+Package: calc 2007/08/22 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count138
+\calc@Bcount=\count139
+\calc@Adimen=\dimen177
+\calc@Bdimen=\dimen178
+\calc@Askip=\skip66
+\calc@Bskip=\skip67
+LaTeX Info: Redefining \setlength on input line 76.
+LaTeX Info: Redefining \addtolength on input line 77.
+\calc@Ccount=\count140
+\calc@Cskip=\skip68
+)
+\c@@todonotes@numberoftodonotes=\count141
+)
 (/usr/local/texlive/2013/texmf-dist/tex/latex/currfile/currfile.sty
 Package: currfile 2013/02/01 v0.7b Provides the file path elements of the curre
 nt input file
@@ -279,42 +587,42 @@ Package etexcmds Info: Could not find \expanded.
 (/usr/local/texlive/2013/texmf-dist/tex/latex/filehook/filehook.sty
 Package: filehook 2011/10/12 v0.5d Hooks for input files
 )
-\c@currfiledepth=\count118
+\c@currfiledepth=\count142
 )
 (./reagan-thesis-main.settings.tex) (./reagan-thesis.title.tex)
 (./reagan-thesis.committee.tex) (./reagan-thesis-main.aux)
 \openout1 = `reagan-thesis-main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Try loading font information for OT1+ptm on input line 32.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 33.
 
 (/usr/local/texlive/2013/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
 (/usr/local/texlive/2013/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count119
-\scratchdimen=\dimen134
-\scratchbox=\box31
-\nofMPsegments=\count120
-\nofMParguments=\count121
-\everyMPshowfont=\toks24
-\MPscratchCnt=\count122
-\MPscratchDim=\dimen135
-\MPnumerator=\count123
-\makeMPintoPDFobject=\count124
-\everyMPtoPDFconversion=\toks25
+\scratchcounter=\count143
+\scratchdimen=\dimen179
+\scratchbox=\box40
+\nofMPsegments=\count144
+\nofMParguments=\count145
+\everyMPshowfont=\toks35
+\MPscratchCnt=\count146
+\MPscratchDim=\dimen180
+\MPnumerator=\count147
+\makeMPintoPDFobject=\count148
+\everyMPtoPDFconversion=\toks36
 ) (/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
 Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
 )
@@ -341,17 +649,17 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-\c@lstlisting=\count125
+\c@lstlisting=\count149
 
-[1
+ABD: EveryShipout initializing macros [1
 
 {/usr/local/texlive/2013/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-LaTeX Font Info:    Try loading font information for U+msa on input line 34.
+LaTeX Font Info:    Try loading font information for U+msa on input line 35.
 
 (/usr/local/texlive/2013/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 34.
+LaTeX Font Info:    Try loading font information for U+msb on input line 35.
 
 (/usr/local/texlive/2013/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -364,17 +672,17 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1.
  [4])
-\tf@toc=\write3
-\openout3 = `reagan-thesis-main.toc'.
+\tf@toc=\write4
+\openout4 = `reagan-thesis-main.toc'.
 
 
 [5] (./reagan-thesis-main.lof)
-\tf@lof=\write4
-\openout4 = `reagan-thesis-main.lof'.
+\tf@lof=\write5
+\openout5 = `reagan-thesis-main.lof'.
 
  [6] [7] (./reagan-thesis-main.lot)
-\tf@lot=\write5
-\openout5 = `reagan-thesis-main.lot'.
+\tf@lot=\write6
+\openout6 = `reagan-thesis-main.lot'.
 
  [8]
 (./reagan-thesis.chapter1-introduction.tex
@@ -386,7 +694,7 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <24.88> not available
 [1
 
 ] [2] [3] [4] [5] [6] [7]
-<figures/Energy-Balance-Model-Schematic.png, id=63, 588.1975pt x 249.93375pt>
+<figures/Energy-Balance-Model-Schematic.png, id=66, 588.1975pt x 249.93375pt>
 File: figures/Energy-Balance-Model-Schematic.png Graphic file (type png)
 
 <use figures/Energy-Balance-Model-Schematic.png>
@@ -394,7 +702,7 @@ Package pdftex.def Info: figures/Energy-Balance-Model-Schematic.png used on inp
 ut line 184.
 (pdftex.def)             Requested size: 212.47617pt x 90.28499pt.
  [8]
-<figures/Earth-System-Model-Schematic.png, id=68, 509.905pt x 448.67625pt>
+<figures/Earth-System-Model-Schematic.png, id=71, 509.905pt x 448.67625pt>
 File: figures/Earth-System-Model-Schematic.png Graphic file (type png)
 
 <use figures/Earth-System-Model-Schematic.png>
@@ -406,7 +714,7 @@ l-Schematic.png>])
 (./reagan-thesis.chapter2-DA.tex [10]
 Chapter 2.
 
-<figures/attractor-colored-by-innovation-prevPos3.pdf, id=76, 483.8075pt x 416.
+<figures/attractor-colored-by-innovation-prevPos3.pdf, id=79, 483.8075pt x 416.
 55624pt>
 File: figures/attractor-colored-by-innovation-prevPos3.pdf Graphic file (type p
 df)
@@ -430,7 +738,7 @@ Overfull \hbox (5.6028pt too wide) in paragraph at lines 167--167
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 242.
  [20]
-<figures/TLM-explanation.pdf, id=122, 687.56876pt x 343.2825pt>
+<figures/TLM-explanation.pdf, id=125, 687.56876pt x 343.2825pt>
 File: figures/TLM-explanation.pdf Graphic file (type pdf)
 
 <use figures/TLM-explanation.pdf>
@@ -441,7 +749,7 @@ Package pdftex.def Info: figures/TLM-explanation.pdf used on input line 258.
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [21]
-<figures/TLM-verification003_noname.pdf, id=127, 472.76625pt x 467.7475pt>
+<figures/TLM-verification003_noname.pdf, id=130, 472.76625pt x 467.7475pt>
 File: figures/TLM-verification003_noname.pdf Graphic file (type pdf)
 
 <use figures/TLM-verification003_noname.pdf>
@@ -450,7 +758,7 @@ ine 277.
 (pdftex.def)             Requested size: 212.47617pt x 210.22034pt.
  [22 <./figures/TLM-explanation.pdf> <./figures/TLM-verification003_noname.pdf>
 ]
-<figures/EnKF-histogram-analysis.pdf, id=158, 501.875pt x 412.54124pt>
+<figures/EnKF-histogram-analysis.pdf, id=161, 501.875pt x 412.54124pt>
 File: figures/EnKF-histogram-analysis.pdf Graphic file (type pdf)
 
 <use figures/EnKF-histogram-analysis.pdf>
@@ -461,21 +769,21 @@ Package pdftex.def Info: figures/EnKF-histogram-analysis.pdf used on input line
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[23] <figures/EnKF_spaghetti.pdf, id=162, 516.93124pt x 424.58624pt>
+[23] <figures/EnKF_spaghetti.pdf, id=165, 516.93124pt x 424.58624pt>
 File: figures/EnKF_spaghetti.pdf Graphic file (type pdf)
 
 <use figures/EnKF_spaghetti.pdf>
 Package pdftex.def Info: figures/EnKF_spaghetti.pdf used on input line 325.
 (pdftex.def)             Requested size: 212.47617pt x 174.51555pt.
  [24 <./figures/EnKF-histogram-analysis.pdf> <./figures/EnKF_spaghetti.pdf>]
-<figures/DA_test_noname2.pdf, id=179, 478.78876pt x 386.44376pt>
+<figures/DA_test_noname2.pdf, id=182, 478.78876pt x 386.44376pt>
 File: figures/DA_test_noname2.pdf Graphic file (type pdf)
 
 <use figures/DA_test_noname2.pdf>
 Package pdftex.def Info: figures/DA_test_noname2.pdf used on input line 348.
 (pdftex.def)             Requested size: 212.47617pt x 171.49225pt.
  [25 <./figures/DA_test_noname2.pdf>]
-<figures/window_experiment_plot001.pdf, id=199, 476.78125pt x 392.46625pt>
+<figures/window_experiment_plot001.pdf, id=202, 476.78125pt x 392.46625pt>
 File: figures/window_experiment_plot001.pdf Graphic file (type pdf)
 
 <use figures/window_experiment_plot001.pdf>
@@ -483,7 +791,7 @@ Package pdftex.def Info: figures/window_experiment_plot001.pdf used on input li
 ne 365.
 (pdftex.def)             Requested size: 212.47617pt x 174.90143pt.
  [26 <./figures/window_experiment_plot001.pdf>]
-<figures/EKF_210s_infl_error.pdf, id=211, 503.8825pt x 408.52625pt>
+<figures/EKF_210s_infl_error.pdf, id=214, 503.8825pt x 408.52625pt>
 File: figures/EKF_210s_infl_error.pdf Graphic file (type pdf)
 
 <use figures/EKF_210s_infl_error.pdf>
@@ -500,7 +808,7 @@ LaTeX Warning: Citation `tippet2003ensemble' on page 28 undefined on input line
 LaTeX Warning: Citation `tippet2003ensemble' on page 29 undefined on input line
  429.
 
-[29] <figures/ott2004algorithmPic.png, id=248, 525.965pt x 365.365pt>
+[29] <figures/ott2004algorithmPic.png, id=251, 525.965pt x 365.365pt>
 File: figures/ott2004algorithmPic.png Graphic file (type png)
 
 <use figures/ott2004algorithmPic.png>
@@ -514,63 +822,59 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 [30] [31 <./figures/ott2004algorithmPic.png>] [32] [33] [34])
 (./reagan-thesis.chapter3-CFD.tex [35] [36]
 Chapter 3.
-LaTeX Font Info:    Try loading font information for OT1+pcr on input line 20.
-(/usr/local/texlive/2013/texmf-dist/tex/latex/psnfss/ot1pcr.fd
-File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
-)
-Underfull \hbox (badness 10000) in paragraph at lines 20--21
-[]\OT1/ptm/m/n/10 Follow: $\OT1/pcr/m/n/10 http : / / www . allstar . fiu . edu
- / aero / Flow2 . htm$ \OT1/ptm/m/n/10 and $\OT1/pcr/m/n/10 http : / / www .
- []
-
 [37
 
-] <figures/loop-screenshot.png, id=275, 534.99875pt x 401.5pt>
+] [38]
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 64.
+ (/usr/local/texlive/2013/texmf-dist/tex/latex/psnfss/ot1pcr.fd
+File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
+)
+<figures/loop-screenshot.png, id=280, 534.99875pt x 401.5pt>
 File: figures/loop-screenshot.png Graphic file (type png)
 
 <use figures/loop-screenshot.png>
-Package pdftex.def Info: figures/loop-screenshot.png used on input line 52.
+Package pdftex.def Info: figures/loop-screenshot.png used on input line 86.
 (pdftex.def)             Requested size: 212.47617pt x 159.45764pt.
-
-<figures/mesh.png, id=277, 665.48625pt x 355.3275pt>
+ [39]
+<figures/mesh.png, id=287, 665.48625pt x 355.3275pt>
 File: figures/mesh.png Graphic file (type png)
  <use figures/mesh.png>
-Package pdftex.def Info: figures/mesh.png used on input line 62.
+Package pdftex.def Info: figures/mesh.png used on input line 96.
 (pdftex.def)             Requested size: 212.47617pt x 113.44687pt.
 )
-(./reagan-thesis.chapter4-looop.tex [38] [39 <./figures/loop-screenshot.png> <.
-/figures/mesh.png>]
+(./reagan-thesis.chapter4-looop.tex [40 <./figures/loop-screenshot.png> <./figu
+res/mesh.png>]
 Chapter 4.
-<figures/danforth.jpg, id=286, 501.875pt x 276.03125pt>
+<figures/danforth.jpg, id=292, 501.875pt x 276.03125pt>
 File: figures/danforth.jpg Graphic file (type jpg)
 
 <use figures/danforth.jpg>
-Package pdftex.def Info: figures/danforth.jpg used on input line 20.
+Package pdftex.def Info: figures/danforth.jpg used on input line 23.
 (pdftex.def)             Requested size: 212.47617pt x 116.86316pt.
-) (./reagan-thesis.chapter5-results.tex [40
+) (./reagan-thesis.chapter5-results.tex [41
 
-] [41 <./figures/danforth.jpg>]
+] [42 <./figures/danforth.jpg>]
 Chapter 5.
-[42
+[43
 
-]) (./reagan-thesis.chapter6-conclusion.tex [43]
+]) (./reagan-thesis.chapter6-conclusion.tex [44]
 Chapter 6.
-) (./reagan-thesis-main.bbl [44
+) (./reagan-thesis-main.bbl [45
 
-] [45]
+] [46]
 Missing character: There is no â in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
 Missing character: There is no ” in font ptmr7t!
- [46]
+ [47]
 Missing character: There is no â in font ptmri7t!
 Missing character: There is no € in font ptmri7t!
 Missing character: There is no ™ in font ptmri7t!
 Missing character: There is no â in font ptmri7t!
 Missing character: There is no € in font ptmri7t!
 Missing character: There is no ™ in font ptmri7t!
- [47]) (./reagan-thesis.appendix.tex
+ [48]) (./reagan-thesis.appendix.tex
 Appendix A.
-[48
+[49
 
 ]
 Appendix B.
@@ -599,14 +903,14 @@ Overfull \hbox (286.38733pt too wide) in paragraph at lines 17--18
 ][][][][][][][][][][][][][][] 
  []
 
-[49
+[50
 
 ]
 Overfull \hbox (88.38531pt too wide) in paragraph at lines 21--22
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[50]
+[51]
 Overfull \hbox (100.38544pt too wide) in paragraph at lines 58--59
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
@@ -616,7 +920,7 @@ Overfull \hbox (100.38544pt too wide) in paragraph at lines 68--69
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[51]
+[52]
 Overfull \hbox (778.39233pt too wide) in paragraph at lines 79--80
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
 ][][][][][][][][][][][][][][][][][][][][][][][][][][] 
@@ -657,7 +961,7 @@ Overfull \hbox (874.39331pt too wide) in paragraph at lines 102--103
 ][][][][][] 
  []
 
-[52]
+[53]
 Overfull \hbox (34.38477pt too wide) in paragraph at lines 110--111
 [][][][][][][][][][][][][][][][][][][][][][][] 
  []
@@ -672,19 +976,32 @@ Overfull \hbox (70.38513pt too wide) in paragraph at lines 127--128
 [][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-)) [53] (./reagan-thesis-main.aux)
+))
+
+LaTeX Warning: Marginpar on page 54 moved.
+
+
+LaTeX Warning: Marginpar on page 54 moved.
+
+
+LaTeX Warning: Marginpar on page 54 moved.
+
+
+LaTeX Warning: Marginpar on page 54 moved.
+
+[54] (./reagan-thesis-main.aux)
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 5198 strings out of 493315
- 74561 string characters out of 6137904
- 162360 words of memory out of 5000000
- 8444 multiletter control sequences out of 15000+600000
+ 14065 strings out of 493315
+ 253192 string characters out of 6137904
+ 331622 words of memory out of 5000000
+ 17097 multiletter control sequences out of 15000+600000
  27864 words of font info for 54 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 39i,19n,45p,850b,1470s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 63i,19n,76p,850b,1483s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2013/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
 exlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/te
 xlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/tex
@@ -702,10 +1019,10 @@ mf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/2013/texmf-dist/
 fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2013/texmf-dist/fonts/type
 1/urw/times/utmr8a.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/urw/time
 s/utmri8a.pfb>
-Output written on reagan-thesis-main.pdf (63 pages, 3874171 bytes).
+Output written on reagan-thesis-main.pdf (64 pages, 3878615 bytes).
 PDF statistics:
- 386 PDF objects out of 1000 (max. 8388607)
- 264 compressed objects within 3 object streams
+ 392 PDF objects out of 1000 (max. 8388607)
+ 269 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
- 71 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 83 words of extra memory for PDF output out of 10000 (max. 10000000)
 

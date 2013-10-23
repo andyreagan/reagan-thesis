@@ -17,7 +17,41 @@ These three equations are given by
 \left[ \rho u_j e_0 + u_j p + q_j - u_i \tau_{ij} \right] = 0\\
 \end{align*}
 
-Follow: \url{http://www.allstar.fiu.edu/aero/Flow2.htm} and \url{http://www.cfd-online.com/Wiki/Navier-Stokes_equations}
+%Follow: \url{http://www.allstar.fiu.edu/aero/Flow2.htm} And \url{http://www.cfd-online.com/Wiki/Navier-Stokes_equations}
+
+\subsection{Continuity Equation}
+
+Considering a finite volume element with side lengths $\Delta x, \Delta y$ and $\Delta z$.
+%% need be careful that this is a right handed coordinate system
+The amount of mass that enters any given face on this volume is a function of the fluid density $\rho$, the velocity tangent to this face, and the area of the face.
+For the a side with edges specified by both $\Delta x$ and $\Delta y$, let the velocity tangent to this face be $u$ and this mass flow in this side is equal to
+$$ \rho u \Delta x \Delta y .$$
+Assuming the $u$ is positive in this direction, the mass flux out of the opposite side needs to reflect possible changes in velocity $u$ and density $\rho$ through the volume and can be written
+$$ -(\rho + \Delta \rho) (u+\Delta u) \Delta x \Delta y.$$
+Similarly for the other two directions tangent to our volume, we assign velocities $v$ and $w$ with incoming mass
+\begin{align*} &\rho v \Delta x \Delta z\\
+&\rho w \Delta y \Delta z\end{align*}
+and outgoing mass
+\begin{align*} &-(\rho + \Delta \rho )( v+ \Delta v) \Delta x \Delta z\\
+&-(\rho+\Delta \rho) (w+\Delta w) \Delta y \Delta z.\end{align*}
+The rate of mass accumulation in the volume,
+$$ \Delta \rho (\Delta x \Delta y \Delta z) / \Delta t, $$
+must be equal to the sum of the mass entering and leaving the volume (given by the six equations above).
+Equating these, with a little cancellation and dividing by $(\Delta x \Delta y \Delta z)$ we are left with
+\begin{equation} \frac{\Delta \rho}{\Delta t} + \frac{\Delta (\rho u)}{\Delta x} + \frac{\Delta (\rho v)}{\Delta y} + \frac{\Delta (\rho w)}{\Delta z} = 0. \end{equation}
+As $\Delta t \to 0$, this can be written in terms of the partial derivatives
+\begin{equation} \frac{\partial \rho}{\partial t} + \frac{\partial (\rho u)}{\partial x} + \frac{\partial (\rho v)}{\partial y} + \frac{\partial (\rho w)}{\partial z} = 0. \label{eq:NScont} \end{equation}
+
+For an incompressible fluid, we have that $\partial \rho / \partial \{ t,x,y,z\} = 0$ such the continuity equation becomes
+\begin{equation} \frac{\partial u}{\partial x} + \frac{v}{\partial y} + \frac{\partial w}{\partial z} = 0. \label{eq:NScontIco} \end{equation}
+
+\subsection{Momentum Equation}
+
+
+
+\subsection{Energy Equation}
+
+
 
 \section{Discretization and Solving Algorithms}
 

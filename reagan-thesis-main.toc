@@ -23,21 +23,25 @@
 \contentsline {subsection}{\numberline {2.5.1}Ensemble-variational hybrids}{35}
 \contentsline {chapter}{\numberline {3}Computational Fluid Dynamics}{37}
 \contentsline {section}{\numberline {3.1}Derivation of Governing Equations}{37}
-\contentsline {section}{\numberline {3.2}Discretization and Solving Algorithms}{37}
-\contentsline {section}{\numberline {3.3}Solving with OpenFOAM}{38}
-\contentsline {chapter}{\numberline {4}Thermal Convection Loop Experiment}{40}
-\contentsline {section}{\numberline {4.1}Thermal Convection Loops}{40}
-\contentsline {section}{\numberline {4.2}Detailed Experimental Setup}{40}
-\contentsline {chapter}{\numberline {5}Results}{42}
-\contentsline {section}{\numberline {5.1}Prediction Skill for Synthetic Data}{42}
-\contentsline {subsection}{\numberline {5.1.1}Sampling frequency, distribution}{42}
-\contentsline {subsection}{\numberline {5.1.2}Random error vs PMD perturbation scheme}{42}
-\contentsline {subsection}{\numberline {5.1.3}Maintaining hydrostatic balance}{43}
-\contentsline {section}{\numberline {5.2}Real-time Flow Reversal Prediction Skill}{43}
-\contentsline {chapter}{\numberline {6}Conclusion}{44}
-\contentsline {section}{\numberline {6.1}Main Result}{44}
-\contentsline {subsection}{\numberline {6.1.1}More Details}{44}
-\contentsline {section}{Bibliography}{45}
-\contentsline {chapter}{Appendices}{48}
-\contentsline {chapter}{\numberline {A}Parameters}{48}
-\contentsline {chapter}{\numberline {B}Code}{49}
+\contentsline {subsection}{\numberline {3.1.1}Continuity Equation}{37}
+\contentsline {subsection}{\numberline {3.1.2}Momentum Equation}{39}
+\contentsline {subsection}{\numberline {3.1.3}Energy Equation}{39}
+\contentsline {section}{\numberline {3.2}Discretization and Solving Algorithms}{39}
+\contentsline {section}{\numberline {3.3}Solving with OpenFOAM}{39}
+\contentsline {chapter}{\numberline {4}Thermal Convection Loop Experiment}{41}
+\contentsline {section}{\numberline {4.1}Thermal Convection Loops}{41}
+\contentsline {section}{\numberline {4.2}Ehrhard-M\"{u}ller Equations}{41}
+\contentsline {section}{\numberline {4.3}Detailed Experimental Setup}{41}
+\contentsline {chapter}{\numberline {5}Results}{43}
+\contentsline {section}{\numberline {5.1}Prediction Skill for Synthetic Data}{43}
+\contentsline {subsection}{\numberline {5.1.1}Sampling frequency, distribution}{43}
+\contentsline {subsection}{\numberline {5.1.2}Random error vs PMD perturbation scheme}{43}
+\contentsline {subsection}{\numberline {5.1.3}Maintaining hydrostatic balance}{44}
+\contentsline {section}{\numberline {5.2}Real-time Flow Reversal Prediction Skill}{44}
+\contentsline {chapter}{\numberline {6}Conclusion}{45}
+\contentsline {section}{\numberline {6.1}Main Result}{45}
+\contentsline {subsection}{\numberline {6.1.1}More Details}{45}
+\contentsline {section}{Bibliography}{46}
+\contentsline {chapter}{Appendices}{49}
+\contentsline {chapter}{\numberline {A}Parameters}{49}
+\contentsline {chapter}{\numberline {B}Code}{50}
