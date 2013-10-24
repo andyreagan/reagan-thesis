@@ -18,6 +18,7 @@
 \usepackage{tabularx}
 \usepackage[makeroom]{cancel}
 \usepackage{todonotes}
+\usepackage{titletoc}
 
 \widowpenalty=1000000
 \clubpenalty=1000000
@@ -33,21 +34,24 @@
 
 \begin{document}
 
+\renewcommand{\thesection}{\thepart.\textbf{section}}
+\titlecontents{section}[0]{}{}{}{}
+
 \maketitle
 \makeacceptance
 
 \input{\filenamebase.abs}
 
-% for a journal-style dissertation only
-%\input{\filenamebase.citations}
+%% for a journal-style dissertation only
+%% \input{\filenamebase.citations}
 
 %% Optional
-% dedication page
+%% dedication page
 \input{\filenamebase.dedication}
 
 
 %% Optional
-% acknowledgement page
+%% acknowledgement page
 \input{\filenamebase.acknowledgements}
 
 \tableofcontents
@@ -56,6 +60,14 @@
 
 \mainmatter
 \sloppy
+
+%% \renewcommand{\thesection}{}
+\titlecontents{section}[3.5em]{}{}{}{}
+\titlecontents{subsection}[7em]{}{}{}{}
+
+%% for formatting the sections in the main body with the the titlesec package
+%% i don't think that this has any effect on the ToC
+%% \titleformat{\section}[hang]{}{\thesection}{1em}{10em}[]
 
 %for journal format dissertation each chapter needs its own reference section, and want references to be included in global bibliography
 %this is accomplished using include commands

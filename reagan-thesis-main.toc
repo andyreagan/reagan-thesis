@@ -1,47 +1,54 @@
+\ttl@change@i {\@ne }{section}{0}{}{}{}{}\relax 
+\ttl@change@v {section}{}{}{}\relax 
 \contentsline {section}{Dedication}{ii}
 \contentsline {section}{Acknowledgements}{iii}
 \contentsline {section}{List of Figures}{vii}
 \contentsline {section}{List of Tables}{viii}
+\ttl@change@i {\@ne }{section}{3.5em}{}{\contentslabel {}}{\hspace *{-}}{\titlerule *[]{.}\contentspage }\relax 
+\ttl@change@v {section}{}{}{}\relax 
+\ttl@change@i {\@ne }{subsection}{7em}{}{}{}{}\relax 
+\ttl@change@v {subsection}{}{}{}\relax 
 \contentsline {chapter}{\numberline {1}Introduction}{1}
-\contentsline {section}{\numberline {1.1}Introduction}{1}
-\contentsline {section}{\numberline {1.2}History of NWP}{3}
-\contentsline {section}{\numberline {1.3}IC determination: data assimilation}{8}
-\contentsline {section}{\numberline {1.4}NWP and fluid dynamics: computational models}{10}
-\contentsline {section}{\numberline {1.5}Toy climate experiments}{11}
+\contentsline {section}{\numberline {.\textbf {section}}Introduction}{1}
+\contentsline {section}{\numberline {.\textbf {section}}History of NWP}{3}
+\contentsline {section}{\numberline {.\textbf {section}}IC determination: data assimilation}{8}
+\contentsline {section}{\numberline {.\textbf {section}}NWP and fluid dynamics: computational models}{10}
+\contentsline {section}{\numberline {.\textbf {section}}Toy climate experiments}{11}
 \contentsline {chapter}{\numberline {2}Data Assimilation}{15}
-\contentsline {section}{\numberline {2.1}Basic derivation, OI}{16}
-\contentsline {section}{\numberline {2.2}3D-Var}{24}
-\contentsline {section}{\numberline {2.3}Extended Kalman Filter}{26}
-\contentsline {subsection}{\numberline {2.3.1}Coding the TLM}{27}
-\contentsline {section}{\numberline {2.4}Ensemble Kalman Filter}{29}
-\contentsline {subsection}{\numberline {2.4.1}Performace of EnKF, EKF on Lorenz 63}{33}
-\contentsline {subsection}{\numberline {2.4.2}Ensemble Transform Kalman Filter (ETKF)}{35}
-\contentsline {subsection}{\numberline {2.4.3}Local Ensemble Kalman Filter (LEKF)}{38}
-\contentsline {subsection}{\numberline {2.4.4}Local Ensemble Transform Kalman Filter (LETKF)}{40}
+\contentsline {section}{\numberline {.\textbf {section}}Basic derivation, OI}{16}
+\contentsline {section}{\numberline {.\textbf {section}}3D-Var}{24}
+\contentsline {section}{\numberline {.\textbf {section}}Extended Kalman Filter}{26}
+\contentsline {subsection}{\numberline {.\textbf {section}.1}Coding the TLM}{27}
+\contentsline {section}{\numberline {.\textbf {section}}Ensemble Kalman Filter}{29}
+\contentsline {subsection}{\numberline {.\textbf {section}.1}Performace of EnKF, EKF on Lorenz 63}{33}
+\contentsline {subsection}{\numberline {.\textbf {section}.2}Ensemble Transform Kalman Filter (ETKF)}{35}
+\contentsline {subsection}{\numberline {.\textbf {section}.3}Local Ensemble Kalman Filter (LEKF)}{38}
+\contentsline {subsection}{\numberline {.\textbf {section}.4}Local Ensemble Transform Kalman Filter (LETKF)}{40}
 \contentsline {subsubsection}{Four Dimensional Local Ensemble Transform Kalman Filter (4D-LETKF)}{44}
-\contentsline {section}{\numberline {2.5}4D-Var}{44}
-\contentsline {subsection}{\numberline {2.5.1}Ensemble-variational hybrids}{46}
+\contentsline {section}{\numberline {.\textbf {section}}4D-Var}{44}
+\contentsline {subsection}{\numberline {.\textbf {section}.1}Ensemble-variational hybrids}{46}
 \contentsline {chapter}{\numberline {3}Computational Fluid Dynamics}{47}
-\contentsline {section}{\numberline {3.1}Derivation of Governing Equations}{47}
-\contentsline {subsection}{\numberline {3.1.1}Continuity Equation}{48}
-\contentsline {subsection}{\numberline {3.1.2}Momentum Equation}{49}
-\contentsline {subsection}{\numberline {3.1.3}Energy Equation}{49}
-\contentsline {section}{\numberline {3.2}Discretization and Solving Algorithms}{49}
-\contentsline {section}{\numberline {3.3}Solving with OpenFOAM}{50}
+\contentsline {section}{\numberline {.\textbf {section}}Derivation of Governing Equations}{47}
+\contentsline {subsection}{\numberline {.\textbf {section}.1}Continuity Equation}{48}
+\contentsline {subsection}{\numberline {.\textbf {section}.2}Momentum Equation}{49}
+\contentsline {subsection}{\numberline {.\textbf {section}.3}Energy Equation}{49}
+\contentsline {section}{\numberline {.\textbf {section}}Discretization and Solving Algorithms}{49}
+\contentsline {section}{\numberline {.\textbf {section}}Solving with OpenFOAM}{50}
 \contentsline {chapter}{\numberline {4}Thermal Convection Loop Experiment}{53}
-\contentsline {section}{\numberline {4.1}Thermal Convection Loops}{53}
-\contentsline {section}{\numberline {4.2}Ehrhard-M\"{u}ller Equations}{53}
-\contentsline {section}{\numberline {4.3}Detailed Experimental Setup}{54}
+\contentsline {section}{\numberline {.\textbf {section}}Thermal Convection Loops}{53}
+\contentsline {section}{\numberline {.\textbf {section}}Ehrhard-M\"{u}ller Equations}{53}
+\contentsline {section}{\numberline {.\textbf {section}}Detailed Experimental Setup}{54}
 \contentsline {chapter}{\numberline {5}Results}{55}
-\contentsline {section}{\numberline {5.1}Prediction Skill for Synthetic Data}{55}
-\contentsline {subsection}{\numberline {5.1.1}Sampling frequency, distribution}{55}
-\contentsline {subsection}{\numberline {5.1.2}Random error vs PMD perturbation scheme}{56}
-\contentsline {subsection}{\numberline {5.1.3}Maintaining hydrostatic balance}{56}
-\contentsline {section}{\numberline {5.2}Real-time Flow Reversal Prediction Skill}{56}
+\contentsline {section}{\numberline {.\textbf {section}}Prediction Skill for Synthetic Data}{55}
+\contentsline {subsection}{\numberline {.\textbf {section}.1}Sampling frequency, distribution}{55}
+\contentsline {subsection}{\numberline {.\textbf {section}.2}Random error vs PMD perturbation scheme}{56}
+\contentsline {subsection}{\numberline {.\textbf {section}.3}Maintaining hydrostatic balance}{56}
+\contentsline {section}{\numberline {.\textbf {section}}Real-time Flow Reversal Prediction Skill}{56}
 \contentsline {chapter}{\numberline {6}Conclusion}{57}
-\contentsline {section}{\numberline {6.1}Main Result}{57}
-\contentsline {subsection}{\numberline {6.1.1}More Details}{57}
+\contentsline {section}{\numberline {.\textbf {section}}Main Result}{57}
+\contentsline {subsection}{\numberline {.\textbf {section}.1}More Details}{57}
 \contentsline {section}{Bibliography}{58}
 \contentsline {chapter}{Appendices}{62}
 \contentsline {chapter}{\numberline {A}Parameters}{62}
 \contentsline {chapter}{\numberline {B}Code}{63}
+\contentsfinish 

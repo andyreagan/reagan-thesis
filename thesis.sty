@@ -23,6 +23,9 @@
 \setlength{\paperwidth}{8.5in}
 \setlength{\paperheight}{11in}
 
+%% \dottedcontents{subsubsection}[10.5em]{}{3.2em}{1pc}
+
+
 
 \setlength{\oddsidemargin}{0.5in}
 \setlength{\topmargin}{0in}  
@@ -245,34 +248,34 @@
 \def\@pnumwidth{1.55em}
 \def\@tocrmarg {2.55em}
 \def\@dotsep{4.5}
-\setcounter{tocdepth}{3}
+
+\setcounter{tocdepth}{2}
 
 \renewcommand\contentsname{Table of Contents}
 
-\renewcommand*\l@section[2]{%
-  \ifnum \c@tocdepth >\z@
-    \addpenalty\@secpenalty
-    \addvspace{1.0em \@plus\p@}%
-    \setlength\@tempdima{1.5em}%
-    \begingroup
-      \parindent \z@ \rightskip \@pnumwidth
-      \parfillskip -\@pnumwidth
-      \leavevmode \bfseries
-      \advance\leftskip\@tempdima
-      \hskip -\leftskip
-      #1\nobreak%
-	\leaders\hbox{$\m@th \mkern \@dotsep%
-           mu.\mkern \@dotsep mu$}\hfill%
-	 \nobreak\hb@xt@\@pnumwidth{\hss #2}\par
-    \endgroup
-  \fi}
+%% \renewcommand*\l@section[2]{%
+%%   \ifnum \c@tocdepth >\z@
+%%     \addpenalty\@secpenalty
+%%     \addvspace{1.0em \@plus\p@}%
+%%     \setlength\@tempdima{1.5em}%
+%%     \begingroup
+%%       \parindent \z@ \rightskip \@pnumwidth
+%%       \parfillskip -\@pnumwidth
+%%       \leavevmode \bfseries
+%%       \advance\leftskip\@tempdima
+%%       \hskip -\leftskip
+%%       #1\nobreak%
+%% 	\leaders\hbox{$\m@th \mkern \@dotsep%
+%%            mu.\mkern \@dotsep mu$}\hfill%
+%% 	 \nobreak\hb@xt@\@pnumwidth{\hss #2}\par
+%%     \endgroup
+%%   \fi}
   
 \newcommand\citationheadingpublished{
     \vskip 5em 
     Material from this \@citationthesistype\ has been published in the following form:\\
     \vskip 2em 
 }  
-
 
 
 

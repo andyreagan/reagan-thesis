@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.5.30)  23 OCT 2013 18:56
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.5.30)  23 OCT 2013 22:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -562,6 +562,10 @@ LaTeX Info: Redefining \addtolength on input line 77.
 )
 \c@@todonotes@numberoftodonotes=\count141
 )
+(/usr/local/texlive/2013/texmf-dist/tex/latex/titlesec/titletoc.sty
+Package: titletoc 2011/12/15 v1.6 TOC entries
+\ttl@leftsep=\dimen179
+)
 (/usr/local/texlive/2013/texmf-dist/tex/latex/currfile/currfile.sty
 Package: currfile 2013/02/01 v0.7b Provides the file path elements of the curre
 nt input file
@@ -593,19 +597,19 @@ Package: filehook 2011/10/12 v0.5d Hooks for input files
 (./reagan-thesis.committee.tex) (./reagan-thesis-main.aux)
 \openout1 = `reagan-thesis-main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Try loading font information for OT1+ptm on input line 34.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 35.
 
 (/usr/local/texlive/2013/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
@@ -613,13 +617,13 @@ File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 (/usr/local/texlive/2013/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count143
-\scratchdimen=\dimen179
+\scratchdimen=\dimen180
 \scratchbox=\box40
 \nofMPsegments=\count144
 \nofMParguments=\count145
 \everyMPshowfont=\toks35
 \MPscratchCnt=\count146
-\MPscratchDim=\dimen180
+\MPscratchDim=\dimen181
 \MPnumerator=\count147
 \makeMPintoPDFobject=\count148
 \everyMPtoPDFconversion=\toks36
@@ -651,64 +655,1099 @@ e
 ))
 \c@lstlisting=\count149
 
-ABD: EveryShipout initializing macros
-Overfull \hbox (16.96358pt too wide) in paragraph at lines 39--39
-[][][][]\OT1/ptm/m/n/12 graduation 
- []
-
-
-Overfull \hbox (16.96358pt too wide) in paragraph at lines 39--39
-[][][][]\OT1/ptm/m/n/12 graduation 
- []
-
-
-Overfull \hbox (16.96358pt too wide) in paragraph at lines 39--39
-[][][][]\OT1/ptm/m/n/12 graduation 
- []
-
-
-Overfull \hbox (16.96358pt too wide) in paragraph at lines 39--39
-[][][][]\OT1/ptm/m/n/12 graduation 
- []
-
-
-LaTeX Warning: Marginpar on page 1 moved.
-
-
-LaTeX Warning: Marginpar on page 1 moved.
-
-[1
+ABD: EveryShipout initializing macros [1
 
 {/usr/local/texlive/2013/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-LaTeX Font Info:    Try loading font information for U+msa on input line 43.
+LaTeX Font Info:    Try loading font information for U+msa on input line 41.
 
 (/usr/local/texlive/2013/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 43.
+LaTeX Font Info:    Try loading font information for U+msb on input line 41.
 
 (/usr/local/texlive/2013/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [2]
-
-LaTeX Warning: Marginpar on page 3 moved.
-
-
-LaTeX Warning: Marginpar on page 3 moved.
-
 (./reagan-thesis.abs.tex
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <17.28> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1.
  [1]) (./reagan-thesis.dedication.tex [2])
 (./reagan-thesis.acknowledgements.tex [3]) (./reagan-thesis-main.toc
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   !
+l.3 \contentsline {section}{Dedication}{ii}
+                                           
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   !
+l.4 \contentsline {section}{Acknowledgements}{iii}
+                                                  
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   !
+l.5 \contentsline {section}{List of Figures}{vii}
+                                                 
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   !
+l.6 \contentsline {section}{List of Tables}{viii}
+                                                 
+? 
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1.
- [4])
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 11.
+! Missing number, treated as zero.
+<to be read again> 
+                   \hskip 
+l.12 ...rline {.\textbf {section}}Introduction}{1}
+                                                  
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   \hskip 
+l.12 ...rline {.\textbf {section}}Introduction}{1}
+                                                  
+? 
+! Missing number, treated as zero.
+<to be read again> 
+                   {
+l.12 ...rline {.\textbf {section}}Introduction}{1}
+                                                  
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   {
+l.12 ...rline {.\textbf {section}}Introduction}{1}
+                                                  
+? 
+
+Overfull \hbox (38.32748pt too wide) detected at line 12
+\OT1/ptm/m/n/12 .\OT1/ptm/b/n/12 section 
+ []
+
+! Missing number, treated as zero.
+<to be read again> 
+                   \relax 
+l.12 ...rline {.\textbf {section}}Introduction}{1}
+                                                  
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   \relax 
+l.12 ...rline {.\textbf {section}}Introduction}{1}
+                                                  
+? 
+! Missing number, treated as zero.
+<to be read again> 
+                   {
+l.12 ...rline {.\textbf {section}}Introduction}{1}
+                                                  
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   {
+l.12 ...rline {.\textbf {section}}Introduction}{1}
+                                                  
+? 
+! Missing number, treated as zero.
+<to be read again> 
+                   \hskip 
+l.13 ...ine {.\textbf {section}}History of NWP}{3}
+                                                  
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   \hskip 
+l.13 ...ine {.\textbf {section}}History of NWP}{3}
+                                                  
+? 
+! Missing number, treated as zero.
+<to be read again> 
+                   {
+l.13 ...ine {.\textbf {section}}History of NWP}{3}
+                                                  
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   {
+l.13 ...ine {.\textbf {section}}History of NWP}{3}
+                                                  
+? 
+
+Overfull \hbox (38.32748pt too wide) detected at line 13
+\OT1/ptm/m/n/12 .\OT1/ptm/b/n/12 section 
+ []
+
+! Missing number, treated as zero.
+<to be read again> 
+                   \relax 
+l.13 ...ine {.\textbf {section}}History of NWP}{3}
+                                                  
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   \relax 
+l.13 ...ine {.\textbf {section}}History of NWP}{3}
+                                                  
+? 
+! Missing number, treated as zero.
+<to be read again> 
+                   {
+l.13 ...ine {.\textbf {section}}History of NWP}{3}
+                                                  
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   {
+l.13 ...ine {.\textbf {section}}History of NWP}{3}
+                                                  
+? 
+! Missing number, treated as zero.
+<to be read again> 
+                   \hskip 
+l.14 ...n}}IC determination: data assimilation}{8}
+                                                  
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   \hskip 
+l.14 ...n}}IC determination: data assimilation}{8}
+                                                  
+? 
+! Missing number, treated as zero.
+<to be read again> 
+                   {
+l.14 ...n}}IC determination: data assimilation}{8}
+                                                  
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   {
+l.14 ...n}}IC determination: data assimilation}{8}
+                                                  
+? 
+
+Overfull \hbox (38.32748pt too wide) detected at line 14
+\OT1/ptm/m/n/12 .\OT1/ptm/b/n/12 section 
+ []
+
+! Missing number, treated as zero.
+<to be read again> 
+                   \relax 
+l.14 ...n}}IC determination: data assimilation}{8}
+                                                  
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   \relax 
+l.14 ...n}}IC determination: data assimilation}{8}
+                                                  
+? 
+! Missing number, treated as zero.
+<to be read again> 
+                   {
+l.14 ...n}}IC determination: data assimilation}{8}
+                                                  
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   {
+l.14 ...n}}IC determination: data assimilation}{8}
+                                                  
+? 
+! Missing number, treated as zero.
+<to be read again> 
+                   \hskip 
+l.15 ... fluid dynamics: computational models}{10}
+                                                  
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   \hskip 
+l.15 ... fluid dynamics: computational models}{10}
+                                                  
+? 
+! Missing number, treated as zero.
+<to be read again> 
+                   {
+l.15 ... fluid dynamics: computational models}{10}
+                                                  
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   {
+l.15 ... fluid dynamics: computational models}{10}
+                                                  
+? 
+
+Overfull \hbox (38.32748pt too wide) detected at line 15
+\OT1/ptm/m/n/12 .\OT1/ptm/b/n/12 section 
+ []
+
+! Missing number, treated as zero.
+<to be read again> 
+                   \relax 
+l.15 ... fluid dynamics: computational models}{10}
+                                                  
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   \relax 
+l.15 ... fluid dynamics: computational models}{10}
+                                                  
+? 
+! Missing number, treated as zero.
+<to be read again> 
+                   {
+l.15 ... fluid dynamics: computational models}{10}
+                                                  
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   {
+l.15 ... fluid dynamics: computational models}{10}
+                                                  
+? 
+! Missing number, treated as zero.
+<to be read again> 
+                   \hskip 
+l.16 ...tbf {section}}Toy climate experiments}{11}
+                                                  
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   \hskip 
+l.16 ...tbf {section}}Toy climate experiments}{11}
+                                                  
+? 
+! Missing number, treated as zero.
+<to be read again> 
+                   {
+l.16 ...tbf {section}}Toy climate experiments}{11}
+                                                  
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   {
+l.16 ...tbf {section}}Toy climate experiments}{11}
+                                                  
+? 
+
+Overfull \hbox (38.32748pt too wide) detected at line 16
+\OT1/ptm/m/n/12 .\OT1/ptm/b/n/12 section 
+ []
+
+! Missing number, treated as zero.
+<to be read again> 
+                   \relax 
+l.16 ...tbf {section}}Toy climate experiments}{11}
+                                                  
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   \relax 
+l.16 ...tbf {section}}Toy climate experiments}{11}
+                                                  
+? 
+! Missing number, treated as zero.
+<to be read again> 
+                   {
+l.16 ...tbf {section}}Toy climate experiments}{11}
+                                                  
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   {
+l.16 ...tbf {section}}Toy climate experiments}{11}
+                                                  
+? 
+! Missing number, treated as zero.
+<to be read again> 
+                   \hskip 
+l.18 ...textbf {section}}Basic derivation, OI}{16}
+                                                  
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   \hskip 
+l.18 ...textbf {section}}Basic derivation, OI}{16}
+                                                  
+? 
+! Missing number, treated as zero.
+<to be read again> 
+                   {
+l.18 ...textbf {section}}Basic derivation, OI}{16}
+                                                  
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   {
+l.18 ...textbf {section}}Basic derivation, OI}{16}
+                                                  
+? 
+
+Overfull \hbox (38.32748pt too wide) detected at line 18
+\OT1/ptm/m/n/12 .\OT1/ptm/b/n/12 section 
+ []
+
+! Missing number, treated as zero.
+<to be read again> 
+                   \relax 
+l.18 ...textbf {section}}Basic derivation, OI}{16}
+                                                  
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   \relax 
+l.18 ...textbf {section}}Basic derivation, OI}{16}
+                                                  
+? 
+! Missing number, treated as zero.
+<to be read again> 
+                   {
+l.18 ...textbf {section}}Basic derivation, OI}{16}
+                                                  
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   {
+l.18 ...textbf {section}}Basic derivation, OI}{16}
+                                                  
+? 
+! Missing number, treated as zero.
+<to be read again> 
+                   \hskip 
+l.19 ...numberline {.\textbf {section}}3D-Var}{24}
+                                                  
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   \hskip 
+l.19 ...numberline {.\textbf {section}}3D-Var}{24}
+                                                  
+? 
+! Missing number, treated as zero.
+<to be read again> 
+                   {
+l.19 ...numberline {.\textbf {section}}3D-Var}{24}
+                                                  
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   {
+l.19 ...numberline {.\textbf {section}}3D-Var}{24}
+                                                  
+? 
+
+Overfull \hbox (38.32748pt too wide) detected at line 19
+\OT1/ptm/m/n/12 .\OT1/ptm/b/n/12 section 
+ []
+
+! Missing number, treated as zero.
+<to be read again> 
+                   \relax 
+l.19 ...numberline {.\textbf {section}}3D-Var}{24}
+                                                  
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   \relax 
+l.19 ...numberline {.\textbf {section}}3D-Var}{24}
+                                                  
+? 
+! Missing number, treated as zero.
+<to be read again> 
+                   {
+l.19 ...numberline {.\textbf {section}}3D-Var}{24}
+                                                  
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   {
+l.19 ...numberline {.\textbf {section}}3D-Var}{24}
+                                                  
+? 
+! Missing number, treated as zero.
+<to be read again> 
+                   \hskip 
+l.20 ...xtbf {section}}Extended Kalman Filter}{26}
+                                                  
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   \hskip 
+l.20 ...xtbf {section}}Extended Kalman Filter}{26}
+                                                  
+? 
+! Missing number, treated as zero.
+<to be read again> 
+                   {
+l.20 ...xtbf {section}}Extended Kalman Filter}{26}
+                                                  
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   {
+l.20 ...xtbf {section}}Extended Kalman Filter}{26}
+                                                  
+? 
+
+Overfull \hbox (38.32748pt too wide) detected at line 20
+\OT1/ptm/m/n/12 .\OT1/ptm/b/n/12 section 
+ []
+
+! Missing number, treated as zero.
+<to be read again> 
+                   \relax 
+l.20 ...xtbf {section}}Extended Kalman Filter}{26}
+                                                  
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   \relax 
+l.20 ...xtbf {section}}Extended Kalman Filter}{26}
+                                                  
+? 
+! Missing number, treated as zero.
+<to be read again> 
+                   {
+l.20 ...xtbf {section}}Extended Kalman Filter}{26}
+                                                  
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   {
+l.20 ...xtbf {section}}Extended Kalman Filter}{26}
+                                                  
+? 
+! Missing number, treated as zero.
+<to be read again> 
+                   \hskip 
+l.22 ...xtbf {section}}Ensemble Kalman Filter}{29}
+                                                  
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   \hskip 
+l.22 ...xtbf {section}}Ensemble Kalman Filter}{29}
+                                                  
+? 
+! Missing number, treated as zero.
+<to be read again> 
+                   {
+l.22 ...xtbf {section}}Ensemble Kalman Filter}{29}
+                                                  
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   {
+l.22 ...xtbf {section}}Ensemble Kalman Filter}{29}
+                                                  
+? 
+
+Overfull \hbox (38.32748pt too wide) detected at line 22
+\OT1/ptm/m/n/12 .\OT1/ptm/b/n/12 section 
+ []
+
+! Missing number, treated as zero.
+<to be read again> 
+                   \relax 
+l.22 ...xtbf {section}}Ensemble Kalman Filter}{29}
+                                                  
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   \relax 
+l.22 ...xtbf {section}}Ensemble Kalman Filter}{29}
+                                                  
+? 
+! Missing number, treated as zero.
+<to be read again> 
+                   {
+l.22 ...xtbf {section}}Ensemble Kalman Filter}{29}
+                                                  
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   {
+l.22 ...xtbf {section}}Ensemble Kalman Filter}{29}
+                                                  
+? 
+! Missing number, treated as zero.
+<to be read again> 
+                   \hskip 
+l.28 ...numberline {.\textbf {section}}4D-Var}{44}
+                                                  
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   \hskip 
+l.28 ...numberline {.\textbf {section}}4D-Var}{44}
+                                                  
+? 
+! Missing number, treated as zero.
+<to be read again> 
+                   {
+l.28 ...numberline {.\textbf {section}}4D-Var}{44}
+                                                  
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   {
+l.28 ...numberline {.\textbf {section}}4D-Var}{44}
+                                                  
+? 
+
+Overfull \hbox (38.32748pt too wide) detected at line 28
+\OT1/ptm/m/n/12 .\OT1/ptm/b/n/12 section 
+ []
+
+! Missing number, treated as zero.
+<to be read again> 
+                   \relax 
+l.28 ...numberline {.\textbf {section}}4D-Var}{44}
+                                                  
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   \relax 
+l.28 ...numberline {.\textbf {section}}4D-Var}{44}
+                                                  
+? 
+! Missing number, treated as zero.
+<to be read again> 
+                   {
+l.28 ...numberline {.\textbf {section}}4D-Var}{44}
+                                                  
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   {
+l.28 ...numberline {.\textbf {section}}4D-Var}{44}
+                                                  
+? 
+! Missing number, treated as zero.
+<to be read again> 
+                   \hskip 
+l.31 ...on}}Derivation of Governing Equations}{47}
+                                                  
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   \hskip 
+l.31 ...on}}Derivation of Governing Equations}{47}
+                                                  
+? 
+! Missing number, treated as zero.
+<to be read again> 
+                   {
+l.31 ...on}}Derivation of Governing Equations}{47}
+                                                  
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   {
+l.31 ...on}}Derivation of Governing Equations}{47}
+                                                  
+? 
+
+Overfull \hbox (38.32748pt too wide) detected at line 31
+\OT1/ptm/m/n/12 .\OT1/ptm/b/n/12 section 
+ []
+
+! Missing number, treated as zero.
+<to be read again> 
+                   \relax 
+l.31 ...on}}Derivation of Governing Equations}{47}
+                                                  
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   \relax 
+l.31 ...on}}Derivation of Governing Equations}{47}
+                                                  
+? 
+! Missing number, treated as zero.
+<to be read again> 
+                   {
+l.31 ...on}}Derivation of Governing Equations}{47}
+                                                  
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   {
+l.31 ...on}}Derivation of Governing Equations}{47}
+                                                  
+? 
+! Missing number, treated as zero.
+<to be read again> 
+                   \hskip 
+l.35 ...Discretization and Solving Algorithms}{49}
+                                                  
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   \hskip 
+l.35 ...Discretization and Solving Algorithms}{49}
+                                                  
+? 
+! Missing number, treated as zero.
+<to be read again> 
+                   {
+l.35 ...Discretization and Solving Algorithms}{49}
+                                                  
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   {
+l.35 ...Discretization and Solving Algorithms}{49}
+                                                  
+? 
+
+Overfull \hbox (38.32748pt too wide) detected at line 35
+\OT1/ptm/m/n/12 .\OT1/ptm/b/n/12 section 
+ []
+
+! Missing number, treated as zero.
+<to be read again> 
+                   \relax 
+l.35 ...Discretization and Solving Algorithms}{49}
+                                                  
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   \relax 
+l.35 ...Discretization and Solving Algorithms}{49}
+                                                  
+? 
+! Missing number, treated as zero.
+<to be read again> 
+                   {
+l.35 ...Discretization and Solving Algorithms}{49}
+                                                  
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   {
+l.35 ...Discretization and Solving Algorithms}{49}
+                                                  
+? 
+! Missing number, treated as zero.
+<to be read again> 
+                   \hskip 
+l.36 ...extbf {section}}Solving with OpenFOAM}{50}
+                                                  
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   \hskip 
+l.36 ...extbf {section}}Solving with OpenFOAM}{50}
+                                                  
+? 
+! Missing number, treated as zero.
+<to be read again> 
+                   {
+l.36 ...extbf {section}}Solving with OpenFOAM}{50}
+                                                  
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   {
+l.36 ...extbf {section}}Solving with OpenFOAM}{50}
+                                                  
+? 
+
+Overfull \hbox (38.32748pt too wide) detected at line 36
+\OT1/ptm/m/n/12 .\OT1/ptm/b/n/12 section 
+ []
+
+! Missing number, treated as zero.
+<to be read again> 
+                   \relax 
+l.36 ...extbf {section}}Solving with OpenFOAM}{50}
+                                                  
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   \relax 
+l.36 ...extbf {section}}Solving with OpenFOAM}{50}
+                                                  
+? 
+! Missing number, treated as zero.
+<to be read again> 
+                   {
+l.36 ...extbf {section}}Solving with OpenFOAM}{50}
+                                                  
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   {
+l.36 ...extbf {section}}Solving with OpenFOAM}{50}
+                                                  
+? 
+! Missing number, treated as zero.
+<to be read again> 
+                   \hskip 
+l.38 ...bf {section}}Thermal Convection Loops}{53}
+                                                  
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   \hskip 
+l.38 ...bf {section}}Thermal Convection Loops}{53}
+                                                  
+? 
+! Missing number, treated as zero.
+<to be read again> 
+                   {
+l.38 ...bf {section}}Thermal Convection Loops}{53}
+                                                  
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   {
+l.38 ...bf {section}}Thermal Convection Loops}{53}
+                                                  
+? 
+
+Overfull \hbox (38.32748pt too wide) detected at line 38
+\OT1/ptm/m/n/12 .\OT1/ptm/b/n/12 section 
+ []
+
+! Missing number, treated as zero.
+<to be read again> 
+                   \relax 
+l.38 ...bf {section}}Thermal Convection Loops}{53}
+                                                  
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   \relax 
+l.38 ...bf {section}}Thermal Convection Loops}{53}
+                                                  
+? 
+! Missing number, treated as zero.
+<to be read again> 
+                   {
+l.38 ...bf {section}}Thermal Convection Loops}{53}
+                                                  
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   {
+l.38 ...bf {section}}Thermal Convection Loops}{53}
+                                                  
+? 
+! Missing number, treated as zero.
+<to be read again> 
+                   \hskip 
+l.39 ...section}}Ehrhard-M\"{u}ller Equations}{53}
+                                                  
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   \hskip 
+l.39 ...section}}Ehrhard-M\"{u}ller Equations}{53}
+                                                  
+? 
+! Missing number, treated as zero.
+<to be read again> 
+                   {
+l.39 ...section}}Ehrhard-M\"{u}ller Equations}{53}
+                                                  
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   {
+l.39 ...section}}Ehrhard-M\"{u}ller Equations}{53}
+                                                  
+? 
+
+Overfull \hbox (38.32748pt too wide) detected at line 39
+\OT1/ptm/m/n/12 .\OT1/ptm/b/n/12 section 
+ []
+
+! Missing number, treated as zero.
+<to be read again> 
+                   \relax 
+l.39 ...section}}Ehrhard-M\"{u}ller Equations}{53}
+                                                  
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   \relax 
+l.39 ...section}}Ehrhard-M\"{u}ller Equations}{53}
+                                                  
+? 
+! Missing number, treated as zero.
+<to be read again> 
+                   {
+l.39 ...section}}Ehrhard-M\"{u}ller Equations}{53}
+                                                  
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   {
+l.39 ...section}}Ehrhard-M\"{u}ller Equations}{53}
+                                                  
+? 
+! Missing number, treated as zero.
+<to be read again> 
+                   \hskip 
+l.40 ...{section}}Detailed Experimental Setup}{54}
+                                                  
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   \hskip 
+l.40 ...{section}}Detailed Experimental Setup}{54}
+                                                  
+? 
+! Missing number, treated as zero.
+<to be read again> 
+                   {
+l.40 ...{section}}Detailed Experimental Setup}{54}
+                                                  
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   {
+l.40 ...{section}}Detailed Experimental Setup}{54}
+                                                  
+? 
+
+Overfull \hbox (38.32748pt too wide) detected at line 40
+\OT1/ptm/m/n/12 .\OT1/ptm/b/n/12 section 
+ []
+
+! Missing number, treated as zero.
+<to be read again> 
+                   \relax 
+l.40 ...{section}}Detailed Experimental Setup}{54}
+                                                  
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   \relax 
+l.40 ...{section}}Detailed Experimental Setup}{54}
+                                                  
+? 
+! Missing number, treated as zero.
+<to be read again> 
+                   {
+l.40 ...{section}}Detailed Experimental Setup}{54}
+                                                  
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   {
+l.40 ...{section}}Detailed Experimental Setup}{54}
+                                                  
+? 
+[4]
+! Missing number, treated as zero.
+<to be read again> 
+                   \hskip 
+l.42 ...}}Prediction Skill for Synthetic Data}{55}
+                                                  
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   \hskip 
+l.42 ...}}Prediction Skill for Synthetic Data}{55}
+                                                  
+? 
+! Missing number, treated as zero.
+<to be read again> 
+                   {
+l.42 ...}}Prediction Skill for Synthetic Data}{55}
+                                                  
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   {
+l.42 ...}}Prediction Skill for Synthetic Data}{55}
+                                                  
+? 
+
+Overfull \hbox (38.32748pt too wide) detected at line 42
+\OT1/ptm/m/n/12 .\OT1/ptm/b/n/12 section 
+ []
+
+! Missing number, treated as zero.
+<to be read again> 
+                   \relax 
+l.42 ...}}Prediction Skill for Synthetic Data}{55}
+                                                  
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   \relax 
+l.42 ...}}Prediction Skill for Synthetic Data}{55}
+                                                  
+? 
+! Missing number, treated as zero.
+<to be read again> 
+                   {
+l.42 ...}}Prediction Skill for Synthetic Data}{55}
+                                                  
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   {
+l.42 ...}}Prediction Skill for Synthetic Data}{55}
+                                                  
+? 
+! Missing number, treated as zero.
+<to be read again> 
+                   \hskip 
+l.46 ...l-time Flow Reversal Prediction Skill}{56}
+                                                  
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   \hskip 
+l.46 ...l-time Flow Reversal Prediction Skill}{56}
+                                                  
+? 
+! Missing number, treated as zero.
+<to be read again> 
+                   {
+l.46 ...l-time Flow Reversal Prediction Skill}{56}
+                                                  
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   {
+l.46 ...l-time Flow Reversal Prediction Skill}{56}
+                                                  
+? 
+
+Overfull \hbox (38.32748pt too wide) detected at line 46
+\OT1/ptm/m/n/12 .\OT1/ptm/b/n/12 section 
+ []
+
+! Missing number, treated as zero.
+<to be read again> 
+                   \relax 
+l.46 ...l-time Flow Reversal Prediction Skill}{56}
+                                                  
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   \relax 
+l.46 ...l-time Flow Reversal Prediction Skill}{56}
+                                                  
+? 
+! Missing number, treated as zero.
+<to be read again> 
+                   {
+l.46 ...l-time Flow Reversal Prediction Skill}{56}
+                                                  
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   {
+l.46 ...l-time Flow Reversal Prediction Skill}{56}
+                                                  
+? 
+! Missing number, treated as zero.
+<to be read again> 
+                   \hskip 
+l.48 ...rline {.\textbf {section}}Main Result}{57}
+                                                  
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   \hskip 
+l.48 ...rline {.\textbf {section}}Main Result}{57}
+                                                  
+? 
+! Missing number, treated as zero.
+<to be read again> 
+                   {
+l.48 ...rline {.\textbf {section}}Main Result}{57}
+                                                  
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   {
+l.48 ...rline {.\textbf {section}}Main Result}{57}
+                                                  
+? 
+
+Overfull \hbox (38.32748pt too wide) detected at line 48
+\OT1/ptm/m/n/12 .\OT1/ptm/b/n/12 section 
+ []
+
+! Missing number, treated as zero.
+<to be read again> 
+                   \relax 
+l.48 ...rline {.\textbf {section}}Main Result}{57}
+                                                  
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   \relax 
+l.48 ...rline {.\textbf {section}}Main Result}{57}
+                                                  
+? 
+! Missing number, treated as zero.
+<to be read again> 
+                   {
+l.48 ...rline {.\textbf {section}}Main Result}{57}
+                                                  
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   {
+l.48 ...rline {.\textbf {section}}Main Result}{57}
+                                                  
+? 
+! Missing number, treated as zero.
+<to be read again> 
+                   \hskip 
+l.50 \contentsline {section}{Bibliography}{58}
+                                              
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   \hskip 
+l.50 \contentsline {section}{Bibliography}{58}
+                                              
+? 
+! Missing number, treated as zero.
+<to be read again> 
+                   \relax 
+l.50 \contentsline {section}{Bibliography}{58}
+                                              
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   \relax 
+l.50 \contentsline {section}{Bibliography}{58}
+                                              
+? 
+! Missing number, treated as zero.
+<to be read again> 
+                   {
+l.50 \contentsline {section}{Bibliography}{58}
+                                              
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   {
+l.50 \contentsline {section}{Bibliography}{58}
+                                              
+? 
+)
 \tf@toc=\write4
 \openout4 = `reagan-thesis-main.toc'.
 
-
-[5] (./reagan-thesis-main.lof [6])
+ [5] (./reagan-thesis-main.lof [6])
 \tf@lof=\write5
 \openout5 = `reagan-thesis-main.lof'.
 
@@ -1532,13 +2571,13 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 14072 strings out of 493315
- 253174 string characters out of 6137904
- 320867 words of memory out of 5000000
- 17100 multiletter control sequences out of 15000+600000
+ 14094 strings out of 493315
+ 252764 string characters out of 6137904
+ 318644 words of memory out of 5000000
+ 17119 multiletter control sequences out of 15000+600000
  25916 words of font info for 58 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 63i,19n,76p,850b,1485s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 63i,19n,57p,850b,1485s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2013/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
 exlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/te
 xlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/tex
@@ -1556,7 +2595,7 @@ mf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/2013/texmf-dist/
 fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2013/texmf-dist/fonts/type
 1/urw/times/utmr8a.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/urw/time
 s/utmri8a.pfb>
-Output written on reagan-thesis-main.pdf (78 pages, 3884567 bytes).
+Output written on reagan-thesis-main.pdf (78 pages, 3882460 bytes).
 PDF statistics:
  437 PDF objects out of 1000 (max. 8388607)
  300 compressed objects within 3 object streams
