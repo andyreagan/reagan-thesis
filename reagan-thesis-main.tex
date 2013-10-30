@@ -34,8 +34,9 @@
 
 \begin{document}
 
-\renewcommand{\thesection}{\thepart.\textbf{section}}
-\titlecontents{section}[0]{}{}{}{}
+%% \renewcommand{\thesection}{\thepart.\textbf{section}}
+%% \titlecontents{section}[0]{\vspace{4px}}{\bf{#1}}{}{}
+\titlecontents{section}[0]{\vspace{5.5px}\bf}{}{}{\titlerule*[1pc]{.}\contentspage}
 
 \maketitle
 \makeacceptance
@@ -61,9 +62,11 @@
 \mainmatter
 \sloppy
 
-%% \renewcommand{\thesection}{}
-\titlecontents{section}[3.5em]{}{}{}{}
-\titlecontents{subsection}[7em]{}{}{}{}
+%% \renewcommand{\thesection}{art.\textbf{section}}
+%% put a .section  mashed on...
+%% \titlecontents{section}[3.5em]{\contentslabel{2.3em}}{}{}{}
+\titlecontents{section}[3.5em]{\vspace{2px}}{}{}{\titlerule*[1pc]{.}\contentspage}
+\titlecontents{subsection}[5em]{}{}{}{}
 
 %% for formatting the sections in the main body with the the titlesec package
 %% i don't think that this has any effect on the ToC
