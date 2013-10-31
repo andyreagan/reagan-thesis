@@ -1,6 +1,31 @@
 \chapter{Results}
 \chaptermark{} %this is the chapter heading that will show on subsequent pages
 
+\section{Computational Model and DA Framework}
+
+\subsection{Core framework}
+
+The first output of this work is a general data assimilation framework for MATLAB.
+By utilizing an object-oriented (OO) design, the model and data assimilation algorithm code are separate and can be changed independently
+The principal advantage of this approach is the ease of incorporation of new models and DA techniques.
+
+To add a new model to this framework, it is only necessary to write a MATLAB class wrapper for the model, and the existing Lorenz 63 and OpenFOAM model wrappers can be used as templates.
+Testing a new technique for performing the DA step is as simple as writing a MALTLAB function for the assimilation steps, where the the model result and observation as provided as an input.
+
+The core of this framework is the MATLAB script modelDAinterface.m which wraps observations, the model class, and any DA method together.
+A description of the main algorithm is provided in the Appendix.
+\todo{remove this statement if the code can't be included succinctly}
+
+For large models, it is necessary to perform the assimilation in a local space, and this consideration is accounted for within the framework.
+
+\subsection{Tuned OpenFOAM model}
+
+In addition to wrapping the OpenFOAM model into MATLAB-speak, defining a physically realistic simulation was necessary for accurate results.
+A uniform sampling of the OpenFOAM model parameter space across BC type, BC values, and turbulence model was performed.
+The amount of output data constitutes what is today ``big data,'' and for this reason it was difficult to find a suitable parameter regime systematically.
+I chose the turbulence model, BC type, and BC values based on a empirical selection of the timeseires for a subset of model variables that best represented the known chaotic regime of a physical model.
+In a real model, this regime has been verified by others \shortcite{}.
+
 \section{Prediction Skill for Synthetic Data}
 
 I first present the results pertaining to the accurarcy of forecasts for synthetic data.
@@ -10,14 +35,14 @@ I first present the results pertaining to the accurarcy of forecasts for synthet
 Increasing sampling frequency led to improved forecast accurary, up to a finite cutoff where the error covariance inflation requirement becomes unstable.
 
 Observational network density also improves forecast accuracy, as would be expected, up to limit of the computational memory avaiable for computing large non-sparse covariance matrices.
-For example the full system, with 216,000 variables, produces an error covariance matrix of 347GB in double precision.
-With the expected continuation of Moore's Law, however, this simulation may be possible in a few as 5 years (assuming a doubling of memory every 18 months, starting now with my 8GB lapop) on a laptop computer.
+%% For example the full system, with 216,000 variables, produces an error covariance matrix of 347GB in double precision.
+%% With the expected continuation of Moore's Law, however, this simulation may be possible in a few as 5 years (assuming a doubling of memory every 18 months, starting now with my 8GB lapop) on a laptop computer.
 
 \subsection{Random error vs PMD perturbation scheme}
 
 The computational implementation of the NS equations is dispersive, meaning that small perturbations are quickly resolved.
 
-In other words, we beat the hell of out random error.
+%% In other words, we beat the hell of out random error.
 
 \subsection{Maintaining hydrostatic balance}
 
@@ -25,6 +50,37 @@ The importance of maintaining balance in the model variables, originally dooming
 
 \section{Real-time Flow Reversal Prediction Skill}
 
-Now the real business: running CFD in real time and assimilating observations from temperature probes.
 
 
+\section{Prediction Skill for Real Data}
+
+Now the real business: running CFD in real time and assimilating observations from temperature.
+
+\todo{obtain a physical time series, input into previous synthetic experiment!}
+
+\section{Conclusion}
+
+Throughout the process of building a data assimilation scheme from scratch, as well as deriving and tuning a computational model, I have learned a great deal about the difficulties and successes of modeling.
+I have found that data assimilation algorithms and CFD solvers are sensitive to parameter choices, and cannot be used successfully without an approach that is specific to the problem at hand.
+This is not suprising
+
+For the future of data assimilation, the numerical schemes will need to be adaptive to the new computing resources.
+The trend toward massively parrallel computation puts the spotlight on effective localization of the assimilation step, which may be difficult in schemes that do not use ensembles, such as the 4D-Var.
+Maintaining TLM and adjoint code is difficult and time-consuming, and with future increases in model resolution and atmospheric understanding, TLMs of full GCM models may become impossible.
+Again, this points to the potential use of local ensemble based filters such as the LETKF as implemented here.
+
+\subsection{Future directions}
+
+The immediate next step for this work is to test prediction skill in real time.
+All of the pieces are there: an observation-based data assimilation framework and models that run at near real-time speed.
+Currently on the VACC, the OpenFOAM simulation with grid size 36K runs with approximately half of real-time speed on one core.
+This allows the possibility of running $N$ ensemble methods using 
+
+Beyond real-time prediction, designing and testing new methods of data assimilation is now possible for large scale systems.
+New methods specific to CFD, possibly using PMD of flow fields have the potential to greatly improve the skill of real-time CFD applications.
+
+The numerical coupling of CFD to experiment by DA should be generally useful to improve the skill of CFD predictions in even data-poor experiments, which can provide better knowledge of unobservable quantities of interest in fluid flow.
+
+\begin{center}
+In data we trust. 
+\end{center}

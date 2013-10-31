@@ -4,14 +4,14 @@ The top-level auxiliary file: reagan-thesis-main.aux
 The style file: chicago.bst
 Database file #1: example.bib
 Database file #2: reagan-thesis.bib
-I was expecting a `,' or a `}'---line 488 of file reagan-thesis.bib
+I was expecting a `,' or a `}'---line 496 of file reagan-thesis.bib
  :   author={Keller, JB}
  :                      .
 I'm skipping whatever remains of this entry
 Warning--I didn't find a database entry for "tippet2003ensemble"
+Warning--I didn't find a database entry for ""
 Warning--no number and no volume in beitelmal2002two
 Warning--page numbers missing in beitelmal2002two
-Warning--no number and no volume in charney1950
 Warning--no number and no volume in clayton2012operational
 Warning--page numbers missing in clayton2012operational
 Warning--no number and no volume in gandin1965
@@ -31,45 +31,45 @@ Warning--empty publisher in stokes
 Warning--no number and no volume in thompson1990
 Warning--page numbers missing in welander1967
 Warning--no volume for yuen1999
-You've used 57 entries,
+You've used 55 entries,
             2861 wiz_defined-function locations,
-            965 strings with 14697 characters,
-and the built_in function-call counts, 40955 in all, are:
-= -- 3417
-> -- 3094
-< -- 6
-+ -- 930
-- -- 1046
-* -- 3776
-:= -- 7439
-add.period$ -- 172
-call.type$ -- 57
-change.case$ -- 424
-chr.to.int$ -- 57
-cite$ -- 79
-duplicate$ -- 1065
-empty$ -- 2430
-format.name$ -- 1198
-if$ -- 7594
+            948 strings with 14152 characters,
+and the built_in function-call counts, 39301 in all, are:
+= -- 3257
+> -- 2990
+< -- 5
++ -- 898
+- -- 1006
+* -- 3648
+:= -- 7161
+add.period$ -- 165
+call.type$ -- 55
+change.case$ -- 410
+chr.to.int$ -- 55
+cite$ -- 76
+duplicate$ -- 1013
+empty$ -- 2327
+format.name$ -- 1150
+if$ -- 7267
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 59
-newline$ -- 285
-num.names$ -- 570
-pop$ -- 310
+missing$ -- 57
+newline$ -- 275
+num.names$ -- 550
+pop$ -- 297
 preamble$ -- 1
-purify$ -- 770
+purify$ -- 744
 quote$ -- 0
-skip$ -- 1105
+skip$ -- 1045
 stack$ -- 0
-substring$ -- 2272
-swap$ -- 359
-text.length$ -- 6
+substring$ -- 2167
+swap$ -- 338
+text.length$ -- 5
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 1100
-warning$ -- 22
-while$ -- 564
+type$ -- 1060
+warning$ -- 21
+while$ -- 539
 width$ -- 0
-write$ -- 747
+write$ -- 718
 (There was 1 error message)

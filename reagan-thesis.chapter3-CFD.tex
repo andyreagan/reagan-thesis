@@ -1,8 +1,10 @@
 \chapter{Computational Fluid Dynamics}
 \chaptermark{CFD} %% this is the chapter heading that will show on subsequent pages
 
+\begin{quote}
 In this chapter I present the basics of CFD that will be necessary to understand our approach to modeling the thermosyphon numerically.
 This consists of a derivation of the equations, and a discussion of their solution on a finite grid.
+\end{quote}
 
 \section{Derivation of Governing Equations}
 
@@ -131,22 +133,23 @@ In tensor notation the mean stress tensor can be written
 for $\delta _{ij} = 0$ if and only if $i=j$.
 Assume constant viscocity $\mu = \mu _0$, divide by $\rho _0$ and incorporate the latter for the stress tensor and we now have the momentum equation as
 \begin{equation*} \frac{\partial \bar{u}_i}{\partial t} + \frac{\partial}{\partial x_j} \left( \bar{u}_j \bar{u}_i \right) 
-= -\frac{\partial } {\partial{x_i}} \frac{\bar{p}}{\rho_0} + \frac{\partial }{\partial x_j} \left ( \nu _0 \left ( \left ( \frac{\partial \bar{u}_i} {\partial x_j} + \frac{\partial \bar{u} _j}{\partial x_i} \right ) - \frac{2}{3}\left ( \frac{\partial \bar{u} _k}{\partial x_k }\right ) \delta _{ij}\right ) - \tau ^* _{ij} \right ) + \bar{\rho} g_i \end{equation}
+= -\frac{\partial } {\partial{x_i}} \frac{\bar{p}}{\rho_0} + \frac{\partial }{\partial x_j} \left ( \nu _0 \left ( \left ( \frac{\partial \bar{u}_i} {\partial x_j} + \frac{\partial \bar{u} _j}{\partial x_i} \right ) - \frac{2}{3}\left ( \frac{\partial \bar{u} _k}{\partial x_k }\right ) \delta _{ij}\right ) - \tau ^* _{ij} \right ) + \bar{\rho} g_i \end{equation*}
 where $\nu _0 = \mu _0 /\rho _0$.
 We can then decompose the turbulent stress tensor $\tau ^* _{ij}$ further using $R_{ij}$ to denote the Reynolds stress tensor
 \begin{equation*} \tau ^* _{ij} = R_{ij} = R^D _{ij} + \frac{2}{3} k \delta _{ij} \end{equation*}
 for $R_{ij}^D$ the deviatoric part and $k = R_{ii}/2$ the turbulent kinetic energy.
 For LES this becomes the sub-grid kinetic energy.
 Note that OpenFOAM outputs the resolved kinematic pressure
-\begin{equation*} \tilde{p} = \frac{\bar{p} }{\rho _0} + \frac{2}{3}k \end{equation}
+\begin{equation*} \tilde{p} = \frac{\bar{p} }{\rho _0} + \frac{2}{3}k \end{equation*}
 and uses the Boussinesq approximation for the last term
-\begin{equation*} g_i\frac{\bar{\rho}}{\rho _0} = g_i \left ( 1 + \frac{\bar{\rho} - \rho _0}{\rho _0} \right ) = g_i \rho _k  = g_i (1 - \beta \left (\overline{T} - T _0\right ) .\end{equation}
+\begin{equation*} g_i\frac{\bar{\rho}}{\rho _0} = g_i \left ( 1 + \frac{\bar{\rho} - \rho _0}{\rho _0} \right ) = g_i \rho _k  = g_i (1 - \beta \left (\overline{T} - T _0\right ) .\end{equation*}
 
 \subsection{Energy Equation}
 
 Again following the derivation of Anderson, we derive the energy equation into the form used in OpenFOAM \shortcite{anderson2009governing}.
 Since our problem deals with an incompressible fluid, we are only concerned with the temperature parts of the energy equation and begin with this consideration to greatly simplify the derivation.
 
+\todo{copy proper derivation from notes}
 The temperature (energy) equation is thus
 \begin{equation} \frac{\partial }{\partial t} \left ( \rho e\right ) + \frac{\partial}{\partial x_j} \left ( \rho e u_j \right ) 
 = 
@@ -172,26 +175,28 @@ OpenFOAM has the capacity for each scheme, and for our problem the finite volume
 After discretization, solving is accomplished by a combined SIMPLE/PISO algorithm.
 The PISO (Pressure-Implicit with Splitting of Operators) algorithm derives from the work of \shortcite{issa1986solution}, and is complementary to the SIMPLE (Semi-Implicit Method for Pressure-Linked Equations) \shortcite{patankar1972calculation} iterative method.
 
-Simple algorithm:
-\url{http://www.cfd-online.com/Wiki/SIMPLE_algorithm}
+\todo{Discuss simple algorithm}
+%% \url{http://www.cfd-online.com/Wiki/SIMPLE_algorithm}
 
-The proper inclusion of turbulent effects with calculated Raleigh number are important, and are modeled using LES (Large Eddy Simulation).
+The proper inclusion of turbulent effects with calculated Raleigh number are important, and are modeled using LES (Large Eddy Simulation) for both 2D and 3D flow.
+In general LES techniques assume a [downward] cascade of turbulent energy across scales, but note that this is only valid for 3D flow, as it is know that 2D flow turbulent kinetic energy can travel in both directions.
+\todo{properly validate LES approximation for 2d vs 3d}
 
 \section{Solving with OpenFOAM}
 
-Using the aforementioned numerical schemes, I perform a computational fluid dynamic simulation of the entire thermosyphon using the open-source software OpenFOAM.
+Using the aforementioned numerical schemes, we perform a computational fluid dynamic simulation of the entire thermosyphon using the open-source software OpenFOAM.
 First, we begin by creating 2 and 3-dimensional meshes of the thermosyphon natively in OpenFOAM's blockMesh utility.
 To reduce computational bandwidth, it was important to first create the mesh and then renumber using the renumberMesh utility.
 The 2D mesh contains 36000 points, and is imposed with fixed flux boundary conditions on the top and bottom of the loop.
 This fixed flux boundary condition is implemented through the externalWallHeatFluxTemperature library, with some difficulty.
 The 3D mesh contains over 1M points, and we have chosen to explore the 2D model for now.
 Mesh refinement near walls is important to capture the physics happening at the wall on finer scales, and this is achieved adaptively through the refineMesh utility.
-
+\todo{note final choices for model BC and mesh (fixed and wall refined, for now)}
 
 
 Links for OpenFOAM code documentation:
 
-\url{http://www.openfoam.org/docs/user/compiling-applications.php}
+%% \url{http://www.openfoam.org/docs/user/compiling-applications.php}
 
 \url{http://www.openfoam.org/docs/cpp/}
 

@@ -39,81 +39,60 @@ Beyond providing a clear goal and a sound physical approach to dynamical weather
 \end{quote}
 
 It was then until 1922 that Richardson suggested a practical way to solve these equations.
-From Jule G. Charney's ``Dynamical forecasting by numerical process'' \shortcite{charney1950} we recognize Richardson's achievement:
-
-\begin{quote}
-He [Richardson] proposed to integrate the equations of motion numerically and showed exactly how this might be done.
-That the actual forecast used to test his method was unsuccessful was in no way a measure of the value of his work.
-In retrospect it becomes obvious that the inadequacies of observation alone would have doomed any attempt, however well concieved, a circumstance of which Richardson was aware.
-The real value of his work lay in the fact that it crystallized once and for all the essential problems that would have to faced by future workers in the field and it laid down a thorough groundwork for their solution.
-
-For a long time no one ventured to follow in Richardson's footsteps.
-The paucity of the observational network and the enormity of the computational task stood as apparently insurmountable barriers to the realization of his dream that one day it might be possible to advance the computation faster than the weather.
-But with the increase in the density and extent of the surface and upper-air observational network on the one hand, and the development of large-capacity high-speed computing machines on the other, interest has revived in Richardson's problem, and attempts have been made to attack it anew.
-
-These effots have been characterized by a devotion to objectives more limited than Richardson's.
-Instead of attempting to deal with the atmosphere in all its complexity, one tries to be satisfied with simplified models approximating the actuals motions to a greater or lesser degree.
-By starting with models incorporating only what is thought to be the most important of the atmospheric influences, and by gradually bringing in the others, one is able to proceed inductively and thereby avoid the pitfalls inevitably encountered when a great many poorly understood factors are introduced all at onces.
-
-A necessary condition for the success of this stepwise method is, of course, that the first approximations bear a recognizable resemblance to the actual motions.
-Fortunately, the science of meteorology has progressed to the point where one feels that at least the main factors governing the large-scale atmospheric motion are well known.
-Thus integrations of even the linearized barotropic and thermally inactive baroclinic equations have yielded solutions bearing a marked resemblance to reality.
-At any rate, it seems clear that the models embodying the collective experience and the positive skill of the forecast cannot fail utterly.
-This conviction has served as the guiding principle in the work of the meteorology project at The Institute for Advanced Study [at Princeton University] with which the writer has been connected.
-\end{quote}
-
-Richardson used a horizontal grid of about 200km, and 4 vertical layers in his mesh of Germany.
+Richardson used a horizontal grid of about 200km, and 4 vertical layers in a computational mesh of Germany and was able to solve this system by hand.
 Using the observations available, he computed the time derivative of pressure in the central box, predicting a change of 146 hPa whereas in reality there was almost no change.
-This huge discrepancy was due mostly to the fact that his initial conditions were not balanced, and therefore included fast-moving gravity waves which masked the true climate signal.
+This huge discrepancy was due mostly to the fact that his initial conditions were not balanced, and therefore included fast-moving gravity waves which masked the true climate signal \shortcite{kalnay2003}.
 If the integration had continued, it would have ``exploded,'' due to the Courant number induced by his mesh and timestep, which was greater than 1.
-We will revisit this condition in Chapter 3, but a simple explanation is as folloews.
+We will revisit this condition in Chapter 3, but a simple explanation is as follows.
 The Courant number relates the movement of a quantity to the size of the mesh, written as 
-
-$$ C = \frac{u_x \Delta t}{\Delta x} $$
-
+\begin{equation*} C = \frac{u_x \Delta t}{\Delta x} \end{equation*}
 in one dimension, and a value $>$ 1 for a finite difference method solving partial different conditions is divergent.
 
 Early on, the problem of fast travelling waves from unbalanced IC was solved by filtering the equations of motion based on the quasi-geostrophic (slow time) balance.
 Although this made running models feasible on the computers of WW2, the incorporation of the full equations proved necessary for more accurate forecasts to be made.
 
-The first computer model forecast was performed as a one day forecast on the ENIAC (the Electronic Numerical Integrator and Computer) by none other than J. von Neuman \shortcite{charney1950}, at the Aberdeen US Army facility in Maryland.
-This incorporated von Neumann's ``stored programming'' technique (the ability to write ``for'' loops) and produced a forecast that remaining at least plausable.
+%% The first computer model forecast was performed as a one day forecast on the ENIAC (the Electronic Numerical Integrator and Computer) by none other than J. von Neuman \shortcite{charney1950}, at the Aberdeen US Army facility in Maryland.
+%% This incorporated von Neumann's ``stored programming'' technique (the ability to write ``for'' loops) and produced a forecast that remaining at least plausable.
 
-Charney already saw the success of models with filtered equations of motion would not have enough accuracy and understood the difficulties that would be overcome in the next 50 years:
+%% Charney already saw the success of models with filtered equations of motion would not have enough accuracy and understood the difficulties that would be overcome in the next 50 years:
 
-\begin{quote}
+%% \begin{quote}
 
-The discussion so far has dealt exclusively with the quasi-geostrophic equations as the basis for numerical forecasting.
-Yet there has been no intention to exclude the possibility that the primitive Eulerian equations can also be used for this purpose.
-The outlook for numerical forecasting would be indeed dismal if the quasi-geostrophic approximation represnted the upper limit of attainable accuracy, for it is known that it applies only indifferently, if at all, to many of the small-scale but meteorologically significant motions..
-We have merely indicated two obstacles that stand in the way of the applications of the primitive equations: first, there is the difficulty raised by Richardson that the horizontal divergence cannot be measured with significant accuracy.
-Moreover, the horizontal divergence is only one of a class of meteorological unobservables which also includes the horizontal acceleration.
-And second, if the primitive Eulerian equations are employed, a stringent and seemingly artificial bound is imposed on the size of the time interval for the finite difference equations.
-The first obstacle is the most formidable, for the second only means that the integration must proceed in the steps of the order of fifteen minutes rather than two hours.
-Yet the first does not seem insurmountable, as the following considerations will indicate.
+%% The discussion so far has dealt exclusively with the quasi-geostrophic equations as the basis for numerical forecasting.
+%% Yet there has been no intention to exclude the possibility that the primitive Eulerian equations can also be used for this purpose.
+%% The outlook for numerical forecasting would be indeed dismal if the quasi-geostrophic approximation represnted the upper limit of attainable accuracy, for it is known that it applies only indifferently, if at all, to many of the small-scale but meteorologically significant motions..
+%% We have merely indicated two obstacles that stand in the way of the applications of the primitive equations: first, there is the difficulty raised by Richardson that the horizontal divergence cannot be measured with significant accuracy.
+%% Moreover, the horizontal divergence is only one of a class of meteorological unobservables which also includes the horizontal acceleration.
+%% And second, if the primitive Eulerian equations are employed, a stringent and seemingly artificial bound is imposed on the size of the time interval for the finite difference equations.
+%% The first obstacle is the most formidable, for the second only means that the integration must proceed in the steps of the order of fifteen minutes rather than two hours.
+%% Yet the first does not seem insurmountable, as the following considerations will indicate.
 
-\end{quote}
+%% \end{quote}
 
-What he descrubes is an integration where the initial fast-moving waves subside though the geostrophic adjustment of the model after a day, and do not otherwise affect the forecast.
-Charney concludes his 1950 paper with the following discussion of a problem that is still an active area of research, resolving subgrid-scale phenonema:
+%% What he descrubes is an integration where the initial fast-moving waves subside though the geostrophic adjustment of the model after a day, and do not otherwise affect the forecast.
+%% Charney concludes his 1950 paper with the following discussion of a problem that is still an active area of research, resolving subgrid-scale phenonema:
 
-\begin{quote}
+%% \begin{quote}
 
-Nonadiabatic and frictional terms have been ignored in the body of the discussino because it was thought that one should first seek to determine how much of the motion could be explained without them.
-Ultimately they will have to be taken into account, particularly if the forecast period is to be extended to three or more days.
+%% Nonadiabatic and frictional terms have been ignored in the body of the discussino because it was thought that one should first seek to determine how much of the motion could be explained without them.
+%% Ultimately they will have to be taken into account, particularly if the forecast period is to be extended to three or more days.
 
-Condensational phenomena appear to be the simplest to introduce: one has only to add the equation of continuity for water vapor and replace the dry air by the most adiabatic equation.
-Long-wave radiational effects can also be provided for, since our knowledge of the absorptive properties of water vapor and carbon dioxide has progressed to a point where quantitative estimates of radiational cooling can be made, although the presence of clouds will complicate the problem considerably.
+%% Condensational phenomena appear to be the simplest to introduce: one has only to add the equation of continuity for water vapor and replace the dry air by the most adiabatic equation.
+%% Long-wave radiational effects can also be provided for, since our knowledge of the absorptive properties of water vapor and carbon dioxide has progressed to a point where quantitative estimates of radiational cooling can be made, although the presence of clouds will complicate the problem considerably.
 
-The most difficult phenomena to include have to do with the turbulent transfer of momentum and heat.
-A great deal of research remains to be don before enough is known about these effects to permit the assignment of even rough values to the eddy coefficients of viscocity and heat conduction.
-Owing to their statistically indeterminate nature, the turbulent properties of the atmosphere place an upper limit to the accurary obtainable by dynamical methods of forecasting, beyond which we shall have to rely upon statistical methods.
-But it seems certain that much progress can be made before these limits can be reached.
+%% The most difficult phenomena to include have to do with the turbulent transfer of momentum and heat.
+%% A great deal of research remains to be don before enough is known about these effects to permit the assignment of even rough values to the eddy coefficients of viscocity and heat conduction.
+%% Owing to their statistically indeterminate nature, the turbulent properties of the atmosphere place an upper limit to the accurary obtainable by dynamical methods of forecasting, beyond which we shall have to rely upon statistical methods.
+%% But it seems certain that much progress can be made before these limits can be reached.
 
-\end{quote}
+%% \end{quote}
 
 The shortcomings of our understanding of the subgrid-scale phenomena do impose a limit on our ability to predict the weather, but this is not the upper limit.
 The upper limit of predictability exists for even a perfect model, as E. Lorenz shows in \shortcite{lorenz1963} with a three variable model that exhibits sensitive dependence on initial conditions.
+
+Numerical weather prediction has since constantly pushed the boundary of computational power and required a better understanding of atmospheric processes to make better predictions.
+%% It is with this goal that I continue the march forward.
+In this direction, I make use of advanced computational resources a simplified atmospheric experiment to improve prediction skill.
 
 \section{IC determination: data assimilation}
 
@@ -187,6 +166,7 @@ An example of such a conceptual model used to study climate is the energy balanc
   }
   \label{fig:EBM}
 \end{figure}
+\todo{cite picture (from Chris Jones' class)}
 
 With a simple model it is possible to capture the key properties of simple concepts (e.g. the greenhouse effect in the above energy balance model) and for this reason they have been and continue to be employed throughout scientific displicines.
 The ``kitchen-sink'' models, like the Earth System Models (ESMs) used to study climate, incorporate all of the known physical, chemical, and biological processes for the fullest picture of the system.
@@ -210,6 +190,7 @@ Thermal convection loops are one of the few known experimental implementations o
 Put simply, a thermal convection loop is a hula-hoop shaped tube of water, heated on the bottom half and cooled on the top half.
 As a nonmechanical heat pump, thermal convection loops have found applications for heat transfer in solar hot water heaters \shortcite{belessiotis2002analytical}, cooling systems for computers \shortcite{beitelmal2002two}, roads and railways that cross permafrost \shortcite{cherry2006next}, nuclear power plants \shortcite{detman1968thermos,beine1992integrated,kwant1992prism}, and other industrial applications.
 Our particular experiment consists of a thick-walled plastic tube, heated on the bottom by a constant temperature water bath, and cooled on top by room temperature air.
+\todo{make a proper description of set up}
 
 Varying the forcing of temperature applied to the bottom half of the loop there are three experimentally accessible flow regimes of interest to us: conduction, steady convection, and unsteady convection.
 The latter regime exhibits the much studied phenomenon of chaos in its changes of rotational direction.
@@ -222,6 +203,9 @@ Chaos: the approximate past does not approximately determine the future.
 In chapter 4, we present a derivation of Ehrhard-M\"{u}ller Equations governing the flow in the loop following the work of \cite{harris2011predicting}.
 These equations are akin to the Lorenz 63 system, as we shall see, and the experimental implementation is described in more detail in Chapter 4 as well.
 
+In chapters 5 we present results for the predictive skill tests.
 
+Finally, in chapter 6 we summare the successes of this work and our contributions to the field.
+\todo{expand once these chapters are finished}
 
 

@@ -13,6 +13,11 @@ Anderson, M.~J. (2001).
 \newblock A new method for non-parametric multivariate analysis of variance.
 \newblock {\em Austral Ecology\/}~{\em 26\/}(1), 32--46.
 
+\bibitem[\protect\citeauthoryear{Anderson~Jr}{Anderson~Jr}{2009}]{anderson2009governing}
+Anderson~Jr, J. (2009).
+\newblock Governing equations of fluid dynamics.
+\newblock In {\em Computational fluid dynamics}, pp.\  15--51. Springer.
+
 \bibitem[\protect\citeauthoryear{Asur and Huberman}{Asur and
   Huberman}{2010}]{asur2010predicting}
 Asur, S. and B.~A. Huberman (2010).
@@ -20,13 +25,6 @@ Asur, S. and B.~A. Huberman (2010).
 \newblock In {\em Web Intelligence and Intelligent Agent Technology (WI-IAT),
   2010 IEEE/WIC/ACM International Conference on}, Volume~1, pp.\  492--499.
   IEEE.
-
-\bibitem[\protect\citeauthoryear{Auerbach and Bongard}{Auerbach and
-  Bongard}{2010}]{AuerbachBongard2010}
-Auerbach, J.~E. and J.~C. Bongard (2010).
-\newblock Evolving {CPPNs} to grow three-dimensional physical structures.
-\newblock In {\em Proceedings of the Genetic and Evolutionary Computation
-  Conference (GECCO-2010)}, New York, NY, pp.\  627--634. ACM.
 
 \bibitem[\protect\citeauthoryear{Beine, Kaminski, and Von~Lensa}{Beine
   et~al.}{1992}]{beine1992integrated}
@@ -62,14 +60,6 @@ Bollen, J., H.~Mao, and X.~Zeng (2011).
 \newblock Twitter mood predicts the stock market.
 \newblock {\em Journal of Computational Science\/}~{\em 2\/}(1), 1--8.
 
-\bibitem[\protect\citeauthoryear{Bongard and Paul}{Bongard and
-  Paul}{2000}]{Bongard2000}
-Bongard, J.~C. and C.~Paul (2000).
-\newblock Investigating morphological symmetry and locomotive efficiency using
-  virtual embodied evolution.
-\newblock In {\em From Animals to Animats: The Sixth International Conference
-  on the Simulation of Adaptive Behaviour}, pp.\  420--429. MIT Press.
-
 \bibitem[\protect\citeauthoryear{Burgers, Jan~van Leeuwen, and Evensen}{Burgers
   et~al.}{1998}]{burgers1998analysis}
 Burgers, G., P.~Jan~van Leeuwen, and G.~Evensen (1998).
@@ -82,12 +72,6 @@ Burroughs, E., E.~Coutsias, and L.~Romero (2005).
 \newblock A reduced-order partial differential equation model for the flow in a
   thermosyphon.
 \newblock {\em Journal of Fluid Mechanics\/}~{\em 543}, 203--238.
-
-\bibitem[\protect\citeauthoryear{Charney}{Charney}{1951}]{charney1950}
-Charney, J. (1951).
-\newblock Dynamic forecasting by numerical process.
-\newblock {\em Compendium of Meteorology, American Meteorological Society,
-  Boston\/}, 470--482.
 
 \bibitem[\protect\citeauthoryear{Cherry, Dan, and Lustgarten}{Cherry
   et~al.}{2006}]{cherry2006next}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.5.30)  28 OCT 2013 23:30
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.5.30)  30 OCT 2013 16:42
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -761,34 +761,21 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [7]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[8]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[9]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[10]
-<figures/Energy-Balance-Model-Schematic.png, id=76, 588.1975pt x 249.93375pt>
+<figures/Energy-Balance-Model-Schematic.png, id=67, 588.1975pt x 249.93375pt>
 File: figures/Energy-Balance-Model-Schematic.png Graphic file (type png)
 
 <use figures/Energy-Balance-Model-Schematic.png>
 Package pdftex.def Info: figures/Energy-Balance-Model-Schematic.png used on inp
-ut line 184.
+ut line 163.
 (pdftex.def)             Requested size: 212.47617pt x 90.28499pt.
+
+<figures/Earth-System-Model-Schematic.png, id=68, 509.905pt x 448.67625pt>
+File: figures/Earth-System-Model-Schematic.png Graphic file (type png)
+
+<use figures/Earth-System-Model-Schematic.png>
+Package pdftex.def Info: figures/Earth-System-Model-Schematic.png used on input
+ line 177.
+(pdftex.def)             Requested size: 212.47617pt x 186.96394pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
@@ -799,40 +786,25 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[11]
-<figures/Earth-System-Model-Schematic.png, id=81, 509.905pt x 448.67625pt>
-File: figures/Earth-System-Model-Schematic.png Graphic file (type png)
-
-<use figures/Earth-System-Model-Schematic.png>
-Package pdftex.def Info: figures/Earth-System-Model-Schematic.png used on input
- line 197.
-(pdftex.def)             Requested size: 212.47617pt x 186.96394pt.
-
+[8 <./figures/Energy-Balance-Model-Schematic.png>]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[12 <./figures/Energy-Balance-Model-Schematic.png> <./figures/Earth-System-Mode
-l-Schematic.png>]
+[9 <./figures/Earth-System-Model-Schematic.png>])
+(./reagan-thesis.chapter2-DA.tex
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[13]) (./reagan-thesis.chapter2-DA.tex
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[14]
+[10]
 Chapter 2.
 
-<figures/attractor-colored-by-innovation-prevPos3.pdf, id=91, 483.8075pt x 416.
+<figures/attractor-colored-by-innovation-prevPos3.pdf, id=79, 483.8075pt x 416.
 55624pt>
 File: figures/attractor-colored-by-innovation-prevPos3.pdf Graphic file (type p
 df)
@@ -844,7 +816,7 @@ sed on input line 33.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[15
+[11
 
 ]
 
@@ -853,7 +825,35 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[16 <./figures/attractor-colored-by-innovation-prevPos3.pdf>]
+[12 <./figures/attractor-colored-by-innovation-prevPos3.pdf>]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[13]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[14]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[15]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[16]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -861,6 +861,15 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [17]
+Overfull \hbox (38.16585pt too wide) in paragraph at lines 154--154
+[] 
+ []
+
+
+Overfull \hbox (72.95868pt too wide) in paragraph at lines 167--167
+[] 
+ []
+
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -889,15 +898,6 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [21]
-Overfull \hbox (38.16585pt too wide) in paragraph at lines 154--154
-[] 
- []
-
-
-Overfull \hbox (72.95868pt too wide) in paragraph at lines 167--167
-[] 
- []
-
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -905,34 +905,6 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [22]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[23]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[24]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[25]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[26]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 242.
 
@@ -942,7 +914,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[27] <figures/TLM-explanation.pdf, id=148, 687.56876pt x 343.2825pt>
+[23] <figures/TLM-explanation.pdf, id=135, 687.56876pt x 343.2825pt>
 File: figures/TLM-explanation.pdf Graphic file (type pdf)
 
 <use figures/TLM-explanation.pdf>
@@ -955,8 +927,8 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[28 <./figures/TLM-explanation.pdf>]
-<figures/TLM-verification003_noname.pdf, id=163, 472.76625pt x 467.7475pt>
+[24 <./figures/TLM-explanation.pdf>]
+<figures/TLM-verification003_noname.pdf, id=150, 472.76625pt x 467.7475pt>
 File: figures/TLM-verification003_noname.pdf Graphic file (type pdf)
 
 <use figures/TLM-verification003_noname.pdf>
@@ -973,15 +945,15 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[29]
+[25]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[30 <./figures/TLM-verification003_noname.pdf>]
-<figures/EnKF-histogram-analysis.pdf, id=187, 501.875pt x 412.54124pt>
+[26 <./figures/TLM-verification003_noname.pdf>]
+<figures/EnKF-histogram-analysis.pdf, id=173, 501.875pt x 412.54124pt>
 File: figures/EnKF-histogram-analysis.pdf Graphic file (type pdf)
 
 <use figures/EnKF-histogram-analysis.pdf>
@@ -995,8 +967,8 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[31 <./figures/EnKF-histogram-analysis.pdf>]
-<figures/EnKF_spaghetti.pdf, id=197, 516.93124pt x 424.58624pt>
+[27 <./figures/EnKF-histogram-analysis.pdf>]
+<figures/EnKF_spaghetti.pdf, id=185, 516.93124pt x 424.58624pt>
 File: figures/EnKF_spaghetti.pdf Graphic file (type pdf)
 
 <use figures/EnKF_spaghetti.pdf>
@@ -1009,8 +981,8 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[32 <./figures/EnKF_spaghetti.pdf>]
-<figures/DA_test_noname2.pdf, id=207, 478.78876pt x 386.44376pt>
+[28 <./figures/EnKF_spaghetti.pdf>]
+<figures/DA_test_noname2.pdf, id=195, 478.78876pt x 386.44376pt>
 File: figures/DA_test_noname2.pdf Graphic file (type pdf)
 
 <use figures/DA_test_noname2.pdf>
@@ -1023,8 +995,8 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[33 <./figures/DA_test_noname2.pdf>]
-<figures/window_experiment_plot001.pdf, id=228, 476.78125pt x 392.46625pt>
+[29 <./figures/DA_test_noname2.pdf>]
+<figures/window_experiment_plot001.pdf, id=215, 476.78125pt x 392.46625pt>
 File: figures/window_experiment_plot001.pdf Graphic file (type pdf)
 
 <use figures/window_experiment_plot001.pdf>
@@ -1038,8 +1010,8 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[34 <./figures/window_experiment_plot001.pdf>]
-<figures/EKF_210s_infl_error.pdf, id=240, 503.8825pt x 408.52625pt>
+[30 <./figures/window_experiment_plot001.pdf>]
+<figures/EKF_210s_infl_error.pdf, id=227, 503.8825pt x 408.52625pt>
 File: figures/EKF_210s_infl_error.pdf Graphic file (type pdf)
 
 <use figures/EKF_210s_infl_error.pdf>
@@ -1056,9 +1028,9 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[35]
+[31]
 
-LaTeX Warning: Citation `tippet2003ensemble' on page 36 undefined on input line
+LaTeX Warning: Citation `tippet2003ensemble' on page 32 undefined on input line
  409.
 
 
@@ -1067,9 +1039,9 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[36 <./figures/EKF_210s_infl_error.pdf>]
+[32 <./figures/EKF_210s_infl_error.pdf>]
 
-LaTeX Warning: Citation `tippet2003ensemble' on page 37 undefined on input line
+LaTeX Warning: Citation `tippet2003ensemble' on page 33 undefined on input line
  429.
 
 
@@ -1078,14 +1050,14 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[37]
+[33]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[38] <figures/ott2004algorithmPic.png, id=279, 525.965pt x 365.365pt>
+[34] <figures/ott2004algorithmPic.png, id=267, 525.965pt x 365.365pt>
 File: figures/ott2004algorithmPic.png Graphic file (type png)
 
 <use figures/ott2004algorithmPic.png>
@@ -1099,6 +1071,34 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
+[35]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[36 <./figures/ott2004algorithmPic.png>]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[37]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[38]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
 [39]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1106,14 +1106,14 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[40 <./figures/ott2004algorithmPic.png>]
+[40]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[41]
+[41]) (./reagan-thesis.chapter3-CFD.tex
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -1121,13 +1121,10 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [42]
+Chapter 3.
+[43
 
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[43]
+]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -1141,7 +1138,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[45]) (./reagan-thesis.chapter3-CFD.tex
+[45]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -1149,10 +1146,13 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [46]
-Chapter 3.
-[47
 
-]
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[47]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -1174,6 +1174,25 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [50]
+Overfull \hbox (2.9714pt too wide) in paragraph at lines 178--178
+[][][][]\OT1/ptm/m/n/12 Discuss 
+ []
+
+
+Overfull \hbox (2.9714pt too wide) in paragraph at lines 178--178
+[][][][]\OT1/ptm/m/n/12 Discuss 
+ []
+
+
+Overfull \hbox (2.9714pt too wide) in paragraph at lines 178--178
+[][][][]\OT1/ptm/m/n/12 Discuss 
+ []
+
+
+Overfull \hbox (2.9714pt too wide) in paragraph at lines 178--178
+[][][][]\OT1/ptm/m/n/12 Discuss 
+ []
+
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -1181,6 +1200,67 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [51]
+
+LaTeX Warning: Marginpar on page 52 moved.
+
+
+Overfull \hbox (6.29573pt too wide) in paragraph at lines 183--183
+[][][][]\OT1/ptm/m/n/12 properly 
+ []
+
+
+Overfull \hbox (6.29573pt too wide) in paragraph at lines 183--183
+[][][][]\OT1/ptm/m/n/12 properly 
+ []
+
+
+Overfull \hbox (6.29573pt too wide) in paragraph at lines 183--183
+[][][][]\OT1/ptm/m/n/12 properly 
+ []
+
+
+Overfull \hbox (6.29573pt too wide) in paragraph at lines 183--183
+[][][][]\OT1/ptm/m/n/12 properly 
+ []
+
+
+Overfull \hbox (1.62755pt too wide) in paragraph at lines 194--194
+\OT1/ptm/m/n/12 choices 
+ []
+
+
+Overfull \hbox (1.62755pt too wide) in paragraph at lines 194--194
+\OT1/ptm/m/n/12 choices 
+ []
+
+
+Overfull \hbox (1.62755pt too wide) in paragraph at lines 194--194
+\OT1/ptm/m/n/12 choices 
+ []
+
+
+Overfull \hbox (1.62755pt too wide) in paragraph at lines 194--194
+\OT1/ptm/m/n/12 choices 
+ []
+
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 201.
+
+(/usr/local/texlive/2013/texmf-dist/tex/latex/psnfss/ot1pcr.fd
+File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
+)
+<figures/loop-screenshot.png, id=322, 534.99875pt x 401.5pt>
+File: figures/loop-screenshot.png Graphic file (type png)
+
+<use figures/loop-screenshot.png>
+Package pdftex.def Info: figures/loop-screenshot.png used on input line 206.
+(pdftex.def)             Requested size: 212.47617pt x 159.45764pt.
+
+<figures/mesh.png, id=324, 665.48625pt x 355.3275pt>
+File: figures/mesh.png Graphic file (type png)
+ <use figures/mesh.png>
+Package pdftex.def Info: figures/mesh.png used on input line 216.
+(pdftex.def)             Requested size: 212.47617pt x 113.44687pt.
+
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -1194,17 +1274,8 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[53]
-LaTeX Font Info:    Try loading font information for OT1+pcr on input line 151.
-
- (/usr/local/texlive/2013/texmf-dist/tex/latex/psnfss/ot1pcr.fd
-File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
-)
-Underfull \hbox (badness 10000) in paragraph at lines 150--152
-[]\OT1/ptm/m/n/12 Simple al-go-rithm: $\OT1/pcr/m/n/12 http : / / www . cfd-[]o
-nline . com / Wiki / SIMPLE _
- []
-
+[53 <./figures/loop-screenshot.png> <./figures/mesh.png>])
+(./reagan-thesis.chapter4-looop.tex
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -1212,47 +1283,39 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [54]
-Underfull \hbox (badness 10000) in paragraph at lines 166--167
-[]$\OT1/pcr/m/n/12 http : / / www . openfoam . org / docs / user / compiling-[]
-applications .
+Chapter 4.
+[55
+
+]
+Overfull \hbox (0.96762pt too wide) in paragraph at lines 28--28
+[][][][]\OT1/ptm/m/n/12 include 
  []
 
-<figures/loop-screenshot.png, id=333, 534.99875pt x 401.5pt>
-File: figures/loop-screenshot.png Graphic file (type png)
 
-<use figures/loop-screenshot.png>
-Package pdftex.def Info: figures/loop-screenshot.png used on input line 173.
-(pdftex.def)             Requested size: 212.47617pt x 159.45764pt.
-
-<figures/mesh.png, id=335, 665.48625pt x 355.3275pt>
-File: figures/mesh.png Graphic file (type png)
- <use figures/mesh.png>
-Package pdftex.def Info: figures/mesh.png used on input line 183.
-(pdftex.def)             Requested size: 212.47617pt x 113.44687pt.
+Overfull \hbox (0.96762pt too wide) in paragraph at lines 28--28
+[][][][]\OT1/ptm/m/n/12 include 
+ []
 
 
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
+Overfull \hbox (0.96762pt too wide) in paragraph at lines 28--28
+[][][][]\OT1/ptm/m/n/12 include 
+ []
 
-[55 <./figures/loop-screenshot.png>]) (./reagan-thesis.chapter4-looop.tex
 
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
+Overfull \hbox (0.96762pt too wide) in paragraph at lines 28--28
+[][][][]\OT1/ptm/m/n/12 include 
+ []
 
-[56 <./figures/mesh.png>]
-Chapter 4.
-[57
-
-] <figures/danforth.jpg, id=347, 501.875pt x 276.03125pt>
+<figures/danforth.jpg, id=340, 501.875pt x 276.03125pt>
 File: figures/danforth.jpg Graphic file (type jpg)
 
 <use figures/danforth.jpg>
-Package pdftex.def Info: figures/danforth.jpg used on input line 23.
+Package pdftex.def Info: figures/danforth.jpg used on input line 32.
 (pdftex.def)             Requested size: 212.47617pt x 116.86316pt.
+
+
+LaTeX Warning: Marginpar on page 56 moved.
+
 ) (./reagan-thesis.chapter5-results.tex
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1260,20 +1323,29 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[58 <./figures/danforth.jpg>]
+[56 <./figures/danforth.jpg>]
 Chapter 5.
-[59
 
-]) (./reagan-thesis.chapter6-conclusion.tex
+Overfull \hbox (1.26793pt too wide) in paragraph at lines 17--17
+[][][][]\OT1/ptm/m/n/12 remove 
+ []
 
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
 
-[60]
-Chapter 6.
-) (./reagan-thesis-main.bbl [61
+Overfull \hbox (1.26793pt too wide) in paragraph at lines 17--17
+[][][][]\OT1/ptm/m/n/12 remove 
+ []
+
+
+Overfull \hbox (1.26793pt too wide) in paragraph at lines 17--17
+[][][][]\OT1/ptm/m/n/12 remove 
+ []
+
+
+Overfull \hbox (1.26793pt too wide) in paragraph at lines 17--17
+[][][][]\OT1/ptm/m/n/12 remove 
+ []
+
+[57
 
 ]
 
@@ -1282,14 +1354,35 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[62]
+[58]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[63]
+[59]) (./reagan-thesis-main.bbl
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[60]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[61]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[62]
 Missing character: There is no â in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
 Missing character: There is no ” in font ptmr7t!
@@ -1306,8 +1399,8 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[64]
-Underfull \hbox (badness 2221) in paragraph at lines 333--337
+[63]
+Underfull \hbox (badness 2221) in paragraph at lines 317--321
 []\OT1/ptm/m/n/12 Talagrand, O. (1997). As-sim-i-la-tion of ob-ser-va-tions, an
  in-tro-duc-tion. \OT1/ptm/m/it/12 JOURNAL-
  []
@@ -1318,9 +1411,9 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[65]) (./reagan-thesis.appendix.tex
+[64]) (./reagan-thesis.appendix.tex
 Appendix A.
-[66
+[65
 
 ]
 Appendix B.
@@ -1343,7 +1436,7 @@ File: omsptm.fd
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <12> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 11.
- [67
+ [66
 
 ]
 Overfull \hbox (430.3888pt too wide) in paragraph at lines 17--18
@@ -1362,7 +1455,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[68]
+[67]
 Overfull \hbox (5.58447pt too wide) in paragraph at lines 51--52
 [][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
@@ -1403,7 +1496,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[69]
+[68]
 Overfull \hbox (207.18652pt too wide) in paragraph at lines 68--69
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
@@ -1451,17 +1544,17 @@ Overfull \hbox (487.98938pt too wide) in paragraph at lines 83--84
  []
 
 
-Overfull \hbox (387.18835pt too wide) in paragraph at lines 88--89
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[70]
+[69]
+Overfull \hbox (387.18835pt too wide) in paragraph at lines 88--89
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
 Overfull \hbox (639.19092pt too wide) in paragraph at lines 92--93
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
 ][][][][][][][][][][][][][][][][][][][][][][][] 
@@ -1511,7 +1604,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[71]
+[70]
 Overfull \hbox (120.78564pt too wide) in paragraph at lines 119--120
 [][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
@@ -1548,19 +1641,19 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[72] (./reagan-thesis-main.aux)
+[71] (./reagan-thesis-main.aux)
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 14094 strings out of 493315
- 252764 string characters out of 6137904
- 317644 words of memory out of 5000000
- 17119 multiletter control sequences out of 15000+600000
+ 14215 strings out of 493315
+ 255765 string characters out of 6137904
+ 338074 words of memory out of 5000000
+ 17244 multiletter control sequences out of 15000+600000
  25916 words of font info for 58 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 63i,19n,57p,850b,1485s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 63i,19n,79p,850b,1491s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2013/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
 exlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/te
 xlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/tex
@@ -1578,10 +1671,10 @@ mf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/2013/texmf-dist/
 fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2013/texmf-dist/fonts/type
 1/urw/times/utmr8a.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/urw/time
 s/utmri8a.pfb>
-Output written on reagan-thesis-main.pdf (82 pages, 3895127 bytes).
+Output written on reagan-thesis-main.pdf (81 pages, 3898570 bytes).
 PDF statistics:
- 451 PDF objects out of 1000 (max. 8388607)
- 309 compressed objects within 4 object streams
+ 448 PDF objects out of 1000 (max. 8388607)
+ 307 compressed objects within 4 object streams
  0 named destinations out of 1000 (max. 500000)
  83 words of extra memory for PDF output out of 10000 (max. 10000000)
 
