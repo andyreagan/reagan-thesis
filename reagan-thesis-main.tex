@@ -3,7 +3,7 @@
 
 \usepackage{thesis}
 
-%some other packages I found useful, comment out or remove if you do not need them
+%% some other packages I found useful, comment out or remove if you do not need them
 \usepackage{amsmath}
 \usepackage{url}
 \usepackage{subfigure}
@@ -13,21 +13,21 @@
 \usepackage{amssymb}
 \usepackage[titletoc,toc,title]{appendix}
 \usepackage{titlesec}
-\usepackage{listings}
+\usepackage{listings,color}
 \usepackage{cite}
 \usepackage{tabularx}
 \usepackage[makeroom]{cancel}
-\usepackage{todonotes}
+%% \usepackage{todonotes} %% really ugly
+\newcommand{\todo}[1]{\noindent\textcolor{red}{{$\Box$ #1}}} %% credit dodds
 \usepackage{titletoc}
 
 \widowpenalty=1000000
 \clubpenalty=1000000
 
-% for splitting this main file into sane parts
-% via Peter Dodds
+%% for splitting this main file into sane parts
+%% via Peter Dodds
 \usepackage{currfile}
 \input{\currfilebase.settings}
-
 \input{\filenamebase.title}
 \input{\filenamebase.committee}
 

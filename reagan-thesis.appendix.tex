@@ -5,12 +5,29 @@
 
 \chapter{Parameters}
 \label{params}
+
+
+\begin{table}[h]\caption{Summary of Lorenz '63 parameters}
+\label{table:lorenz63params}
+\begin{center}
+\begin{tabular}{lll}
+Parameter & Value & Interpretation, if any\\
+\hline
+$\sigma$ & 10 & \\
+\hline
+$b$ & 8/3 & \\
+\hline
+$r$ & 28 & \\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
 \begin{table}[h!]
 \caption{EKF Covariance Inflation}
 \begin{center}
-\begin{tabularx}{\textwidth}{ |X|X|X| }
+\begin{tabularx}{\textwidth}{lll}
 %\begin{tabular}{|l|l|}
-\hline
  {\bf Window Length} & {\bf Additive Inflataion} & {\bf Multiplicative Inflation} \\ \hline \hline
  30s  & 0.05 & 0.15 \\
  \hline
@@ -29,7 +46,7 @@
 
 The core components of the code necessary to reproduce all results herein is as follows.
 None of OpenFOAM version 2.2.1 is included, as it is freely available for download online.
-\lstinputlisting{../2013-05data-assimilation/OpenFOAM/OpenFOAM.m}
+{\scriptsize \lstinputlisting[language=Matlab]{../2013-05data-assimilation/OpenFOAM/OpenFOAM.m}}
 
 
 

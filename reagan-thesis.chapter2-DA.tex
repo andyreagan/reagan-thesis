@@ -16,24 +16,24 @@
 \newcommand{\expv}[1]{E \left [ #1 \right ]}
 
 \chapter{Data Assimilation}
-\chaptermark{DA} %this is the chapter heading that will show on subsequent pages
+\chaptermark{Data Assimilation} %this is the chapter heading that will show on subsequent pages
 
-The goal of this chapter is to introduce and detail the practical implementation of state of the art data assimilation algoritms.
+The goal of this chapter is to introduce and detail the practical implementation of state-of-the-art data assimilation algorithms.
 I derive the general form for the problem, and then talk about how each filter works.
-For a selection of these algorithms, I illustrate some of their properties via a MATLAB implentation on the Lorenz 1963 three-variable model: %of the Extended Kalman Filter (EKF), Ensemble Kalman Filter (EnKF), and 3D-Var on the Lorenz 1963 three-variable model:
+For a selection of these algorithms, I illustrate some of their properties via a MATLAB implementation using the Lorenz 1963 three-variable model: %of the Extended Kalman Filter (EKF), Ensemble Kalman Filter (EnKF), and 3D-Var on the Lorenz 1963 three-variable model:
 \begin{align*}
 \frac{dx}{dt} &= \sigma (y-x)\\
 \frac{dy}{dt} &= rx - y -xz \\
 \frac{dz}{dt} &= xy -  bz\end{align*}
 
-The cannonical choice of $\sigma = 10, b = 8/3$ and $r = 28$ is used for all tests here, which produce the well known butterfly attractor (Figure \ref{fig:lorenzattractor}):
+The cannonical choice of $\sigma = 10, b = 8/3$ and $r = 28$ is used for all examples here, which produce the well known butterfly attractor (Figure \ref{fig:lorenzattractor}):
 
 \begin{figure}[h!]
   \centering
   \includegraphics[width=0.49\textwidth]{figures/attractor-colored-by-innovation-prevPos3.pdf}
   \caption{
     The Lorenz 63 attractor colored by the norm of the analysis increment.
-    In other words, larger numbers represent where forecasts are poor, and the data assimilation algorithm puts more weight on the observation.
+    Larger numbers represent where forecasts are poor, and the data assimilation algorithm puts more weight on the observation when initializing a new forecast.
   }
   \label{fig:lorenzattractor}
 \end{figure}
@@ -42,11 +42,11 @@ From the simpler examples, I build the most advanced 4D-Var and 4DLETKF approach
 
 \section{Basic derivation, OI}
 
-I begin by deriving the equations for OI and for the Kalman Filter with one scalar observation.
-The goal of my derivation is to highlight which statistical information is useful, which is necessary, and what assumptions are generally made in for formulation of more complex algorithms.
+I begin by deriving the equations for optimal interpolation (OI) and for the Kalman Filter with one scalar observation.
+The goal of my derivation is to highlight which statistical information is useful, which is necessary, and what assumptions are generally made in the formulation of more complex algorithms.
 
-Beginning the one variable $U$, which could represent the horizontal velocity at one gridpooint, say we make two independent observations of $U$: $U_1$ and $U_2$.
-If the true state of $U$ is given by $U_t$, then the goal is to produce an anaylsis of $U_{1,2}$ which we call $U_a$, that is our best guess of $U_t$.
+Beginning with the one variable $U$, which could represent the horizontal velocity at one grid-point, say we make two independent observations of $U$: $U_1$ and $U_2$.
+If the true state of $U$ is given by $U_t$, then the goal is to produce an analysis of $U_{1,2}$ which we call $U_a$, that is our best guess of $U_t$.
 
 Denote the errors of $U_{1,2}$ by $\epsilon _{1,2}$ respectively, such that
 $$ T_{1,2} = T_t + \epsilon _{1,2} .$$
@@ -58,66 +58,69 @@ $$ E(T_{1,2}-T_t) = E(\epsilon _{1,2} ) = 0.$$
 
 As of yet, our best guess of $U_t$ would be the average $(U_1 + U_2)/2$, and for any hope of knowing $U_t$ well we would need many unbiased observations at the same time.
 This is unrealistic, and to move forward we assume that we know the variance of each $T_{1,2}$.
-With this knowlodge, which we write
+With this knowledge, which we write
 \begin{equation} \expv{\epsilon _{1,2} ^2} = \sigma _{1,2} ^2 \end{equation}
 and further assume that these errors are uncorrelated
 \begin{equation} \expv{\epsilon _1 \epsilon _1} = 0 \end{equation}
 which in the case of observing the atmosphere is at best hopeful.
 
 We again attempt a linear fit of these observations to the truth, and can do better than an average.
-For $U_a$ our best guess of $U_t$ we write this linear fit as
+For $U_a$, our best guess of $U_t$, we write this linear fit as
 \begin{equation} U_a = \alpha _1 T_1 + \alpha _2 T_2 \label{eq:analproblem}. \end{equation}
 If $U_a$ is to be our best guess, we desire it to unbiased
 $$E(U_a) = E(U_t) \Rightarrow \alpha _1 + \alpha _2 = 1$$
-and to have minimal variance error $\sigma _a ^2$.
+and to have minimal error variance $\sigma _a ^2$.
 
-At this point note all of the assumptions that we have made: independent observations, unbiased instruments, knowledge of error variance, and uncorrelated observation errors.
-Of these, knowing the error variances (and in multiple dimensions, error covariance matrices) will become our focus and better solutions to determining this have been largely responsible for major improvements in forecast skill.
+At this point, note all of the assumptions that we have made: independent observations, unbiased instruments, knowledge of error variance, and uncorrelated observation errors.
+Of these, knowing the error variances (and in multiple dimensions, error covariance matrices) will become our focus, and better approximations of these errors have been largely responsible for recent improvements in forecast skill.
 
 Solving \ref{eq:analproblem} by substituting $\alpha _2 = 1 - \alpha _1$ have
 \begin{align*} \sigma _a ^2 &= \expv{ \left ( \alpha_1 (U_1-U_t)+(1-\alpha_1)(U_2 - U_t) \right ) ^2 } \\
 &= \alpha_1^2  \expv{ \epsilon _1 ^2 } + (1-\alpha _1^2) \expv{ \epsilon _2 ^2} + 2\alpha _1 (1- \alpha _1) \expv{\epsilon _1 \epsilon _2} \\
 &=\alpha _1 ^2 \sigma_1 ^2 + (1-\alpha _1 ^2) \sigma _2^2\end{align*}
 
-To minimize $\sigma _a^2$ with respect to $\alpha _1$ we compute $\frac{\partial }{\partial \alpha _1}$ of the above and solve for 0 to obtain that
+To minimize $\sigma _a^2$ with respect to $\alpha _1$ we compute $\frac{\partial }{\partial \alpha _1}$ of the above and solve for 0 to obtain
 $$ \alpha _1 = \frac{\sigma _2 ^2}{2(\sigma_2^2 - \sigma _1^2)} $$
 and similarly for $\alpha _2$.
 
 We can also state the relationship for $\sigma _a ^2$ as a function of $\sigma_{1,2}^2$ by substituting our form for $\alpha _1$ into the second step of \ref{eq:analproblem} to obtain:
 \begin{equation} \frac{1}{\sigma _a ^2} = \frac{1}{\sigma _1^2} + \frac{1}{\sigma_2^2} .\label{eq:analprec} \end{equation}
 
-This last formula says that given accurate statistical knowledge of $U_{1,2}$, the precision of the analysis is the sum of the precisions of the measurements.
+This last formula says that given accurate statistical knowledge of $U_{1,2}$, the precision of the analysis is the sum of the precision of the measurements.
 
-We can now formulate the simplest sequence data assimilation cycle by using our forecast model to generate a background forecast $U_b$ and setting $U_1 = U_b$.
+We can now formulate the simplest data assimilation cycle by using our forecast model to generate a background forecast $U_b$ and setting $U_1 = U_b$.
 We then assimilate the observations $U_o$ by setting $U_2 = U_o$ and solving for the analysis velocity $U_a$ as
-\begin{equation} U_a = U_b + W (T_o - T_b) .\end{equation}
+\begin{equation} U_a = U_b + W (U_o - U_b) .\end{equation}
 
-The difference $T_o - T_b$ is commonly reffered to as the ``innovation'' and represents the new knowledge from the observations with respect to the backgroud forecast.
-The optimal weight $W$ is given by \ref{eq:analprec} then as
+The difference $U_o - U_b$ is commonly reffered to as the ``innovation'' and represents the new knowledge from the observations with respect to the background forecast.
+The optimal weight $W$ is then given by \ref{eq:analprec} as
 \begin{equation} W = \frac{\sigma _b ^2}{\sigma_b ^2 - \sigma _o ^2} = \sigma_b ^2 (\sigma_b^2 - \sigma_o^2) ^{-1} .\end{equation}
 
-The analysis error variance and precision are defined as before, and for convience we can rewrite this in terms of $W$ as \shortcite{kalnay2003}:
+The analysis error variance and precision are defined as before, and following Kalnay (2003) %\shortcite{kalnay2003}
+for convenience we can rewrite this in terms of $W$ as:
 \begin{equation} \sigma _a ^2 = (1-W ) \sigma_b^2 .\end{equation}
 
-We now generalize the above for models of more than one variable to obtain the full equations for OI.
-This was originally done by \shortcite{eliassen1954}, and independently by \shortcite{gandin1965}.
+We now generalize the above description for models of more than one variable to obtain the full equations for OI.
+This was originally done by Aerology et al. (1960) %\shortcite{eliassen1954}
+, and independently by Gandin (1965). %\shortcite{gandin1965}
 The following notation will be used for the OI and the other multivariate filters.
 Consider a field of grid points, where there may be $\mbx_i = (p,p_{\text{rgh}},T,u_x,u_y,u_z)$ variables at each point for pressure, hydrostatic pressure, temperature, and three dimensions of velocity.
-We combine all the variables into one list $\mbx$ of length $n$ where $n$ is the product of the number of grid points of the number of model variables.
+We combine all the variables into one list $\mbx$ of length $n$ where $n$ is the product of the number of grid points and the number of model variables.
 This list is ordered by grid point and then by variable (e.g. $\mbx = (p_1,T_1,p_2,T_2,\ldots,p_{n/2},T_{n/2})$ for a field with just variables pressure $p$ and temperature $T$).
-Denote the observations as $\mby_0$, where the ordering is the same as $\mbx$ but the dimension is $\left | \mby _0 \right | \leq \left | \mbx \right |$ and the observations are not strictly at the grid points of $\mbx$ or even direct measurements of the variables in $\mbx$.
-In our experiment, temperature measurements are in the model variable $T$, but are understood as the average of the temperature of the grid point surrounding it within some chosen radius.
-Examples of indirect and spatially heterogenous observations in model weather forecasting are radar reflectivites and Doppler shits, satellite radiances, and global positioning system (GPS) atmospheric refractivities \shortcite{kalnay2003}.
+Denote the observations as $\mby_0$, where the ordering is the same as $\mbx$ but the dimension is much smaller (e.g. by a factor of $10^3$ for NWP) % $\left | \mby _0 \right | << \left | \mbx \right |$ 
+and the observations are not strictly at the locations of $\mbx$ or even direct measurements of the variables in $\mbx$.
+In our experiment, temperature measurements are in the model variable $T$, but are understood as the average of the temperature of the grid points surrounding it within some chosen radius.
+Examples of indirect and spatially heterogeneous observations in NWP are radar reflectivities and Doppler shifts, satellite radiances, and global positioning system atmospheric refractivities \shortcite{kalnay2003}.
 
 
 
-We can now write the write that analysis with similar notation as for the scalar case (no additional explanation is necessary) with the addition of the observation operator $H$ which transforms model variables into observation space:
+We can now write the analysis with similar notation as for the scalar case with the addition of the observation operator $H$ which transforms model variables into observation space:
 
 \begin{align} \mbx_a &= \mbx_b + \mbW \mbd \\
 \mbd &=  \mby_0 - H (\mbx _b ) \\
 \mbe _a  &= \mbx_t - \mbx_a . \end{align}
 
-Note that it is advatageous to write $H$ as an $n_{\text{obs}} \times n$ matrix, where $H$ is not required to be linear.
+Note that $H$ is not required to be linear, but here we write $H$ as an $n_{\text{obs}} \times n$ matrix for a linear transformation.
 
 Again, our goal is to obtain the weight matrix $\mbW$ that minimizes the analysis error $\mbe_a$. In Kalman Filtering, the weight matrix $\mbW$ is called the gain matrix $\mbK$.
 First, we assume that the background and observations are unbiased.
@@ -125,7 +128,7 @@ First, we assume that the background and observations are unbiased.
 \begin{align*} \expv{ \mbe_b} &= \expv{ \mbx _b) - E(\mbx _t } = 0\\
 \expv{ \mbe_o }  &= \expv{ \mby_o } - \expv{ H(\mbx_t)} = 0 .\end{align*}
 
-This a reasonable assumption, and if it does not hold true we can account for this as a part of the analysis cycle \shortcite{dee1998data}.
+This a reasonable assumption, and if it does not hold true, we can account for this as a part of the analysis cycle \shortcite{dee1998data}.
 
 Define the forecast error covariances as
 \begin{align} \mathbf{P}_a &= \mathbf{A} = \expv{\mbe_a \mbe_a ^T}\\
@@ -135,7 +138,7 @@ Define the forecast error covariances as
 Linearize the observation operator
 \begin{equation} H(\mbx + \partial \mbx ) = H(\mbx) + \mbH \partial \mbx \end{equation}
 where $h_{ij} = \partial H_i / \partial x_j$ are the entries of $\mbH$.
-Since the background is a decent forecast, it is convienent to write our equations in terms of changes to $\mbx _b$.
+Since the background is typically assumed to be a reasonably good forecast, it is convenient to write our equations in terms of changes to $\mbx _b$.
 The observational increment $\mbd$ is thus
 \begin{align} \mbd &= \mby_o - H(\mbx_b) = \mby_o - H(\mbx_t + (\mbx_b-\mbx_t)) \\
 &= \mby_o - H(\mbx _t) \mbH (\mbx_b -\mbx_t) = \mbe_o - \mbH \mbe_b . \end{align} 
@@ -143,7 +146,7 @@ The observational increment $\mbd$ is thus
 To solve for the weight matrix $\mbW$ assume that we know $\mbB$ and $\mbR$, and that their errors are uncorrelated:
 \begin{equation} \expv{ \mbe_o \mbe_b ^T } = \expv{\mbe_b\mbe_o ^T} = 0 . \end{equation}
 
-We now use the method of best linear unbiased estimation (BLUE) to derive $\mbW$ in the equation $\mbx_a - \mbx _b = \mbW \mbd$ which approximates $\mbx_a - \mbx_b = \mbW \mbd - \mbe_a$.
+We now use the method of best linear unbiased estimation (BLUE) to derive $\mbW$ in the equation $\mbx_a - \mbx _b = \mbW \mbd$, which approximates $\mbx_a - \mbx_b = \mbW \mbd - \mbe_a$.
 Since $\mbd = \mbe_o - \mbH \mbe_b$ and the well known BLUE solution to this simple equation, the $\mbW$ that minimizes $\mbe_a \mbe_a ^T$ is given by
 
 
@@ -185,9 +188,9 @@ This is why the 3D-Var analysis scheme became the most widely used data assimila
 
 The formulation of the cost function can be done in a Bayesian framework \shortcite{purser1984new} or using maximum likelihood (ML) approach (below).
 First, it is not difficult to see that solving for $\partial J/ \partial U = 0$ for $U = U_a$ where we define $J(U)$ as
-\begin{equation} J(T) = \frac{1}{2} \left [ \frac{(U-U_1)^2}{\sigma_1^2}+\frac{(U-U_2)^2}{\sigma_2^2} \right ] \end{equation}
+\begin{equation} J(U) = \frac{1}{2} \left [ \frac{(U-U_1)^2}{\sigma_1^2}+\frac{(U-U_2)^2}{\sigma_2^2} \right ] \end{equation}
 gives the same solution as obtained through least squares in our scalar assimilation.
-The formulation of this cost function obtainined through the ML approach is simple \shortcite{edwards1984likelihood}.
+The formulation of this cost function obtained through the ML approach is simple \shortcite{edwards1984likelihood}.
 Consider the likelihood of true value $U$ given an observation $U_1$ with standard deviation $\sigma_1$:
 \begin{equation} L_{\sigma_1}(U|U_1)=p_{\sigma_1}(U_1|U)=\frac{1}{\sqrt{2\pi}\sigma_1}e^{-\frac{(T_1-T)^2}{2\sigma_1^2}} .\end{equation}
 The most likely value of $U$ given two observations $U_{1,2}$ is the value which maximizes the joint likelihood (the product of the likelihoods), hence maximizes the logarithm of the joint likelihood (since the logarithm is increasing):
@@ -201,7 +204,7 @@ The formal minimization of $J$ can be obtained by solving for $\nabla_x J(\mbx_a
 \begin{equation} \mbx_a = \mbx_b+(\mbB^{-1} + \mbH^T\mbR^{-1}\mbH)^{-1}\mbH^T\mbR^{-1}(\mby_o-H(\mbx_b)) .\end{equation}
 
 The PSAS data assimilation is so similar to 3D-Var that I do not derive it here, the only difference being that the cost function $J$ is solved in observation space.
-Since there are typically less observations than there are model variables, this is a more efficient method.
+Since there are typically less observations than there are model variables, 3D-Var is a more efficient method.
 
 Finally I note for 3D-Var that operationally $\mbB$ can be estimated with some flow dependence with the NMC or NCEP method, i.e.
 \begin{equation} \mbB \approx \alpha \expv{(\mbx_f(48h)-\mbx_f(24h))(\mbx_f(48h)-\mbx_f(24h))^T} \end{equation}
@@ -213,7 +216,7 @@ with on the order of 50 different short range forecasts.
 The Extended Kalman Filter (EKF) is the ``gold standard'' of data assimilation methods.
 It is the Kalman Filter ``extended'' for application to a nonlinear model.
 It works by updating our knowledge of error covariance matrix for each assimilation window, using a Tangent Linear Model (TLM), whereas in a traditional Kalman Filter the model itself can update the error covariance.
-The TLM is precisely the model (written as a matrix) that transforms a pertubation at time $t$ to a perturbation at time $t+\Delta t$, analytically equivalent to the Jacobian of the model.
+The TLM is precisely the model (written as a matrix) that transforms a perturbation at time $t$ to a perturbation at time $t+\Delta t$, analytically equivalent to the Jacobian of the model.
 Using the notation of Kalnay \cite{kalnay2003}, this amounts to making a forecast with the nonlinear model $M$, and updating the error covariance matrix $\mbP$ with the TLM $L$, and adjoint model $L^T$
 
 \begin{align*} \mbx^f (t_i) &= M _{i-1} [\mbx ^a (t_{i-1} ) ]\\
@@ -221,6 +224,8 @@ Using the notation of Kalnay \cite{kalnay2003}, this amounts to making a forecas
 
 where $\mathbf{Q}$ is the noise covariance matrix (model error).
 In the experiments with Lorenz 63 presented in this section, $\mathbf{Q} = 0$ since our model is perfect.
+In NWP, $\mathbf{Q}$ must be approximated, e.g. using statistical moments on the analysis increments \shortcite{danforth2007estimating,li2009accounting}.
+
 
 The analysis step is then written as (for $H$ the observation operator):
 \begin{align} \mbx^a (t_i ) &= \mbx^f (t_i) + \mbK_i \mbd_i\\
@@ -241,7 +246,7 @@ For this reason, no operational weather centers use the EKF, although approximat
 
 \subsection{Coding the TLM}
 
-Actually coding the TLM was difficult, so I'll try to spell it out here, to make sure I understand it.
+%% Actually coding the TLM was difficult, so I'll try to spell it out here, to make sure I understand it.
 The TLM is the model which advances an initial perturbation $\delta \mbx_{i}$ at timestep $i$ to a final perturbation $\delta ^* \mbx_{i+1}$ at timestep $i+1$.
 The dynamical system we are interested in, Lorenz '63, is given as a system of ODE's:
 \[ \frac{d\mbx}{dt} = F(\mbx) .\]
@@ -250,31 +255,32 @@ We integrate this system using a numerical scheme of our choice (here I used RK2
 Introducing a small perturbation $\mby$, we can approximate the our model $M$ of $\mbx(t_0) + \mby(t_0)$ with a Taylor series around $\mbx(t_0)$, for which we assume to already have solved for:
 \begin{align*} M[ \mbx(t_0) + \mby(t_0) ] &= M [ \mbx(t_0) ] + \frac{\partial M}{\partial \mbx} \mby(t_0) + O [ \mby(t_0) ^2 ]\\ &\approx \mbx(t) + \frac{\partial M}{\partial \mbx} \mby(t_0) .\end{align*}
 We can then solve for the linear evolution of the small perturbation $\mby(t_0)$ as 
-\[ \frac{d\mby }{dt } = \mathbf{J} \mby \] where $\mathbf{J} = \partial F / \partial \mbx$ is the Jacobian of $F$.
+\begin{equation} \frac{d\mby }{dt } = \mathbf{J} \mby \ref{eq:ODETLM} \end{equation}
+where $\mathbf{J} = \partial F / \partial \mbx$ is the Jacobian of $F$.
 We can solve the above system of linear ordinary differential equations using the same numerical scheme as we did for the nonlinear model.
 
 \begin{figure}[h!]
   \centering
-  \includegraphics[width=0.49\textwidth]{figures/TLM-explanation.pdf}
+  \includegraphics[width=0.89\textwidth]{figures/TLM-explanation.pdf}
   \caption{
     An explanation of how and why the best way to obtain a TLM is with a differentiated numerical scheme.
   }
   \label{fig:TLMscheme}
 \end{figure}
 
-The problem with solving that system of equations is that the Jacobian matrix of discretized code is not necessarily identical to the discretization of the Jacobian operator for the analytic system.
+The problem with Equation \ref{eq:ODETLM} solving system of equations is that the Jacobian matrix of discretized code is not necessarily identical to the discretization of the Jacobian operator for the analytic system.
 This is a problem because we need to have the TLM of our model $M$, which is the time-space discretization of the solution to $d\mbx/dt = F(\mbx)$.
-We can apply our numerical method to the $d\mbx/dt = F(\mbx)$ to obtain $M$ explicitly, and then take the Jacobian of this.
-But, that is extremely messy (and costly), since recall the RK4 method had many nested function iterations.
+We can apply our numerical method to the $d\mbx/dt = F(\mbx)$ to obtain $M$ explicitly, and then take the Jacobian of the result.
+But, that is extremely messy (and costly), since Runge-Kutta methods have nested function iterations.
 It is therefore desirable to take the derivative of the numerical scheme directly, and apply this differentiated numerical scheme to the system of equations $F(\mbx)$ to obtain the TLM.
 A schematic of this scenario is illustrated in Figure \ref{fig:TLMscheme}.
 It is for this reason that there exists code that takes the derivative of numerical code (i.e. Fortran) for implementing the EKF on models larger than 3 dimensions with numerical schemes more complicated than RK2 or RK4.
 
-In order to verify my implementation of the TLM, I propogate a small error in the Lorenz 63 system and plot the difference between that error and the TLM predicted error in each variable forward in time in Figure \ref{fig:TLMverification}.
+In order to verify my implementation of the TLM, I propagate a small error in the Lorenz 63 system and plot the difference between that error and the TLM predicted error in each variable forward in time in Figure \ref{fig:TLMverification}.
 
 \begin{figure}[h!]
   \centering
-  \includegraphics[width=0.49\textwidth]{figures/TLM-verification003_noname.pdf}
+  \includegraphics[width=0.79\textwidth]{figures/TLM-verification003_noname.pdf}
   \caption{
     The future error predicted by the TLM is compared to the error growth in Lorenz 63 system for an initial perturbation with standard deviation of 0.1, averaged over 1000 TLM integrations.
     The $\epsilon$ is not the error predicted by the TLM, but rather the error of the TLM in predicting the error growth.
@@ -288,25 +294,25 @@ The computational cost of the EKF is mitigated through the approximation of the 
 
 
 One such approach is the use of a forecast ensemble, where a collection of models (ensemble members) are initialized from the prior analysis $\mbx_a$ with random error.
-The spread of these models with randoms errors is then used to estimate the error covariance.
+The spread of these models with random errors is then used to estimate the error covariance.
 In the limit of infinite ensemble size, the EnKF is equivalent to the EKF \shortcite{evensen2003ensemble}.
 There are two prevailing methodologies for maintaining independent ensemble members: adding errors to the observation used by each forecast and assimilating each ensemble individually or distributing ensemble initial conditions from the analysis prediction.
 In the prior, the random error added to the observation can be truly random \shortcite{harris2011predicting} or be drawn from a distribution related to the analysis covariance, which I chose for this type of filter.
 The latter method of distributing ensemble members around the analysis forecast, with initial conditions perturbed as (for example) the square root of the ensemble has advantages compared to perturbed observations \shortcite{evensen2003ensemble}.
 It has been show that the perturbed observation approach introduces additional sampling error that reduces the analysis covariance accuracy and increases the probability of of underestimating analysis error covariance \shortcite{hamill2001distance}.
 
-With a finite ensemble size this method is only an approximation and therefore in practice it often fails to capture the full spread of error
+With a finite ensemble size this method is only an approximation and therefore in practice it often fails to capture the full spread of error.
 To better capture the model variance, additive and multiplicative inflation factors are used to obtain a good estimate of the error covariance matrix.
 The specific factors used are tuned through an exhaustive search, and included in the next section.
 The spread of ensemble members in the $x_1$ variable of the Lorenz model, as distance from the analysis, can be seen in Figure \ref{fig:EnKFhist}
 
 \begin{figure}[h!]
   \centering
-  \includegraphics[width=0.49\textwidth]{figures/EnKF-histogram-analysis.pdf}
+  \includegraphics[width=0.79\textwidth]{figures/EnKF-histogram-analysis.pdf}
   \caption{
     The difference of ensemble forecasts from the analysis is reported for 760 assimilation windows in one model run of length 200, with 10 ensemble members and an assimilation window of length 0.261.
-    This has the same shape of as the difference between enseble forecasts and the mean of the forecasts (I have this as well).
-    This spread of ensemble forecasts is what allows us to estimate the error covariance of the forecast model, and appears fall from a normal distribution.
+    This has the same shape of as the difference between ensemble forecasts and the mean of the forecasts (not shown).
+    This spread of ensemble forecasts is what allows us to estimate the error covariance of the forecast model, and appears to be normally distributed.
   }
   \label{fig:EnKFhist}
 \end{figure}
@@ -315,16 +321,16 @@ The only difference between this approach and the EKF, in general, is that the f
 \[ \mbP^f \approx \frac{1}{K-2} \sum _{k\neq l} \left ( \mbx_k ^f - \overline{\mbx} ^f _l \right ) \left (\mbx_k ^f - \overline{\mbx} ^f _l \right ) ^T .\]
 
 In computing the error covariance $\mbP_f$ from the ensemble, we wish to add up the error covariance of each forecast with respect to the mean forecast. 
-But this would underestimate the error covariance since the forecast we're comparing was used in the ensemble average (to obtain the mean forecast).
-So here to computing the error covariance matrix for each forecast, that forecast itself is excluded from the ensemble average forecast.
+But this would underestimate the error covariance, since the forecast we're comparing against was used in the ensemble average (to obtain the mean forecast).
+Computing the error covariance matrix for each forecast, that forecast itself is excluded from the ensemble average forecast.
 
 We can see the classic spaghetti of the ensemble with this filter implemented on Lorenz 63 in Figure \ref{fig:spaghetti}.
 
 \begin{figure}[h!]
   \centering
-  \includegraphics[width=0.49\textwidth]{figures/EnKF_spaghetti.pdf}
+  \includegraphics[width=0.99\textwidth]{figures/EnKF_spaghetti.pdf}
   \caption{
-    A sample timeseries of the ensembles used in the EnKF.
+    A sample time-series of the ensembles used in the EnKF.
     In all tests, as seen here, 10 ensemble members are used.
   }
   \label{fig:spaghetti}
@@ -337,7 +343,7 @@ I explore some of these in the following sections.
 A comprehensive overview through 2003 is provided by Evensen \shortcite{evensen2003ensemble}.
 Next, I present the results of a MATLAB implementation of the EKF and basic EnKF.
 
-\subsection{Performace of EnKF, EKF on Lorenz 63}
+\subsection{Performance of EnKF, EKF on Lorenz 63}
 
 With the EnKF and the EKF algorithms coded as above, I present some basic results on their performance. 
 First, we see that using a data assimilation algorithm is highly advantageous in general (Figure \ref{fig:DA_test}).
@@ -345,46 +351,47 @@ Of course we could think to use the observations directly when DA is not used, b
 
 \begin{figure}[h!]
   \centering
-  \includegraphics[width=0.49\textwidth]{figures/DA_test_noname2.pdf}
+  \includegraphics[width=0.79\textwidth]{figures/DA_test_noname2.pdf}
   \caption{
-    For near-perfect initial knowledge of the atmospheric state, the RMS error of a prediction using DA is compared against a prediction that does not.
-    Initial error is normal with mean 0 and variance 0.01, and the RMS errors reported are averages of 100 runs.
-    Observational noise is normally distributed with mean 0 and variance 0.5, and an assimilation window length of 0.261 is used (approximately 5\% of climatological variation).
+    For near-perfect initial knowledge of the atmospheric state, the running average RMS error of a prediction using DA is compared against a prediction that does not.
+    Initial error for DA is normal with mean 0 and variance 0.01, and the RMS errors reported are averages of 100 runs.
+    Observational noise is normally distributed with mean 0 and variance 0.5 (approximately 5\% of climatological variation), and an assimilation window length of 0.261 is used.
     As would be expected, in the long run DA greatly improves forecast skill, as forecasts without DA saturate to climatological error.
     The initial period where a forecast exceeds the skill of DA is potentially due to the spin-up time required by the filter to dial in the analysis error covariance.
   }
   \label{fig:DA_test}
 \end{figure}
 
-Next we test the performace of each filter against increasing assimilation window length.
+Next, we test the performance of each filter against increasing assimilation window length.
 As we would expect, longer windows make forecasting more challenging for both algorithms.
-The ensemble filter begins to out-perform the extended kalman filter for longer window lengths because the ensemble more accuraately captures the nonlinearity of the model.
+The ensemble filter begins to out-perform the extended Kalman filter for longer window lengths because the ensemble more accurately captures the nonlinearity of the model.
 
 \begin{figure}[h!]
   \centering
-  \includegraphics[width=0.49\textwidth]{figures/window_experiment_plot001.pdf}
+  \includegraphics[width=0.79\textwidth]{figures/window_experiment_plot001.pdf}
   \caption{
-    The RMS error (unscaled by climatology) is reported for our EKF and EnKF filters, measured as the difference between forecast and truth at the end of an assimiliation window for the latter 2500 assimiliation windows in a 3000 assimilation window model run.
+    The RMS error (not scaled by climatology) is reported for our EKF and EnKF filters, measured as the difference between forecast and truth at the end of an assimiliation window for the latter 2500 assimiliation windows in a 3000 assimilation window model run.
     Error is measured in the only observed variable, $x_1$.
     Increasing the assimilation window led to an decrease in predictive skill, as expected.
-    Additive and multiplicative covariance inflation is the same as Harris et. al.
+    Additive and multiplicative covariance inflation is the same as Harris et. al (2011).
   }
   \label{fig:window_test}
 \end{figure}
 
 Both filters are sensitive to the size of the covariance matrix, and in some cases to maintain the numerical stability of the assimilation it is necessary to use additive and/or multiplicative covariance inflation.
 In both the EKF and the EnKF mutliplicative error is performed with inflaction factor $\Delta$ by
-\begin{equation} \mbK = (1+\Delta) \mbK .\end{equation}.
-Additive inflation is performed for the EKF as in \shortcite{yang2006} with inflaction factor $\mu$, where uniform random numbers in $[0,\mu]$, here $\nu$ representing a vector of length $n$ of such numbers:
-\begin{equation} \mbK = \mbK + \text{diag}(\nu) .\end{equation}
+\begin{equation} \mbK \leftarrow (1+\Delta) \mbK .\end{equation}
+Additive inflation is performed for the EKF as in Yang et al (2006) and Harris et al (2011) where uniformly distributed random numbers in $[0,\mu]$ are added to the diagonal.
+This is accomplished in MATLAB by drawing a vector  $\nu$ of length $n$ of uniformly distributed numbers in $[0,1]$, multiplying it by $\mu$, and adding it to the diagonal:
+\begin{equation} \mbK \leftarrow \mbK + \text{diag}(\mu\cdot \nu).\end{equation}
 For the EnKF we perform additive covariance inflation to the analysis state itself for each ensemble:
-\begin{equation} \mbx  = \mbx + \nu .\end{equation}
-The result of search over these parameters for the optimal values to minimize the analysis RMS error difffers for each window length, so here here we present the result for a window of length 210 seconds on the EKF.
+\begin{equation} \mbx \leftarrow \mbx + \nu .\end{equation}
+The result of searching over these parameters for the optimal values to minimize the analysis RMS error differs for each window length, so here here we present the result for a window of length 210 seconds using the EKF.
 In Figure \ref{fig:EKF_cov_tuning_210s} we see that there is a clear region of parameter space for which the filter performs with lower RMS, although this region appears to extend into values of $\Delta > 3$.
 
 \begin{figure}[h!]
   \centering
-  \includegraphics[width=0.49\textwidth]{figures/EKF_210s_infl_error.pdf}
+  \includegraphics[width=0.79\textwidth]{figures/EKF_210s_infl_error.pdf}
   \caption{
     The RMS error averaged over 100 model runs of length 1000 windows is reported for the EKF for varying additive and multiplicative inflation factors $\Delta$ and $\mu$.
     Each of the 100 model runs starts with a random IC, and the analysis forecast starts randomly.
@@ -398,7 +405,7 @@ In Figure \ref{fig:EKF_cov_tuning_210s} we see that there is a clear region of p
 
 The ETKF introduced by Bishop is one type of square root filter, and I present it here to provide background for the formulation of the LETKF \shortcite{bishop2001adaptive}.
 For a square root filter in general, we begin by writing the covariance matrices as the product of their matrix square roots.
-Because $\mbP_a,\mbP_f$ are symmetric positive-definite (by defintion) we can write
+Because $\mbP_a,\mbP_f$ are symmetric positive-definite (by definition) we can write
 \begin{equation} \mbP_a = \mbZ_a \mbZ_a^T ~~,~~~ \mbP_f = \mbZ_f \mbZ_f^T \end{equation}
 for $\mbZ_a,\mbZ_f$ the matrix square roots of $\mbP_a,\mbP_f$ respectively.
 We are not concerned that this decomposition is not unique, and note that $\mbZ$ must have the same rank as $\mbP$ which will prove computationally advantageous.
@@ -406,9 +413,9 @@ The power of the SRF is now seen as we represent the columns of the matrix $\mbZ
 The ensemble members are updated by applying the model $M$ to the states $\mbZ_f$ such that an update is performed by
 \begin{equation} \mbZ_f = M \mbZ_a .\end{equation}
 
-Per \shortcite{tippet2003ensemble}, the solution for $\mbZ_a$ can be solved by perturbed observations
+Per \shortcite{tippett2003ensemble}, the solution for $\mbZ_a$ can be solved by perturbed observations
 \begin{equation} \mbZ_a = (\mathbf{I} -\mbK \mbH ) \mbZ _f + \mbK \mbW \end{equation}
-where $\mbW$ is the observation perturbation of Gaussian random noise
+where $\mbW$ is the observation perturbation of Gaussian random noise.
 This gives the analysis with the expected statistics
 \begin{align} \langle \mbZ_a \mbZ_a^T \rangle &= (\mathbf{I}-\mbK\mbH)\mbP_f(\mathbf{I}-\mbK\mbH)^T + \mbK\mbR\mbK^T\\
 &=\mbP_a \end{align}
@@ -426,13 +433,13 @@ This is the case in our experiment, as the observation are uncorrelated.
 The analysis update is thus
 \begin{equation} \mbZ_a = \mbZ_f \mathbf{C}(\mathbf{\Gamma} +\mathbf{I})^{-1/2} ,\end{equation}
 where $\mathbf{C}\mathbf{\Gamma}\mathbf{C}^T$ is the eigenvalue decomposition of $\mbZ_f^T\mbH^T\mbR^{-1}\mbH\mbZ_f$.
-From \shortcite{tippet2003ensemble} we note that the matrix $\mathbf{C}$ of orthonormal vectors is not unique.
+From \shortcite{tippett2003ensemble} we note that the matrix $\mathbf{C}$ of orthonormal vectors is not unique.
 
 Then the analysis perturbation is calculated from
 \begin{equation} \mbZ_a = \mbZ_f \mathbf{X} \mathbf{U}, \end{equation}
 where $\mathbf{X}\mathbf{X}^T = (\mathbf{I}-\mathbf{Z}\mathbf{D}^{-1}\mathbf{V}^T)$ and $\mathbf{U}$ is an arbitrary orthogonal matrix.
 
-In this filter, the analysis perturbations are assumed to be equal to the backgroud perturbations postmultiplied by a transformation matrix $\mathbf{T}$ so that that the analysis error covariance satisifies
+In this filter, the analysis perturbations are assumed to be equal to the backgroud perturbations post-multiplied by a transformation matrix $\mathbf{T}$ so that that the analysis error covariance satisfies
 $$ \mbP_a = (1- \mbK \mbH ) \mbP_f .$$
 
 The analysis covariance is also written
@@ -440,21 +447,21 @@ $$ \mbP_f = \frac{1}{P-1} ( \mathbf{X}_a (\mathbf{X}_a) ^T = \mathbf{X} ^b \hat{
 where $\hat{\mathbf{A}} = [(P-1) \mathbf{I} + (\mathbf{H} \mathbf{X} ^b ) ^T \mathbf{R} ^{-1} (\mathbf{H} \mathbf{X} ^b ) ] ^{-1} $.
 The analysis perturbations are $\mathbf{X} ^a = \mathbf{X} ^b \mathbf{T}$ where $\mathbf{T} = [(P-1)\hat{\mathbf{A}} ] ^{1/2} $.
 
-To summarize, the steps for the ETKF are to (1) form $\mbZ_f^T\mbH^T\mbR^{-1}\mbH\mbZ_f$, assuming $\mathbf{R}^{-1}$ is easy. Then (2) compute the eigenvalue decomposition of this, and apply it $\mbZ_f$.
+To summarize, the steps for the ETKF are to (1) form $\mbZ_f^T\mbH^T\mbR^{-1}\mbH\mbZ_f$, assuming $\mathbf{R}^{-1}$ is easy, and (2) compute its eigenvalue decomposition, and apply it to $\mbZ_f$.
 
 
 \subsection{Local Ensemble Kalman Filter (LEKF)}
 
 The LEKF implements a strategy that becomes very important for large simulations: localization.
-Namely, the analysis is computed for each gridpoint using only local observations, without the need to build matrices that represent the entire analysis space.
-This localization removes long-distance correlations from $\mathbf{B}$ and allows greater flexibility in the global analysis by allowing different linear combintations of ensemble members at different spatial locations \shortcite{kalnay20074}.
+Namely, the analysis is computed for each grid-point using only local observations, without the need to build matrices that represent the entire analysis space.
+This localization removes long-distance correlations from $\mathbf{B}$ and allows greater flexibility in the global analysis by allowing different linear combinations of ensemble members at different spatial locations \shortcite{kalnay20074}.
 
 Difficulties are presented however, in the form of computational grid dependence for the localization procedure.
 The toroidal shape of our experiment, when discretized by OpenFOAM's mesher and grid numbering optimized for computational bandwidth for solving, does not require that adjacent grid points have adjacent indices.
-In fact, they are decidely non-adjacent for certain meshes, with every other index corresponding to opposing sides of the loops.
-We overcome this difficulty by placing a more stringent requirement on the mesh of localization of indexing, and extracting the adjacecy matrix for use in filtering.
+In fact, they are decidedly non-adjacent for certain meshes, with every other index corresponding to opposing sides of the loops.
+We overcome this difficulty by placing a more stringent requirement on the mesh of localization of indexing, and extracting the adjacency matrix for use in filtering.
 
-The general formulation of the LEKF by Ott \shortcite{ott2004local} goes as follows, directly from his paper:
+The general formulation of the LEKF by Ott \shortcite{ott2004local} goes as follows, quoting directly:
 \begin{enumerate}
 \item Globally advance each ensemble member to the next analysis timestep. Steps 2-5 are performed for each grid point
 \item Create local vectors from each ensemble member
@@ -465,33 +472,32 @@ The general formulation of the LEKF by Ott \shortcite{ott2004local} goes as foll
 \item Wash, rinse, and repeat.
 \end{enumerate}
 
-Figure \ref{fig:ott2004algorithm} depicts this cycle in greater detail, with similar notations to that used thus far (from \shortcite{ott2004local}).
+Figure \ref{fig:ott2004algorithm} depicts this cycle in greater detail, with similar notations to that used thus far \shortcite{ott2004local}.
 
 \begin{figure}[h!]
   \centering
-  \includegraphics[width=0.49\textwidth]{figures/ott2004algorithmPic.png}
+  \includegraphics[width=0.79\textwidth]{figures/ott2004algorithmPic.png}
   \caption{
-    The algorithm for the LEKF as described by Ott.
-    Building on previous work, the algorithm is as one would expect.
-  }
+    The algorithm for the LEKF as described by Ott (2004).
+    }
   \label{fig:ott2004algorithm}
 \end{figure}
 
-There is not much difference than from what one would build naturally to perform the EnKF with localization in Ott's work \shortcite{ott2004local}, with the exception of the reconstruction of the global analysis from local analyses.
-Since each of the assimilations were performed locally, we cannot be sure that there is any smoothness, or physical balance, between adjacent points.
-To ensure a unique solution of local analysis perturbations that has some respect of this balance, utilization of the prior background forecasts as reasonably accurate is used to constrain the construction of local analysis perturbations to minimize the difference from the background.
+%% There is not much difference than from what one would build naturally to perform the EnKF with localization in Ott's work \shortcite{ott2004local}, with the exception of the 
+In the reconstructed global analysis from local analyses, since each of the assimilations were performed locally, we cannot be sure that there is any smoothness, or physical balance, between adjacent points.
+To ensure a unique solution of local analysis perturbations that respects this balance, the prior background forecasts are used to constrain the construction of local analysis perturbations to minimize the difference from the background.
 
 
 \subsection{Local Ensemble Transform Kalman Filter (LETKF)}
 
 Proposed by Hunt in 2007 with the stated objective of computational efficiency, the LETKF is named from its most similar algorithms from which it draws \shortcite{hunt2007efficient}.
-With the formulation of the LEKF and the ETKF there is not much new to be said here, but rather a systhesis of the advantages of both of these approaches.
-This is the method that was sufficiently efficient for implementation on the full OpenFOAM CFD model of 216,000 model variables, and so I present it in more detail and follow the notation of \shortcite{hunt2007efficient}.
+With the formulation of the LEKF and the ETKF there is not much new to be said here, but rather a synthesis of the advantages of both of these approaches.
+This is the method that was sufficiently efficient for implementation on the full OpenFOAM CFD model of 216,000 model variables, and so I present it in more detail and follow the notation of Hunt et al (2007). % \shortcite{hunt2007efficient}.
 
-As in the LEKF we explicitly perform the analysis for each grid point of the model.
+As in the LEKF, we explicitly perform the analysis for each grid point of the model.
 The choice of observations to use for each grid point can be selected a priori, and tuned adaptively.
 The simplest choice is to define a radius of influence for each point, and use observations within that.
-In addition to this simple scheme, Hunt proposes weighing observations by their proximity to smoothly transistion across them.
+In addition to this simple scheme, Hunt proposes weighing observations by their proximity to smoothly transition across them.
 The goal is to avoid sharp boundaries between neighboring points.
 
 Regarding the LETKF analysis problem as the construction of an analysis ensemble from the background ensemble, where we specify that the mean of the analysis ensemble minimizes a cost function, we state the equations in terms of a cost function.
@@ -508,7 +514,7 @@ We can therefore write the cost function as
 &\times \mbR^{-1}\left(\mby_o - H(\overline{\mbx}_b+\mbX_b\mbw)\right)\end{align*}
 and it has been shown that this is an equivalent formulation by \shortcite{hunt2007efficient}.
 
-Finally, we linearize $H$ by applying it to each $\mbx_{b(i)}$ and inerpolating.
+Finally, we linearize $H$ by applying it to each $\mbx_{b(i)}$ and interpolating.
 This is accomplished by defining
 \begin{equation} \mby _{b(i)} = H( \mbx_{b(i)}) \end{equation}
 such that 
@@ -534,7 +540,7 @@ Starting with a collection of background forecast vectors $\{ \mbx_{b(i)} \,:\,i
 \item compute $\mathbf{C}=(\mbY_b)^T\mbR^{-1}$ (perhaps by solving $\mbR \mathbf{C}^T = \mbY_b$
 \item compute $\tilde{\mbP}_a = \left( (k-1)\mathbf{I} / \rho + \mathbf{C} \mbY _b \right ) ^{-1}$ where $\rho > 1$ is a tunable covariance inflation factor
 \item compute $\mbW_a = \left ( (k-1) \tilde{\mbP} _a \right ) ^{1/2}$
-\item comptue $\overline{\mbw} _a  = \tilde{\mbP}_a \mathbf{C} \left ( \mby_o - \overline{\mby} _b \right )$ and add it to the column of $\mbW_a$
+\item compute $\overline{\mbw} _a  = \tilde{\mbP}_a \mathbf{C} \left ( \mby_o - \overline{\mby} _b \right )$ and add it to the column of $\mbW_a$
 \item multiply $\mbX_b$ by each $\mbw_{a(i)}$ and add $\tilde{\mbx}_b$ to get $\left\{ \mbx_{a(i)}\,:\,i=1..k\right \}$ to complete each grid point
 \item combine all of the local analysis into the global analysis
 \end{enumerate}
@@ -543,44 +549,25 @@ The greatest implementation difficulty in the OpenFOAM model comes back to the s
 
 \subsubsection{Four Dimensional Local Ensemble Transform Kalman Filter (4D-LETKF)}
 
-Extending the LETKF to incorporate observations from within the assimilation time window also become useful with high-frequency temperature sensors.
+We expect that extending the LETKF to incorporate observations from within the assimilation time window will become useful in the context of our target experiment high-frequency temperature sensors.
 This is implemented without great difficulty on top of the LETKF, by projecting observations as they are made into the space $\tilde{S}$ with the observation time-specific matrix $H_\tau$ and concatenating each successive observation onto $\mby_o$.
 Then with the background forecast at the time $\tau$, we compute $( \overline{\mby}_b )_\tau$ and $ (\mbY _b ) _\tau$, concatenating onto $\overline{\mby}_b$ and $\mbY_b$, respectively.
 
-
-
-\begin{table}[h]\caption{Summary of Lorenz '63 parameters}
-\label{table:lorenz63params}
-\begin{center}
-\begin{tabular}{|c|c|c|}
-\hline
-Parameter & Value & Interpretation, if any\\
-\hline
-$\sigma$ & 10 & \\
-\hline
-$b$ & 8/3 & \\
-\hline
-$r$ & 28 & \\
-\hline
-\end{tabular}
-\end{center}
-\end{table}
-
-The cannonical choice of $\sigma = 10, b = 8/3$ and $r = 28$ is used for all tests here, which produce the well known butterfly attractor (Figure \ref{fig:lorenzattractor}).
+%% The cannonical choice of $\sigma = 10, b = 8/3$ and $r = 28$ is used for all examples here, which produce the well known butterfly attractor (Figure \ref{fig:lorenzattractor}).
 
 
 \section{4D-Var}
 
 The formulation of 4D-Var aims to incorporate observations at the time they are observed.
 This inclusion of observations has resulted in significant improvements in forecast skill, cite.
-The next generation supercomputers that will be used in numerical weather prediction will allow for increased model resolution, but the proper scaling of this computation with the number of processors.
-Main issues with the 4D-Var approach include attempting to parallelize what is otherwise a sequential algorithm and the computational difficulty of the strong-constraint formulation with many TLM integrations, see work done by \shortcite{fisher}.
+The next generation of supercomputers that will be used in numerical weather prediction will allow for increased model resolution.
+The main issues with the 4D-Var approach include attempting to parallelize what is otherwise a sequential algorithm, and the computational difficulty of the strong-constraint formulation with many TLM integrations, with work being done by Fisher and Andersson (2001). %%%%%\shortcite{fisher}.
 
 The formulation of 4D-Var is not so different from 3D-Var, with the inclusion of a TLM and adjoint model to assimilation observations made within the assimilation window.
-At the ECMWF, their 4D-Var is run on a long-window cycle (24 and 48 hours) so that many observations are made within the time window.
+At the ECMWF, 4D-Var is run on a long-window cycle (24 and 48 hours) so that many observations are made within the time window.
 Generally, there are two main 4D-Var formulations in use: strong-constraint and weak-constaint.
 The strong-constraint formulation uses the forecast model as a strong constraint, and is therefore significantly easier to solve.
-From \shortcite{kalnay20074} we have the standard weak-constaint formultation with superscript denoting the timestep within the assimilation window (say there are $0,\ldots,N$ observation time steps within the assimilation window):
+From Kalnay (2007) we have the standard weak-constaint formulation with superscript denoting the timestep within the assimilation window (say there are $0,\ldots,N$ observation time steps within the assimilation window):
 \begin{align*} J(\mbx^0) = &\frac{1}{2} (\mbx^0 - \mbx^0_b) ^T \mbB ^{-1} (\mbx^0 - \mbx_b^0 \frac{1}{2} \sum _{i=0}^N \left( H^i(\mbx^i)-\mby^i\right)^T\\
 &(\mbR^i) ^{-1} \left( H^i(\mbx^i)-\mby^i \right ) .\end{align*}
 
@@ -591,11 +578,11 @@ This is \shortcite{kalnay20074}:
 &+\frac{1}{2}\beta^T\mathbf{Q}^{-1}\beta = J_b +J_o+J_\beta.\end{align*}
 
 Future directions of operational data assimilation combine what is best about 4D-Var and ensemble-based algorithms, and these methods are reffered to as ensemble-variational hybrids.
-We have already discussed a few such related appraches: the use of the Kalman gain matrix $\mbK$ used within the 3D-Var cost function, the ``NCEP'' method for 3D-Var, and inflating the ETKF covariance with the 3D-Var static (climatological) covariance $\mbB$.
+We have already discussed a few such related approaches: the use of the Kalman gain matrix $\mbK$ used within the 3D-Var cost function, the ``NCEP'' method for 3D-Var, and inflating the ETKF covariance with the 3D-Var static (climatological) covariance $\mbB$.
 
 \subsection{Ensemble-variational hybrids}
 
-In ensemble-variational hybrid approaches benefits of flow dependent covariance estimates obtained from an ensemble method, and the computational efficiency of iteratively solving a cost function to obtain the analysis, are combined.
+Ensemble-variational hybrid approaches benefit from flow dependent covariance estimates obtained from an ensemble method, and the computational efficiency of iteratively solving a cost function to obtain the analysis, are combined.
 An ensemble of forecasts is used to update the static error covariance $\mbB$ in the formulation of 4D-Var (this could be done in 3D-Var as well) with some weighting from the climatological covariance $\mbB$ and the ensemble covariance.
 This amounts to a formulation of
 \begin{equation} \mbB = \alpha \mbP_f + (1-\alpha) \mbB \end{equation}

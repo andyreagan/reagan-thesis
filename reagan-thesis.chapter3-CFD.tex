@@ -9,6 +9,8 @@ This consists of a derivation of the equations, and a discussion of their soluti
 \section{Derivation of Governing Equations}
 
 Closely following the original derivation of Stokes \shortcite{stokes}, I present a derivation of the main equations governing the flow of water at temperatures near 300K (an incompressible, heat-conducting, Newtonian fluid).
+Detailed equations follow from my notes based on the reference work of {\em Computational Fluid Dynamics} written by Anderson et al for the von Karman Institute lectures \shortcite{anderson1995computational}.
+From the available approaches, I consider a fixed finite volume to derive the equations used in OpenFOAM.
 
 %% These three equations are given by
 %% \begin{align*}
@@ -31,7 +33,7 @@ Considering a finite volume element with side lengths $\Delta x, \Delta y$ and $
 The amount of mass that enters any given face on this volume is a function of the fluid density $\rho$, the velocity tangent to this face, and the area of the face.
 For the a side with edges specified by both $\Delta x$ and $\Delta y$, let the velocity tangent to this face be $u$ and this mass flow in this side is equal to
 $$ \rho u \Delta x \Delta y .$$
-Assuming the $u$ is positive in this direction, the mass flux out of the opposite side needs to reflect possible changes in velocity $u$ and density $\rho$ through the volume and can be written
+Assuming $u$ is positive in this direction, the mass flux out of the opposite side needs to reflect possible changes in velocity $u$ and density $\rho$ through the volume and can be written
 $$ -(\rho + \Delta \rho) (u+\Delta u) \Delta x \Delta y.$$
 Similarly for the other two directions tangent to our volume, we assign velocities $v$ and $w$ with incoming mass
 \begin{align*} &\rho v \Delta x \Delta z\\
@@ -77,7 +79,7 @@ Equating the change in internal momentum with the sum of the fluxes, and the sum
 & - \left ( u\rho v + \frac{\partial}{\partial y} \left( u\rho v\right ) \Delta y \right ) \Delta x \Delta z + u \rho w (\Delta x \Delta y)\\
 & - \left ( u\rho w + \frac{\partial}{\partial z} \left( u\rho w\right ) \Delta z \right ) \Delta x \Delta y + \sum \mathbf{F}_1.\end{align*}
 
-Cancelling the first terms from each flux we are left
+Canceling the first terms from each flux we are left
 \begin{align*} \frac{\partial }{\partial t} \left ( \rho u \right) \Delta x \Delta y \Delta z &=  -  \frac{\partial}{\partial x} \left( u\rho u\right ) \Delta x  \Delta y \Delta z - \frac{\partial}{\partial y} \left( u\rho v\right ) \Delta y \Delta x \Delta z\\
 & - \frac{\partial}{\partial z} \left( u\rho w\right ) \Delta z \Delta x \Delta y + \sum \mathbf{F}_1.\end{align*}
 
@@ -90,7 +92,7 @@ Applying the product rule to the partial derivatives with respect to $x,y$ and $
 
 The sum of the forces in the $x$ direction includes the force of gravity that acts on the mass of the entire volume ($g_1 \times \rho \Delta x\Delta y \Delta z$) and the surface stress.
 We assume that gravity acts only in the $z$ direction where the term $g_3 \times \rho \Delta x \Delta y \Delta z$ shows up in the sum of the forces and is otherwise zero.
-The $x$-direction force of the stresses acting on the volume is the product of the stress and the area on which it acts, and in cartesian coordinates this is either direct or shear stress.
+The $x$-direction force of the stresses acting on the volume is the product of the stress and the area on which it acts, and in Cartesian coordinates this is either direct or shear stress.
 The $x$-normal stress, which we denote $s_{xx}$ has forces on both sides tangent to $x$ given by
 \begin{equation*} s_{xx} \Delta y \Delta z ~~~\& ~~~ \left ( s_{xx} + \frac{\partial s_{xx} }{\partial x} \Delta x \right ) \Delta y \Delta z \end{equation*}
 for which the sum is
@@ -142,23 +144,39 @@ For LES this becomes the sub-grid kinetic energy.
 Note that OpenFOAM outputs the resolved kinematic pressure
 \begin{equation*} \tilde{p} = \frac{\bar{p} }{\rho _0} + \frac{2}{3}k \end{equation*}
 and uses the Boussinesq approximation for the last term
-\begin{equation*} g_i\frac{\bar{\rho}}{\rho _0} = g_i \left ( 1 + \frac{\bar{\rho} - \rho _0}{\rho _0} \right ) = g_i \rho _k  = g_i (1 - \beta \left (\overline{T} - T _0\right ) .\end{equation*}
+\begin{equation*} g_i\frac{\bar{\rho}}{\rho _0} = g_i \left ( 1 + \frac{\bar{\rho} - \rho _0}{\rho _0} \right ) = g_i \rho _k  = g_i \left (1 - \beta \left (\overline{T} - T _0\right ) \right ) .\end{equation*}
 
 \subsection{Energy Equation}
 
 Again following the derivation of Anderson, we derive the energy equation into the form used in OpenFOAM \shortcite{anderson2009governing}.
-Since our problem deals with an incompressible fluid, we are only concerned with the temperature parts of the energy equation and begin with this consideration to greatly simplify the derivation.
+Since our problem deals with an incompressible fluid, we are only mainly with the temperature.
 
-\todo{copy proper derivation from notes}
-The temperature (energy) equation is thus
+The first law of thermodynamics applied to a finite volume says that the rate of change of energy inside the fluid element is equal to the net flux of heat into the element plus the rate of work done by external forces on the volume.
+Writing the absolute internal thermal energy as $e$ and the kinematic energy per unit mass as $v^2/2$ we have the rate of change of total internal energy as
+\begin{equation} \frac{\partial}{\partial t} \left ( \rho \left ( e + \frac{v^2}{2} \right ) \right ) \label{eq:energy1} \end{equation}
+and the net transfer of energy through the control volume is
+\begin{equation} \frac{\partial}{\partial x} \left ( u \rho \left ( e + \frac{v^2}{2} \right ) \right ) + \frac{\partial}{\partial y} \left ( v \rho \left ( e + \frac{v^2}{2} \right ) \right ) + \frac{\partial}{\partial z} \left ( w \rho \left ( e + \frac{v^2}{2} \right ) \right ) \label{eq:energy2} .\end{equation}
+
+Heat flux $\dot{q}$ is defined to be positive for flux leaving the control volume, so we write the net heat flux entering the volume as
+\begin{equation} - \frac{\partial q_x}{\partial x} - \frac{\partial q_y}{\partial y} - \frac{\partial q_z}{\partial z} \label{eq:energy3}.\end{equation}
+
+Since heat flux by thermal conduction is determined by Fourier's Law of Heat Conduction as
+\begin{equation} q_{\{x,y,z\}} = -k \frac{\partial T}{\partial \{x,y,z\}} \label{eq:energy6} \end{equation}
+we write Equation \ref{eq:energy3} as
+\begin{equation} k\left ( \frac{\partial T}{\partial x^2} - \frac{\partial T}{\partial y^2} - \frac{\partial T}{\partial z^2} \label{eq:energy5} \right ).\end{equation}
+
+As before, the shear stress in the $i$ direction on face $j$ is denoted $s_{ij}$ such that the net rate of work done by these stresses is the sum of their components
+\begin{equation} - \frac{\partial }{\partial x} \left ( u s_{xx} + v s_{xy} + w s_{xz} \right) - \frac{\partial }{\partial y} \left (u s_{yx} + v s_{yy} + w s_{yz} \right) - \frac{\partial }{\partial z}\left (u s_{zx} + v s_{zy} + w s_{zz} \right) \label{eq:energy6}.\end{equation}
+
+Putting this all together in tensor notation, the temperature (energy) equation is thus
 \begin{equation} \frac{\partial }{\partial t} \left ( \rho e\right ) + \frac{\partial}{\partial x_j} \left ( \rho e u_j \right ) 
 = 
 %% -p \frac{\partial u_k}{\partial x_k} + %% zero due to conservation law
 %% \tau _{ij} \frac{\partial u_i}{\partial x_j} %% zero for incompressible fluid
-- \frac{\partial q_k}{\partial x_k}
+-k \frac{\partial T}{\partial x_k^2}.
 \end{equation}
-for $e$ the internal energy and $q$ the conductive heat flux.
-Averaging this equation and separting the heat flux into the average and turbulent parts $q = \overline{q} + q^*$ we have
+
+Averaging this equation and separating the heat flux into the average and turbulent parts $q = \overline{q} + q^*$ we have
 \begin{equation} \frac{\partial }{\partial t} \left ( \rho \overline{e}\right ) + \frac{\partial}{\partial x_j} \left ( \rho \overline{e} \overline{u}_j \right ) 
 = 
 - \frac{\partial q_k^*}{\partial x_k}
@@ -167,68 +185,98 @@ Averaging this equation and separting the heat flux into the average and turbule
 
 \section{Discretization and Solving Algorithms}
 
-A spatial and temporal discretization of the governing equations is necessary for their solution numerically.
-In general, there are three approaches to the solution of PDE's numerically: finite differences, finite element, and finite volume.
-OpenFOAM has the capacity for each scheme, and for our problem the finite volume method is most appropriate.
-%% The principle disadvantage 
+A spatial and temporal discretization of the governing equations is necessary so that they may be solved numerically.
+In general, there are three approaches to the numerical solution of PDEs: finite differences, finite elements, and finite volumes.
+OpenFOAM has the capacity for each scheme, and for our problem the finite volume method is the simplest.
+\todo{why?}
 
 After discretization, solving is accomplished by a combined SIMPLE/PISO algorithm.
 The PISO (Pressure-Implicit with Splitting of Operators) algorithm derives from the work of \shortcite{issa1986solution}, and is complementary to the SIMPLE (Semi-Implicit Method for Pressure-Linked Equations) \shortcite{patankar1972calculation} iterative method.
-
-\todo{Discuss simple algorithm}
+The main difference of the PISO and SIMPLE algorithms is that in the PISO, no under-relaxation is applied and the momentum corrector step is performed more than once \shortcite{ferziger1996computational}.
+They sum up the algorithm in nine steps:
+\begin{itemize}
+\item Set the boundary conditions
+\item Solve the discretized momentum equation to compute an intermediate velocity field
+\item Compute the mass fluxes at the cell faces
+\item Solve the pressure equation
+\item Correct the mass fluxes at the cell faces
+\item Correct the velocity with respect to the new pressure field
+\item Update the boundary conditions
+\item Repeat from step \#3 for the prescribed number of times
+\item Repeat (with increased time step).
+\end{itemize}
 %% \url{http://www.cfd-online.com/Wiki/SIMPLE_algorithm}
+%% The proper inclusion of turbulent effects with calculated Raleigh number are important, and are modeled using LES (Large Eddy Simulation) for both 2D and 3D flow.
+%% In general LES techniques assume a [downward] cascade of turbulent energy across scales, but note that this is only valid for 3D flow, as it is know that 2D flow turbulent kinetic energy can travel in both directions.
+%% \todo{properly validate LES approximation for 2d vs 3d}
 
-The proper inclusion of turbulent effects with calculated Raleigh number are important, and are modeled using LES (Large Eddy Simulation) for both 2D and 3D flow.
-In general LES techniques assume a [downward] cascade of turbulent energy across scales, but note that this is only valid for 3D flow, as it is know that 2D flow turbulent kinetic energy can travel in both directions.
-\todo{properly validate LES approximation for 2d vs 3d}
+\subsection{Solving with OpenFOAM}
 
-\section{Solving with OpenFOAM}
+Using the aforementioned numerical schemes, we perform a computational fluid dynamics simulation of the thermosyphon using the open-source software OpenFOAM.
+The solver in OpenFOAM that I use, with slight modification and recompilation, is ``buoyantBoussinesqPimpleFoam.''
 
-Using the aforementioned numerical schemes, we perform a computational fluid dynamic simulation of the entire thermosyphon using the open-source software OpenFOAM.
-First, we begin by creating 2 and 3-dimensional meshes of the thermosyphon natively in OpenFOAM's blockMesh utility.
-To reduce computational bandwidth, it was important to first create the mesh and then renumber using the renumberMesh utility.
-The 2D mesh contains 36000 points, and is imposed with fixed flux boundary conditions on the top and bottom of the loop.
-This fixed flux boundary condition is implemented through the externalWallHeatFluxTemperature library, with some difficulty.
-The 3D mesh contains over 1M points, and we have chosen to explore the 2D model for now.
-Mesh refinement near walls is important to capture the physics happening at the wall on finer scales, and this is achieved adaptively through the refineMesh utility.
-\todo{note final choices for model BC and mesh (fixed and wall refined, for now)}
-
-
-Links for OpenFOAM code documentation:
-
+%% Links for OpenFOAM code documentation:
 %% \url{http://www.openfoam.org/docs/user/compiling-applications.php}
+%% \url{http://www.openfoam.org/docs/cpp/}
 
-\url{http://www.openfoam.org/docs/cpp/}
+The Boussinesq approximation makes the assumption that density changes due to temperature differences are sufficiently small so that they can be neglected without effecting the flow, except when multiplied by gravity.
+The non-dimensionalized density difference $\Delta \rho / \rho$ depends on the value of heat flux into the loop, but remains small even for large values of flux.
+\todo{derive an equation for this ratio in terms of flux $q''$).}
 
-Here is a picture of the thermosyphon colored by temperature.
-\begin{figure}[tpb!]
-  \centering
-  \includegraphics[width=0.49\textwidth]{figures/loop-screenshot.png}
-  \caption{
-  A screenshot of the loop.
-  }
-  \label{fig:CFDloopSS}
-\end{figure}
-
-And here is the 2D mesh:
-\begin{figure}[tpb!]
-  \centering
-  \includegraphics[width=0.49\textwidth]{figures/mesh.png}
-  \caption{
-  A snapshot of the mesh used for CFD simulations.
-  }
-  \label{fig:CFDmesh1}
-\end{figure}
-
-The solver used is buoyantBoussinesqPimpleFoam, which I'll now explain. 
-
-The Boussinesq approximation makes the assumption that density changes due to temperature differences are sufficiently small so that they can be neglected without affecting the flow, except when multiplied by gravity.
-The non-dimensionalized density difference $\Delta \rho / \rho$ depends on the value of heat flux into the loop, but remains small even for large values of flux. (derive an equation for this ratio in terms of flux $q''$).
-
-Available boundary conditions that were found to be stable in OpenFOAM's solver were both constant gradient and fixed value conditions.
-To most accurately model our our experiment, we choose a fixed value BC.
+Available boundary conditions that were found to be stable in OpenFOAM's solver were constant gradient, fixed value conditions, and turbulent heat flux.
+Simulations with a fixed flux boundary condition is implemented through the externalWallHeatFluxTemperature library were unstable and resulted in physically unrealistic results.
+Constant gradient simulations were stable, but the behavior was empirically different from our physical system.
+To most accurately model our experiment, we choose a fixed value BC.
 This is reasonable given the thermal diffusivity of the walls of the convection loop and their thickness.
-[Derive condition]
+\todo{Derive condition}
 
+The solver itself has 647 dependencies, of which I present only a fraction.
+The main code is straight forward, relying on include statements to load the libraries and equations to be solved.
+\lstset{language=C++,
+        basicstyle=\ttfamily,
+        keywordstyle=\color{blue},
+        stringstyle=\color{red},
+        commentstyle=\color{green},
+        morecomment=[l][\color{magenta}]{\#},
+        basicstyle=\scriptsize,
+        frame=L,
+        xleftmargin=\parindent,
+        %numbers=left,                   % where to put the line-numbers
+        %numberstyle=\scriptsize,      % the size of the fonts that are used for the line-numbers
+        %stepnumber=1,                   % the step between two line-numbers. If it is 1 each line will be numbered
+        %numbersep=5pt,
+        breaklines=true,        % sets automatic line breaking
+        breakatwhitespace=false,    % sets if automatic breaks should only happen at whitespace
+        escapeinside={\%*}{*)} 
+}
+
+\lstinputlisting[language=C++,firstline=48,lastline=53]{code/buoyantBoussinesqPimpleFoam/buoyantBoussinesqPimpleFoam.C}
+
+The main function is then
+
+\lstinputlisting[language=C++,firstline=57,lastline=71]{code/buoyantBoussinesqPimpleFoam/buoyantBoussinesqPimpleFoam.C}
+
+We then enter the main loop.
+This is computed for each time step, prescribed before the solver is applied.
+Note that the capacity is available for adaptive time steps, choosing to keep the Courant number below some threshold, but I do not use this.
+For the distributed ensemble of model runs, it is important that each model complete in nearly the same time, so that the analysis is not waiting on one model and therefore under-utilizing the available resources.
+
+\lstinputlisting[language=C++,firstline=77,lastline=103]{code/buoyantBoussinesqPimpleFoam/buoyantBoussinesqPimpleFoam.C}
+
+Opening up the equation for $U$ we see that Equation
+
+\lstinputlisting[language=C++]{code/buoyantBoussinesqPimpleFoam/UEqn.H}
+
+Solving for $T$ is 
+
+\lstinputlisting[language=C++]{code/buoyantBoussinesqPimpleFoam/TEqn.H}
+
+Finally, we solve for the pressure $p$ in ``pEqn.H'':
+
+\lstinputlisting[language=C++]{code/buoyantBoussinesqPimpleFoam/pEqn.H}
+
+The final operation being the conversion of pressure to hydrostatic pressure,
+\begin{equation*} p _\text{rgh} = p - \rho _k g_h . \end{equation*}
+This ``pEqn.H'' is then re-run until convergence is achieved, and the PISO loop begins again.
 
 

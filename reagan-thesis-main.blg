@@ -4,72 +4,70 @@ The top-level auxiliary file: reagan-thesis-main.aux
 The style file: chicago.bst
 Database file #1: example.bib
 Database file #2: reagan-thesis.bib
-I was expecting a `,' or a `}'---line 496 of file reagan-thesis.bib
- :   author={Keller, JB}
- :                      .
+Repeated entry---line 613 of file reagan-thesis.bib
+ : @article{danforth2007estimating
+ :                                ,
 I'm skipping whatever remains of this entry
-Warning--I didn't find a database entry for "tippet2003ensemble"
-Warning--I didn't find a database entry for ""
+Warning--I didn't find a database entry for "tippett2003ensemble"
 Warning--no number and no volume in beitelmal2002two
 Warning--page numbers missing in beitelmal2002two
+Warning--no journal in box1978statistics
+Warning--no number and no volume in box1978statistics
+Warning--page numbers missing in box1978statistics
+Warning--page numbers missing in WSJthermo
 Warning--no number and no volume in clayton2012operational
 Warning--page numbers missing in clayton2012operational
-Warning--no number and no volume in gandin1965
 Warning--no volume for gorman1984
 Warning--no volume for gorman1986
 Warning--no number and no volume in harris2011predicting
 Warning--page numbers missing in harris2011predicting
 Warning--page numbers missing in weather-violence2013
 Warning--no volume for jiang2003
-Warning--empty year in keller1966
-Warning--no journal in keller1966
-Warning--no number and no volume in keller1966
-Warning--page numbers missing in keller1966
 Warning--no number and no volume in savely1972
 Warning--page numbers missing in savely1972
 Warning--empty publisher in stokes
 Warning--no number and no volume in thompson1990
 Warning--page numbers missing in welander1967
 Warning--no volume for yuen1999
-You've used 55 entries,
+You've used 68 entries,
             2861 wiz_defined-function locations,
-            948 strings with 14152 characters,
-and the built_in function-call counts, 39301 in all, are:
-= -- 3257
-> -- 2990
-< -- 5
-+ -- 898
-- -- 1006
-* -- 3648
-:= -- 7161
-add.period$ -- 165
-call.type$ -- 55
-change.case$ -- 410
-chr.to.int$ -- 55
-cite$ -- 76
-duplicate$ -- 1013
-empty$ -- 2327
-format.name$ -- 1150
-if$ -- 7267
+            1023 strings with 15960 characters,
+and the built_in function-call counts, 47685 in all, are:
+= -- 3975
+> -- 3572
+< -- 8
++ -- 1064
+- -- 1208
+* -- 4371
+:= -- 8712
+add.period$ -- 205
+call.type$ -- 68
+change.case$ -- 497
+chr.to.int$ -- 68
+cite$ -- 88
+duplicate$ -- 1243
+empty$ -- 2841
+format.name$ -- 1380
+if$ -- 8812
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 57
-newline$ -- 275
-num.names$ -- 550
-pop$ -- 297
+missing$ -- 67
+newline$ -- 341
+num.names$ -- 680
+pop$ -- 348
 preamble$ -- 1
-purify$ -- 744
+purify$ -- 911
 quote$ -- 0
-skip$ -- 1045
+skip$ -- 1306
 stack$ -- 0
-substring$ -- 2167
-swap$ -- 338
-text.length$ -- 5
+substring$ -- 2606
+swap$ -- 414
+text.length$ -- 8
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 1060
-warning$ -- 21
-while$ -- 539
+type$ -- 1310
+warning$ -- 20
+while$ -- 666
 width$ -- 0
-write$ -- 718
+write$ -- 894
 (There was 1 error message)

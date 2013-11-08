@@ -6,11 +6,11 @@
 \subsection{Core framework}
 
 The first output of this work is a general data assimilation framework for MATLAB.
-By utilizing an object-oriented (OO) design, the model and data assimilation algorithm code are separate and can be changed independently
+By utilizing an object-oriented (OO) design, the model and data assimilation algorithm code are separate and can be changed independently.
 The principal advantage of this approach is the ease of incorporation of new models and DA techniques.
 
 To add a new model to this framework, it is only necessary to write a MATLAB class wrapper for the model, and the existing Lorenz 63 and OpenFOAM model wrappers can be used as templates.
-Testing a new technique for performing the DA step is as simple as writing a MALTLAB function for the assimilation steps, where the the model result and observation as provided as an input.
+Testing a new technique for performing the DA step is as simple as writing a MATLAB function for the assimilation steps, where the the model result and observations are provided as an input.
 
 The core of this framework is the MATLAB script modelDAinterface.m which wraps observations, the model class, and any DA method together.
 A description of the main algorithm is provided in the Appendix.
@@ -21,51 +21,107 @@ For large models, it is necessary to perform the assimilation in a local space, 
 \subsection{Tuned OpenFOAM model}
 
 In addition to wrapping the OpenFOAM model into MATLAB-speak, defining a physically realistic simulation was necessary for accurate results.
-A uniform sampling of the OpenFOAM model parameter space across BC type, BC values, and turbulence model was performed.
+A non-uniform sampling of the OpenFOAM model parameter space across BC type, BC values, and turbulence model was performed.
 The amount of output data constitutes what is today ``big data,'' and for this reason it was difficult to find a suitable parameter regime systematically.
-I chose the turbulence model, BC type, and BC values based on a empirical selection of the timeseires for a subset of model variables that best represented the known chaotic regime of a physical model.
-In a real model, this regime has been verified by others \shortcite{}.
+Specically, each model run generates 5MB of data per time save, and with 10000 timesteps this amounts to roughly 50GB of data for each model run.
+I then chose the turbulence model, BC type, and BC values based on a empirical selection of the time-series for a subset of model variables that best represented the known chaotic regime of a physical model.
 
 \section{Prediction Skill for Synthetic Data}
 
-I first present the results pertaining to the accurarcy of forecasts for synthetic data.
+I first present the results pertaining to the accuracy of forecasts for synthetic data.
+There are many possible experiments given the choice of assimilation window, data assimilation algorithm, localization scheme, model resolution, observational density, observed variables, and observation quality.
+I focus on considering the effect of observations, assimilation window, and covariance localization scheme on the resulting forecast skill.
 
-\subsection{Sampling frequency, distribution}
+Synthetic data is generated from one model run, pertaining a modified ``buoyantBoussinesqPimpleFoam'' solution with fixed value boundary conditions of 290K top and 340K bottom, 80,000 grid points, a time step of .01, and laminar turbulence model.
+Data is saved for every one second, and is subsampled for 2,4,8,16 and 32 synthetic temperature sensors spaced evenly around the loop.
+The temperature is reported as the average for cells with centers within 0.5cm of the observation center.
+In addition to temperature sensing, the velocity in $y$ and $z$ is sampled at 50, 100, and 300 points chosen randomly at each time step.
+These velocity observations, when included are designed to simulate an reconstructed velocity measurement based on video particle tracking.
+To obtain realistic sampling intervals, this data was aggregated and is then subsampled at the assimilation window length.
 
-Increasing sampling frequency led to improved forecast accurary, up to a finite cutoff where the error covariance inflation requirement becomes unstable.
+Errors for both the EM model and OpenFOAM are presented as RMSE from the observed $T_{3-9}$, such that the models can be compared.
+In the EM model, a maximum of 2 temperature sensors are considered for observations at $T_3$ and $T_9$, and no mean velocity reconstruction from subsampled velocity is attempted.
 
-Observational network density also improves forecast accuracy, as would be expected, up to limit of the computational memory avaiable for computing large non-sparse covariance matrices.
-%% For example the full system, with 216,000 variables, produces an error covariance matrix of 347GB in double precision.
-%% With the expected continuation of Moore's Law, however, this simulation may be possible in a few as 5 years (assuming a doubling of memory every 18 months, starting now with my 8GB lapop) on a laptop computer.
+For the predictions to work, it was first necessary to scale the model variables to the same order of magnitude.
+This is accomplished for these results by subtracting the mean climatological values from the observations and model results before assimilation. 
+While other, more complex, strategies may result in better performance there are no general rules to determine the best scaling factors and good scaling is often problem dependent \shortcite{navon1992variational,Mitchell2012PhD}.
 
-\subsection{Random error vs PMD perturbation scheme}
+\subsection{Assimilation Window}
 
-The computational implementation of the NS equations is dispersive, meaning that small perturbations are quickly resolved.
+Here we simply decrease the time frequency of observations to test the usefulness of frequent observations.
 
-%% In other words, we beat the hell of out random error.
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.79\textwidth]{/Users/andyreagan/work/2013/2013-05data-assimilation/src/experiments/windowExperiment/window_experiment_plot002.pdf}
+  \caption{
+    A first pass (covariance inflation not tuned) experiment of Lorenz 63 (EM) prediction skill vs increasing assimilation windows on real data.
+    Notice that the error explodes at an window length near the typical time length of flow reversals.
+  }
+  \label{fig:result2}
+\end{figure}
 
-\subsection{Maintaining hydrostatic balance}
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.79\textwidth]{/Users/andyreagan/work/2013/2013-05data-assimilation/src/experiments/windowExperiment/window_experiment_testing.pdf}
+  \caption{
+    Now with four different OpenFOAM model, of different grid resolution, we include the full 32 temperature observations at decreasing temporal frequency.
+  }
+  \label{fig:result3}
+\end{figure}
 
-The importance of maintaining balance in the model variables, originally dooming the efforts of Richardson, was taken into consideration.
+\subsection{Observational Network}
 
-\section{Real-time Flow Reversal Prediction Skill}
+In general, we see that increasing observational density leads to improved forecast accuracy.
+Results here are only for the CFD model, since not much more can be done to include more observations in the 3-dimensional EM model.
 
+%% \begin{figure}[h!]
+%%   \centering
+%%   \includegraphics[width=0.79\textwidth]{/Users/andyreagan/work/2013/2013-05data-assimilation/src/experiments/windowExperiment/window_experiment_testing.pdf}
+%%   \caption{
+%%     Here we see the error of the CFD for different observational densities.
+%%   }
+%%   \label{fig:result1}
+%% \end{figure}
 
+%% \subsection{Covariance Localization}
+
+The need for covariance localization was discussed in Chapter 2, and here we implement three different schemes.
+First, we consider cells within each perpendicular slice of the loop to be a cohesive group, and their neighbors to those cells within $r$ slices (where here, $r$ is an integer).
+Computationally this scheme is the simplest to implement, and results in the fewest covariance localizations.
+
+Second to the plate is localization by distance from center.
+Data assimilation is performed for each grid point, considering neighboring cells and observations with cell center within a radius $r$ from each point (e.g. $r = 0.5$cm).
+
+And finally, we attempt a novel adaptive covariance localization scheme based on the identifying coherent flow structures.
+Flow structures are identified by considering the leading vectors in $U$ of the singular value decomposition (SVD) of flow within a reasonably sized domain (e.g. within slice localization regions for large $r$).
+This corresponds to a proper orthogonal decomposition (POD) of the flow structures.
+\todo{finalize, relate to current methods, properly describe the math....this is still in testing}
+
+%% \begin{figure}[h!]
+%%   \centering
+%%   \includegraphics[width=0.79\textwidth]{/Users/andyreagan/work/2013/2013-05data-assimilation/src/experiments/windowExperiment/window_experiment_testing.pdf}
+%%   \caption{
+%%     The three different localization schemes are presented.
+%%   }
+%%   \label{fig:result4}
+%% \end{figure}
+
+%% \section{Real-time Flow Reversal Prediction Skill}
 
 \section{Prediction Skill for Real Data}
 
-Now the real business: running CFD in real time and assimilating observations from temperature.
-
 \todo{obtain a physical time series, input into previous synthetic experiment!}
+I think that this is possible, if not in the next week before my oral presentation, in the next three before this document goes to press (and archival).
+All the tools are in place and running on synthetic data, so all it needs is the timeseries.
 
 \section{Conclusion}
 
 Throughout the process of building a data assimilation scheme from scratch, as well as deriving and tuning a computational model, I have learned a great deal about the difficulties and successes of modeling.
 I have found that data assimilation algorithms and CFD solvers are sensitive to parameter choices, and cannot be used successfully without an approach that is specific to the problem at hand.
-This is not suprising
+
 
 For the future of data assimilation, the numerical schemes will need to be adaptive to the new computing resources.
-The trend toward massively parrallel computation puts the spotlight on effective localization of the assimilation step, which may be difficult in schemes that do not use ensembles, such as the 4D-Var.
+The trend toward massively parallel computation puts the spotlight on effective localization of the assimilation step, which may be difficult in schemes that do not use ensembles, such as the 4D-Var.
 Maintaining TLM and adjoint code is difficult and time-consuming, and with future increases in model resolution and atmospheric understanding, TLMs of full GCM models may become impossible.
 Again, this points to the potential use of local ensemble based filters such as the LETKF as implemented here.
 
@@ -74,10 +130,10 @@ Again, this points to the potential use of local ensemble based filters such as 
 The immediate next step for this work is to test prediction skill in real time.
 All of the pieces are there: an observation-based data assimilation framework and models that run at near real-time speed.
 Currently on the VACC, the OpenFOAM simulation with grid size 36K runs with approximately half of real-time speed on one core.
-This allows the possibility of running $N$ ensemble methods using 
+This allows the possibility of running $N$ ensemble methods using $8N$ cores.
 
-Beyond real-time prediction, designing and testing new methods of data assimilation is now possible for large scale systems.
-New methods specific to CFD, possibly using PMD of flow fields have the potential to greatly improve the skill of real-time CFD applications.
+Beyond real-time prediction, it is now possible to design and test new methods of data assimilation for large scale systems.
+New methods specific to CFD, possibly using principle mode decomposition (PMD) of flow fields have the potential to greatly improve the skill of real-time CFD applications.
 
 The numerical coupling of CFD to experiment by DA should be generally useful to improve the skill of CFD predictions in even data-poor experiments, which can provide better knowledge of unobservable quantities of interest in fluid flow.
 

@@ -34,4 +34,11 @@ pdflatex $FILENAME_BASE-main #>> make-dissertation.texout
 pdflatex $FILENAME_BASE-main #>> make-dissertation.texout
 pdflatex $FILENAME_BASE-main #>> make-dissertation.texout
 
+echo " "
+echo " "
+echo "There are $(grep todo *.tex | wc -l | awk '{print $1;}') to-dos!!"
+
+\rm *.toc *.bbl *.aux *.log *.lot
+
+
 
