@@ -152,15 +152,13 @@ Finally, I discuss some final considerations of our model, including the finite 
 Here is a picture of the thermosyphon colored by temperature.
 \begin{figure}[h!]
   \centering
-  \includegraphics[width=0.95\textwidth]{/Users/andyreagan/work/2013/2013-05data-assimilation/OpenFOAM/pictures/heating003.png}
+  \includegraphics[width=0.95\textwidth]{/Users/andyreagan/work/2013/2013-05data-assimilation/OpenFOAM/figures/heating003.png}
   \caption{
   A screenshot of the whole loop.
   Shown is an initial stage of heating for a fixed value boundary condition, 2D, laminar simulation with a mesh of 40000 cells including wall refinement with walls heated at 340K on the bottom half and cooled to 290K on the top half.
   }
   \label{fig:CFDloopSS}
 \end{figure}
-
-
 
 \subsection{Mesh}
 
@@ -170,7 +168,7 @@ The 2D mesh contains 40,382 points, and is imposed with fixed value boundary con
 
 \begin{figure}[h!]
   \centering
-  \includegraphics[width=0.79\textwidth]{/Users/andyreagan/work/2013/2013-05data-assimilation/OpenFOAM/pictures/heating_zoom_mesh4.png}
+  \includegraphics[width=0.79\textwidth]{/Users/andyreagan/work/2013/2013-05data-assimilation/OpenFOAM/figures/heating_zoom_mesh4.png}
   \caption{
   A snapshot of the mesh used for CFD simulations.
   Shown is an initial stage of heating for a fixed value boundary condition, 2D, laminar simulation with a mesh of 40000 cells including wall refinement with walls heated at 340K on the bottom half and cooled to 290K on the top half.
@@ -180,7 +178,7 @@ The 2D mesh contains 40,382 points, and is imposed with fixed value boundary con
 
 \begin{figure}[h!]
   \centering
-  \includegraphics[width=0.79\textwidth]{/Users/andyreagan/work/2013/2013-05data-assimilation/OpenFOAM/pictures/3D-mesh2.png}
+  \includegraphics[width=0.79\textwidth]{/Users/andyreagan/work/2013/2013-05data-assimilation/OpenFOAM/figures/3D-mesh2.png}
   \caption{
   The 3D mesh viewed as a wireframe from within.
   Here there are 900 cells in each slice (not shown), for a total mesh size of 81,000 cells.
@@ -213,15 +211,15 @@ The 2D mesh contains 40,382 points, and is imposed with fixed value boundary con
   \label{fig:CFDmeshAdj2}
 \end{figure}
 
-\begin{figure}[h!]
-  \centering
-  \includegraphics[width=0.79\textwidth]{/Users/andyreagan/work/2013/2013-05data-assimilation/OpenFOAM/utils/figures/adjacency36000afterCM.pdf}
-  \caption{
-  The 2D mesh Adjacency matrix, with the Cuthill-McKee algorithm run a second time in MATLAB.
-  \todo{is this a lab culture? explain. or just remove. wanted you to see this Chris}
-  }
-  \label{fig:CFDmeshAdj3}
-\end{figure}\
+%% \begin{figure}[h!]
+%%   \centering
+%%   \includegraphics[width=0.79\textwidth]{/Users/andyreagan/work/2013/2013-05data-assimilation/OpenFOAM/utils/figures/adjacency36000afterCM.pdf}
+%%   \caption{
+%%   The 2D mesh Adjacency matrix, with the Cuthill-McKee algorithm run a second time in MATLAB.
+%%   \todo{is this a lab culture? explain. or just remove. wanted you to see this Chris}
+%%   }
+%%   \label{fig:CFDmeshAdj3}
+%% \end{figure}
 
 \subsection{Boundary conditions}
 

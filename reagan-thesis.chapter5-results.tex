@@ -46,9 +46,9 @@ For the predictions to work, it was first necessary to scale the model variables
 This is accomplished for these results by subtracting the mean climatological values from the observations and model results before assimilation. 
 While other, more complex, strategies may result in better performance there are no general rules to determine the best scaling factors and good scaling is often problem dependent \shortcite{navon1992variational,Mitchell2012PhD}.
 
-\subsection{Assimilation Window}
+%% \subsection{Assimilation Window}
 
-Here we simply decrease the time frequency of observations to test the usefulness of frequent observations.
+%% Here we simply decrease the time frequency of observations to test the usefulness of frequent observations.
 
 \begin{figure}[h!]
   \centering
@@ -62,17 +62,17 @@ Here we simply decrease the time frequency of observations to test the usefulnes
 
 \begin{figure}[h!]
   \centering
-  \includegraphics[width=0.79\textwidth]{/Users/andyreagan/work/2013/2013-05data-assimilation/src/experiments/windowExperiment/window_experiment_testing.pdf}
+  \includegraphics[width=0.79\textwidth]{/Users/andyreagan/work/2013/2013-05data-assimilation/OpenFOAM/utils/OpenFOAM-timeseries004.pdf}
   \caption{
-    Now with four different OpenFOAM model, of different grid resolution, we include the full 32 temperature observations at decreasing temporal frequency.
-  }
+      The CFD generated timeseries used as synthetic data to test predictions.
+    }
   \label{fig:result3}
 \end{figure}
 
-\subsection{Observational Network}
+%% \subsection{Observational Network}
 
-In general, we see that increasing observational density leads to improved forecast accuracy.
-Results here are only for the CFD model, since not much more can be done to include more observations in the 3-dimensional EM model.
+%% In general, we see that increasing observational density leads to improved forecast accuracy.
+%% Results here are only for the CFD model, since not much more can be done to include more observations in the 3-dimensional EM model.
 
 %% \begin{figure}[h!]
 %%   \centering
