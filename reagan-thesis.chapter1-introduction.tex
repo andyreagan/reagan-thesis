@@ -19,7 +19,7 @@ We employ a toy climate experiment as a testbed for improving numerical weather 
 This approach is akin to the historical development of current methodologies, and provides a tractable system for rigorous analysis.
 The experiment is a thermal convection loop, which by design simplifies our problem into the prediction of mostly convection.
 The dynamics of thermal convection loops have been explored under both periodic \shortcite{keller1966} and chaotic \shortcite{welander1967,creveling1975stability,gorman1984,gorman1986,ehrhard1990dynamical,yuen1999,jiang2003,burroughs2005reduced,desrayaud2006numerical,yang2006,ridouane2010} regimes.
-A full characterization of the computational behaivor of a loop under flux boundary conditions by Louisos et. al. deliminated four regimes: chaotic convection with reversals, high Ra aperiodic stable convection, steady stable convection, and conduction/quasi-conduction \shortcite{louisos2013}.
+A full characterization of the computational behaivor of a loop under flux boundary conditions by Louisos et. al. describes four regimes: chaotic convection with reversals, high Ra aperiodic stable convection, steady stable convection, and conduction/quasi-conduction \shortcite{louisos2013}.
 For the remainder of this work, we focus on the chaotic flow regime.
 
 
@@ -48,7 +48,7 @@ The Courant number relates the movement of a quantity to the size of the mesh, w
 \begin{equation*} C = \frac{u_x \Delta t}{\Delta x} \end{equation*}
 in one dimension, and a value $>$ 1 for a finite difference method solving partial different conditions is divergent.
 
-Early on, the problem of fast travelling waves from unbalanced IC was solved by filtering the equations of motion based on the quasi-geostrophic (slow time) balance.
+Early on, the problem of fast traveling waves from unbalanced IC was solved by filtering the equations of motion based on the quasi-geostrophic (slow time) balance.
 Although this made running models feasible on the computers available during WW2, the incorporation of the full equations proved necessary for more accurate forecasts to be made.
 
 %% The first computer model forecast was performed as a one day forecast on the ENIAC (the Electronic Numerical Integrator and Computer) by none other than J. von Neumann \shortcite{charney1950}, at the Aberdeen US Army facility in Maryland.
@@ -74,7 +74,7 @@ Although this made running models feasible on the computers available during WW2
 
 %% \begin{quote}
 
-%% Nonadiabatic and frictional terms have been ignored in the body of the discussino because it was thought that one should first seek to determine how much of the motion could be explained without them.
+%% Nonadiabatic and frictional terms have been ignored in the body of the discussion because it was thought that one should first seek to determine how much of the motion could be explained without them.
 %% Ultimately they will have to be taken into account, particularly if the forecast period is to be extended to three or more days.
 
 %% Condensational phenomena appear to be the simplest to introduce: one has only to add the equation of continuity for water vapor and replace the dry air by the most adiabatic equation.
@@ -91,8 +91,8 @@ The shortcomings of our understanding of the subgrid-scale phenomena do impose a
 The upper limit of predictability exists for even a perfect model, as Edward Lorenz showed in with a three variable model found to exhibit sensitive dependence on initial conditions \shortcite{lorenz1963}.
 
 Numerical weather prediction has since constantly pushed the boundary of computational power, and required a better understanding of atmospheric processes to make better predictions.
-%% It is with this goal that I continue the march forward.
-In this direction, I make use of advanced computational resources in the context of a simplified atmospheric experiment to improve prediction skill.
+%% It is with this goal that we continue the march forward.
+In this direction, we make use of advanced computational resources in the context of a simplified atmospheric experiment to improve prediction skill.
 
 \section{IC determination: data assimilation}
 
@@ -104,7 +104,7 @@ Data assimilation algorithms consist of a 3-part cycle: predict, observe, and as
 Formally, the data assimilation problem is solved by minimizing the error in the presence of specific constraints.
 The prediction step involves making a prediction of the future state of the system, as well as the error of the model, in some capacity.
 Observing various systems comes in many flavors: rawindsomes and satellite irradiance for the atmosphere, temperature and velocity reconstruction of experiments from simple sensors, or sampling the market in finance.
-Assimilation is the combination of these observations and the predicitive model in such a way that minimizes the error of the future prediction based on this analysis.
+Assimilation is the combination of these observations and the predictive model in such a way that minimizes the error of the future prediction based on this analysis.
 
 The difficulties of this process arise in many fashions, and are addressed by parameter adjustments of existing algorithms or new approaches altogether.
 The first problem is ensuring the analysis respects the core balances of the model.
@@ -134,13 +134,13 @@ These are the Navier-Stokes equations.
 For the atmosphere, we can make various approximations to simplify the problem to arrive at what are known of equations of Geophysical Fluid Dynamics, which differ mainly in the incorporation of the Coriolis effect, and the neglecting of vertical component of advection.
 In both cases, the principle equation is the momentum equation, supplemented by the continuity and energy equations.
 
-As stated, my interest here is not the accuracy of computational fluid dynamic simulations themselves, but rather their incorporation into the prediction problem.
+As stated, our interest here is not the accuracy of computational fluid dynamic simulations themselves, but rather their incorporation into the prediction problem.
 For this reason, the depth of exploration of available models is limited.
 
 We chose to perform simulations in the open-source C++ library OpenFOAM.
-Because the code is open-source, I can modify it as necessary for data assimilation, and of particular importance becomes the discretized grid.
+Because the code is open-source, we can modify it as necessary for data assimilation, and of particular importance becomes the discretized grid.
 
-There are two main directions in which I do explore the computational model: meshing and solving.
+There are two main directions in which we do explore the computational model: meshing and solving.
 To solve the equations of motion numerically, we first must discretize them in space by creating the computational grid which we refer to as a mesh.
 The importance of properly designing and characterizing the mesh is profound: without the use of unreliable turbulence models, and without a grid small enough to resolve all of the scales of turbulence, we inevitably fail to capture the effects of sub-grid scale phenomena.
 In weather models, this is a known problem and is an open area of research.
@@ -164,8 +164,8 @@ An example of such a conceptual model used to study climate is the energy balanc
   \includegraphics[width=0.49\textwidth]{figures/Energy-Balance-Model-Schematic.png}
   \caption{
     A schematic of the Energy Balance Model (EBM), a conceptual climate model based on the conservation of energy.
-    $S_0$, represented by the yellow arrow, is energy coming from the sun that is absorbed by Earth's suface (horizontal green bar).
-    The red, dashed arrow is energy radiating out of Earth's surface, of which some is reflected back by the atmosphere (horizontal grey line), and the remainder escapes.
+    $S_0$, represented by the yellow arrow, is energy coming from the sun that is absorbed by Earth's surface (horizontal green bar).
+    The red, dashed arrow is energy radiating out of Earth's surface, of which some is reflected back by the atmosphere (horizontal gray line), and the remainder escapes.
     Since energy is conserved in the EBM, the parameterizations of surface albedo (amount reflected by Earth's surface), atmospheric absorbivity, and radiation rate determine the long term behaivor of internal energy (temperature).
   }
   \label{fig:EBM}
@@ -203,12 +203,16 @@ Edward Lorenz discovered and studied chaos most of his life, and it said to have
 Chaos: When the present determines the future, but the approximate present does not approximately determine the future.
 \end{quote}
 
-In chapter 4, we present a derivation of Ehrhard-M\"{u}ller Equations governing the flow in the loop following the work of \cite{harris2011predicting}.
-These equations are akin to the Lorenz 63 system, as we shall see, and the experimental implementation is described in more detail in Chapter 4 as well.
+In chapter 3, we present a derivation of Ehrhard-M\"{u}ller Equations governing the flow in the loop following the work of \cite{harris2011predicting}.
+These equations are akin to the Lorenz 63 system, as we shall see, and the experimental implementation is described in more detail in the first section of Chapter 3.
 
-In chapters 5 we present results for the predictive skill tests.
+In chapter 4 we present results for the predictive skill tests and summarize the successes of this work and our contributions to the field.
+We find that below a critical threshold of observations, predictions are useless (where useless forecasts are those with greater than 70\% RMSE).
+The skill of forecasts is also sensitive to the choice of covariance localization, which we discuss in more detail in chapter 4.
+And finally, we present a ``foamLab,'' a testbed for DA which links models, DA techniques, and localization in a general framework that can be used to extend these results and test experimental methods for DA within different models.
 
-Finally, in chapter 6 we summarize the successes of this work and our contributions to the field.
-\todo{expand once these chapters are finished}
+
+
+
 
 

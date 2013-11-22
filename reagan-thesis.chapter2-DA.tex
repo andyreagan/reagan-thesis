@@ -19,8 +19,8 @@
 \chaptermark{Data Assimilation} %this is the chapter heading that will show on subsequent pages
 
 The goal of this chapter is to introduce and detail the practical implementation of state-of-the-art data assimilation algorithms.
-I derive the general form for the problem, and then talk about how each filter works.
-For a selection of these algorithms, I illustrate some of their properties via a MATLAB implementation using the Lorenz 1963 three-variable model: %of the Extended Kalman Filter (EKF), Ensemble Kalman Filter (EnKF), and 3D-Var on the Lorenz 1963 three-variable model:
+We derive the general form for the problem, and then talk about how each filter works.
+For a selection of these algorithms, we illustrate some of their properties via a MATLAB implementation using the Lorenz 1963 three-variable model: %of the Extended Kalman Filter (EKF), Ensemble Kalman Filter (EnKF), and 3D-Var on the Lorenz 1963 three-variable model:
 \begin{align*}
 \frac{dx}{dt} &= \sigma (y-x)\\
 \frac{dy}{dt} &= rx - y -xz \\
@@ -38,12 +38,12 @@ The cannonical choice of $\sigma = 10, b = 8/3$ and $r = 28$ is used for all exa
   \label{fig:lorenzattractor}
 \end{figure}
 
-From the simpler examples, I build the most advanced 4D-Var and 4DLETKF approaches with the full CFD model (216K variables).
+From the simpler examples, we build the most advanced 4D-Var and 4DLETKF approaches with the full CFD model (216K variables).
 
 \section{Basic derivation, OI}
 
-I begin by deriving the equations for optimal interpolation (OI) and for the Kalman Filter with one scalar observation.
-The goal of my derivation is to highlight which statistical information is useful, which is necessary, and what assumptions are generally made in the formulation of more complex algorithms.
+We begin by deriving the equations for optimal interpolation (OI) and for the Kalman Filter with one scalar observation.
+The goal of our derivation is to highlight which statistical information is useful, which is necessary, and what assumptions are generally made in the formulation of more complex algorithms.
 
 Beginning with the one variable $U$, which could represent the horizontal velocity at one grid-point, say we make two independent observations of $U$: $U_1$ and $U_2$.
 If the true state of $U$ is given by $U_t$, then the goal is to produce an analysis of $U_{1,2}$ which we call $U_a$, that is our best guess of $U_t$.
@@ -92,7 +92,9 @@ This last formula says that given accurate statistical knowledge of $U_{1,2}$, t
 
 \begin{figure}[t!]
   \centering
-  \includegraphics[width=0.75\textwidth]{figures/DA-example03-labels-xkcd-cropped.pdf}
+  %% xkcd
+  %% \includegraphics[width=0.75\textwidth]{figures/DA-example03-labels-xkcd-cropped.pdf}
+  \includegraphics[width=0.75\textwidth]{figures/DA-example03-labels.pdf}
   \caption{
     A 1-dimensional example of this data assimilation cycle.
     First, a forecast is made with mean 0 and variance 1, labeled $u_f$.
@@ -110,8 +112,6 @@ The difference $U_o - U_b$ is commonly reffered to as the ``innovation'' and rep
 The optimal weight $W$ is then given by \ref{eq:analprec} as
 \begin{equation} W = \frac{\sigma _b ^2}{\sigma_b ^2 - \sigma _o ^2} = \sigma_b ^2 (\sigma_b^2 - \sigma_o^2) ^{-1} \label{eq:1dda}.\end{equation}
 
-
-
 The analysis error variance and precision are defined as before, and following Kalnay (2003) %\shortcite{kalnay2003}
 for convenience we can rewrite this in terms of $W$ as:
 \begin{equation} \sigma _a ^2 = (1-W ) \sigma_b^2 .\end{equation}
@@ -123,12 +123,10 @@ The following notation will be used for the OI and the other multivariate filter
 Consider a field of grid points, where there may be $\mbx_i = (p,p_{\text{rgh}},T,u_x,u_y,u_z)$ variables at each point for pressure, hydrostatic pressure, temperature, and three dimensions of velocity.
 We combine all the variables into one list $\mbx$ of length $n$ where $n$ is the product of the number of grid points and the number of model variables.
 This list is ordered by grid point and then by variable (e.g. $\mbx = (p_1,T_1,p_2,T_2,\ldots,p_{n/2},T_{n/2})$ for a field with just variables pressure $p$ and temperature $T$).
-Denote the observations as $\mby_0$, where the ordering is the same as $\mbx$ but the dimension is much smaller (e.g. by a factor of $10^3$ for NWP) % $\left | \mby _0 \right | << \left | \mbx \right |$ 
+Denote the observations as $\mby_0$, where the ordering is the same as $\mbx$ but the dimension is much smaller (e.g. by a factor of $10^3$ for NWP) % $\left | \mby _0 \right | \ll \left | \mbx \right |$ 
 and the observations are not strictly at the locations of $\mbx$ or even direct measurements of the variables in $\mbx$.
 In our experiment, temperature measurements are in the model variable $T$, but are understood as the average of the temperature of the grid points surrounding it within some chosen radius.
 Examples of indirect and spatially heterogeneous observations in NWP are radar reflectivities and Doppler shifts, satellite radiances, and global positioning system atmospheric refractivities \shortcite{kalnay2003}.
-
-
 
 We can now write the analysis with similar notation as for the scalar case with the addition of the observation operator $H$ which transforms model variables into observation space:
 
@@ -191,9 +189,9 @@ To summarize, the equations for OI are
 \begin{align} \mbW &= \mbB \mbH ^T \left ( \mbR + \mbH \mbB \mbH ^T \right ) ^{-1}  \\
 \mathbf{P} _a &=(\mathbf{I} - \mbW \mbH ) \mbB \end{align}
 
-As a final note, it is also possible to derive the ``precision'' of the analysis $\mathbf{P} _a ^{-1}$ but in practice it is impractical to compute the inverse of the full matrix $\mathbf{P}_a$, so I omit this derivation.
+As a final note, it is also possible to derive the ``precision'' of the analysis $\mathbf{P} _a ^{-1}$ but in practice it is impractical to compute the inverse of the full matrix $\mathbf{P}_a$, so we omit this derivation.
 In general is also not possible to solve for $\mbW$ for the whole model, and localization of the solution is achieved by considering each grid point and the observations within some set radius of this.
-For different models, this equates to different assumptions on the correlations of observations, which I do not consider here.
+For different models, this equates to different assumptions on the correlations of observations, which we do not consider here.
 
 \section{3D-Var}
 
@@ -219,10 +217,10 @@ Jumping straight to result of Lorenc \shortcite{lorenc1986analysis} (we could de
 The formal minimization of $J$ can be obtained by solving for $\nabla_x J(\mbx_a)$, but since this is not useful in practice (iterative methods are used), we only present the result from \shortcite{kalnay2003}:
 \begin{equation} \mbx_a = \mbx_b+(\mbB^{-1} + \mbH^T\mbR^{-1}\mbH)^{-1}\mbH^T\mbR^{-1}(\mby_o-H(\mbx_b)) .\end{equation}
 
-The PSAS data assimilation is so similar to 3D-Var that I do not derive it here, the only difference being that the cost function $J$ is solved in observation space.
+The PSAS data assimilation is so similar to 3D-Var that we do not derive it here, the only difference being that the cost function $J$ is solved in observation space.
 Since there are typically less observations than there are model variables, 3D-Var is a more efficient method.
 
-Finally I note for 3D-Var that operationally $\mbB$ can be estimated with some flow dependence with the NMC or NCEP method, i.e.
+Finally we note for 3D-Var that operationally $\mbB$ can be estimated with some flow dependence with the NMC or NCEP method, i.e.
 \begin{equation} \mbB \approx \alpha \expv{(\mbx_f(48h)-\mbx_f(24h))(\mbx_f(48h)-\mbx_f(24h))^T} \end{equation}
 with on the order of 50 different short range forecasts.
 
@@ -262,11 +260,11 @@ For this reason, no operational weather centers use the EKF, although approximat
 
 \subsection{Coding the TLM}
 
-%% Actually coding the TLM was difficult, so I'll try to spell it out here, to make sure I understand it.
+%% Actually coding the TLM was difficult, so we'll try to spell it out here, to make sure we understand it.
 The TLM is the model which advances an initial perturbation $\delta \mbx_{i}$ at timestep $i$ to a final perturbation $\delta ^* \mbx_{i+1}$ at timestep $i+1$.
 The dynamical system we are interested in, Lorenz '63, is given as a system of ODE's:
 \[ \frac{d\mbx}{dt} = F(\mbx) .\]
-We integrate this system using a numerical scheme of our choice (here I used RK2), to obtain a model $M$ discretized in time.
+We integrate this system using a numerical scheme of our choice (here we used RK2), to obtain a model $M$ discretized in time.
 \[ \mbx(t) = M[ \mbx(t_0) ] .\]
 Introducing a small perturbation $\mby$, we can approximate the our model $M$ of $\mbx(t_0) + \mby(t_0)$ with a Taylor series around $\mbx(t_0)$, for which we assume to already have solved for:
 \begin{align*} M[ \mbx(t_0) + \mby(t_0) ] &= M [ \mbx(t_0) ] + \frac{\partial M}{\partial \mbx} \mby(t_0) + O [ \mby(t_0) ^2 ]\\ &\approx \mbx(t) + \frac{\partial M}{\partial \mbx} \mby(t_0) .\end{align*}
@@ -292,7 +290,7 @@ It is therefore desirable to take the derivative of the numerical scheme directl
 A schematic of this scenario is illustrated in Figure \ref{fig:TLMscheme}.
 It is for this reason that there exists code that takes the derivative of numerical code (i.e. Fortran) for implementing the EKF on models larger than 3 dimensions with numerical schemes more complicated than RK2 or RK4.
 
-In order to verify my implementation of the TLM, I propagate a small error in the Lorenz 63 system and plot the difference between that error and the TLM predicted error in each variable forward in time in Figure \ref{fig:TLMverification}.
+In order to verify our implementation of the TLM, we propagate a small error in the Lorenz 63 system and plot the difference between that error and the TLM predicted error in each variable forward in time in Figure \ref{fig:TLMverification}.
 
 \begin{figure}[h!]
   \centering
@@ -313,7 +311,7 @@ One such approach is the use of a forecast ensemble, where a collection of model
 The spread of these models with random errors is then used to estimate the error covariance.
 In the limit of infinite ensemble size, the EnKF is equivalent to the EKF \shortcite{evensen2003ensemble}.
 There are two prevailing methodologies for maintaining independent ensemble members: adding errors to the observation used by each forecast and assimilating each ensemble individually or distributing ensemble initial conditions from the analysis prediction.
-In the prior, the random error added to the observation can be truly random \shortcite{harris2011predicting} or be drawn from a distribution related to the analysis covariance, which I chose for this type of filter.
+In the prior, the random error added to the observation can be truly random \shortcite{harris2011predicting} or be drawn from a distribution related to the analysis covariance, which we chose for this type of filter.
 The latter method of distributing ensemble members around the analysis forecast, with initial conditions perturbed as (for example) the square root of the ensemble has advantages compared to perturbed observations \shortcite{evensen2003ensemble}.
 It has been show that the perturbed observation approach introduces additional sampling error that reduces the analysis covariance accuracy and increases the probability of of underestimating analysis error covariance \shortcite{hamill2001distance}.
 
@@ -353,15 +351,15 @@ We can see the classic spaghetti of the ensemble with this filter implemented on
 \end{figure}
 
 The forecast from an ensemble is the average of the ensemble forecasts, and an explanation for this choice is substantiated by Burgers \shortcite{burgers1998analysis}.
-The general EnKF which I use is most similar to that of Burgers.
+The general EnKF which we use is most similar to that of Burgers.
 Many algorithms based on the EnKF have been proposed and include the Ensemble Transform Kalman Filter (ETKF) \shortcite{ott2004local}, Ensemble Analysis Filter (EAF) \shortcite{anderson2001new}, Ensemble Square Root Filter (EnSRF) \shortcite{tippett2003ensemble}, Local Ensemble Kalman Filter (LEKF) \shortcite{ott2004local}, and finally the Local Ensemble Transform Kalman Filter (LETKF) \shortcite{hunt2007efficient}.
-I explore some of these in the following sections.
+We explore some of these in the following sections.
 A comprehensive overview through 2003 is provided by Evensen \shortcite{evensen2003ensemble}.
-Next, I present the results of a MATLAB implementation of the EKF and basic EnKF.
+Next, we present the results of a MATLAB implementation of the EKF and basic EnKF.
 
 \subsection{Performance of EnKF, EKF on Lorenz 63}
 
-With the EnKF and the EKF algorithms coded as above, I present some basic results on their performance. 
+With the EnKF and the EKF algorithms coded as above, we present some basic results on their performance. 
 First, we see that using a data assimilation algorithm is highly advantageous in general (Figure \ref{fig:DA_test}).
 Of course we could think to use the observations directly when DA is not used, but since we only observing the $x_1$ variable (and in real situations measurements are not so direct), this is not prudent.
 
@@ -419,7 +417,7 @@ In Figure \ref{fig:EKF_cov_tuning_210s} we see that there is a clear region of p
 
 \subsection{Ensemble Transform Kalman Filter (ETKF)}
 
-The ETKF introduced by Bishop is one type of square root filter, and I present it here to provide background for the formulation of the LETKF \shortcite{bishop2001adaptive}.
+The ETKF introduced by Bishop is one type of square root filter, and we present it here to provide background for the formulation of the LETKF \shortcite{bishop2001adaptive}.
 For a square root filter in general, we begin by writing the covariance matrices as the product of their matrix square roots.
 Because $\mbP_a,\mbP_f$ are symmetric positive-definite (by definition) we can write
 \begin{equation} \mbP_a = \mbZ_a \mbZ_a^T ~~,~~~ \mbP_f = \mbZ_f \mbZ_f^T \end{equation}
@@ -508,7 +506,7 @@ To ensure a unique solution of local analysis perturbations that respects this b
 
 Proposed by Hunt in 2007 with the stated objective of computational efficiency, the LETKF is named from its most similar algorithms from which it draws \shortcite{hunt2007efficient}.
 With the formulation of the LEKF and the ETKF there is not much new to be said here, but rather a synthesis of the advantages of both of these approaches.
-This is the method that was sufficiently efficient for implementation on the full OpenFOAM CFD model of 216,000 model variables, and so I present it in more detail and follow the notation of Hunt et al (2007). % \shortcite{hunt2007efficient}.
+This is the method that was sufficiently efficient for implementation on the full OpenFOAM CFD model of 216,000 model variables, and so we present it in more detail and follow the notation of Hunt et al (2007). % \shortcite{hunt2007efficient}.
 
 As in the LEKF, we explicitly perform the analysis for each grid point of the model.
 The choice of observations to use for each grid point can be selected a priori, and tuned adaptively.
@@ -539,7 +537,7 @@ where $\mbY$ is the $l\times k$ matrix whose columns are $\mby_{b(i)} - \overlin
 Now we rewrite the cost function for the linearize observation operator as
 \begin{align*} \tilde{J}^* = &(k-1)\mbw^T \mbw + (\mby _o -\overline{\mby} _b - \mbY _b \mbw )^T\\
 &\times\mbR^{-1} (\mby _o -\overline{\mby} _b - \mbY _b \mbw ) \end{align*}
-This cost function minimum is the form of the Kalman Filter as I have written it before:
+This cost function minimum is the form of the Kalman Filter as we have written it before:
 \begin{align*} \overline{\mbw}_a &= \tilde{\mbP}_a (\mbY _b )^T \mbR ^{-1} (\mby_o - \overline{\mby}_b),\\
 \tilde{P}_a &= \left( (k-1)\mathbf{I}+(\mbY_b)^T\mbR^{-1}\mbY_b\right ) ^{-1} .\end{align*}
 In model space these are
