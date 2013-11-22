@@ -49,15 +49,15 @@ Beginning with the one variable $U$, which could represent the horizontal veloci
 If the true state of $U$ is given by $U_t$, then the goal is to produce an analysis of $U_{1,2}$ which we call $U_a$, that is our best guess of $U_t$.
 
 Denote the errors of $U_{1,2}$ by $\epsilon _{1,2}$ respectively, such that
-$$ T_{1,2} = T_t + \epsilon _{1,2} .$$
+$$ U_{1,2} = U_t + \epsilon _{1,2} .$$
 
 For starters, we assume that we do not know $\epsilon _{1,2}$.
 Next, assume that the errors vary around the truth, such that they are unbiased.
 This is written as
-$$ E(T_{1,2}-T_t) = E(\epsilon _{1,2} ) = 0.$$
+$$ E(U_{1,2}-U_t) = E(\epsilon _{1,2} ) = 0.$$
 
 As of yet, our best guess of $U_t$ would be the average $(U_1 + U_2)/2$, and for any hope of knowing $U_t$ well we would need many unbiased observations at the same time.
-This is unrealistic, and to move forward we assume that we know the variance of each $T_{1,2}$.
+This is unrealistic, and to move forward we assume that we know the variance of each $U_{1,2}$.
 With this knowledge, which we write
 \begin{equation} \expv{\epsilon _{1,2} ^2} = \sigma _{1,2} ^2 \end{equation}
 and further assume that these errors are uncorrelated
@@ -66,13 +66,15 @@ which in the case of observing the atmosphere is at best hopeful.
 
 We again attempt a linear fit of these observations to the truth, and can do better than an average.
 For $U_a$, our best guess of $U_t$, we write this linear fit as
-\begin{equation} U_a = \alpha _1 T_1 + \alpha _2 T_2 \label{eq:analproblem}. \end{equation}
+\begin{equation} U_a = \alpha _1 U_1 + \alpha _2 U_2 \label{eq:analproblem}. \end{equation}
 If $U_a$ is to be our best guess, we desire it to unbiased
 $$E(U_a) = E(U_t) \Rightarrow \alpha _1 + \alpha _2 = 1$$
 and to have minimal error variance $\sigma _a ^2$.
 
 At this point, note all of the assumptions that we have made: independent observations, unbiased instruments, knowledge of error variance, and uncorrelated observation errors.
 Of these, knowing the error variances (and in multiple dimensions, error covariance matrices) will become our focus, and better approximations of these errors have been largely responsible for recent improvements in forecast skill.
+
+
 
 Solving \ref{eq:analproblem} by substituting $\alpha _2 = 1 - \alpha _1$ have
 \begin{align*} \sigma _a ^2 &= \expv{ \left ( \alpha_1 (U_1-U_t)+(1-\alpha_1)(U_2 - U_t) \right ) ^2 } \\
@@ -88,13 +90,27 @@ We can also state the relationship for $\sigma _a ^2$ as a function of $\sigma_{
 
 This last formula says that given accurate statistical knowledge of $U_{1,2}$, the precision of the analysis is the sum of the precision of the measurements.
 
+\begin{figure}[t!]
+  \centering
+  \includegraphics[width=0.75\textwidth]{figures/DA-example03-labels-xkcd-cropped.pdf}
+  \caption{
+    A 1-dimensional example of this data assimilation cycle.
+    First, a forecast is made with mean 0 and variance 1, labeled $u_f$.
+    An obvservation denoted $u_o$ is the made with mean 2 and variance 2.
+    From this information and Equation \ref{eq:1dda} we compute the analysis $u_f$ with mean 2/3, noting the greater reliance on the lower variance input $u_f$.
+  }
+  \label{fig:DAexample1D}
+\end{figure}
+
 We can now formulate the simplest data assimilation cycle by using our forecast model to generate a background forecast $U_b$ and setting $U_1 = U_b$.
 We then assimilate the observations $U_o$ by setting $U_2 = U_o$ and solving for the analysis velocity $U_a$ as
 \begin{equation} U_a = U_b + W (U_o - U_b) .\end{equation}
 
 The difference $U_o - U_b$ is commonly reffered to as the ``innovation'' and represents the new knowledge from the observations with respect to the background forecast.
 The optimal weight $W$ is then given by \ref{eq:analprec} as
-\begin{equation} W = \frac{\sigma _b ^2}{\sigma_b ^2 - \sigma _o ^2} = \sigma_b ^2 (\sigma_b^2 - \sigma_o^2) ^{-1} .\end{equation}
+\begin{equation} W = \frac{\sigma _b ^2}{\sigma_b ^2 - \sigma _o ^2} = \sigma_b ^2 (\sigma_b^2 - \sigma_o^2) ^{-1} \label{eq:1dda}.\end{equation}
+
+
 
 The analysis error variance and precision are defined as before, and following Kalnay (2003) %\shortcite{kalnay2003}
 for convenience we can rewrite this in terms of $W$ as:

@@ -13,6 +13,7 @@ In solar hot water heaters, water is warmed using the sun's energy, resulting in
 Solar hot water thermosyphons, filled with either water or antifreeze, are used to transfer the solar energy into a hot water tank.
 Geothermal systems rely on the Earth's warmth deep underground to heat and cool buildings, and due to low temperature differences are often augmented with a physical pump.
 Cooling the CPU of modern computers is necessary for operation at high speeds, and thermosyphons have been used here to reduce both noise and energy consumption.
+The author notes the difference between forced and natural convection, where in some of these systems forced convection may be necessary in operation.
 
 In response to a warming climate, thermosyphons have been used to transfer heat away from buildings built on fragile permafrost, which would otherwise melt and destroy the structure \shortcite{Xu2008experimental}.
 These ground thermosyphons are pictured in Figure \ref{fig:fairbanks}.
@@ -41,7 +42,7 @@ These ground thermosyphons are pictured in Figure \ref{fig:fairbanks}.
 
 \section{Ehrhard-M\"{u}ller Equations}
 
-Following the derivation by Harris \shortcite{harris2011predicting}, itself a representation of the derivation of Gorman \shortcite{gorman1986} and namesakes Ehrhard and M\"{u}ller \shortcite{ehrhard1990dynamical}, I derive the equations governing a closed loop thermosyphon.
+Following the derivation by Harris \shortcite{harris2011predicting}, itself a representation of the derivation of Gorman \shortcite{gorman1986} and namesakes Ehrhard and M\"{u}ller \shortcite{ehrhard1990dynamical}, we derive the equations governing a closed loop thermosyphon.
 
 Similar to the derivation of the governing equations of CFD in Chapter 3, I start with a small but finite volume inside the loop.
 Here, however, the volume is described by $\pi r^2 R \text{d} \phi$ for $r$ the interior loop size (such that $\pi r^2$ is the area of a slice) and $R\text{d}\phi$ the arc length (width) of the slice.
@@ -118,7 +119,7 @@ Through careful consideration of these non-dimensional variable transformations 
 \section{Detailed Experimental Setup}
 
 Originally built (and subsequently melted) by Dr. Chris Danforth at Bates College, the University of Vermont's current experimental thermosyphons have made considerable progress.
-Operated by Dave Hammond, UVM's Scientific Electronics Technician and master parameter tuner, the experimental thermosyphons access the chaotic regime of state space found in the principled governing equations.
+Operated by Dave Hammond, UVM's Scientific Electronics Technician, the experimental thermosyphons access the chaotic regime of state space found in the principled governing equations.
 
 \begin{figure}[h!]
   \centering
@@ -189,7 +190,7 @@ The 2D mesh contains 40,382 points, and is imposed with fixed value boundary con
 
 \begin{figure}[h!]
   \centering
-  \includegraphics[width=0.79\textwidth]{/Users/andyreagan/work/2013/2013-05data-assimilation/OpenFOAM/utils/figures/adjacency36000bool01.pdf}
+  \includegraphics[width=0.79\textwidth]{/Users/andyreagan/work/2013/2013-05data-assimilation/OpenFOAM/figures/adjacency36000bool01.pdf}
   \caption{
   The 2D mesh Adjacency matrix for a local radius of 1.0cm.
   In general, we see that cells have neighbors with nearby cell ID.
@@ -200,7 +201,7 @@ The 2D mesh contains 40,382 points, and is imposed with fixed value boundary con
 
 \begin{figure}[h!]
   \centering
-  \includegraphics[width=0.79\textwidth]{/Users/andyreagan/work/2013/2013-05data-assimilation/OpenFOAM/utils/figures/adjacency36000bool02.pdf}
+  \includegraphics[width=0.79\textwidth]{/Users/andyreagan/work/2013/2013-05data-assimilation/OpenFOAM/figures/adjacency36000bool02.pdf}
   \caption{
   The 2D mesh Adjacency matrix, zoomed in.
   The Cuthill-McKee renumbering algorithm was used, and we see 23 distinct regions of local numbering, reflective of the geometry and Cuthill-McKee algorithm.
