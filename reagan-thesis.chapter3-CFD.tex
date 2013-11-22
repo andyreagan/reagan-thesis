@@ -34,7 +34,7 @@ In general, there are three approaches to the numerical solution of PDEs: finite
 OpenFOAM has the capacity for each scheme, and for our problem with an unstructed mesh, the finite volume method is the simplest.
 
 After discretization, solving is accomplished by the Pressure-Implicit Split Operator (PISO) algorithm \shortcite{issa1986solution}.
-In Table \ref{tb:solvingchoices}, we note the choices of schemes for time-stepping, numerical methods and interpolation.
+In Table \ref{tb:ofsolution}, we note the choices of schemes for time-stepping, numerical methods and interpolation.
 
 \subsection{Solving with OpenFOAM}
 
@@ -48,7 +48,7 @@ Modification of the code was necessary for laminar operation.
 
 The Boussinesq approximation makes the assumption that density changes due to temperature differences are sufficiently small so that they can be neglected without effecting the flow, except when multiplied by gravity.
 The non-dimensionalized density difference $\Delta \rho / \rho$ depends on the value of heat flux into the loop, but remains small even for large values of flux.
-\todo{derive an equation for this ratio in terms of flux $q''$).}
+\begin{equation} \frac{\beta(T - T_\text{ref})}{\rhoref} = 7.6 \cdot 10^{-6} \ll 1 \label{eq:bouss} \end{equation}
 
 Available boundary conditions (BCs) that were found to be stable in OpenFOAM's solver were constant gradient, fixed value conditions, and turbulent heat flux.
 Simulations with a fixed flux BC is implemented through the externalWallHeatFluxTemperature library were unstable and resulted in physically unrealistic results.
@@ -58,8 +58,79 @@ To most accurately model our experiment, we choose a fixed value BC.
 This is due to the thermal diffusivity and thickness of the walls of the experimental setup.
 \todo{Derive condition}
 
+\begin{table*}
+\begin{center}
+\begin{tabular}{ll}
+\hline
+Problem & Scheme\\
+\hline
+\hline
+Main solver & buoyantBoussinesqPimpleFoam\\
+\hline
+Solving algorithm & PISO\\
+\hline
+Grid & Semi-staggered\\
+\hline
+Turbulence model & None (laminar)\\
+\hline
+Time stepping & Euler\\
+\hline
+Gradient & Gauss linear\\
+\hline
+Divergence & Gauss upwind\\
+\hline
+Laplacian & Gauss linear\\
+\hline
+Interpolation & Linear\\
+\hline
+Matrix preconditioner & Diagonal LU\\
+\hline
+Matrix solver & Preconditioned Bi-linear Conjugate Gradient\\
+\hline
+\end{tabular}
+\caption{
+  Numerical schemes used for solving the finite volume problem.
+  }
+\label{tb:ofsolution}
+\end{center}
+\end{table*}
 
-
+\begin{table}
+\begin{center}
+\begin{tabular}{ll}
+\hline
+Variable & Value (at 300K, if applicable)\\
+\hline
+\hline
+Rayleigh number & $[1.5\cdot 10^6, 4\cdot 10^7]$\\
+\hline
+Reynolds number & $\approx 416$\\
+\hline
+Gravity $g_z$ (fixed) & $9.8 \text{m}/\text{s}^2$\\
+\hline
+Specific heat $c_p$ & $4.187 \text{Kj}/\text{Kg}$\\
+\hline
+Thermal expansion $\beta$ & $0.303\cdot 10^{-3} \,1/\text{K}$\\
+\hline
+Density $\rhoref$ & $995.65 \text{Kg}/\text{m}^3$\\
+\hline
+Kinematic Viscoscity $\nu$ & $0.801\cdot 10^{-6} \text{m}^2/\text{s}$\\
+\hline
+Dynamic Viscoscity $\mu$ & $0.798$\\
+\hline
+Laminar Prandtl number & $5.43$\\
+\hline
+Boussinesq condition & $7.6\cdot 10^{-6}$\\
+\hline
+\end{tabular}
+\caption{
+  Specific constants used for thermal properties of water.
+  For temperature dependent quantities, the value is evaluated at the reference temperature $T_\text{ref}  = 300K$.
+  Derivation of the Boussineq condition is presented in Equation \ref{eq:bouss}.
+  }
+\label{tb:flowvariables}
+\end{center}
+\end{table}
 
 
 
