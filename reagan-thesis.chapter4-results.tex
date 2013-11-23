@@ -13,10 +13,10 @@ To add a new model to this framework, it is only necessary to write a MATLAB cla
 Testing a new technique for performing the DA step is as simple as writing a MATLAB function for the assimilation steps, where the the model result and observations are provided as an input.
 
 The core of this framework is the MATLAB script modelDAinterface.m which wraps observations, the model class, and any DA method together.
-A description of the main algorithm is provided in the Appendix.
-\todo{remove this statement if the code can't be included succinctly}
+A description of the main algorithm is provided in Appendix D.
 
 For large models, it is necessary to perform the assimilation in a local space, and this consideration is accounted for within the framework.
+This procedure, referred to as localization, eliminates spurious long-disctance correlations and parallelizes the assimilation.
 
 \subsection{Tuned OpenFOAM model}
 
@@ -46,10 +46,6 @@ For the predictions to work, it was first necessary to scale the model variables
 This is accomplished for these results by subtracting the mean climatological values from the observations and model results before assimilation. 
 While other, more complex, strategies may result in better performance there are no general rules to determine the best scaling factors and good scaling is often problem dependent \shortcite{navon1992variational,Mitchell2012PhD}.
 
-%% \subsection{Assimilation Window}
-
-%% Here we simply decrease the time frequency of observations to test the usefulness of frequent observations.
-
 \begin{figure}[h!]
   \centering
   \includegraphics[width=0.79\textwidth]{/Users/andyreagan/work/2013/2013-05data-assimilation/src/experiments/windowExperiment/window_experiment_plot002.pdf}
@@ -69,9 +65,9 @@ While other, more complex, strategies may result in better performance there are
   \label{fig:result3}
 \end{figure}
 
-%% \subsection{Observational Network}
+\subsection{Observational Network}
 
-%% In general, we see that increasing observational density leads to improved forecast accuracy.
+In general, we see that increasing observational density leads to improved forecast accuracy.
 %% Results here are only for the CFD model, since not much more can be done to include more observations in the 3-dimensional EM model.
 
 %% \begin{figure}[h!]
@@ -111,7 +107,6 @@ Data assimilation is performed for each grid point, considering neighboring cell
 
 Throughout the process of building a data assimilation scheme from scratch, as well as deriving and tuning a computational model, we have learned a great deal about the difficulties and successes of modeling.
 We have found that data assimilation algorithms and CFD solvers are sensitive to parameter choices, and cannot be used successfully without an approach that is specific to the problem at hand.
-
 
 For the future of data assimilation, the numerical schemes will need to be adaptive to the new computing resources.
 The trend toward massively parallel computation puts the spotlight on effective localization of the assimilation step, which may be difficult in schemes that do not use ensembles, such as the 4D-Var.

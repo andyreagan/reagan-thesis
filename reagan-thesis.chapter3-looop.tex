@@ -30,6 +30,8 @@ These ground thermosyphons are pictured in Figure \ref{fig:fairbanks}.
   \label{fig:thermosyphons}
 \end{figure}
 
+
+
 \begin{figure}[b!]
   \centering
   \includegraphics[width=0.79\textwidth]{figures/fairbanks-thermosyphon.jpg}
@@ -56,6 +58,18 @@ We write these as
 & F_w = -\rho \pi r^2 \text{d} \phi f_w\\
 & F_g = -\rho \pi r^2 \text{d} \phi g \sin (\phi)\end{align}
 where $\partial p /\partial \phi$ is the pressure gradient, $f_w$ is the wall friction force, and $g \sin (\phi)$ is the vertical component of gravity acting on the volume.
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.79\textwidth]{../2013-05data-assimilation/papers/harris-tellus-2012-loop.pdf}
+  \caption{
+    Schematic of the experimental, and computational, setup from Harris et al (2012).
+    The loop radius is given by $R$ and inner raduis by $r$.
+    The top temperature is labeled $T_c$ and bottom temperature $T_h$, gravity $g$ is defined downward, the angle $\phi$ is prescribed from the 6 o'clock position, and temperature difference $\Delta T_{3-9}$ is labeled.
+  }
+  \label{fig:thermosyphons}
+\end{figure}
+
 As in the derivation of the governing equations, we now introduce the Boussinesq approximation which states that both variations in fluid density are linear in temperature $T$ and density variation is insignificant except when multiplied by gravity.
 The consideration manifests as
 \begin{equation*} \rho = \rho (T) \simeq \rho _\text{ref} (1 - \gamma (T - T_\text{ref}) \end{equation*}
@@ -220,12 +234,11 @@ The 2D mesh contains 40,382 points, and is imposed with fixed value boundary con
   \centering
   \includegraphics[width=0.79\textwidth]{/Users/andyreagan/work/2013/2013-05data-assimilation/OpenFOAM/figures/adjacency36000bool02.pdf}
   \caption{
-  The 2D mesh Adjacency matrix, zoomed in.
+  The 2D mesh adjacency matrix, zoomed in.
   The Cuthill-McKee renumbering algorithm was used, and we see 23 distinct regions of local numbering, reflective of the geometry and Cuthill-McKee algorithm.
   The mesh shown here has 30 cells in each perpendicular slice of the loop, and they are numbered iteratively along the edge of triangular front emanating from cell 0 (chose to be the left-most cell).
-  This diagonalization in both space and ID number effectively reduces the computational bandwidth of the mesh from 947 to 18, as computed by the ``renumberMesh'' utility.
-  \todo{define bandwidth}
-  }
+  This diagonalization in both space and ID number effectively reduces the bandwidth (defined as the maximum distance from diagonal of nonzero entry) of the mesh from 947 to 18, as computed by the ``renumberMesh'' utility.
+    }
   \label{fig:CFDmeshAdj2}
 \end{figure}
 
@@ -249,7 +262,11 @@ Constant gradient simulations were stable, but the behavior was empirically diff
 Results from attempts at implementing these various boundary conditions are presented in Table \ref{tb:ofbc}.
 To most accurately model our experiment, we choose a fixed value BC.
 This is due to the thermal diffusivity and thickness of the walls of the experimental setup.
-\todo{Derive condition}
+For $Q$ the flow of heat from the hot water bath into the flow, and $A$ the area of a small section of boundary we can write the heat flux $q$ as a function of the thermal conductivity $k$, temperature difference $\Delta T$ and wall thickness $\Delta x$:
+\begin{equation} q = \frac{Q}{A} = k \frac{\Delta T}{\Delta X} . \end{equation}
+For our experimental setup, the thermal conductivity of a PVC wall is approximately $1.1 \text{BTU in}/(h\cdot \text{ft}^2 F) = 0.15 W/(m\cdot K)$.
+With a wall thickness of 1cm, and $\Delta T = 10K$ the heat flux is $q=79 W/m^2$.
+The numerical implementation of this boundary condition is considered further in Appendix D.
 
 \begin{table*}
 \begin{center}

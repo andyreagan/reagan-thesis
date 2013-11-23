@@ -120,6 +120,8 @@ In Chapter 2 we will see where a non-linear operator complicates the minimizatio
 As George Box reminds us, ``all models are wrong'' \shortcite{box1978statistics}. 
 The incorporation of model bias into the assimilation becomes important with imperfect models, and although this issue is well-studied, it remains a concern \shortcite{allgaier2012empirical}.
 
+
+
 The final difficulty we need to address is the computational cost of the various algorithms.
 The complexity of models creates issues for both the computation speed and storage requirements, an example of each follows.
 The direct computation of the model covariance can be performed by integrating a linear tangent model which propagates errors in the model forward in time, but integrating this model amounts to $n^2$ model integrations where $n$ is the number of variables in the model.
@@ -140,6 +142,8 @@ For this reason, the depth of exploration of available models is limited.
 We chose to perform simulations in the open-source C++ library OpenFOAM.
 Because the code is open-source, we can modify it as necessary for data assimilation, and of particular importance becomes the discretized grid.
 
+
+
 There are two main directions in which we do explore the computational model: meshing and solving.
 To solve the equations of motion numerically, we first must discretize them in space by creating the computational grid which we refer to as a mesh.
 The importance of properly designing and characterizing the mesh is profound: without the use of unreliable turbulence models, and without a grid small enough to resolve all of the scales of turbulence, we inevitably fail to capture the effects of sub-grid scale phenomena.
@@ -153,13 +157,15 @@ Without properly correcting this problem, the ensemble does not adequately captu
 
 We investigate these meshing and solving techniques in greater detail in Chapter 3.
 
+
+
 \section{Toy climate experiments}
 
 Mathematical and computational models span from simple to kitchen-sink, depending on the phenomenon of interest.
 Simple, or ``toy'', models and experiments are important to gain theoretical understanding of the key processes at play.
 An example of such a conceptual model used to study climate is the energy balance model, pictured below.
 
-\begin{figure}[h!]
+\begin{figure}[t!]
   \centering
   \includegraphics[width=0.49\textwidth]{figures/Energy-Balance-Model-Schematic.png}
   \caption{
@@ -167,23 +173,16 @@ An example of such a conceptual model used to study climate is the energy balanc
     $S_0$, represented by the yellow arrow, is energy coming from the sun that is absorbed by Earth's surface (horizontal green bar).
     The red, dashed arrow is energy radiating out of Earth's surface, of which some is reflected back by the atmosphere (horizontal gray line), and the remainder escapes.
     Since energy is conserved in the EBM, the parameterizations of surface albedo (amount reflected by Earth's surface), atmospheric absorbivity, and radiation rate determine the long term behaivor of internal energy (temperature).
+    This schematic was provided in a lecture given by Dr. Chris Jones {\protect \shortcite{MCRN501}}.
   }
   \label{fig:EBM}
 \end{figure}
-\todo{cite picture (from Chris Jones' class)}
 
 With a simple model, it is possible to capture the key properties of simple concepts (e.g. the greenhouse effect in the above energy balance model) and for this reason they have been and continue to be employed throughout scientific disciplines.
 The ``kitchen-sink'' models, like the Earth System Models (ESMs) used to study climate, incorporate all of the known physical, chemical, and biological processes for the fullest picture of the system.
 In the ESM case, the simulations represent our computational laboratory.
 
-\begin{figure}[h!]
-  \centering
-  \includegraphics[width=0.49\textwidth]{figures/Earth-System-Model-Schematic.png}
-  \caption{
-    The ``kitchen-sink'' Earth System Model captures as many known processes as computationally feasible.
-  }
-  \label{fig:ESM}
-\end{figure}
+
 
 We study a model that is more complex than the EBM, but is still analytically tractable, known as the Lorenz 1963 system (Lorenz 63 for short).
 In 1962, Saltzmann attempted to model convection in a Rayleigh-B\'{e}rnard cell  by reducing the equations of motion into their core processes \shortcite{saltzman1962finite}.
@@ -195,6 +194,19 @@ Put simply, a thermal convection loop is a hula-hoop shaped tube filled with wat
 As a non-mechanical heat pump, thermal convection loops have found applications for heat transfer in solar hot water heaters \shortcite{belessiotis2002analytical}, cooling systems for computers \shortcite{beitelmal2002two}, roads and railways that cross permafrost \shortcite{cherry2006next}, nuclear power plants \shortcite{detman1968thermos,beine1992integrated,kwant1992prism}, and other industrial applications.
 Our particular experiment consists of a plastic tube, heated on the bottom by a constant temperature water bath, and cooled on top by room temperature air.
 
+\begin{figure}[t!]
+  \centering
+  \includegraphics[width=0.49\textwidth]{figures/Earth-System-Model-Schematic.png}
+  \caption{
+    The ``kitchen-sink'' Earth System Model captures as many known processes as computationally feasible.
+    Models of this size are most useful in making global climate predictions and global weather predictions.
+    By incorporating physically tuned parameterizations of subgrid-scale processes, these models are able to make accurate predictions of Earth's climate and weather.
+    Due to the size and complexity of the model, the physical processes driving the model dynamics are, however, difficult to study.
+    This schematic describes the Community Earth System Model developed by NCAR {\protect \shortcite{ESMpicture}}.
+  }
+  \label{fig:ESM}
+\end{figure}
+
 Varying the forcing of temperature applied to the bottom half of the loop, there are three experimentally accessible flow regimes of interest to us: conduction, steady convection, and unsteady convection.
 The latter regime exhibits the much studied phenomenon of chaos in its changes of rotational direction.
 This regime can be described by the Lorenz 1963 system with the canonical parameter values listed in Table \ref{table:lorenz63params}.
@@ -202,6 +214,8 @@ Edward Lorenz discovered and studied chaos most of his life, and it said to have
 \begin{quote}
 Chaos: When the present determines the future, but the approximate present does not approximately determine the future.
 \end{quote}
+
+
 
 In chapter 3, we present a derivation of Ehrhard-M\"{u}ller Equations governing the flow in the loop following the work of \cite{harris2011predicting}.
 These equations are akin to the Lorenz 63 system, as we shall see, and the experimental implementation is described in more detail in the first section of Chapter 3.

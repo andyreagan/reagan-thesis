@@ -54,7 +54,7 @@ $$ U_{1,2} = U_t + \epsilon _{1,2} .$$
 For starters, we assume that we do not know $\epsilon _{1,2}$.
 Next, assume that the errors vary around the truth, such that they are unbiased.
 This is written as
-$$ E(U_{1,2}-U_t) = E(\epsilon _{1,2} ) = 0.$$
+\begin{equation*} E(U_{1,2}-U_t) = E(\epsilon _{1,2} ) = 0. \end{equation*}
 
 As of yet, our best guess of $U_t$ would be the average $(U_1 + U_2)/2$, and for any hope of knowing $U_t$ well we would need many unbiased observations at the same time.
 This is unrealistic, and to move forward we assume that we know the variance of each $U_{1,2}$.
@@ -129,7 +129,6 @@ In our experiment, temperature measurements are in the model variable $T$, but a
 Examples of indirect and spatially heterogeneous observations in NWP are radar reflectivities and Doppler shifts, satellite radiances, and global positioning system atmospheric refractivities \shortcite{kalnay2003}.
 
 We can now write the analysis with similar notation as for the scalar case with the addition of the observation operator $H$ which transforms model variables into observation space:
-
 \begin{align} \mbx_a &= \mbx_b + \mbW \mbd \\
 \mbd &=  \mby_0 - H (\mbx _b ) \\
 \mbe _a  &= \mbx_t - \mbx_a . \end{align}
@@ -138,7 +137,6 @@ Note that $H$ is not required to be linear, but here we write $H$ as an $n_{\tex
 
 Again, our goal is to obtain the weight matrix $\mbW$ that minimizes the analysis error $\mbe_a$. In Kalman Filtering, the weight matrix $\mbW$ is called the gain matrix $\mbK$.
 First, we assume that the background and observations are unbiased.
-
 \begin{align*} \expv{ \mbe_b} &= \expv{ \mbx _b) - E(\mbx _t } = 0\\
 \expv{ \mbe_o }  &= \expv{ \mby_o } - \expv{ H(\mbx_t)} = 0 .\end{align*}
 
@@ -162,30 +160,30 @@ To solve for the weight matrix $\mbW$ assume that we know $\mbB$ and $\mbR$, and
 
 We now use the method of best linear unbiased estimation (BLUE) to derive $\mbW$ in the equation $\mbx_a - \mbx _b = \mbW \mbd$, which approximates $\mbx_a - \mbx_b = \mbW \mbd - \mbe_a$.
 Since $\mbd = \mbe_o - \mbH \mbe_b$ and the well known BLUE solution to this simple equation, the $\mbW$ that minimizes $\mbe_a \mbe_a ^T$ is given by
-
-
-\begin{align} \mbW &= E\left [ ( \mbx _t - \mbx _b ) ( \mby _o - \mbH \mbx _b )^T \right] \left (E \left [ (\mby _o - \mbH \mbx _b)(\mby - \mbH \mbx _b)^T    \right ] \right ) ^{-1}\\
+\begin{align*} \mbW &= E\left [ ( \mbx _t - \mbx _b ) ( \mby _o - \mbH \mbx _b )^T \right] \left (E \left [ (\mby _o - \mbH \mbx _b)(\mby - \mbH \mbx _b)^T    \right ] \right ) ^{-1}\\
 &= E\left [ (- \mbe _b ) (\mbe _o  - \mbH \mbe _b ) ^T \right ] \left ( E \left [ (\mbe _o - \mbH \mbe _b )( \mbe _o - \mbH \mbe _b ) ^T \right ] \right ) ^{-1} \\
 &= E \left [ - \mbe _b \mbe _o ^T + \mbe _b \mbe _b ^T \mbH ^T \right ] \left ( E \left [ \mbe _o \mbe_o ^T - \mbH \mbe _b \mbe_o ^T - \mbe _o \mbe _b ^T \mbH ^T + \mbH \mbe _b \mbe _b ^T \mbH ^T \right ] \right ) ^{-1}\\
-&= \left ( \cancel{E\left [ - \mbe _b \mbe _o ^T \right ]} + E \left [ \mbe _b \mbe _b ^T \right ] \mbH ^T \right ) \left ( E \left [ \mbe _o \mbe _o ^T \right ] - \cancel{\mbH E\left [ \mbe _b \mbe _o ^T \right ]} - \cancel{E \left [ \mbe _o \mbe _b ^T \right ] \mbH ^T } + \mbH E \left [ \mbe _b \mbe _b ^T \right ] \mbH ^T \right ) ^{-1}\\
-&= \mbB \mbH ^T \left ( \mbR + \mbH \mbB \mbH ^T \right ) ^{-1}  \end{align}
+&= \left ( \cancel{E\left [ - \mbe _b \mbe _o ^T \right ]} + E \left [ \mbe _b \mbe _b ^T \right ] \mbH ^T \right ) \cdot \\
+& ~~~~~~~\left ( E \left [ \mbe _o \mbe _o ^T \right ] - \cancel{\mbH E\left [ \mbe _b \mbe _o ^T \right ]} - \cancel{E \left [ \mbe _o \mbe _b ^T \right ] \mbH ^T } + \mbH E \left [ \mbe _b \mbe _b ^T \right ] \mbH ^T \right ) ^{-1}\\
+&= \mbB \mbH ^T \left ( \mbR + \mbH \mbB \mbH ^T \right ) ^{-1}  \end{align*}
 
 Now we solve for the analysis error covariance $\mathbf{P} _a $ using $\mbW$ from above and $\mbe _a = \mbe _b + \mbW \mbd$.
 This is (with the final bit of sneakiness using $\mbW\mbR-\mbB\mbH^T=-\mbW\mbH\mbB\mbH^T$):
-
-\begin{align} \mathbf{P} _a &= \expv{\mbe_a \mbe_a^T} = \expv{(\mbe_b+ \mbW \mbd)(\mbe_b + \mbW \mbd)^T}\\
+\begin{align*} \mathbf{P} _a &= \expv{\mbe_a \mbe_a^T} = \expv{(\mbe_b+ \mbW \mbd)(\mbe_b + \mbW \mbd)^T}\\
 &= \expv{(\mbe_b + \mbW (\mbe _o - \mbH \mbe _b ) ) (\mbe_b + \mbW (\mbe _o - \mbH \mbe _b ) )^T}\\
 &= \expv{(\mbe_b + \mbW (\mbe _o - \mbH \mbe _b ) ) (\mbe_b^T + (\mbe _O^T -  \mbe _b^T \mbH ^T )\mbW ^T )}\\
-&= \expv{\mbe_b\mbe_b^T + \mbe_b (\mbe _o^T -  \mbe _b^T \mbH ^T )\mbW ^T + \mbW (\mbe _o - \mbH \mbe _b )  \mbe _b ^T + \mbW (\mbe _o - \mbH \mbe _b )  (\mbe _O^T -  \mbe _b^T \mbH ^T )\mbW ^T}\\
-&= \expv{\mbe_b\mbe_b^T}  + \expv{\mbe_b (\mbe _o^T -  \mbe _b^T \mbH ^T )} \mbW ^T + \mbW \expv{ (\mbe _o - \mbH \mbe _b )  \mbe _b ^T} + \mbW \expv{(\mbe _o - \mbH \mbe _b )  (\mbe _O^T -  \mbe _b^T \mbH ^T )}\mbW ^T\\
-&= \mbB - \mbB \mbH ^T \mbW^T - \mbW \mbH \mbB + \mbW \expv{\mbe_o\mbe_o^T - \cancel{\mbe_o\mbe_b^T}\mbH ^T - \cancel{\mbH \mbe _b \mbe _o ^T } + \mbH \mbe_b \mbe_b^T \mbH ^T }\mbW ^T\\
+&= E \left [ \mbe_b\mbe_b^T + \mbe_b (\mbe _o^T -  \mbe _b^T \mbH ^T )\mbW ^T + \mbW (\mbe _o - \mbH \mbe _b )  \mbe _b ^T + \right.\\
+&~~~~~~\left. \mbW (\mbe _o - \mbH \mbe _b )  (\mbe _O^T -  \mbe _b^T \mbH ^T )\mbW ^T \right ] \\
+&= \expv{\mbe_b\mbe_b^T}  + \expv{\mbe_b (\mbe _o^T -  \mbe _b^T \mbH ^T )} \mbW ^T + \mbW \expv{ (\mbe _o - \mbH \mbe _b )  \mbe _b ^T} + \\
+&~~~~~~\mbW \expv{(\mbe _o - \mbH \mbe _b )  (\mbe _O^T -  \mbe _b^T \mbH ^T )}\mbW ^T\\
+&= \mbB - \mbB \mbH ^T \mbW^T - \mbW \mbH \mbB + \\
+&~~~~~~\mbW \expv{\mbe_o\mbe_o^T - \cancel{\mbe_o\mbe_b^T}\mbH ^T - \cancel{\mbH \mbe _b \mbe _o ^T } + \mbH \mbe_b \mbe_b^T \mbH ^T }\mbW ^T\\
 &= \mbB - \mbB \mbH ^T \mbW^T - \mbW \mbH \mbB +\mbW \mbR \mbW+  \mbW \mbH \mbB \mbH ^T \mbW ^T\\
 &= \mbB - \mbW\mbH\mbB + (\mbW \mbR - \mbB \mbH^T ) \mbW^T + \mbW \mbH \mbB \mbH ^T \mbW ^T\\
-&=(\mathbf{I} - \mbW \mbH ) \mbB \end{align}
+&=(\mathbf{I} - \mbW \mbH ) \mbB \end{align*}
 
 Note that in this formulation, we have assumed that $\mbR$ (the observation error covariance) accounts for both the instrumental error and the ``representativeness'' error, a term coined by Lorenc to describe the fact that the model does not account for subgrid-scale variability \shortcite{lorenc1981global}.
 To summarize, the equations for OI are 
-
 \begin{align} \mbW &= \mbB \mbH ^T \left ( \mbR + \mbH \mbB \mbH ^T \right ) ^{-1}  \\
 \mathbf{P} _a &=(\mathbf{I} - \mbW \mbH ) \mbB \end{align}
 
@@ -365,11 +363,11 @@ Of course we could think to use the observations directly when DA is not used, b
 
 \begin{figure}[h!]
   \centering
-  \includegraphics[width=0.79\textwidth]{figures/DA_test_noname2.pdf}
+  \includegraphics[width=0.79\textwidth]{../2013-05data-assimilation/src/experiments/DATest/DA_test_noname010.pdf}
   \caption{
     For near-perfect initial knowledge of the atmospheric state, the running average RMS error of a prediction using DA is compared against a prediction that does not.
-    Initial error for DA is normal with mean 0 and variance 0.01, and the RMS errors reported are averages of 100 runs.
-    Observational noise is normally distributed with mean 0 and variance 0.5 (approximately 5\% of climatological variation), and an assimilation window length of 0.261 is used.
+    Initial error for DA is normal with mean 0 and variance 0.01, and the RMS errors reported are averages of 3 runs.
+    Observational noise is normally distributed with mean 0 and variance 0.05 (approximately 5\% of climatological variation), and an assimilation window length of 0.25 is used.
     As would be expected, in the long run DA greatly improves forecast skill, as forecasts without DA saturate to climatological error.
     The initial period where a forecast exceeds the skill of DA is potentially due to the spin-up time required by the filter to dial in the analysis error covariance.
   }
@@ -382,7 +380,7 @@ The ensemble filter begins to out-perform the extended Kalman filter for longer 
 
 \begin{figure}[h!]
   \centering
-  \includegraphics[width=0.79\textwidth]{figures/window_experiment_plot001.pdf}
+  \includegraphics[width=0.79\textwidth]{../2013-05data-assimilation/src/experiments/windowExperiment/window_experiment_plot002.pdf}
   \caption{
     The RMS error (not scaled by climatology) is reported for our EKF and EnKF filters, measured as the difference between forecast and truth at the end of an assimiliation window for the latter 2500 assimiliation windows in a 3000 assimilation window model run.
     Error is measured in the only observed variable, $x_1$.
@@ -400,18 +398,19 @@ This is accomplished in MATLAB by drawing a vector  $\nu$ of length $n$ of unifo
 \begin{equation} \mbK \leftarrow \mbK + \text{diag}(\mu\cdot \nu).\end{equation}
 For the EnKF we perform additive covariance inflation to the analysis state itself for each ensemble:
 \begin{equation} \mbx \leftarrow \mbx + \nu .\end{equation}
-The result of searching over these parameters for the optimal values to minimize the analysis RMS error differs for each window length, so here here we present the result for a window of length 210 seconds using the EKF.
-In Figure \ref{fig:EKF_cov_tuning_210s} we see that there is a clear region of parameter space for which the filter performs with lower RMS, although this region appears to extend into values of $\Delta > 3$.
+The result of searching over these parameters for the optimal values to minimize the analysis RMS error differs for each window length, so here here we present the result for a window of length 390 seconds for the ETKF.
+In Figure \ref{fig:ETKF_cov_tuning_390s} we see that there is a clear region of parameter space for which the filter performs with lower RMS, although this region appears to extend into values of $\Delta > 3$.
 
 \begin{figure}[h!]
   \centering
-  \includegraphics[width=0.79\textwidth]{figures/EKF_210s_infl_error.pdf}
+  \includegraphics[width=0.79\textwidth]{../2013-05data-assimilation/src/experiments/covInflTest/figures/ETKF_390s_infl_error.pdf}
   \caption{
-    The RMS error averaged over 100 model runs of length 1000 windows is reported for the EKF for varying additive and multiplicative inflation factors $\Delta$ and $\mu$.
+    The RMS error averaged over 100 model runs of length 1000 windows is reported for the ETKF for varying additive and multiplicative inflation factors $\Delta$ and $\mu$.
     Each of the 100 model runs starts with a random IC, and the analysis forecast starts randomly.
+    The window length here is 390 seconds.
     The filter performance RMS is computed as the RMS value of the difference between forecast and truth at the assimilation window for the latter 500 windows, allowing a spin-up of 500 windows.
   }
-  \label{fig:EKF_cov_tuning_210s}
+  \label{fig:ETKF_cov_tuning_390s}
 
 \end{figure}
 
@@ -505,8 +504,8 @@ To ensure a unique solution of local analysis perturbations that respects this b
 \subsection{Local Ensemble Transform Kalman Filter (LETKF)}
 
 Proposed by Hunt in 2007 with the stated objective of computational efficiency, the LETKF is named from its most similar algorithms from which it draws \shortcite{hunt2007efficient}.
-With the formulation of the LEKF and the ETKF there is not much new to be said here, but rather a synthesis of the advantages of both of these approaches.
-This is the method that was sufficiently efficient for implementation on the full OpenFOAM CFD model of 216,000 model variables, and so we present it in more detail and follow the notation of Hunt et al (2007). % \shortcite{hunt2007efficient}.
+With the formulation of the LEKF and the ETKF given, the LETKF can be  described as a synthesis of the advantages of both of these approaches.
+This is the method that was sufficiently efficient for implementation on the full OpenFOAM CFD model of 240,000 model variables, and so we present it in more detail and follow the notation of Hunt et al (2007). % \shortcite{hunt2007efficient}.
 
 As in the LEKF, we explicitly perform the analysis for each grid point of the model.
 The choice of observations to use for each grid point can be selected a priori, and tuned adaptively.
@@ -568,7 +567,6 @@ This is implemented without great difficulty on top of the LETKF, by projecting 
 Then with the background forecast at the time $\tau$, we compute $( \overline{\mby}_b )_\tau$ and $ (\mbY _b ) _\tau$, concatenating onto $\overline{\mby}_b$ and $\mbY_b$, respectively.
 
 %% The cannonical choice of $\sigma = 10, b = 8/3$ and $r = 28$ is used for all examples here, which produce the well known butterfly attractor (Figure \ref{fig:lorenzattractor}).
-
 
 \section{4D-Var}
 
