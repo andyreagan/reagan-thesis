@@ -3,7 +3,7 @@
 
 \begin{quote}
 The thermosyphon, a type of natural convection loop or non-mechanical heat pump, can be likened to a toy model of climate \shortcite{harris2011predicting}.
-In this chapter we present both physical and computationally simulated thermosyphons, the equations governing their behaivor, and results of the computational experiment.
+In this chapter we present both physical and computationally simulated thermosyphons, the equations governing their behavior, and results of the computational experiment.
 \end{quote}
 
 \section{Physical Thermal Convection Loops}
@@ -64,7 +64,7 @@ where $\partial p /\partial \phi$ is the pressure gradient, $f_w$ is the wall fr
   \includegraphics[width=0.79\textwidth]{../2013-05data-assimilation/papers/harris-tellus-2012-loop.pdf}
   \caption{
     Schematic of the experimental, and computational, setup from Harris et al (2012).
-    The loop radius is given by $R$ and inner raduis by $r$.
+    The loop radius is given by $R$ and inner radius by $r$.
     The top temperature is labeled $T_c$ and bottom temperature $T_h$, gravity $g$ is defined downward, the angle $\phi$ is prescribed from the 6 o'clock position, and temperature difference $\Delta T_{3-9}$ is labeled.
   }
   \label{fig:thermosyphons}
@@ -166,7 +166,7 @@ This consists of a presentation of the equations, and a discussion of their solu
 \subsection{Governing Equations}
 
 We consider the incompressible Navier-Stokes equations with the Boussinesq approximation to model the flow of water inside a thermal convection loop.
-Here we present the main eqauations that are solved numerically, noting the assumptions that were necessary in their derivation.
+Here we present the main equations that are solved numerically, noting the assumptions that were necessary in their derivation.
 In Appendix B a more complete derivation of the equations governing the fluid flow, and the numerical implementation, for our problem is presented.
 In standard notation, the continuity equation for an incompressible fluid is
 \begin{equation} \frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} + \frac{\partial w}{\partial z} = 0. \label{eq:NScontIco} \end{equation}
@@ -187,7 +187,7 @@ The energy equation is given by
 
 A spatial and temporal discretization of the governing equations is necessary so that they may be solved numerically.
 In general, there are three approaches to the numerical solution of PDEs: finite differences, finite elements, and finite volumes.
-OpenFOAM has the capacity for each scheme, and for our problem with an unstructed mesh, the finite volume method is the simplest.
+OpenFOAM has the capacity for each scheme, and for our problem with an unstructured mesh, the finite volume method is the simplest.
 
 After discretization, solving is accomplished by the Pressure-Implicit Split Operator (PISO) algorithm \shortcite{issa1986solution}.
 In Table \ref{tb:ofsolution}, we note the choices of schemes for time-stepping, numerical methods and interpolation.
@@ -262,10 +262,10 @@ Constant gradient simulations were stable, but the behavior was empirically diff
 Results from attempts at implementing these various boundary conditions are presented in Table \ref{tb:ofbc}.
 To most accurately model our experiment, we choose a fixed value BC.
 This is due to the thermal diffusivity and thickness of the walls of the experimental setup.
-For $Q$ the flow of heat from the hot water bath into the flow, and $A$ the area of a small section of boundary we can write the heat flux $q$ as a function of the thermal conductivity $k$, temperature difference $\Delta T$ and wall thickness $\Delta x$:
-\begin{equation} q = \frac{Q}{A} = k \frac{\Delta T}{\Delta X} . \end{equation}
-For our experimental setup, the thermal conductivity of a PVC wall is approximately $1.1 \text{BTU in}/(h\cdot \text{ft}^2 F) = 0.15 W/(m\cdot K)$.
-With a wall thickness of 1cm, and $\Delta T = 10K$ the heat flux is $q=79 W/m^2$.
+For $Q$ the flow of heat from the hot water bath into the loop's outer material, and $A$ the area of a small section of boundary we can write the heat flux $q$ into the fluid inside the loop as a function of the thermal conductivity $k$, temperature difference $\Delta T$ and wall thickness $\Delta x$:
+\begin{equation} q = \frac{Q}{A} = k \frac{\Delta T}{\Delta x} . \end{equation}
+For our experimental setup, the thermal conductivity of a PVC wall is approximately $1.1 \, \left [ \text{BTU in}/(h\cdot \text{ft}^2 F) \right ]  = 0.15 \, \left [W/(m\cdot K)\right ] $.
+With a wall thickness of 1cm, and $\Delta T = 10 \left [K \right ]$ the heat flux is $q=79 \left [ W/m^2 \right ]$.
 The numerical implementation of this boundary condition is considered further in Appendix D.
 
 \begin{table*}
@@ -358,18 +358,6 @@ Here is a picture of the thermosyphon colored by temperature.
   \label{fig:CFDloopSS}
 \end{figure}
 
-
-
-%% \begin{figure}[h!]
-%%   \centering
-%%   \includegraphics[width=0.79\textwidth]{/Users/andyreagan/work/2013/2013-05data-assimilation/OpenFOAM/utils/figures/adjacency36000afterCM.pdf}
-%%   \caption{
-%%   The 2D mesh Adjacency matrix, with the Cuthill-McKee algorithm run a second time in MATLAB.
-%%   \todo{is this a lab culture? explain. or just remove. wanted you to see this Chris}
-%%   }
-%%   \label{fig:CFDmeshAdj3}
-%% \end{figure}
-
 \subsubsection{Boundary conditions}
 
 There are a wide variety of thermophysical boundary conditions available.
@@ -381,15 +369,15 @@ In Table \ref{tb:ofbc} we list the boundaries conditions with which we experimen
 Boundary Condition & Type & Values Considered & Result\\
 \hline
 \hline
-fixedValue & value & $(270 \to 310) \times (300 \to 350)$ & good\\
+fixedValue & value & $(270 \to 310) \times (300 \to 350)$ & realistic\\
 \hline
-fixedGradient & gradient & $\pm 10 \to \pm 100000$ & okay\\
+fixedGradient & gradient & $\pm 10 \to \pm 100000$ & semi-realistic\\
 \hline
-wallHeatTransfer & enthalpy & - & won't run\\
+wallHeatTransfer & enthalpy & - & cannot compile\\
 \hline
-externalWallHeatFluxTemperature & flux & - & won't run\\
+externalWallHeatFluxTemperature & flux & - & cannot compile\\
 \hline
-turbulentHeatFluxTemperature & flux & $\pm .001 \to \pm10$ & terrible\\
+turbulentHeatFluxTemperature & flux & $\pm .001 \to \pm10$ & unrealistic\\
 \hline
 \end{tabular}
 \label{tb:ofbc}

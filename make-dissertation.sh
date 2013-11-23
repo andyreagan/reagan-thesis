@@ -9,10 +9,10 @@ STYLE="standard"
 # first test the body versus our style scripts
 for FILE in $FILENAME_BASE.chapter*
 do
-  echo "checking $FILE"
-  perl bin/lexical-illusion-spotter.pl $FILE
-  bin/weasel-word-spotter.sh $FILE
-  bin/passive-word-spotter.sh $FILE
+  echo "checking $FILE into warnings.txt"
+  perl bin/lexical-illusion-spotter.pl $FILE > warnings.txt
+  bin/weasel-word-spotter.sh $FILE >> warnings.txt
+  bin/passive-word-spotter.sh $FILE >> warnings.txt
 done
 
 pdflatex $FILENAME_BASE-main #> make-dissertation.texout
@@ -36,7 +36,7 @@ pdflatex $FILENAME_BASE-main #>> make-dissertation.texout
 
 echo " "
 echo " "
-echo "There are $(grep todo *.tex | wc -l | awk '{print $1;}') to-dos!!"
+echo "There are $(($(grep todo *.tex | wc -l | awk '{print $1;}')-2)) to-dos!!"
 
 \rm *.toc *.bbl *.aux *.log *.lot
 

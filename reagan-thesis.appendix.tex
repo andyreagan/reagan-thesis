@@ -27,7 +27,7 @@ $r$ & 28 & \\
 \begin{center}
 \begin{tabularx}{\textwidth}{lll}
 %\begin{tabular}{|l|l|}
- {\bf Window Length} & {\bf Additive Inflataion} & {\bf Multiplicative Inflation} \\ \hline \hline
+ {\bf Window Length} & {\bf Additive Inflation} & {\bf Multiplicative Inflation} \\ \hline \hline
  30s  & 0.05 & 0.15 \\
  \hline
 \end{tabularx}
@@ -232,7 +232,6 @@ They sum up the algorithm in nine steps:
 %% \url{http://www.cfd-online.com/Wiki/SIMPLE_algorithm}
 %% The proper inclusion of turbulent effects with calculated Raleigh number are important, and are modeled using LES (Large Eddy Simulation) for both 2D and 3D flow.
 %% In general LES techniques assume a [downward] cascade of turbulent energy across scales, but note that this is only valid for 3D flow, as it is know that 2D flow turbulent kinetic energy can travel in both directions.
-%% \todo{properly validate LES approximation for 2d vs 3d}
 
 The solver itself has 647 dependencies, of which I present only a fraction.
 The main code is straight forward, relying on include statements to load the libraries and equations to be solved.
@@ -287,14 +286,15 @@ This ``pEqn.H'' is then re-run until convergence is achieved, and the PISO loop 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\chapter{Code}
-\label{code}
-
-\todo{either find a better way to include a summarized version of code, or don't include at all}
+\chapter{foamLab Framework Overview}
+\label{app:foamlab}
 
 The core components of the code necessary to reproduce all results herein is as follows.
-None of OpenFOAM version 2.2.1 is included, as it is freely available for download online.
-{\scriptsize \lstinputlisting[language=Matlab]{../2013-05data-assimilation/OpenFOAM/OpenFOAM.m}}
+The main link is the MATLAB function modelDAinterface.m, which uses models as a standard class and the DA algorithms as function files.
+For the use of the OpenFOAM, the two main files are the MATLAB class OpenFOAM.m and the complementary shell script foamLab.sh with which it directly interacts.
+First is the MATLAB-OpenFOAM class defined in OpenFOAM.m:
+{\scriptsize \lstinputlisting[language=Matlab]{../2013-05data-assimilation/src/modelDAinterface.m}}
+
 
 
 
