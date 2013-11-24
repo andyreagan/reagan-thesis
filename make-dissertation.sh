@@ -10,10 +10,12 @@ STYLE="standard"
 for FILE in $FILENAME_BASE.chapter*
 do
   echo "checking $FILE into warnings.txt"
-  perl bin/lexical-illusion-spotter.pl $FILE > warnings.txt
-  bin/weasel-word-spotter.sh $FILE >> warnings.txt
-  bin/passive-word-spotter.sh $FILE >> warnings.txt
+  perl bin/lexical-illusion-spotter.pl $FILE
+  bin/weasel-word-spotter.sh $FILE
+  bin/passive-word-spotter.sh $FILE
 done
+
+## sleep 1200
 
 pdflatex $FILENAME_BASE-main #> make-dissertation.texout
 

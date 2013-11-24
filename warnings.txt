@@ -2,9 +2,8 @@ reagan-thesis.chapter4-results.tex:15 the
 53:There are many possible experiments given the choice of assimilation window, data assimilation algorithm, localization scheme, model resolution, observational density, observed variables, and observation quality.
 109:With too few observations, the data assimilation is unable to recover the underlying dynamics.
 137:With success at predicting flow direction given full temperature observations, we now ask the question: just how many observations are necessary?
-140:Our results indicate that (initially, not plotted) the averaging of temperature over many cells for the synthetic temperature sensors up to 32 sensors significantly degraded prediction skill.
+140:Our results indicate that (initially, not plotted) the averaging of temperature over many cells for the synthetic temperature sensors up to 32 sensors degraded prediction skill.
 11:By utilizing an object-oriented (OO) design, the model and data assimilation algorithm code are separate and can be changed independently.
-14:To add a new model to this framework, it is only necessary to write a MATLAB class wrapper for the model, and the existing Lorenz 63 and OpenFOAM model wrappers can be used as templates.
 15:Testing a new technique for performing the DA step is as simple as writing a MATLAB function for the assimilation steps, where the the model result and observations are provided as an input.
 18:A description of the main algorithm is provided in Appendix \ref{app:foamlab}.
 20:For large models, it is necessary to perform the assimilation in a local space, and this consideration is accounted for within the framework.
