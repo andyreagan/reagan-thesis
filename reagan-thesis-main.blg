@@ -4,11 +4,10 @@ The top-level auxiliary file: reagan-thesis-main.aux
 The style file: chicago.bst
 Database file #1: example.bib
 Database file #2: reagan-thesis.bib
-Repeated entry---line 613 of file reagan-thesis.bib
+Repeated entry---line 621 of file reagan-thesis.bib
  : @article{danforth2007estimating
  :                                ,
 I'm skipping whatever remains of this entry
-Warning--I didn't find a database entry for "tippett2003ensemble"
 Warning--no number and no volume in beitelmal2002two
 Warning--page numbers missing in beitelmal2002two
 Warning--no journal in box1978statistics
@@ -29,45 +28,45 @@ Warning--empty publisher in stokes
 Warning--no number and no volume in thompson1990
 Warning--page numbers missing in welander1967
 Warning--no volume for yuen1999
-You've used 70 entries,
+You've used 72 entries,
             2861 wiz_defined-function locations,
-            1034 strings with 16192 characters,
-and the built_in function-call counts, 48631 in all, are:
-= -- 4057
-> -- 3624
+            1041 strings with 16452 characters,
+and the built_in function-call counts, 50046 in all, are:
+= -- 4160
+> -- 3745
 < -- 8
-+ -- 1076
-- -- 1228
-* -- 4429
-:= -- 8902
-add.period$ -- 211
-call.type$ -- 70
-change.case$ -- 509
-chr.to.int$ -- 70
-cite$ -- 90
-duplicate$ -- 1273
-empty$ -- 2903
-format.name$ -- 1400
-if$ -- 8976
++ -- 1112
+- -- 1268
+* -- 4565
+:= -- 9171
+add.period$ -- 217
+call.type$ -- 72
+change.case$ -- 524
+chr.to.int$ -- 72
+cite$ -- 92
+duplicate$ -- 1309
+empty$ -- 2985
+format.name$ -- 1444
+if$ -- 9231
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 67
-newline$ -- 351
-num.names$ -- 700
-pop$ -- 356
+missing$ -- 70
+newline$ -- 361
+num.names$ -- 720
+pop$ -- 370
 preamble$ -- 1
-purify$ -- 935
+purify$ -- 963
 quote$ -- 0
-skip$ -- 1340
+skip$ -- 1375
 stack$ -- 0
-substring$ -- 2646
-swap$ -- 424
+substring$ -- 2717
+swap$ -- 435
 text.length$ -- 8
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 1350
+type$ -- 1380
 warning$ -- 20
-while$ -- 686
+while$ -- 704
 width$ -- 0
-write$ -- 920
+write$ -- 946
 (There was 1 error message)

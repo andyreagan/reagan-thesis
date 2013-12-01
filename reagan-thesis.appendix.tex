@@ -36,6 +36,43 @@ $r$ & 28 & \\
 \label{params:EKF:covInf}
 \end{table} 
 
+\begin{table}
+\begin{center}
+\begin{tabular}{ll}
+\hline
+Variable & Value (at 300K, if applicable)\\
+\hline
+\hline
+Rayleigh number & $[1.5\cdot 10^6, 4\cdot 10^7]$\\
+\hline
+Reynolds number & $\approx 416$\\
+\hline
+Gravity $g_z$ (fixed) & $9.8 \text{m}/\text{s}^2$\\
+\hline
+Specific heat $c_p$ & $4.187 \text{Kj}/\text{Kg}$\\
+\hline
+Thermal expansion $\beta$ & $0.303\cdot 10^{-3} \,1/\text{K}$\\
+\hline
+Density $\rhoref$ & $995.65 \text{Kg}/\text{m}^3$\\
+\hline
+Kinematic Viscoscity $\nu$ & $0.801\cdot 10^{-6} \text{m}^2/\text{s}$\\
+\hline
+Dynamic Viscoscity $\mu$ & $0.798$\\
+\hline
+Laminar Prandtl number & $5.43$\\
+\hline
+Boussinesq condition & $7.6\cdot 10^{-6}$\\
+\hline
+\end{tabular}
+\caption{
+  Specific constants used for thermal properties of water.
+  For temperature dependent quantities, the value is evaluated at the reference temperature $T_\text{ref}  = 300K$.
+  Derivation of the Boussineq condition is presented in Equation \ref{eq:bouss}.
+  }
+\label{tb:flowvariables}
+\end{center}
+\end{table}
+
 \chapter{Derivation of CFD Solving Code}
 
 Closely following the original derivation of Stokes \shortcite{stokes}, I present a full derivation of the main equations governing the flow of water at temperatures near 300K (an incompressible, heat-conducting, Newtonian fluid), and detail their implementation in a finite volume numerical solver.
@@ -155,7 +192,6 @@ In tensor notation this is often written for all three equations (recall, the ab
 \begin{equation} \rho \frac{\partial u_i}{\partial t} + \frac{\partial}{\partial x_j} \left( u_j u_i \right) = -\frac{\partial p}{\partial x_i}  + \mu \frac{\partial u_i}{\partial x_j^2}  + \rho g_i . \end{equation}
 
 Working our way towards OpenFOAM's implementation of this equation, write the filtered equation for averaged quantities of pressure $\bar{p}$, density $\bar{\rho}$ and velocity $\bar{u}$, and assume that the density is constant except for when multiplied by gravitational effects, writing $\bar{\rho} = \overline{\rho} / \rho _0$:
-
 \begin{equation} \rho _0 \left ( \frac{\partial \bar{u}_i}{\partial t} + \frac{\partial}{\partial x_j} \left( \bar{u}_j \bar{u}_i \right) \right )
 = -\frac{\partial \bar{p}} {\partial{x_i}} +  \mu \frac{\partial \bar{u}_i}{\partial x_j^2} + \bar{\rho} g_i. \end{equation}
 
