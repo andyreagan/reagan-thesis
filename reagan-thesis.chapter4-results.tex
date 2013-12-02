@@ -73,26 +73,27 @@ We focus on considering the effect of observations and observational locations o
   \label{fig:localcovradii}
 \end{figure}
 
-The need for covariance localization was discussed in Chapter 2, and here we implement three different schemes.
-First, we consider cells within each perpendicular slice of the loop to be a cohesive group, and their neighbors to those cells within $r$ slices (where here, $r$ is an integer).
+The need for covariance localization was discussed in Chapter 2, and here we implement two different schemes.
+First, we consider cells within each perpendicular slice of the loop to be a cohesive group, and their neighbors those cells within $r$ slices (where here, $r$ is an integer).
 Computationally this scheme is the simplest to implement, and results in the fewest covariance localizations.
 
-Second to the plate is localization by distance from center.
+Next, we consider localization by distance from center.
 Data assimilation is performed for each grid point, considering neighboring cells and observations with cell center within a radius $r$ from each point (e.g. $r = 0.5$cm).
 
 \subsubsection{Generation of Synthetic Data}
 
-Synthetic data is generated from one model run, pertaining a modified ``buoyantBoussinesqPimpleFoam'' solution with fixed value boundary conditions of 290K top and 340K bottom, 80,000 grid points, a time step of .01, and laminar turbulence model.
-Data is saved for every half second, and is subsampled for 2,4,8,16 and 32 synthetic temperature sensors spaced evenly around the loop.
+Synthetic data is generated from one model run, with a modified ``buoyantBoussinesqPimpleFoam'' solver applied to fixed value boundary conditions of 290K top and 340K bottom, 80,000 grid points, a time step of .01, and laminar turbulence model.
+Data is saved every half second, and is subsampled for 2,4,8,16 and 32 synthetic temperature sensors spaced evenly around the loop.
 The temperature at these synthetic sensors is reported as the average for cells with centers within 0.5cm of the observation center.
 Going beyond 32 temperature observations, which we find to be necessary, samples are performed by observed cell-center temperature values.
 The position of the chosen cell depends on the number of observations being made, and within that number there are options that are tested.
-For less than 1000 observations, (1000 being the number of angular slices) observations are placed at cell centers, spaced maximally apart.
+For less than 1000 observations, (1000 being the number of angular slices) observations are placed at slice centers, for slices spaced maximally apart.
 For 1000 observations both slice center (midpoint going all the way around) and staggered (closer to one wall, alternating) are implemented.
-For greater than 1000 observations, we space take observations at locations maximally spaced within each slice, for each slice.
+%% For greater than 1000 observations, we space take observations at locations maximally spaced within each slice, for each slice.
+For $n$ observations with $n>1000$, assuming that $n/1000$ is an integer, for each slice we space the $n/1000$ observations maximally far apart within each slice.
 
 In addition to temperature sensing, the velocity in $y$ and $z$ is sampled at 50, 100, and 300 points chosen randomly at each time step.
-These velocity observations are designed to simulate an reconstructed velocity measurement based on video particle tracking.
+These velocity observations are designed to simulate a reconstructed velocity measurement based on video particle tracking.
 The following results do not include the use of these velocity observations.
 To obtain realistic sampling intervals, this data was aggregated and is then subsampled at the assimilation window length.
 
@@ -100,7 +101,7 @@ For both the Lorenz 63 model and OpenFOAM, error from the observed $T_{3-9}$ is 
 In the EM model, a maximum of 2 temperature sensors are considered for observations at $T_3$ and $T_9$, and no mean velocity reconstruction from subsampled velocity is attempted.
 
 For any of the predictions to work (even with complete observation coverage), it was first necessary to scale the model variables to the same order of magnitude.
-This is accomplished for these results by dividing through by the mean climatological values from the observations and model results before assimilation. 
+This is accomplished here by dividing through by the mean climatological values from the observations and model results before assimilation (e.g. multiplying temperature by $1/300$). 
 While other, more complex, strategies may result in better performance there are no general rules to determine the best scaling factors and good scaling is often problem dependent \shortcite{navon1992variational,Mitchell2012PhD}.
 
 \subsection{Observational Network}
@@ -137,7 +138,7 @@ Regardless, in Figure \ref{fig:fullObsExp} we verify directly that our assimilat
 With success at predicting flow direction given full temperature observations, we now ask the question: just how many observations are necessary?
 The aforementioned generation of observational data considers the different possible observational network approaches for given number of observations $N_\text{obs}$.
 From these approaches, we select the best method available to assimilation $N_\text{obs}$ for each $N$.
-Our results indicate that (initially, not plotted) the averaging of temperature over many cells for the synthetic temperature sensors up to 32 sensors degraded prediction skill.
+Our results initially indicate that the averaging of temperature over many cells for the synthetic temperature sensors up to 32 sensors degraded prediction skill.
 \todo{still pulling all these results together}
 
 \begin{figure}[h!]
@@ -183,8 +184,8 @@ This allows the possibility of running $N$ ensemble methods using $4N$ cores, al
 \end{figure}
 
 Beyond real-time prediction, it is now possible to design and test new methods of data assimilation for large scale systems.
-New methods specific to CFD, possibly using principle mode decomposition (PMD) of flow fields have the potential to greatly improve the skill of real-time CFD applications.
-In Figure \ref{fig:covlocaladaptive}, flow structures present in our computational experiment demonstrate the potential for adaptive covariance localization.
+New methods specific to CFD, possibly using principle mode decomposition of flow fields have the potential to greatly improve the skill of real-time CFD applications.
+In Figure \ref{fig:localcovadaptive}, flow structures present in our computational experiment demonstrate the potential for adaptive covariance localization.
 
 The numerical coupling of CFD to experiment by DA should be generally useful to improve the skill of CFD predictions in even data-poor experiments, which can provide better knowledge of unobservable quantities of interest in fluid flow.
 

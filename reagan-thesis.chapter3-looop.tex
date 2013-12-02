@@ -9,15 +9,12 @@ In this chapter we present both physical and computationally simulated thermosyp
 \section{Physical Thermal Convection Loops}
 
 Under certain conditions, thermal convection loops operate as non-mechanical heat pumps, making them useful in many applications.
-In Figure \ref{fig:thermosyphons} we see three such applications.
-In solar hot water heaters, water is warmed using the sun's energy, resulting in a substantial energy savings in solar-rich areas.
-Solar hot water thermosyphons, filled with either water or antifreeze, are used to transfer the solar energy into a hot water tank.
-Geothermal systems rely on the Earth's warmth deep underground to heat and cool buildings, and due to low temperature differences are often augmented with a physical pump.
-Cooling the CPU of modern computers is necessary for operation at high clock rate, and thermosyphons have been used to cool the CPU the while reducing noise and energy consumption.
-The author notes the difference between forced and natural convection, where in some of these systems forced convection may be necessary in operation.
-
-In response to a warming climate, thermosyphons have been used to transfer heat away from buildings built on fragile permafrost, which would otherwise melt and destroy the structure \shortcite{Xu2008experimental}.
-These ground thermosyphons are pictured in Figure \ref{fig:fairbanks}.
+In Figures \ref{fig:thermosyphons} and \ref{fig:fairbanks} we see four such applications.
+Solar hot water heaters warm water using the sun's energy, resulting in a substantial energy savings in solar-rich areas \shortcite{WSJthermo}.
+Geothermal systems heat and cool buildings with the Earth's warmth deep underground, and due to low temperature differences are often augmented with a physical pump.
+CPU coolers allow modern computers to operate at high clock rates, while reducing the noise and energy consumption of fans \shortcite{CPUThermo}.
+Ground thermosyphons transfer heat away from buildings built on fragile permafrost, which would otherwise melt in response to a warming climate, and destroy the building \shortcite{Xu2008experimental}.
+The author notes that these systems rely on natural convection, and when augmented with pumps the convection is mixed or forced, and would necessitate different models.
 
 \begin{figure}[h!]
   \centering
@@ -29,8 +26,6 @@ These ground thermosyphons are pictured in Figure \ref{fig:fairbanks}.
   }
   \label{fig:thermosyphons}
 \end{figure}
-
-
 
 \begin{figure}[b!]
   \centering
@@ -45,19 +40,20 @@ These ground thermosyphons are pictured in Figure \ref{fig:fairbanks}.
 
 \subsection{Ehrhard-M\"{u}ller Equations}
 
-Following the derivation by Harris \shortcite{harris2011predicting}, itself a representation of the derivation of Gorman \shortcite{gorman1986} and namesakes Ehrhard and M\"{u}ller \shortcite{ehrhard1990dynamical}, we derive the equations governing a closed loop thermosyphon.
+The reduced order system describing a thermal convection loop was originally derivation by Gorman \shortcite{gorman1986} and Ehrhard and M\"{u}ller \shortcite{ehrhard1990dynamical}.
+Here we present this three dimensional system in non-dimensionalized form.
+In Appendix B we present a more complete derivation of these equations, following the derivation of Harris \shortcite{harris2011prediction}.
+For $x_{1,2,3}$ the mean fluid velocity, temperature different $\Delta T_{3-9}$, and deviation from conductive temperature profile, respectively, these equations are:
+\begin{align}
+& \diff{x_1}{t} = \alpha (x_2 - x_1),\\
+& \diff{x_2}{t} = \beta x_1 - x_2 (1 + Kh(|x_1|)) - x_1x_3,\\
+& \diff{x_3}{t} = x_1x_2 - x_3 (1 + Kh(|x_1|)) .\end{align}
+The parameters $\alpha$ and $\beta$, and scaling factors in time and $x_1$ can be fit to data using standard parameter estimation techniques.
 
-Similar to the derivation of the governing equations of computational fluid dynamics in Appendix B, we start with a small but finite volume inside the loop.
-Here, however, the volume is described by $\pi r^2 R \text{d} \phi$ for $r$ the interior loop size (such that $\pi r^2$ is the area of a slice) and $R\text{d}\phi$ the arc length (width) of the slice.
-Newton's second law states that momentum is conserved, such that the sum of the forces acting upon our finite volume is equal to the change in momentum of this volume.
-Therefore we have the basic starting point for forces $\sum F$ and velocity $u$ as
-\begin{equation} \sum F = \rho \pi r^2 R \text{d}\phi \diff{u}{t} .\end{equation}
-The sum of the forces is $\sum F = F_{\{p,f,g\}}$ for net pressure, fluid shear, and gravity, respectively.
-We write these as
-\begin{align} & F_p = -\pi r^2 \text{d} \phi \pdiff{p}{\phi}\\
-& F_w = -\rho \pi r^2 \text{d} \phi f_w\\
-& F_g = -\rho \pi r^2 \text{d} \phi g \sin (\phi)\end{align}
-where $\partial p /\partial \phi$ is the pressure gradient, $f_w$ is the wall friction force, and $g \sin (\phi)$ is the vertical component of gravity acting on the volume.
+Tests of the data assimilation algorithms in Chapter 2 were performed with the Lorenz 63 system, which is analogous to the above equations with Lorenz's $\beta = 1$, and $K = 0$.
+From these tests, we have found the optimal data assimilation parameters (inflation factors) for predicting time-series with this system.
+We focus our efforts on making prediction using computational fluid dynamics models.
+For a more complete attempt to predict thermosyphon flow reversals using this reduced order system, see the work of Harris et al (2012).
 
 \begin{figure}[h!]
   \centering
@@ -70,65 +66,14 @@ where $\partial p /\partial \phi$ is the pressure gradient, $f_w$ is the wall fr
   \label{fig:thermosyphons}
 \end{figure}
 
-We now introduce the Boussinesq approximation which states that both variations in fluid density are linear in temperature $T$ and density variation is insignificant except when multiplied by gravity.
-The consideration manifests as
-\begin{equation*} \rho = \rho (T) \simeq \rho _\text{ref} (1 - \beta (T - T_\text{ref}) \end{equation*}
-where $\rho _0$ is the reference density and $T_\text{ref}$ is the reference temperature, and $\beta$ is the thermal expansion coefficient.
-The second consideration of the Boussinesq approximation allows us to replace $\rho$ with this $\rhoref$ in all terms except for $F_g$.
-We now write momentum equation as
-\begin{equation} -\pi r^2 \dphi \pdiff{p}{\phi} - \rhoref \phi r^2 R \dphi f_w
-- \rhoref (1 - \rho (T- T_\text{ref}) ) \pi r^2 R \dphi g \sin (\phi) = \rhoref \pi r^2 R \dphi \diff{u}{t}. \end{equation}
-Canceling the common $\pi r^2$, dividing by $R$, and pulling out $\dphi$ on the LHS we have
-\begin{equation} -\dphi \left ( \pdiff{p}{\phi}  \frac{1}{R} - \rhoref f_w - \rhoref (1 - \rho (T- T_\text{ref}) ) g \sin (\phi) \right ) = \rhoref \dphi \diff{u}{t}. \label{eq:EM07} \end{equation}
-We integrate this equation over $\phi$ to eliminate many of the terms, specifically we have
-\begin{align*}
-& \int _{0} ^{2\pi} -\dphi \pdiff{p}{\phi} \frac{1}{R} \rightarrow 0\\
-& \int _{0} ^{2\pi} -\dphi \rhoref g \sin (\phi) \rightarrow 0\\
-& \int _{0} ^{2\pi} -\dphi \rhoref \beta T_\text{ref} g \sin (\phi) \rightarrow 0.\end{align*}
-Since $u$ (and hence $\diff{u}{\phi}$) and $f_w$ do not depend on $\phi$, we can pull these outside an integral over $\phi$ and therefore the momentum equation is now 
-\begin{equation*} 2\pi f_w \rho _0 + \int _{0} ^{2\pi} \dphi \rhoref \beta T g \sin (\phi) = 2\pi \diff{u}{\phi} \rhoref .\end{equation*}
-Diving out $2\pi$ and pull constants out of the integral we have our final form of the momentum equation
-\begin{equation} f_w \rhoref + \frac{\rhoref \beta g }{2 \pi} \int _{0} ^{2\pi} \dphi T \sin (\phi) = \diff{u}{\phi} \rhoref \label{eq:EM10}.\end{equation}
-Now considering the conservation of energy within the thermosyphon, the energy change within a finite volume must be balanced by transfer within the thermosyphon and to the walls.
-The internal energy change is given by
-\begin{equation} \rhoref \pi r^2 R \dphi \left ( \pdiff{T}{t} + \frac{u}{R}\pdiff{T}{\phi} \right ) \label{eq:EMeg1}\end{equation}
-which must equal the energy transfer through the wall, which is, for $T_w$ the wall temperature:
-\begin{equation} \dot{q} = -\pi r^2 R \dphi h_w (T - T_w) . \label{eq:EMeg2} \end{equation}
-Combining Equations \ref{eq:EMeg1} and \ref{eq:EMeg2} (and canceling terms) we have the energy equation:
-\begin{equation} \left ( \pdiff{T}{t} + \frac{u}{R}\pdiff{T}{\phi} \right ) = \frac{-h_w}{\rhoref c_p} \left( T - T_w \right ) \label{eq:EMeq}.\end{equation}
-The $f_w$ which we have yet to define and $h_w$ are fluid-wall coefficients and can be described by \shortcite{ehrhard1990dynamical}:
-\begin{align*} & h_w = h_{w_0} \left ( 1 + K h(|x_1|) \right ) \\
-& f_w = \frac{1}{2} \rhoref f_{w_0} u .\end{align*}
-We have introduced an additional function $h$ to describe the behavior of the dimensionless velocity $x_1 \alpha u$.
-This function is defined piece-wise as 
-\begin{equation*} h (x) = \left \{ \begin{array}{ll} x^{1/3} & ~~\text{when} ~x \geq 1\\ p (x) & ~~\text{when} ~ x <1 \end{array} \right. \end{equation*} 
-where $p(x)$ can be defined as $p(x) = \left( 44x^2 -55 x^3 + 20x^4 \right ) /9$ such that $p$ is analytic at 0 \shortcite{harris2011predicting}.
-
-Taking the lowest modes of a Fourier expansion for $T$ for an approximate solution, we consider:
-\begin{equation} T(\phi , t) = C_0 (t) + S(t) \sin (\phi ) + C(t) \cos (\phi) . \end{equation}
-By substituting this form into Equations \ref{eq:EM10} and \ref{eq:EMeq} and integrating, we obtain a system of three equations for our solution.
-We then follow the particular nondimensionalization choice of Harris et al such that we obtain the following ODE system, which we refer to as the Ehrhard-M\"{u}ller equations:
-\begin{align}
-& \diff{x_1}{t'} = \alpha (x_2 - x_1),\\
-& \diff{x_2}{t'} = \beta x_1 - x_2 (1 + Kh(|x_1|)) - x_1x_3,\\
-& \diff{x_3}{t'} = x_1x_2 - x_3 (1 + Kh(|x_1|)) .\end{align}
-The nondimensionalization is given by the change of variables
-\begin{align}
-& t' = \frac{h_{w_0}}{\rhoref c_p}t,\\
-& x_1 = \frac{\rhoref c_p }{R h_{w_0}} u, \\
-& x_2 = \frac{1}{2} \frac{\rhoref c_p \beta g}{ R h_{w_0} f_{w_0}} \Delta T_{3-9}, \\
-& x_3 = \frac{1}{2} \frac{\rhoref c_p \beta g}{ R h_{w_0} f_{w_0}} \left ( \frac{4}{\pi} \Delta T_w - \Delta T_{6-12} \right ) 
-\end{align}
-and
-\begin{align}
-& \alpha = \frac{1}{2} R c_p f_{w_0} / h_{w_0} ,\\
-& \gamma = \frac{2}{\pi} \frac{\rhoref c_p \beta g}{Rh_{w_0} f_{w_0}} \Delta T_w. \end{align}
-
-Through careful consideration of these non-dimensional variable transformations we verify that $x_1$ is representative of the mean fluid velocity, $x_2$ of the temperature difference between the 3 and 9 o'clock positions on the thermosyphon, and $x_3$ the deviation from the vertical temperature profile in a conduction state \shortcite{harris2011predicting}.
-
 \subsection{Experimental Setup}
-Originally built (and subsequently melted) by Dr. Chris Danforth at Bates College, the University of Vermont's current experimental thermosyphons have made considerable progress.
+
+Originally built (and subsequently melted) by Dr. Chris Danforth at Bates College, the University of Vermont's maintains experimental thermosyphons.
 Operated by Dave Hammond, UVM's Scientific Electronics Technician, the experimental thermosyphons access the chaotic regime of state space found in the principled governing equations.
+
+We first test our ability to predict this experimental thermosyphon using synthetic data, and describe the data in more detail in Chapter 4.
+Synthetic data tests are the first step, since the data being predicted is generated by the predictive model.
+We consider the potential of up to 32 synthetic temperature sensors in the loop, and velocity reconstruction from partical tracking, to gain insight into which observations will make prediction possible.
 
 \begin{figure}[h!]
   \centering
@@ -151,7 +96,6 @@ Operated by Dave Hammond, UVM's Scientific Electronics Technician, the experimen
   \label{fig:chrisLoop}
 \end{figure}
 
-
 \section{Computational Experiment}
 In this section, we first present the governing equations for the flow in our thermal convection loop experiment.
 A spatial and temporal discretization of the governing equations is then necessary so that they may be solved numerically.
@@ -164,23 +108,24 @@ With these considerations, we present our simulations of the thermosyphon.
 \subsection{Governing Equations}
 We consider the incompressible Navier-Stokes equations with the Boussinesq approximation to model the flow of water inside a thermal convection loop.
 Here we present the main equations that are solved numerically, noting the assumptions that were necessary in their derivation.
-In Appendix B a more complete derivation of the equations governing the fluid flow, and the numerical for our problem, is presented.
+In Appendix C a more complete derivation of the equations governing the fluid flow, and the numerical for our problem, is presented.
 In standard notation, for $u,v,w$ the velocity in the $x,y,z$ direction, respectively, the continuity equation for an incompressible fluid is
 \begin{equation} \frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} + \frac{\partial w}{\partial z} = 0. \label{eq:NScontIco} \end{equation}
 
-The momentum equations, presented compactly in tensor notation, are given by
-\begin{equation} \rho _0 \left ( \frac{\partial \bar{u}_i}{\partial t} + \frac{\partial}{\partial x_j} \left( \bar{u}_j \bar{u}_i \right) \right )
-= -\frac{\partial \bar{p}} {\partial{x_i}} +  \mu \frac{\partial \bar{u}_i}{\partial x_j^2} + \bar{\rho} g_i. \end{equation}
+The momentum equations, presented compactly in tensor notation with bars representing averaged quantities, are given by
+\begin{equation} \rho_\text{ref} \left ( \frac{\partial \bar{u}_i}{\partial t} + \frac{\partial}{\partial x_j} \left( \bar{u}_j \bar{u}_i \right) \right )
+= -\frac{\partial \bar{p}} {\partial{x_i}} +  \mu \frac{\partial \bar{u}_i}{\partial x_j^2} + \bar{\rho} g_i \end{equation}
 %% \begin{equation*} g_i\frac{\bar{\rho}}{\rho _0} = g_i \left ( 1 + \frac{\bar{\rho} - \rho _0}{\rho _0} \right ) = g_i \rho _k  = g_i \left (1 - \beta \left (\overline{T} - T _0\right ) \right ) .\end{equation*}
-
+for $\rho_\text{ref}$ the reference density, $\rho$ the density from the Boussinesq approximation, $p$ the pressure, $\mu$ the viscocity, and $g_i$ gravity in the $i$-direction.
 Note that $g_i = 0$ for $i \in \{ x,y\}$ since gravity is assumed to be the $z$ direction.
 The energy equation is given by
-
 \begin{equation} \frac{\partial }{\partial t} \left ( \rho \overline{e}\right ) + \frac{\partial}{\partial x_j} \left ( \rho \overline{e} \overline{u}_j \right ) 
 = 
 - \frac{\partial q_k^*}{\partial x_k}
-- \frac{\partial \overline{q}_k}{\partial x_k}.
+- \frac{\partial \overline{q}_k}{\partial x_k}
 \end{equation}
+for $e$ the total internal energy and $q$ the flux (where $q = \overline{q} + q^*$ is the averaging notation).
+
 
 \subsection{Mesh}
 
@@ -247,7 +192,7 @@ For $Q$ the flow of heat from the hot water bath into the loop's outer material,
 \begin{equation} q = \frac{Q}{A} = k \frac{\Delta T}{\Delta x} . \end{equation}
 For our experimental setup, the thermal conductivity of a PVC wall is approximately $1.1 \, \left [ \text{BTU in}/(h\cdot \text{ft}^2 F) \right ]  = 0.15 \, \left [W/(m\cdot K)\right ] $.
 With a wall thickness of 1cm, and $\Delta T = 10 \left [K \right ]$ the heat flux is $q=79 \left [ W/m^2 \right ]$.
-The numerical implementation of this boundary condition is considered further in Appendix D.
+The numerical implementation of this boundary condition is considered further in Appendix C.
 In Table \ref{tb:ofbc} we list the boundaries conditions with which we experimented, and the quality of the resulting simulation.
 
 \begin{table}
