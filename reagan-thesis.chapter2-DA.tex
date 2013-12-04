@@ -34,7 +34,7 @@ The cannonical choice of $\sigma = 10, \beta = 8/3$ and $\rho = 28$, produce the
 \begin{figure}[h!]
   \centering
   \includegraphics[width=0.49\textwidth]{figures/attractor-colored-by-innovation-prevPos3.pdf}
-  \caption{
+  \caption[The Lorenz 63 attractor colored by the norm of the analysis increment]{
     The Lorenz 63 attractor colored by the norm of the analysis increment.
     Larger numbers represent where forecasts are poor, and the data assimilation algorithm puts more weight on the observation when initializing a new forecast.
   }
@@ -94,7 +94,7 @@ This last formula says that given accurate statistical knowledge of $U_{1,2}$, t
   %% xkcd
   %% \includegraphics[width=0.75\textwidth]{figures/DA-example03-labels-xkcd-cropped.pdf}
   \includegraphics[width=0.75\textwidth]{figures/DA-example03-labels.pdf}
-  \caption{
+  \caption[A 1-dimensional example of this data assimilation cycle]{
     A 1-dimensional example of this data assimilation cycle.
     First, a forecast is made with mean 0 and variance 1, labeled $u_f$.
     An obvservation denoted $u_o$ is the made with mean 2 and variance 2.
@@ -272,7 +272,7 @@ We can solve the above system of linear ordinary differential equations using th
 \begin{figure}[h!]
   \centering
   \includegraphics[width=0.89\textwidth]{figures/TLM-explanation.pdf}
-  \caption{
+  \caption[An explanation of how and why the best way to obtain a TLM is with a differentiated numerical scheme]{
     An explanation of how and why the best way to obtain a TLM is with a differentiated numerical scheme.
   }
   \label{fig:TLMscheme}
@@ -291,7 +291,7 @@ To verify our implementation of the TLM, we propagate a small error in the Loren
 \begin{figure}[h!]
   \centering
   \includegraphics[width=0.79\textwidth]{figures/TLM-verification003_noname.pdf}
-  \caption{
+  \caption[The future error predicted by the TLM is compared to the error growth in Lorenz 63 system for an initial perturbation with standard deviation of 0.1, averaged over 1000 TLM integrations]{
     The future error predicted by the TLM is compared to the error growth in Lorenz 63 system for an initial perturbation with standard deviation of 0.1, averaged over 1000 TLM integrations.
     The $\epsilon$ is not the error predicted by the TLM, but rather the error of the TLM in predicting the error growth.
   }
@@ -318,7 +318,7 @@ The spread of ensemble members in the $x_1$ variable of the Lorenz model, as dis
 \begin{figure}[h!]
   \centering
   \includegraphics[width=0.79\textwidth]{figures/EnKF-histogram-analysis.pdf}
-  \caption{
+  \caption[The difference of ensemble forecasts from the analysis is reported for 760 assimilation windows in one model run of length 200, with 10 ensemble members and an assimilation window of length 0.261]{
     The difference of ensemble forecasts from the analysis is reported for 760 assimilation windows in one model run of length 200, with 10 ensemble members and an assimilation window of length 0.261.
     This has the same shape of as the difference between ensemble forecasts and the mean of the forecasts (not shown).
     This spread of ensemble forecasts is what allows us to estimate the error covariance of the forecast model, and appears to be normally distributed.
@@ -338,7 +338,7 @@ We can see the classic spaghetti of the ensemble with this filter implemented on
 \begin{figure}[h!]
   \centering
   \includegraphics[width=0.99\textwidth]{figures/EnKF_spaghetti.pdf}
-  \caption{
+  \caption[A sample time-series of the ensembles used in the EnKF]{
     A sample time-series of the ensembles used in the EnKF.
     In all tests, as seen here, 10 ensemble members are used.
   }
@@ -428,7 +428,7 @@ Figure \ref{fig:ott2004algorithm} depicts this cycle in greater detail, with sim
 \begin{figure}[h!]
   \centering
   \includegraphics[width=0.79\textwidth]{figures/ott2004algorithmPic.png}
-  \caption{
+  \caption[The algorithm for the LEKF as described by Ott (2004)]{
     The algorithm for the LEKF as described by Ott (2004).
     }
   \label{fig:ott2004algorithm}
@@ -553,7 +553,7 @@ Of course we could think to use the observations directly when DA is not used, b
 \begin{figure}[h!]
   \centering
   \includegraphics[width=0.79\textwidth]{../2013-05data-assimilation/src/experiments/DATest/DA_test_noname010.pdf}
-  \caption{
+  \caption[For near-perfect initial knowledge of the atmospheric state, the running average RMS error of a prediction using DA is compared against a prediction that does not]{
     For near-perfect initial knowledge of the atmospheric state, the running average RMS error of a prediction using DA is compared against a prediction that does not.
     Initial error for DA is normal with mean 0 and variance 0.01, and the RMS errors reported are averages of 3 runs.
     Observational noise is normally distributed with mean 0 and variance 0.05 (approximately 5\% of climatological variation), and an assimilation window length of 0.25 is used.
@@ -570,7 +570,7 @@ The ensemble filter begins to out-perform the extended Kalman filter for longer 
 \begin{figure}[h!]
   \centering
   \includegraphics[width=0.79\textwidth]{../2013-05data-assimilation/src/experiments/windowExperiment/window_experiment_plot002.pdf}
-  \caption{
+  \caption[The RMS error is reported for our EKF and EnKF filters]{
     The RMS error (not scaled by climatology) is reported for our EKF and EnKF filters, measured as the difference between forecast and truth at the end of an assimiliation window for the latter 2500 assimiliation windows in a 3000 assimilation window model run.
     Error is measured in the only observed variable, $x_1$.
     Increasing the assimilation window led to an decrease in predictive skill, as expected.
@@ -593,7 +593,7 @@ In Figure \ref{fig:ETKF_cov_tuning_390s} we see that there is a clear region of 
 \begin{figure}[h!]
   \centering
   \includegraphics[width=0.79\textwidth]{../2013-05data-assimilation/src/experiments/covInflTest/figures/ETKF_390s_infl_error.pdf}
-  \caption{
+  \caption[The RMS error averaged over 100 model runs of length 1000 windows is reported for the ETKF for varying additive and multiplicative inflation factors]{
     The RMS error averaged over 100 model runs of length 1000 windows is reported for the ETKF for varying additive and multiplicative inflation factors $\Delta$ and $\mu$.
     Each of the 100 model runs starts with a random IC, and the analysis forecast starts randomly.
     The window length here is 390 seconds.

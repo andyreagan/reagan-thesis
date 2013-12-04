@@ -5,8 +5,6 @@
 
 \subsection{Core framework}
 
-
-
 The first output of this work is a general data assimilation framework for MATLAB.
 By utilizing an object-oriented (OO) design, the model and data assimilation algorithm code are separate and can be changed independently.
 The principal advantage of this approach is the ease of incorporation of new models and DA techniques.
@@ -23,7 +21,7 @@ This procedure, referred to as localization, eliminates spurious long-distance c
 \begin{figure}[t!]
   \centering
   \includegraphics[width=0.79\textwidth]{/Users/andyreagan/work/2013/2013-05data-assimilation/presentation/foamLab_slides001.pdf}
-  \caption{
+  \caption[A schematic of the modelDAinterface.m functionality]{
     A schematic of the modelDAinterface.m functionality.
     By linking arbitrary data assimilation algorithms and models we have the ability to test prediction of any given timeseries with a choice of model, algorithm, and localization scheme.
     This functionality was necessary to perform consistent tests for many different model parameterizations and observation choices.
@@ -43,7 +41,7 @@ From these timeseries, we then select the BC, BC values, and turbulence model em
 \begin{figure}[h!]
   \centering
   \includegraphics[width=0.49\textwidth]{/Users/andyreagan/work/2013/2013-05data-assimilation/presentation/blank.pdf}
-  \caption{
+  \caption[With a fixed choice of solver, boundary conditions, and initial conditions that lead to stable convective state, we present the long-term behavior of the temperature difference $\Delta T_{3-9}$ for different meshes]{
     With a fixed choice of solver, boundary conditions, and initial conditions that lead to stable convective state, we present the long-term behavior of the temperature difference $\Delta T_{3-9}$ for different meshes.
     We choose a fixed time step of 0.006 for each simulation, and run the solver for 30 hours on 8 cores.
     The computational limit of mesh creation was a memory limit at 818280 cells, so we present results for meshes starting at 400 cells and cells decreasing in size by a factor of 1.25 in both $y$ and $z$ up to a mesh of 523584 cells.
@@ -62,7 +60,7 @@ We focus on considering the effect of observations and observational locations o
 \begin{figure}[h!]
   \centering
   \includegraphics[width=0.79\textwidth]{/Users/andyreagan/work/2013/2013-05data-assimilation/presentation/foamLab_slides002.pdf}
-  \caption{
+  \caption[A schematic of covariance localized by slice is shown for example slices $X_{\{i,j\}}$ and localization radius $r$ where $i,j$ are indexed within the number of slices]{
     A schematic of covariance localized by slice is shown for example slices $X_{\{i,j\}}$ and localization radius $r$ where $i,j$ are indexed within the number of slices.
     Note that for this scheme, $r$ is chosen as an integer.
     Of the localization schemes tested, slice localization requires the least individual assimilations by considering groups of the size of cells in each slice.
@@ -73,7 +71,7 @@ We focus on considering the effect of observations and observational locations o
 \begin{figure}[h!]
   \centering
   \includegraphics[width=0.79\textwidth]{/Users/andyreagan/work/2013/2013-05data-assimilation/presentation/foamLab_slides003.pdf}
-  \caption{
+  \caption[A schematic of covariance localized by a radial distance from cell centers is shown for cells $x_{\{i,j\}}$ where $i,j$ are indexed by the number of cells and $r$ is any float]{
     A schematic of covariance localized by a radial distance from cell centers is shown for cells $x_{\{i,j\}}$ where $i,j$ are indexed by the number of cells and $r$ is any float.
     Cells are local to one another if the Euclidean distance between their cell centers is less than $r$.
     Assimilation is performed for each cell, so there are as many individual assimilations are cells in the mesh.
@@ -123,7 +121,7 @@ With too few observations, the data assimilation is unable to recover the underl
 \begin{figure}[h!]
   \centering
   \includegraphics[width=0.79\textwidth]{/Users/andyreagan/work/2013/2013-05data-assimilation/src/experiments/openFoamAssimilation/data/synData-tStep.01-b290-t340-m40000/results_vs_N_32_w10_labels.pdf}
-  \caption{
+  \caption[Prediction skill over time for synthetic temperature sensors]{
     Prediction skill over time for synthetic temperature sensors.
     With these observations, our DA scheme is unable to predict the model run at all.
     Compared with operational NWP, we are observing far less model variables in this situation, with a $10^5$ times more model variables than observations, even for the 32 sensors.
@@ -137,7 +135,7 @@ Regardless, in Figure \ref{fig:fullObsExp} we verify directly that our assimilat
 \begin{figure}[h!]
   \centering
   \includegraphics[width=0.79\textwidth]{/Users/andyreagan/work/2013/2013-05data-assimilation/src/experiments/openFoamAssimilation/data/synData-tStep.01-b290-t340-m40000/results_vs_N_40000_w10_labels.pdf}
-  \caption{
+  \caption[Prediction skill over time for complete observations of temperature]{
     Prediction skill over time for complete observations of temperature.
     With these observations, our DA scheme is able to predict the model run well.
     Increasing the number of ensemble members $N$ leads to a decrease in the forecast error, as one would hope with a more complete sampling of model uncertainty.
@@ -155,7 +153,7 @@ Our results initially indicate that the averaging of temperature over many cells
 \begin{figure}[h!]
   \centering
   \includegraphics[width=0.79\textwidth]{/Users/andyreagan/work/2013/2013-05data-assimilation/src/experiments/openFoamAssimilation/data/synData-tStep.01-b290-t340-m40000-noRenum/errorAll002.pdf}
-  \caption{
+  \caption[The RMSE of forecasts at the end of 40 assimilation cycles for differing observational density is plotted]{
     The RMSE of forecasts at the end of 40 assimilation cycles for differing observational density is plotted.
     For each, we use an assimilation window length of 10, observations with errors drawn from a normal distribution with standard deviation 0.05, and 20 ensemble members within an ETKF.
     More than 2000 observations, which is 5\% of the model resolution, do not improve forecast skill.
@@ -189,7 +187,7 @@ This allows the possibility of running $N$ ensemble methods using $4N$ cores, al
 \begin{figure}[h!]
   \centering
   \includegraphics[width=0.79\textwidth]{/Users/andyreagan/work/2013/2013-05data-assimilation/presentation/foamLab_slides004.pdf}
-  \caption{
+  \caption[A snapshot of the thermosyphon flow with a sample grid superimposed]{
     A snapshot of the thermosyphon flow with a sample grid superimposed.
     The cells $x_i$ and $x_j$ are labeled and we consider the localization of covariance around cell $x_i$.
     This snapshot was chosen to demonstrate a situation where the local radius and slice zone approaches would include spurious correlations.
