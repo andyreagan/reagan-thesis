@@ -25,8 +25,6 @@
 
 %% \dottedcontents{subsubsection}[10.5em]{}{3.2em}{1pc}
 
-
-
 \setlength{\oddsidemargin}{0.5in}
 \setlength{\topmargin}{0in}  
 \setlength{\textwidth}{6in}
@@ -79,7 +77,6 @@
   \end{center} \par
   \newpage
 }
-
 
 %% Commands to define the defense committee.
 \newcommand\advisor[1]{\gdef\@advisor{#1}}
@@ -147,7 +144,6 @@
   \newpage
 }
 
-
 \newenvironment{citationspage}{
   \addcontentsline{toc}{section}{Citations}
   \vskip 6em
@@ -160,7 +156,7 @@
 }
 
 \newenvironment{dedication}{
-  \addcontentsline{toc}{section}{Dedication}
+  \addcontentsline{toc}{chapter}{Dedication}
   \begin{center}
 }{
   \end{center}
@@ -169,7 +165,7 @@
 
 \newenvironment{acknowledgements}{
   \section*{Acknowledgements}
-  \addcontentsline{toc}{section}{Acknowledgements}
+  \addcontentsline{toc}{chapter}{Acknowledgements}
   \begin{doublespace}
 }{
  \end{doublespace}
@@ -189,7 +185,7 @@
       \@mkboth{\MakeUppercase\listfigurename}%
               {\MakeUppercase\listfigurename}}%
     \@starttoc{lof}%
-    \addcontentsline{toc}{section}{\listfigurename}
+    \addcontentsline{toc}{chapter}{\listfigurename}
     \newpage
     }
 
@@ -198,7 +194,7 @@
       \@mkboth{%
           \MakeUppercase\listtablename}{\MakeUppercase\listtablename}}%
     \@starttoc{lot}%
-    \addcontentsline{toc}{section}{\listtablename}
+    \addcontentsline{toc}{chapter}{\listtablename}
     \newpage
     }
 
@@ -276,6 +272,3 @@
     Material from this \@citationthesistype\ has been published in the following form:\\
     \vskip 2em 
 }  
-
-
-

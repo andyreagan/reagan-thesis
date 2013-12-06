@@ -32,12 +32,17 @@
 \input{\filenamebase.title}
 \input{\filenamebase.committee}
 
-
 \begin{document}
 
 %% \renewcommand{\thesection}{\thepart.\textbf{section}}
-%% \titlecontents{section}[0]{\vspace{4px}}{\bf{#1}}{}{}
-\titlecontents{section}[0]{\vspace{5.5px}\bf}{}{}{\titlerule*[1pc]{.}\contentspage}
+%% \titlecontents{section}[0]{\vspace{4px}}{\bf}{}{}
+%% \titlecontents{section}[0]{\vspace{5.5px}\bf}{}{}{}
+\titlecontents{section}
+              [3.8em]
+              {}
+              {\contentslabel{2.3em}}
+              {\hspace*{-2.3em}}
+              {\titlerule*[1pc]{.}\contentspage}
 
 \maketitle
 \makeacceptance
@@ -50,7 +55,6 @@
 %% Optional
 %% dedication page
 \input{\filenamebase.dedication}
-
 
 %% Optional
 %% acknowledgement page
