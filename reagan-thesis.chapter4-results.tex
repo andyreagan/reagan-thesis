@@ -40,11 +40,16 @@ From these timeseries, we then select the BC, BC values, and turbulence model em
 
 \begin{figure}[h!]
   \centering
-  \includegraphics[width=0.49\textwidth]{/Users/andyreagan/work/2013/2013-05data-assimilation/presentation/blank.pdf}
-  \caption[With a fixed choice of solver, boundary conditions, and initial conditions that lead to stable convective state, we present the long-term behavior of the temperature difference $\Delta T_{3-9}$ for different meshes]{
-    With a fixed choice of solver, boundary conditions, and initial conditions that lead to stable convective state, we present the long-term behavior of the temperature difference $\Delta T_{3-9}$ for different meshes.
-    We choose a fixed time step of 0.006 for each simulation, and run the solver for 30 hours on 8 cores.
-    The computational limit of mesh creation was a memory limit at 818280 cells, so we present results for meshes starting at 400 cells and cells decreasing in size by a factor of 1.25 in both $y$ and $z$ up to a mesh of 523584 cells.
+  %% \includegraphics[width=0.49\textwidth]{/Users/andyreagan/work/2013/2013-05data-assimilation/presentation/blank.pdf}
+  \includegraphics[width=0.79\textwidth]{/Users/andyreagan/work/2013/2013-05data-assimilation/src/experiments/meshVerification/Flux-end-20-times.pdf}
+  \caption[Long-term behavior for different meshes]
+  {
+    With a fixed choice of solver, boundary conditions, and initial conditions that lead to a stable convective state, we present the long-term behavior of the velocity face flux at the top slice for different meshes.
+    The face flux is reported as the average for the last 20 times saves for which the velocity flux is summed across a slice perpendicular to the loop, here we show the top slice.
+    We choose a fixed time step of 0.005 for each simulation, and run the solver for 60 hours on 8 cores.
+    The computational limit of mesh creation was a memory limit at 818280 cells, so we present results for meshes starting at 1600 cells and cells decreasing in size by a factor of 1.25 in both $y$ and $z$ up to a mesh of 523584 cells.
+    For meshes with more than 80,000 cells we see that the solutions are very similar.
+    The smaller meshes generate increasing unstable flow behavior, leading to oscillations of flux and then flow reversals for the smallest meshes of size 2500 and 1600 cells.
   }
   \label{fig:meshverification}
 \end{figure}
@@ -124,7 +129,7 @@ With too few observations, the data assimilation is unable to recover the underl
   \caption[Prediction skill over time for synthetic temperature sensors]{
     Prediction skill over time for synthetic temperature sensors.
     With these observations, our DA scheme is unable to predict the model run at all.
-    Compared with operational NWP, we are observing far less model variables in this situation, with a $10^5$ times more model variables than observations, even for the 32 sensors.
+    Compared with operational NWP, we are observing far less model variables in this situation, with $10^5$ times more model variables than observations, even for the 32 sensors.
   }
   \label{fig:TsensorExp}
 \end{figure}
@@ -148,16 +153,15 @@ With success at predicting flow direction given full temperature observations, w
 The aforementioned generation of observational data considers the different possible observational network approaches for given number of observations $N_\text{obs}$.
 From these approaches, we select the best method available to assimilation $N_\text{obs}$ for each $N$.
 Our results initially indicate that the averaging of temperature over many cells for the synthetic temperature sensors up to 32 sensors degraded prediction skill.
-\todo{still pulling all these results together}
 
 \begin{figure}[h!]
   \centering
-  \includegraphics[width=0.79\textwidth]{/Users/andyreagan/work/2013/2013-05data-assimilation/src/experiments/openFoamAssimilation/data/synData-tStep.01-b290-t340-m40000-noRenum/errorAll002.pdf}
-  \caption[The RMSE of forecasts at the end of 40 assimilation cycles for differing observational density is plotted]{
+  \includegraphics[width=0.79\textwidth]{/Users/andyreagan/work/2013/2013-05data-assimilation/src/experiments/openFoamAssimilation/data/synData-tStep.01-b290-t340-m40000-noRenum/errorAll005.pdf}
+  \caption[The RMSE of forecasts at the end of 40 assimilation cycles for differing observational density is plotted]
+  {
     The RMSE of forecasts at the end of 40 assimilation cycles for differing observational density is plotted.
     For each, we use an assimilation window length of 10, observations with errors drawn from a normal distribution with standard deviation 0.05, and 20 ensemble members within an ETKF.
-    More than 2000 observations, which is 5\% of the model resolution, do not improve forecast skill.
-    Since only temperature observations are used, 2000 observations represent less than 1\% of observable variables.
+    No improvement in skill is witnessed when using more than 2000 observations (5\% of the model resolution).
   }
   \label{fig:obsexp}
 \end{figure}

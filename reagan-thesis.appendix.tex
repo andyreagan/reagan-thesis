@@ -6,37 +6,15 @@
 \chapter{Parameters}
 \label{params}
 
-\begin{table}[h]\caption{Summary of Lorenz '63 parameters}
-\label{table:lorenz63params}
-\begin{center}
-\begin{tabular}{lll}
-Parameter & Value & Interpretation, if any\\
-\hline
-$\sigma$ & 10 & \\
-\hline
-$b$ & 8/3 & \\
-\hline
-$r$ & 28 & \\
-\hline
-\end{tabular}
-\end{center}
-\end{table}
+In Appendix A we present the parameters used for the OpenFOAM and Lorenz63 models, as well as the Data Assimilation covariance inflation parameters.
+The inflation parameters shown here are those which minimize the RMS forecast error of predictions, using 100 runs of 1000 assimilation windows, for each window length on each filter.
 
-\begin{table}[h!]
-\caption{EKF Covariance Inflation}
-\begin{center}
-\begin{tabularx}{\textwidth}{lll}
-%\begin{tabular}{|l|l|}
- {\bf Window Length} & {\bf Additive Inflation} & {\bf Multiplicative Inflation} \\ \hline \hline
- 30s  & 0.05 & 0.15 \\
- \hline
-\end{tabularx}
-\end{center}
-\vspace{-0.4cm}
-\label{params:EKF:covInf}
-\end{table} 
-
-\begin{table}
+\begin{table}[h]
+\caption[Specific constants used for thermal properties of water]{
+  Specific constants used for thermal properties of water.
+  For temperature dependent quantities, the value is evaluated at the reference temperature $T_\text{ref}  = 300K$.
+  Derivation of the Boussineq condition is presented in Equation \ref{eq:bouss}.
+  }
 \begin{center}
 \begin{tabular}{ll}
 \hline
@@ -45,15 +23,15 @@ Variable & Value (at 300K, if applicable)\\
 \hline
 Rayleigh number & $[1.5\cdot 10^6, 4\cdot 10^7]$\\
 \hline
-Reynolds number & $\approx 416$\\
+Reynolds number & $\sim 416$\\
 \hline
 Gravity $g_z$ (fixed) & $9.8 \text{m}/\text{s}^2$\\
 \hline
-Specific heat $c_p$ & $4.187 \text{Kj}/\text{Kg}$\\
+Specific heat $c_p$ & $4.187 \text{kj}/\text{kg}$\\
 \hline
 Thermal expansion $\beta$ & $0.303\cdot 10^{-3} \,1/\text{K}$\\
 \hline
-Density $\rhoref$ & $995.65 \text{Kg}/\text{m}^3$\\
+Density $\rhoref$ & $995.65 \text{kg}/\text{m}^3$\\
 \hline
 Kinematic Viscoscity $\nu$ & $0.801\cdot 10^{-6} \text{m}^2/\text{s}$\\
 \hline
@@ -64,14 +42,173 @@ Laminar Prandtl number & $5.43$\\
 Boussinesq condition & $7.6\cdot 10^{-6}$\\
 \hline
 \end{tabular}
-\caption{
-  Specific constants used for thermal properties of water.
-  For temperature dependent quantities, the value is evaluated at the reference temperature $T_\text{ref}  = 300K$.
-  Derivation of the Boussineq condition is presented in Equation \ref{eq:bouss}.
-  }
 \label{tb:flowvariables}
 \end{center}
 \end{table}
+
+\begin{table}[h!]
+\caption[EnKF covariance inflation test parameters]{EnKF covariance inflation test parameters.}
+\begin{center}
+\begin{tabular}{ccc}
+\hline
+{\bf Window Length ~~~~} & {\bf Additive Inflation~~} & {\bf Multiplicative Inflation~~}\\
+\hline
+\hline
+~30s ~& 0.10 & 0.00 \\ \hline
+~60s ~& 0.20 & 0.00 \\ \hline
+~90s ~& 0.40 & 0.00 \\ \hline
+~120s ~& 0.30 & 0.00 \\ \hline
+~150s ~& 0.70 & 0.00 \\ \hline
+~180s ~& 0.70 & 0.00 \\ \hline
+~210s ~& 1.00 & 0.00 \\ \hline
+~240s ~& 1.00 & 0.00 \\ \hline
+~270s ~& 0.90 & 0.00 \\ \hline
+~300s ~& 1.00 & 0.00 \\ \hline
+~330s ~& 1.00 & 0.00 \\ \hline
+~360s ~& 0.80 & 0.00 \\ \hline
+~390s ~& 0.30 & 0.00 \\ \hline
+~420s ~& 0.40 & 0.00 \\ \hline
+~450s ~& 1.40 & 0.10 \\ \hline
+~480s ~& 1.10 & 0.00 \\ \hline
+~510s ~& 0.70 & 0.10 \\ \hline
+~540s ~& 1.50 & 1.40 \\ \hline
+~570s ~& 1.40 & 1.20 \\ \hline
+~600s ~& 1.50 & 0.70 \\
+\hline
+\end{tabular}
+\end{center}
+\label{table:EnKFCovInfl}
+\end{table} 
+
+
+\begin{table}[h!]
+\caption[EKF covariance inflation test parameters]{EKF covariance inflation test parameters.}
+\begin{center}
+\begin{tabular}{ccc}
+\hline
+{\bf Window Length ~~~~} & {\bf Additive Inflation~~} & {\bf Multiplicative Inflation~~}\\
+\hline
+\hline
+~30s ~& 0.10 & 0.00 \\ \hline
+~60s ~& 0.00 & 1.50 \\ \hline
+~90s ~& 0.00 & 1.50 \\ \hline
+~120s ~& 0.00 & 1.50 \\ \hline
+~150s ~& 0.00 & 1.50 \\ \hline
+~180s ~& 0.20 & 1.50 \\ \hline
+~210s ~& 0.60 & 1.50 \\ \hline
+~240s ~& 0.80 & 1.50 \\ \hline
+~270s ~& 0.90 & 1.50 \\ \hline
+~300s ~& 1.30 & 0.60 \\ \hline
+~330s ~& 0.50 & 0.70 \\ \hline
+~360s ~& 0.50 & 0.90 \\ \hline
+~390s ~& 0.90 & 0.40 \\ \hline
+~420s ~& 0.60 & 0.30 \\ \hline
+~450s ~& 0.80 & 0.10 \\ \hline
+~480s ~& 0.60 & 0.40 \\ \hline
+~510s ~& 0.20 & 0.30 \\ \hline
+~540s ~& 0.00 & 0.40 \\ \hline
+~570s ~& 0.00 & 0.30 \\ \hline
+~600s ~& 1.20 & 0.20 \\ 
+\hline
+\end{tabular}
+\end{center}
+\label{table:EKFCovInfl}
+\end{table} 
+
+
+\begin{table}[h!]
+\caption[EnSRF covariance inflation test parameters]{EnSRF covariance inflation test parameters.}
+\begin{center}
+\begin{tabular}{ccc}
+\hline
+{\bf Window Length ~~~~} & {\bf Additive Inflation~~} & {\bf Multiplicative Inflation~~}\\
+\hline
+\hline
+~30s ~& 0.00 & 0.00 \\ \hline
+~60s ~& 1.50 & 0.80 \\ \hline
+~90s ~& 1.40 & 0.40 \\ \hline
+~120s ~& 1.50 & 0.90 \\ \hline
+~150s ~& 0.10 & 1.30 \\ \hline
+~180s ~& 0.00 & 0.80 \\ \hline
+~210s ~& 0.10 & 1.30 \\ \hline
+~240s ~& 0.00 & 1.50 \\ \hline
+~270s ~& 0.00 & 1.40 \\ \hline
+~300s ~& 0.80 & 1.50 \\ \hline
+~330s ~& 1.20 & 0.50 \\ \hline
+~360s ~& 1.40 & 1.00 \\ \hline
+~390s ~& 1.40 & 1.30 \\ \hline
+~420s ~& 1.50 & 1.30 \\ \hline
+~450s ~& 1.50 & 1.40 \\ \hline
+~480s ~& 1.50 & 0.30 \\ \hline
+~510s ~& 0.00 & 1.40 \\ \hline
+~540s ~& 0.00 & 1.40 \\ \hline
+~570s ~& 0.00 & 1.00 \\ \hline
+~600s ~& 0.00 & 0.80 \\ 
+\hline
+\end{tabular}
+\end{center}
+\label{table:EnSRFCovInfl}
+\end{table} 
+
+
+\begin{table}[h!]
+\caption[ETKF covariance inflation test parameters]{ETKF covariance inflation test parameters.}
+\begin{center}
+\begin{tabular}{ccc}
+\hline
+{\bf Window Length ~~~~} & {\bf Additive Inflation~~} & {\bf Multiplicative Inflation~~}\\
+\hline
+\hline
+~30s ~& 0.10 & 0.00 \\ \hline
+~60s ~& 0.20 & 0.00 \\ \hline
+~90s ~& 0.30 & 0.00 \\ \hline
+~120s ~& 0.30 & 0.00 \\ \hline
+~150s ~& 0.20 & 0.00 \\ \hline
+~180s ~& 0.20 & 0.00 \\ \hline
+~210s ~& 0.50 & 0.00 \\ \hline
+~240s ~& 0.50 & 0.00 \\ \hline
+~270s ~& 0.50 & 0.00 \\ \hline
+~300s ~& 0.20 & 0.00 \\ \hline
+~330s ~& 0.40 & 0.10 \\ \hline
+~360s ~& 0.20 & 0.10 \\ \hline
+~390s ~& 0.20 & 0.10 \\ \hline
+~420s ~& 0.60 & 0.10 \\ \hline
+~450s ~& 1.50 & 0.20 \\ \hline
+~480s ~& 1.20 & 0.40 \\ \hline
+~510s ~& 0.30 & 0.10 \\ \hline
+~540s ~& 0.90 & 0.50 \\ \hline
+~570s ~& 1.50 & 0.40 \\ \hline
+~600s ~& 1.50 & 0.30 \\
+\hline
+\end{tabular}
+\end{center}
+\label{table:ETKFCovInfl}
+\end{table} 
+
+\begin{table}[h]
+\caption[Summary of Lorenz '63 parameters]
+  {
+    Summary of Lorenz '63 parameters.
+    With $\rho=28$ this system is strongly nonlinear, and prediction for long windows is difficult.
+  }
+\label{table:lorenz63params}
+\begin{center}
+\begin{tabular}{ll} %% l
+\hline
+Parameter & Value \\ %% & Interpretation, if any\\
+\hline
+\hline
+$\sigma$ & 10 \\%% & \\
+\hline
+$\beta$ & 8/3 \\%% & \\
+\hline
+$\rho$ & 28 \\%% & \\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+
 
 \chapter{Derivation of Ehrhard-M\"{u}ller Equations}
 
@@ -346,35 +483,34 @@ They sum up the algorithm in nine steps:
 The solver itself has 647 dependencies, of which I present only a fraction.
 The main code is straight forward, relying on include statements to load the libraries and equations to be solved.
 \lstset{language=C++,
-        basicstyle=\ttfamily,
+        basicstyle=\ttfamily\scriptsize\singlespacing,
         keywordstyle=\color{blue},
         stringstyle=\color{red},
         commentstyle=\color{green},
         morecomment=[l][\color{magenta}]{\#},
-        basicstyle=\scriptsize,
         frame=L,
         xleftmargin=\parindent,
         %numbers=left,                   % where to put the line-numbers
         %numberstyle=\scriptsize,      % the size of the fonts that are used for the line-numbers
         %stepnumber=1,                   % the step between two line-numbers. If it is 1 each line will be numbered
-        %numbersep=5pt,
+        numbersep=5pt,
         breaklines=true,        % sets automatic line breaking
         breakatwhitespace=false,    % sets if automatic breaks should only happen at whitespace
         escapeinside={\%*}{*)} 
 }
 
-\lstinputlisting[language=C++,firstline=48,lastline=53]{code/buoyantBoussinesqPimpleFoam/buoyantBoussinesqPimpleFoam.C}
+\lstinputlisting[language=C++,firstline=48,lastline=53]{code/buoyantBoussinesqPimpleFoam/buoyantBoussinesqPimpleFoam-edited.C}
 
 The main function is then
 
-\lstinputlisting[language=C++,firstline=57,lastline=71]{code/buoyantBoussinesqPimpleFoam/buoyantBoussinesqPimpleFoam.C}
+\lstinputlisting[language=C++,firstline=57,lastline=70]{code/buoyantBoussinesqPimpleFoam/buoyantBoussinesqPimpleFoam-edited.C}
 
 We then enter the main loop.
 This is computed for each time step, prescribed before the solver is applied.
 Note that the capacity is available for adaptive time steps, choosing to keep the Courant number below some threshold, but I do not use this.
 For the distributed ensemble of model runs, it is important that each model complete in nearly the same time, so that the analysis is not waiting on one model and therefore under-utilizing the available resources.
 
-\lstinputlisting[language=C++,firstline=77,lastline=103]{code/buoyantBoussinesqPimpleFoam/buoyantBoussinesqPimpleFoam.C}
+\lstinputlisting[language=C++,firstline=71,lastline=88]{code/buoyantBoussinesqPimpleFoam/buoyantBoussinesqPimpleFoam-edited.C}
 
 Opening up the equation for $U$ we see that Equation
 
@@ -395,15 +531,30 @@ This ``pEqn.H'' is then re-run until convergence is achieved, and the PISO loop 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
-\chapter{foamLab Framework Overview}
+\chapter{foamLab Framework}
 \label{app:foamlab}
 
-The core components of the code necessary to reproduce all results herein is as follows.
+The core components of the code, used to make all results herein, are as follows.
 The main link is the MATLAB function modelDAinterface.m, which uses models as a standard class and the DA algorithms as function files.
 For the use of the OpenFOAM, the two main files are the MATLAB class OpenFOAM.m and the complementary shell script foamLab.sh with which it directly interacts.
-First is the MATLAB-OpenFOAM class defined in OpenFOAM.m:
+First I present the full modelDAinterface.m function, then one of the assimilation algorithms, and the class definition for OpenFOAM.
+Only the non-localized modelDAinterface.m is included, as the local version is much longer.
+
+Performing an experiment with a given model is then performed by inputing an observation timeseries into modelDAinterface.m, as well as the model to use for prediction, the filter to use to assimilate, and other details about the observations.
+
 {\scriptsize \lstinputlisting[language=Matlab]{../2013-05data-assimilation/src/modelDAinterface.m}}
+
+Now we take a look at how simply a data assimilation algoritm can be defined within this framework.
+The code for the Ensemble Transform Kalman Filter is contained in ETKF.m and is:
+
+{\scriptsize \lstinputlisting[language=Matlab]{../2013-05data-assimilation/src/filters/ETKF.m}}
+
+Finally we include the OpenFOAM class definition.
+This definition relies entirely on a shell script foamLab.sh, which for brevity's sake we do not include.
+
+{\scriptsize \lstinputlisting[language=Matlab]{../2013-05data-assimilation/OpenFOAM/OpenFOAM-full.m}}
+
+Thanks for reading!
 
 
 

@@ -67,7 +67,7 @@ Further assume that these errors are uncorrelated
 \begin{equation} \expv{\epsilon _1 \epsilon _1} = 0, \end{equation}
 which in the case of observing the atmosphere, is hopeful.
 
-We next attempt a linear fit of these observations to the truth, and equipped with the knownledge of observation variances we can outperform an average of the observations.
+We next attempt a linear fit of these observations to the truth, and equipped with the knowledge of observation variances we can outperform an average of the observations.
 For $U_a$, our best guess of $U_t$, we write this linear fit as
 \begin{equation} U_a = \alpha _1 U_1 + \alpha _2 U_2 \label{eq:analproblem}. \end{equation}
 If $U_a$ is to be our best guess, we desire it to unbiased
@@ -97,7 +97,7 @@ This last formula says that given accurate statistical knowledge of $U_{1,2}$, t
   \caption[A 1-dimensional example of this data assimilation cycle]{
     A 1-dimensional example of this data assimilation cycle.
     First, a forecast is made with mean 0 and variance 1, labeled $u_f$.
-    An obvservation denoted $u_o$ is the made with mean 2 and variance 2.
+    An observation denoted $u_o$ is the made with mean 2 and variance 2.
     From this information and Equation \ref{eq:1dda} we compute the analysis $u_f$ with mean 2/3, noting the greater reliance on the lower variance input $u_f$.
   }
   \label{fig:DAexample1D}
@@ -341,6 +341,7 @@ We can see the classic spaghetti of the ensemble with this filter implemented on
   \caption[A sample time-series of the ensembles used in the EnKF]{
     A sample time-series of the ensembles used in the EnKF.
     In all tests, as seen here, 10 ensemble members are used.
+    For this run, 384 assimilation cycles were performed with a window length of 0.26 model time units.
   }
   \label{fig:spaghetti}
 \end{figure}
@@ -427,7 +428,7 @@ Figure \ref{fig:ott2004algorithm} depicts this cycle in greater detail, with sim
 
 \begin{figure}[h!]
   \centering
-  \includegraphics[width=0.79\textwidth]{figures/ott2004algorithmPic.png}
+  \includegraphics[width=0.79\textwidth]{figures/ott2004algorithmPic2.png}
   \caption[The algorithm for the LEKF as described by Ott (2004)]{
     The algorithm for the LEKF as described by Ott (2004).
     }
@@ -580,7 +581,7 @@ The ensemble filter begins to out-perform the extended Kalman filter for longer 
 \end{figure}
 
 Each of the filters is sensitive to the size of the covariance matrix, and in some cases to maintain the numerical stability of the assimilation it is necessary to use additive and/or multiplicative covariance inflation.
-In all filters mutliplicative error is performed with inflaction factor $\Delta$ by
+In all filters multiplicative error is performed with inflaction factor $\Delta$ by
 \begin{equation} \mbK \leftarrow (1+\Delta) \mbK .\end{equation}
 Additive inflation is performed for the EKF as in Yang et al (2006) and Harris et al (2011) where uniformly distributed random numbers in $[0,\mu]$ are added to the diagonal.
 This is accomplished in MATLAB by drawing a vector  $\nu$ of length $n$ of uniformly distributed numbers in $[0,1]$, multiplying it by $\mu$, and adding it to the diagonal:
