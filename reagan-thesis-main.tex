@@ -32,6 +32,21 @@
 \input{\filenamebase.title}
 \input{\filenamebase.committee}
 
+%% all Dodds
+\newcommand{\dee}[1]{\mbox{d}#1}
+\newcommand{\pdiff}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\partialdiff}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\pdiffsq}[2]{\frac{\partial^2 #1}{{\partial #2}^2}}
+\newcommand{\diff}[2]{\frac{{\rm d}#1}{{\rm d}#2}}
+\newcommand{\diffsq}[2]{\frac{{\rm d}^{2}#1}{{\rm d} {#2}^2}}
+\newcommand{\tdiff}[2]{\mbox{d} #1/\mbox{d} #2}
+\newcommand{\tdiffsq}[2]{\mbox{d}^{2} #1/\mbox{d} {#2}^2}
+\newcommand{\tpdiff}[2]{\partial #1/\partial #2}
+\newcommand{\tpdiffsq}[2]{\partial^2 #1/\partial {#2}^2}
+\newcommand{\postdee}[1]{\,\mbox{d}#1}
+\newcommand{\rhoref}{\rho_{\text{ref}}}
+\newcommand{\dphi}{\text{d}\phi}
+
 \begin{document}
 
 %% \renewcommand{\thesection}{\thepart.\textbf{section}}
@@ -77,16 +92,16 @@
 %% i don't think that this has any effect on the ToC
 %% \titleformat{\section}[hang]{}{\thesection}{1em}{10em}[]
 
-%for journal format dissertation each chapter needs its own reference section, and want references to be included in global bibliography
-%this is accomplished using include commands
-%but, for things like the lit review (chapter 1) or an appendix, should use input so it does not get it's own references section
+%% for journal format dissertation each chapter needs its own reference section, and want references to be included in global bibliography
+%% this is accomplished using include commands
+%% but, for things like the lit review (chapter 1) or an appendix, should use input so it does not get it's own references section
 
-% Journal Article format:
-%\input{\filenamebase.chapter1-JA}
-%\include{\filenamebase.chapter2-JA}
-%\include{\filenamebase.chapter3-JA}
+%% Journal Article format:
+%% \input{\filenamebase.chapter1-JA}
+%% \include{\filenamebase.chapter2-JA}
+%% \include{\filenamebase.chapter3-JA}
 
-% Standard format:
+%% Standard format:
 \input{\filenamebase.chapter1-introduction}
 \input{\filenamebase.chapter2-DA}
 \input{\filenamebase.chapter3-looop}

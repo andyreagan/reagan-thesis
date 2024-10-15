@@ -490,12 +490,12 @@ The main code is straight forward, relying on include statements to load the lib
         morecomment=[l][\color{magenta}]{\#},
         frame=L,
         xleftmargin=\parindent,
-        %numbers=left,                   % where to put the line-numbers
-        %numberstyle=\scriptsize,      % the size of the fonts that are used for the line-numbers
-        %stepnumber=1,                   % the step between two line-numbers. If it is 1 each line will be numbered
+        %%numbers=left,                   %% where to put the line-numbers
+        %%numberstyle=\scriptsize,      %% the size of the fonts that are used for the line-numbers
+        %%stepnumber=1,                   %% the step between two line-numbers. If it is 1 each line will be numbered
         numbersep=5pt,
-        breaklines=true,        % sets automatic line breaking
-        breakatwhitespace=false,    % sets if automatic breaks should only happen at whitespace
+        breaklines=true,        %% sets automatic line breaking
+        breakatwhitespace=false,    %% sets if automatic breaks should only happen at whitespace
         escapeinside={\%*}{*)} 
 }
 
@@ -542,17 +542,17 @@ Only the non-localized modelDAinterface.m is included, as the local version is m
 
 Performing an experiment with a given model is then performed by inputing an observation timeseries into modelDAinterface.m, as well as the model to use for prediction, the filter to use to assimilate, and other details about the observations.
 
-{\scriptsize \lstinputlisting[language=Matlab]{../2013-05data-assimilation/src/modelDAinterface.m}}
+{\scriptsize \lstinputlisting[language=Matlab]{code/modelDAinterface.m}}
 
 Now we take a look at how simply a data assimilation algoritm can be defined within this framework.
 The code for the Ensemble Transform Kalman Filter is contained in ETKF.m and is:
 
-{\scriptsize \lstinputlisting[language=Matlab]{../2013-05data-assimilation/src/filters/ETKF.m}}
+{\scriptsize \lstinputlisting[language=Matlab]{code/ETKF.m}}
 
 Finally we include the OpenFOAM class definition.
 This definition relies entirely on a shell script foamLab.sh, which for brevity's sake we do not include.
 
-{\scriptsize \lstinputlisting[language=Matlab]{../2013-05data-assimilation/OpenFOAM/OpenFOAM-full.m}}
+{\scriptsize \lstinputlisting[language=Matlab]{code/OpenFOAM-full.m}}
 
 For more complete code documentation, and to download the source code, visit the GitHub repository: \url{https://github.com/andyreagan}.
 

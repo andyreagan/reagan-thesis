@@ -16,18 +16,18 @@
 \newcommand{\expv}[1]{E \left [ #1 \right ]}
 
 \chapter{Data Assimilation}
-\chaptermark{Data Assimilation} %this is the chapter heading that will show on subsequent pages
+\chaptermark{Data Assimilation} %% this is the chapter heading that will show on subsequent pages
 
 The goal of this chapter is to introduce and detail the practical implementation of state-of-the-art data assimilation algorithms.
 We derive the general form for the problem, and then talk about how each filter works.
 Starting with the simplest examples, we formulate the most advanced 4-dimensional Variational Filter and 4-dimensional Local Ensemble Transform Kalman Filter to implement with a computational fluid dynamics model.
-For a selection of these algorithms, we illustrate some of their properties with a MATLAB implementation of the Lorenz 1963 three-variable model: %of the Extended Kalman Filter (EKF), Ensemble Kalman Filter (EnKF), and 3D-Var on the Lorenz 1963 three-variable model:
+For a selection of these algorithms, we illustrate some of their properties with a MATLAB implementation of the Lorenz 1963 three-variable model: %% of the Extended Kalman Filter (EKF), Ensemble Kalman Filter (EnKF), and 3D-Var on the Lorenz 1963 three-variable model:
 \begin{align*}
 \frac{dx}{dt} &= \sigma (y-x)\\
 \frac{dy}{dt} &= \rho x - y -xz \\
 \frac{dz}{dt} &= xy -  \beta z\end{align*}
 
-The cannonical choice of $\sigma = 10, \beta = 8/3$ and $\rho = 28$, produce the well known butterfly attractor, is used for all examples here (Figure \ref{fig:lorenzattractor}).
+The canonical choice of $\sigma = 10, \beta = 8/3$ and $\rho = 28$, produce the well known butterfly attractor, is used for all examples here (Figure \ref{fig:lorenzattractor}).
 
 
 
@@ -111,17 +111,17 @@ The difference $U_o - U_b$ is commonly reffered to as the ``innovation'' and rep
 The optimal weight $W$ is then given by \ref{eq:analprec} as
 \begin{equation} W = \frac{\sigma _b ^2}{\sigma_b ^2 - \sigma _o ^2} = \sigma_b ^2 (\sigma_b^2 - \sigma_o^2) ^{-1} \label{eq:1dda}.\end{equation}
 
-The analysis error variance and precision are defined as before, and following Kalnay (2003) %\shortcite{kalnay2003}
+The analysis error variance and precision are defined as before, and following Kalnay (2003) %% \shortcite{kalnay2003}
 for convenience we can rewrite this in terms of $W$ as:
 \begin{equation} \sigma _a ^2 = (1-W ) \sigma_b^2 .\end{equation}
 
 We now generalize the above description for models of more than one variable to obtain the full equations for OI.
-This was originally done by Aerology et al (1960), and independently by Gandin (1965). %\shortcite{gandin1965}  %\shortcite{eliassen1954}
+This was originally done by Aerology et al (1960), and independently by Gandin (1965). %%\shortcite{gandin1965}  %%\shortcite{eliassen1954}
 The following notation will be used for the OI and the other multivariate filters.
 Consider a field of grid points, where there may be $\mbx_i = (p,p_{\text{rgh}},T,u_x,u_y,u_z)$ variables at each point for pressure, hydrostatic pressure, temperature, and three dimensions of velocity.
 We combine all the variables into one list $\mbx$ of length $n$ where $n$ is the product of the number of grid points and the number of model variables.
 This list is ordered by grid point and then by variable (e.g. $\mbx = (p_1,T_1,p_2,T_2,\ldots,p_{n/2},T_{n/2})$ for a field with just variables pressure $p$ and temperature $T$).
-Denote the observations as $\mby_0$, where the ordering is the same as $\mbx$ but the dimension is much smaller (e.g. by a factor of $10^3$ for NWP) % $\left | \mby _0 \right | \ll \left | \mbx \right |$ 
+Denote the observations as $\mby_0$, where the ordering is the same as $\mbx$ but the dimension is much smaller (e.g. by a factor of $10^3$ for NWP) %% $\left | \mby _0 \right | \ll \left | \mbx \right |$ 
 and the observations are not strictly at the locations of $\mbx$ or even direct measurements of the variables in $\mbx$.
 In our experiment, temperature measurements are in the model variable $T$, but are understood as the average of the temperature of the grid points surrounding it within some chosen radius.
 Examples of indirect and spatially heterogeneous observations in NWP are radar reflectivities, Doppler shifts, satellite radiances, and global positioning system atmospheric refractivities \shortcite{kalnay2003}.
@@ -444,7 +444,7 @@ To ensure a unique solution of local analysis perturbations that respects this b
 
 Proposed by Hunt in 2007 with the stated objective of computational efficiency, the LETKF is named from its most similar algorithms from which it draws \shortcite{hunt2007efficient}.
 With the formulation of the LEKF and the ETKF given, the LETKF can be  described as a synthesis of the advantages of both of these approaches.
-This is the method that was sufficiently efficient for implementation on the full OpenFOAM CFD model of 240,000 model variables, and so we present it in more detail and follow the notation of Hunt et al (2007). % \shortcite{hunt2007efficient}.
+This is the method that was sufficiently efficient for implementation on the full OpenFOAM CFD model of 240,000 model variables, and so we present it in more detail and follow the notation of Hunt et al (2007). %% \shortcite{hunt2007efficient}.
 
 As in the LEKF, we explicitly perform the analysis for each grid point of the model.
 The choice of observations to use for each grid point can be selected a priori, and tuned adaptively.
@@ -512,7 +512,7 @@ Then with the background forecast at the time $\tau$, we compute $( \overline{\m
 The formulation of 4D-Var aims to incorporate observations at the time they are observed.
 This inclusion of observations has resulted in significant improvements in forecast skill, cite.
 The next generation of supercomputers that will be used in numerical weather prediction will allow for increased model resolution.
-The main issues with the 4D-Var approach include attempting to parallelize what is otherwise a sequential algorithm, and the computational difficulty of the strong-constraint formulation with many TLM integrations, with work being done by Fisher and Andersson (2001). %%%%%\shortcite{fisher}.
+The main issues with the 4D-Var approach include attempting to parallelize what is otherwise a sequential algorithm, and the computational difficulty of the strong-constraint formulation with many TLM integrations, with work being done by Fisher and Andersson (2001). %%\shortcite{fisher}.
 
 The formulation of 4D-Var is not so different from 3D-Var, with the inclusion of a TLM and adjoint model to assimilation observations made within the assimilation window.
 At the ECMWF, 4D-Var is run on a long-window cycle (24 and 48 hours) so that many observations are made within the time window.
@@ -581,7 +581,7 @@ The ensemble filter begins to out-perform the extended Kalman filter for longer 
 \end{figure}
 
 Each of the filters is sensitive to the size of the covariance matrix, and in some cases to maintain the numerical stability of the assimilation it is necessary to use additive and/or multiplicative covariance inflation.
-In all filters multiplicative error is performed with inflaction factor $\Delta$ by
+In all filters multiplicative error is performed with inflation factor $\Delta$ by
 \begin{equation} \mbK \leftarrow (1+\Delta) \mbK .\end{equation}
 Additive inflation is performed for the EKF as in Yang et al (2006) and Harris et al (2011) where uniformly distributed random numbers in $[0,\mu]$ are added to the diagonal.
 This is accomplished in MATLAB by drawing a vector  $\nu$ of length $n$ of uniformly distributed numbers in $[0,1]$, multiplying it by $\mu$, and adding it to the diagonal:
