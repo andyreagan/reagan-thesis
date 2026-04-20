@@ -79,7 +79,7 @@ We focus on considering the effect of observations and observational locations o
   \caption[A schematic of covariance localized by a radial distance from cell centers is shown for cells $x_{\{i,j\}}$ where $i,j$ are indexed by the number of cells and $r$ is any float]{
     A schematic of covariance localized by a radial distance from cell centers is shown for cells $x_{\{i,j\}}$ where $i,j$ are indexed by the number of cells and $r$ is any float.
     Cells are local to one another if the Euclidean distance between their cell centers is less than $r$.
-    Assimilation is performed for each cell, so there are as many individual assimilations are cells in the mesh.
+    Assimilation is performed for each cell, so there are as many individual assimilations as cells in the mesh.
     Since observations are assumed to be independent, this assimilation can be performed in parallel for efficiency.
   }
   \label{fig:localcovradii}
@@ -92,7 +92,7 @@ Computationally this scheme is the simplest to implement, and results in the few
 Next, we consider localization by distance from center.
 Data assimilation is performed for each grid point, considering neighboring cells and observations with cell center within a radius $r$ from each point (e.g. $r = 0.5$cm).
 The difficulty of this approach is the localization itself which is mesh dependent and nontrivial, see Figure \ref{fig:CFDmeshAdj2}.
-For our simulations, we perform the assimilations sequentially, and note that there many be gains in efficiency from parallelization.
+For our simulations, we perform the assimilations sequentially, and note that there may be gains in efficiency from parallelization.
 
 \subsubsection{Generation of Synthetic Data}
 
@@ -129,7 +129,7 @@ With too few observations, the data assimilation is unable to recover the underl
   \caption[Prediction skill over time for synthetic temperature sensors]{
     Prediction skill over time for synthetic temperature sensors.
     With these observations, our DA scheme is unable to predict the model run at all.
-    Compared with operational NWP, we are observing far less model variables in this situation, with $10^5$ times more model variables than observations, even for the 32 sensors.
+    Compared with operational NWP, we are observing far fewer model variables in this situation, with $10^5$ times more model variables than observations, even for the 32 sensors.
   }
   \label{fig:TsensorExp}
 \end{figure}
@@ -144,14 +144,14 @@ Regardless, in Figure \ref{fig:fullObsExp} we verify directly that our assimilat
     Prediction skill over time for complete observations of temperature.
     With these observations, our DA scheme is able to predict the model run well.
     Increasing the number of ensemble members $N$ leads to a decrease in the forecast error, as one would hope with a more complete sampling of model uncertainty.
-    Note that although we may full observations of temperature, it is only one of five model variables assimilated.
+    Note that although we have full observations of temperature, it is only one of five model variables assimilated.
   }
   \label{fig:fullObsExp}
 \end{figure}
 
 With success at predicting flow direction given full temperature observations, we now ask the question: just how many observations are necessary?
 The aforementioned generation of observational data considers the different possible observational network approaches for given number of observations $N_\text{obs}$.
-From these approaches, we select the best method available to assimilation $N_\text{obs}$ for each $N$.
+From these approaches, we select the best method available to assimilate $N_\text{obs}$ for each $N$.
 Our results initially indicate that the averaging of temperature over many cells for the synthetic temperature sensors up to 32 sensors degraded prediction skill.
 
 \begin{figure}[h!]
@@ -201,7 +201,7 @@ This allows the possibility of running $N$ ensemble methods using $4N$ cores, al
 \end{figure}
 
 Beyond real-time prediction, it is now possible to design and test new methods of data assimilation for large scale systems.
-New methods specific to CFD, possibly using principle mode decomposition of flow fields have the potential to greatly improve the skill of real-time CFD applications.
+New methods specific to CFD, possibly using principal mode decomposition of flow fields have the potential to greatly improve the skill of real-time CFD applications.
 In Figure \ref{fig:localcovadaptive}, flow structures present in our computational experiment demonstrate the potential for adaptive covariance localization.
 
 The numerical coupling of CFD to experiment by DA should be generally useful to improve the skill of CFD predictions in even data-poor experiments, which can provide better knowledge of unobservable quantities of interest in fluid flow.

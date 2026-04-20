@@ -97,7 +97,7 @@ This last formula says that given accurate statistical knowledge of $U_{1,2}$, t
   \caption[A 1-dimensional example of this data assimilation cycle]{
     A 1-dimensional example of this data assimilation cycle.
     First, a forecast is made with mean 0 and variance 1, labeled $u_f$.
-    An observation denoted $u_o$ is the made with mean 2 and variance 2.
+    An observation denoted $u_o$ is then made with mean 2 and variance 2.
     From this information and Equation \ref{eq:1dda} we compute the analysis $u_f$ with mean 2/3, noting the greater reliance on the lower variance input $u_f$.
   }
   \label{fig:DAexample1D}
@@ -107,7 +107,7 @@ We can now formulate the simplest data assimilation cycle by using our forecast 
 We then assimilate the observations $U_o$ by setting $U_2 = U_o$ and solving for the analysis velocity $U_a$ as
 \begin{equation} U_a = U_b + W (U_o - U_b) .\end{equation}
 
-The difference $U_o - U_b$ is commonly reffered to as the ``innovation'' and represents the new knowledge from the observations with respect to the background forecast.
+The difference $U_o - U_b$ is commonly referred to as the ``innovation'' and represents the new knowledge from the observations with respect to the background forecast.
 The optimal weight $W$ is then given by \ref{eq:analprec} as
 \begin{equation} W = \frac{\sigma _b ^2}{\sigma_b ^2 - \sigma _o ^2} = \sigma_b ^2 (\sigma_b^2 - \sigma_o^2) ^{-1} \label{eq:1dda}.\end{equation}
 
@@ -284,7 +284,7 @@ We can apply our numerical method to the $d\mbx/dt = F(\mbx)$ to obtain $M$ expl
 This method is, however, prohibitively costly, since Runge-Kutta methods are implicit.
 It is therefore desirable to take the derivative of the numerical scheme directly, and apply this differentiated numerical scheme to the system of equations $F(\mbx)$ to obtain the TLM.
 A schematic of this scenario is illustrated in Figure \ref{fig:TLMscheme}.
-To that the derivative of numerical code for implementing the EKF on models larger than 3 dimensions (i.e. global weather models written in Fortan), automatic code differentiation is used \shortcite{autodiff1981}.
+To take the derivative of numerical code for implementing the EKF on models larger than 3 dimensions (i.e. global weather models written in Fortran), automatic code differentiation is used \shortcite{autodiff1981}.
 
 To verify our implementation of the TLM, we propagate a small error in the Lorenz 63 system and plot the difference between that error and the TLM predicted error, for each variable (Figure \ref{fig:TLMverification}).
 
@@ -308,7 +308,7 @@ In the limit of infinite ensemble size, ensemble methods are equivalent to the E
 There are two prevailing methodologies for maintaining independent ensemble members: (1) adding errors to the observation used by each forecast and assimilating each ensemble individually or (2) distributing ensemble initial conditions from the analysis prediction.
 In the first method, the random error added to the observation can be truly random \shortcite{harris2011predicting} or be drawn from a distribution related to the analysis covariance.
 The second method distributes ensemble members around the analysis forecast with a distribution drawn to sample the analysis covariance deterministically.
-It has been show that the perturbed observation approach introduces additional sampling error that reduces the analysis covariance accuracy and increases the probability of of underestimating analysis error covariance \shortcite{hamill2001distance}.
+It has been shown that the perturbed observation approach introduces additional sampling error that reduces the analysis covariance accuracy and increases the probability of underestimating analysis error covariance \shortcite{hamill2001distance}.
 For the examples given, we demonstrate both methods.
 
 With a finite ensemble size this method is only an approximation and therefore in practice it often fails to capture the full spread of error.
@@ -378,10 +378,10 @@ In the SRF approach, the ``Potter Method'' provides a deterministic update by re
 &= \mbZ_f\left(\mathbf{I}-\mbZ_f\mbH^T(\mbH\mbZ_f\mbZ_f^T\mbH^T+\mbR)^{-1}\mbH\mbZ_f\right)\mbZ_f^T\\
 &= \mbZ_f\left(\mathbf{I}-\mathbf{V}\mathbf{D}^{-1}\mathbf{Z}^T\right)\mbZ_f^T. \end{align}
 We have defined $\mathbf{V}\equiv(\mbH\mbZ_f)^T$ and $\mathbf{D}\equiv\mathbf{V}^T\mathbf{V}+\mbR$.
-Now for the ETFK step, we use the Sherman-Morrison-Woodbury identity to show
+Now for the ETKF step, we use the Sherman-Morrison-Woodbury identity to show
 \begin{equation} \mathbf{I} - \mathbf{Z}\mathbf{D}^{-1}\mathbf{Z}^T = (\mathbf{I}+\mathbf{Z}_f\mathbf{H}^T\mathbf{R}^{-1}\mathbf{H}\mathbf{Z}_f)^{-1}.\end{equation}
 The matrix on the right hand side is practical to compute because it is of dimension of the rank of the ensemble, assuming that the matrix inverse $\mbR^{-1}$ is available.
-This is the case in our experiment, as the observation are uncorrelated.
+This is the case in our experiment, as the observations are uncorrelated.
 The analysis update is thus
 \begin{equation} \mbZ_a = \mbZ_f \mathbf{C}(\mathbf{\Gamma} +\mathbf{I})^{-1/2} ,\end{equation}
 where $\mathbf{C}\mathbf{\Gamma}\mathbf{C}^T$ is the eigenvalue decomposition of $\mbZ_f^T\mbH^T\mbR^{-1}\mbH\mbZ_f$.
@@ -391,7 +391,7 @@ Then the analysis perturbation is calculated from
 \begin{equation} \mbZ_a = \mbZ_f \mathbf{X} \mathbf{U}, \end{equation}
 where $\mathbf{X}\mathbf{X}^T = (\mathbf{I}-\mathbf{Z}\mathbf{D}^{-1}\mathbf{V}^T)$ and $\mathbf{U}$ is an arbitrary orthogonal matrix.
 
-In this filter, the analysis perturbations are assumed to be equal to the backgroud perturbations post-multiplied by a transformation matrix $\mathbf{T}$ so that that the analysis error covariance satisfies
+In this filter, the analysis perturbations are assumed to be equal to the background perturbations post-multiplied by a transformation matrix $\mathbf{T}$ so that the analysis error covariance satisfies
 $$ \mbP_a = (1- \mbK \mbH ) \mbP_f .$$
 
 The analysis covariance is also written
@@ -443,7 +443,7 @@ To ensure a unique solution of local analysis perturbations that respects this b
 \subsection{Local Ensemble Transform Kalman Filter (LETKF)}
 
 Proposed by Hunt in 2007 with the stated objective of computational efficiency, the LETKF is named from its most similar algorithms from which it draws \shortcite{hunt2007efficient}.
-With the formulation of the LEKF and the ETKF given, the LETKF can be  described as a synthesis of the advantages of both of these approaches.
+With the formulation of the LEKF and the ETKF given, the LETKF can be described as a synthesis of the advantages of both of these approaches.
 This is the method that was sufficiently efficient for implementation on the full OpenFOAM CFD model of 240,000 model variables, and so we present it in more detail and follow the notation of Hunt et al (2007). %% \shortcite{hunt2007efficient}.
 
 As in the LEKF, we explicitly perform the analysis for each grid point of the model.
@@ -505,7 +505,7 @@ We expect that extending the LETKF to incorporate observations from within the a
 This is implemented without great difficulty on top of the LETKF, by projecting observations as they are made into the space $\tilde{S}$ with the observation time-specific matrix $H_\tau$ and concatenating each successive observation onto $\mby_o$.
 Then with the background forecast at the time $\tau$, we compute $( \overline{\mby}_b )_\tau$ and $ (\mbY _b ) _\tau$, concatenating onto $\overline{\mby}_b$ and $\mbY_b$, respectively.
 
-%% The cannonical choice of $\sigma = 10, b = 8/3$ and $r = 28$ is used for all examples here, which produce the well known butterfly attractor (Figure \ref{fig:lorenzattractor}).
+%% The canonical choice of $\sigma = 10, b = 8/3$ and $r = 28$ is used for all examples here, which produce the well known butterfly attractor (Figure \ref{fig:lorenzattractor}).
 
 \section{4D-Var}
 
@@ -516,9 +516,9 @@ The main issues with the 4D-Var approach include attempting to parallelize what 
 
 The formulation of 4D-Var is not so different from 3D-Var, with the inclusion of a TLM and adjoint model to assimilation observations made within the assimilation window.
 At the ECMWF, 4D-Var is run on a long-window cycle (24 and 48 hours) so that many observations are made within the time window.
-Generally, there are two main 4D-Var formulations in use: strong-constraint and weak-constaint.
+Generally, there are two main 4D-Var formulations in use: strong-constraint and weak-constraint.
 The strong-constraint formulation uses the forecast model as a strong constraint, and is therefore easier to solve.
-From Kalnay (2007) we have the standard weak-constaint formulation with superscript denoting the timestep within the assimilation window (say there are $0,\ldots,N$ observation time steps within the assimilation window):
+From Kalnay (2007) we have the standard weak-constraint formulation with superscript denoting the timestep within the assimilation window (say there are $0,\ldots,N$ observation time steps within the assimilation window):
 \begin{align*} J(\mbx^0) = &\frac{1}{2} (\mbx^0 - \mbx^0_b) ^T \mbB ^{-1} (\mbx^0 - \mbx_b^0 \frac{1}{2} \sum _{i=0}^N \left( H^i(\mbx^i)-\mby^i\right)^T\\
 &(\mbR^i) ^{-1} \left( H^i(\mbx^i)-\mby^i \right ) .\end{align*}
 
@@ -528,7 +528,7 @@ This is \shortcite{kalnay20074}:
 & \left(H^i(\mbx^i+\beta)-\mby^i\right)^T (\mbR^i)^{-1} \left(H^i(\mbx^i+\beta)-\mby^i\right) \\
 &+\frac{1}{2}\beta^T\mathbf{Q}^{-1}\beta = J_b +J_o+J_\beta.\end{align*}
 
-Future directions of operational data assimilation combine what is best about 4D-Var and ensemble-based algorithms, and these methods are reffered to as ensemble-variational hybrids.
+Future directions of operational data assimilation combine what is best about 4D-Var and ensemble-based algorithms, and these methods are referred to as ensemble-variational hybrids.
 We have already discussed a few such related approaches: the use of the Kalman gain matrix $\mbK$ used within the 3D-Var cost function, the ``NCEP'' method for 3D-Var, and inflating the ETKF covariance with the 3D-Var static (climatological) covariance $\mbB$.
 
 \subsection{Ensemble-variational hybrids}
@@ -572,10 +572,10 @@ The ensemble filter begins to out-perform the extended Kalman filter for longer 
   \centering
   \includegraphics[width=0.79\textwidth]{../2013-05data-assimilation/src/experiments/windowExperiment/window_experiment_plot002.pdf}
   \caption[The RMS error is reported for our EKF and EnKF filters]{
-    The RMS error (not scaled by climatology) is reported for our EKF and EnKF filters, measured as the difference between forecast and truth at the end of an assimiliation window for the latter 2500 assimiliation windows in a 3000 assimilation window model run.
+    The RMS error (not scaled by climatology) is reported for our EKF and EnKF filters, measured as the difference between forecast and truth at the end of an assimilation window for the latter 2500 assimilation windows in a 3000 assimilation window model run.
     Error is measured in the only observed variable, $x_1$.
-    Increasing the assimilation window led to an decrease in predictive skill, as expected.
-    Additive and multiplicative covariance inflation is the same as Harris et. al (2011).
+    Increasing the assimilation window led to a decrease in predictive skill, as expected.
+    Additive and multiplicative covariance inflation is the same as Harris et al. (2011).
   }
   \label{fig:window_test}
 \end{figure}
@@ -584,11 +584,11 @@ Each of the filters is sensitive to the size of the covariance matrix, and in so
 In all filters multiplicative error is performed with inflation factor $\Delta$ by
 \begin{equation} \mbK \leftarrow (1+\Delta) \mbK .\end{equation}
 Additive inflation is performed for the EKF as in Yang et al (2006) and Harris et al (2011) where uniformly distributed random numbers in $[0,\mu]$ are added to the diagonal.
-This is accomplished in MATLAB by drawing a vector  $\nu$ of length $n$ of uniformly distributed numbers in $[0,1]$, multiplying it by $\mu$, and adding it to the diagonal:
+This is accomplished in MATLAB by drawing a vector $\nu$ of length $n$ of uniformly distributed numbers in $[0,1]$, multiplying it by $\mu$, and adding it to the diagonal:
 \begin{equation} \mbK \leftarrow \mbK + \text{diag}(\mu\cdot \nu).\end{equation}
 For the EnKF we perform additive covariance inflation to the analysis state itself for each ensemble:
 \begin{equation} \mbx \leftarrow \mbx + \nu .\end{equation}
-The result of searching over these parameters for the optimal values to minimize the analysis RMS error differs for each window length, so here here we present the result for a window of length 390 seconds for the ETKF.
+The result of searching over these parameters for the optimal values to minimize the analysis RMS error differs for each window length, so here we present the result for a window of length 390 seconds for the ETKF.
 In Figure \ref{fig:ETKF_cov_tuning_390s} we see that there is a clear region of parameter space for which the filter performs with lower RMS, although this region appears to extend into values of $\Delta > 3$.
 
 \begin{figure}[h!]
