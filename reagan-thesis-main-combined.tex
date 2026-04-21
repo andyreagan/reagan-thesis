@@ -15,7 +15,6 @@
 \usepackage{cite}
 \usepackage{tabularx}
 \usepackage[makeroom]{cancel}
-
 \newcommand{\todo}[1]{\noindent\textcolor{red}{{$\Box$ #1}}} 
 \usepackage{titletoc}
 
@@ -25,12 +24,16 @@
 
 \usepackage{currfile}
 \title{Predicting Flow Reversals in a Computational Fluid Dynamics Simulated Thermosyphon using Data Assimilation}
-\author{Andrew Reagan}
+\author{Andrew J. Reagan}
 \defensedate{November 15, 2013}
-\thesis                             \masterscience                      \apma                                 \jangrad                            \def\gradyear{2014}
+\thesis                             
+\masterscience                      
+\apma                                 
+\jangrad                            
+\def\gradyear{2014}
 
-\advisor{Chris Danforth, Ph.D.}
-\readerone{Peter Dodds, Ph.D.}
+\advisor{Christopher M. Danforth, Ph.D.}
+\readerone{Peter Sheridan Dodds, Ph.D.}
 \chair{Darren Hitt, Ph.D.}
 
 \newcommand{\dee}[1]{\mbox{d}#1}
@@ -74,7 +77,8 @@ The results contribute to a testbed for algorithm development.
 {\it in dedication to } 
 \\
 \vskip 2em
-my parents, Donna and Kevin Reagan, for their unwavering support. \end{dedication}
+my parents, Donna and Kevin Reagan, for their unwavering support. 
+\end{dedication}
 
 \begin{acknowledgements}
 I would like to thank Professors Chris Danforth and Peter Dodds for their outstanding advising, as well as Professors Darren Hitt and Yves Dubief for their valuable feedback.
@@ -151,7 +155,7 @@ In this direction, we make use of advanced computational resources in the contex
 
 \section{IC determination: data assimilation}
 
-Areas as disparate as quadcopter stabilization \shortcite{achtelik2009visual} to the tracking of ballistic missle re-entry \shortcite{siouris1997tracking} use data assimilation.
+Areas as disparate as quadcopter stabilization \shortcite{achtelik2009visual} to the tracking of ballistic missile re-entry \shortcite{siouris1997tracking} use data assimilation.
 The purpose of data assimilation in weather prediction is defined by Talagrand as ``using all the available information, to determine as accurately as possible the state of the atmospheric (or oceanic) flow.'' \shortcite{talagrand1997assimilation}
 One such data assimilation algorithm, the Kalman filter, was originally implemented in the navigation system of Apollo program \shortcite{kalman1961new,savely1972}.
 
@@ -291,10 +295,12 @@ And finally, we present ``foamLab,'' a test-bed for DA which links models, DA te
 
 \chapter{Data Assimilation}
 \chaptermark{Data Assimilation} 
+
 The goal of this chapter is to introduce and detail the practical implementation of state-of-the-art data assimilation algorithms.
 We derive the general form for the problem, and then talk about how each filter works.
 Starting with the simplest examples, we formulate the most advanced 4-dimensional Variational Filter and 4-dimensional Local Ensemble Transform Kalman Filter to implement with a computational fluid dynamics model.
-For a selection of these algorithms, we illustrate some of their properties with a MATLAB implementation of the Lorenz 1963 three-variable model: \begin{align*}
+For a selection of these algorithms, we illustrate some of their properties with a MATLAB implementation of the Lorenz 1963 three-variable model: 
+\begin{align*}
 \frac{dx}{dt} &= \sigma (y-x)\\
 \frac{dy}{dt} &= \rho x - y -xz \\
 \frac{dz}{dt} &= xy -  \beta z\end{align*}
@@ -359,7 +365,7 @@ This last formula says that given accurate statistical knowledge of $U_{1,2}$, t
 
 \begin{figure}[t!]
   \centering
-      \includegraphics[width=0.75\textwidth]{figures/DA-example03-labels.pdf}
+  \includegraphics[width=0.75\textwidth]{figures/DA-example03-labels.pdf}
   \caption[A 1-dimensional example of this data assimilation cycle]{
     A 1-dimensional example of this data assimilation cycle.
     First, a forecast is made with mean 0 and variance 1, labeled $u_f$.
@@ -377,15 +383,18 @@ The difference $U_o - U_b$ is commonly referred to as the ``innovation'' and rep
 The optimal weight $W$ is then given by \ref{eq:analprec} as
 \begin{equation} W = \frac{\sigma _b ^2}{\sigma_b ^2 - \sigma _o ^2} = \sigma_b ^2 (\sigma_b^2 - \sigma_o^2) ^{-1} \label{eq:1dda}.\end{equation}
 
-The analysis error variance and precision are defined as before, and following Kalnay (2003) for convenience we can rewrite this in terms of $W$ as:
+The analysis error variance and precision are defined as before, and following Kalnay (2003) 
+for convenience we can rewrite this in terms of $W$ as:
 \begin{equation} \sigma _a ^2 = (1-W ) \sigma_b^2 .\end{equation}
 
 We now generalize the above description for models of more than one variable to obtain the full equations for OI.
-This was originally done by Aerology et al (1960), and independently by Gandin (1965). The following notation will be used for the OI and the other multivariate filters.
+This was originally done by Aerology et al (1960), and independently by Gandin (1965). 
+The following notation will be used for the OI and the other multivariate filters.
 Consider a field of grid points, where there may be $\mbx_i = (p,p_{\text{rgh}},T,u_x,u_y,u_z)$ variables at each point for pressure, hydrostatic pressure, temperature, and three dimensions of velocity.
 We combine all the variables into one list $\mbx$ of length $n$ where $n$ is the product of the number of grid points and the number of model variables.
 This list is ordered by grid point and then by variable (e.g. $\mbx = (p_1,T_1,p_2,T_2,\ldots,p_{n/2},T_{n/2})$ for a field with just variables pressure $p$ and temperature $T$).
-Denote the observations as $\mby_0$, where the ordering is the same as $\mbx$ but the dimension is much smaller (e.g. by a factor of $10^3$ for NWP) and the observations are not strictly at the locations of $\mbx$ or even direct measurements of the variables in $\mbx$.
+Denote the observations as $\mby_0$, where the ordering is the same as $\mbx$ but the dimension is much smaller (e.g. by a factor of $10^3$ for NWP) 
+and the observations are not strictly at the locations of $\mbx$ or even direct measurements of the variables in $\mbx$.
 In our experiment, temperature measurements are in the model variable $T$, but are understood as the average of the temperature of the grid points surrounding it within some chosen radius.
 Examples of indirect and spatially heterogeneous observations in NWP are radar reflectivities, Doppler shifts, satellite radiances, and global positioning system atmospheric refractivities \shortcite{kalnay2003}.
 
@@ -702,6 +711,7 @@ To ensure a unique solution of local analysis perturbations that respects this b
 Proposed by Hunt in 2007 with the stated objective of computational efficiency, the LETKF is named from its most similar algorithms from which it draws \shortcite{hunt2007efficient}.
 With the formulation of the LEKF and the ETKF given, the LETKF can be described as a synthesis of the advantages of both of these approaches.
 This is the method that was sufficiently efficient for implementation on the full OpenFOAM CFD model of 240,000 model variables, and so we present it in more detail and follow the notation of Hunt et al (2007). 
+
 As in the LEKF, we explicitly perform the analysis for each grid point of the model.
 The choice of observations to use for each grid point can be selected a priori, and tuned adaptively.
 The simplest choice is to define a radius of influence for each point, and use observations within that.
@@ -767,6 +777,7 @@ The formulation of 4D-Var aims to incorporate observations at the time they are 
 This inclusion of observations has resulted in significant improvements in forecast skill, cite.
 The next generation of supercomputers that will be used in numerical weather prediction will allow for increased model resolution.
 The main issues with the 4D-Var approach include attempting to parallelize what is otherwise a sequential algorithm, and the computational difficulty of the strong-constraint formulation with many TLM integrations, with work being done by Fisher and Andersson (2001). 
+
 The formulation of 4D-Var is not so different from 3D-Var, with the inclusion of a TLM and adjoint model to assimilation observations made within the assimilation window.
 At the ECMWF, 4D-Var is run on a long-window cycle (24 and 48 hours) so that many observations are made within the time window.
 Generally, there are two main 4D-Var formulations in use: strong-constraint and weak-constraint.
@@ -829,7 +840,7 @@ The ensemble filter begins to out-perform the extended Kalman filter for longer 
 \end{figure}
 
 Each of the filters is sensitive to the size of the covariance matrix, and in some cases to maintain the numerical stability of the assimilation it is necessary to use additive and/or multiplicative covariance inflation.
-In all filters multiplicative error is performed with inflaction factor $\Delta$ by
+In all filters multiplicative error is performed with inflation factor $\Delta$ by
 \begin{equation} \mbK \leftarrow (1+\Delta) \mbK .\end{equation}
 Additive inflation is performed for the EKF as in Yang et al (2006) and Harris et al (2011) where uniformly distributed random numbers in $[0,\mu]$ are added to the diagonal.
 This is accomplished in MATLAB by drawing a vector $\nu$ of length $n$ of uniformly distributed numbers in $[0,1]$, multiplying it by $\mu$, and adding it to the diagonal:
@@ -854,6 +865,7 @@ In Figure \ref{fig:ETKF_cov_tuning_390s} we see that there is a clear region of 
 
 \chapter{Thermal Convection Loop Experiment}
 \chaptermark{Thermosyphon} 
+
 \begin{quote}
 The thermosyphon, a type of natural convection loop or non-mechanical heat pump, can be likened to a toy model of climate \shortcite{harris2011predicting}.
 In this chapter we present both physical and computationally simulated thermosyphons, the equations governing their behavior, and results of the computational experiment.
@@ -941,7 +953,7 @@ For a more complete attempt to predict thermosyphon flow reversals using this re
     Fluorescent balls are lit by a black-light and move with the flow.
     As the timeseries indicates, the flow changes direction aperiodically, giving rise to the chaotic behavior that we model.
     A video of the loop, from which this is a snapshot, can be viewed at \url{http://www.youtube.com/watch?feature=player_embedded&v=Vbni-7veJ-c}.
-          }
+  }
   \label{fig:chrisLoopVideo}
 \end{figure}
 
@@ -1095,7 +1107,6 @@ Solving is accomplished by the Pressure-Implicit Split Operator (PISO) algorithm
 Modification of the code was necessary for laminar operation.
 In Table \ref{tb:ofsolution}, we note the choices of schemes for time-stepping, numerical methods and interpolation.
 
-
 The Boussinesq approximation makes the assumption that density changes due to temperature differences are sufficiently small so that they can be neglected without affecting the flow, except when multiplied by gravity.
 The non-dimensionalized density difference $\Delta \rho / \rho$ depends on the value of heat flux into the loop, but remains small even for large values of flux.
 Below, we approximate the validity of the Boussinesq approximation, which is generally valid for values of $\beta(T-T_\text{ref})\rhoref \ll 1$:
@@ -1157,28 +1168,6 @@ Here is a picture of the thermosyphon colored by temperature.
   \label{fig:CFDloopSS}
 \end{figure}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 \chapter{Results}
 \chaptermark{} 
 
@@ -1221,7 +1210,7 @@ From these timeseries, we then select the BC, BC values, and turbulence model em
 
 \begin{figure}[h!]
   \centering
-    \includegraphics[width=0.79\textwidth]{/Users/andyreagan/work/2013/2013-05data-assimilation/src/experiments/meshVerification/Flux-end-20-times.pdf}
+  \includegraphics[width=0.79\textwidth]{/Users/andyreagan/work/2013/2013-05data-assimilation/src/experiments/meshVerification/Flux-end-20-times.pdf}
   \caption[Long-term behavior for different meshes]
   {
     With a fixed choice of solver, boundary conditions, and initial conditions that lead to a stable convective state, we present the long-term behavior of the velocity face flux at the top slice for different meshes.
@@ -1345,7 +1334,6 @@ Our results initially indicate that the averaging of temperature over many cells
   \label{fig:obsexp}
 \end{figure}
 
-
 \section{Conclusion}
 
 Throughout the process of building a data assimilation scheme from scratch, as well as deriving and tuning a computational model, we have learned a great deal about the difficulties and successes of modeling.
@@ -1381,9 +1369,6 @@ New methods specific to CFD, possibly using principal mode decomposition of flow
 In Figure \ref{fig:localcovadaptive}, flow structures present in our computational experiment demonstrate the potential for adaptive covariance localization.
 
 The numerical coupling of CFD to experiment by DA should be generally useful to improve the skill of CFD predictions in even data-poor experiments, which can provide better knowledge of unobservable quantities of interest in fluid flow.
-
-
-
 
 \bibliographystyle{chicago}
 \begin{thebibliography}{}
@@ -2030,12 +2015,17 @@ Boussinesq condition & $7.6\cdot 10^{-6}$\\
   }
 \label{table:lorenz63params}
 \begin{center}
-\begin{tabular}{ll} \hline
-Parameter & Value \\ \hline
+\begin{tabular}{ll} 
 \hline
-$\sigma$ & 10 \\\hline
-$\beta$ & 8/3 \\\hline
-$\rho$ & 28 \\\hline
+Parameter & Value \\ 
+\hline
+\hline
+$\sigma$ & 10 \\
+\hline
+$\beta$ & 8/3 \\
+\hline
+$\rho$ & 28 \\
+\hline
 \end{tabular}
 \end{center}
 \end{table}
@@ -2298,8 +2288,10 @@ The main code is straight forward, relying on include statements to load the lib
         morecomment=[l][\color{magenta}]{\#},
         frame=L,
         xleftmargin=\parindent,
-                                numbersep=5pt,
-        breaklines=true,                breakatwhitespace=false,            escapeinside={\%*}{*)} 
+        numbersep=5pt,
+        breaklines=true,        
+        breakatwhitespace=false,    
+        escapeinside={\%*}{*)} 
 }
 
 \lstinputlisting[language=C++,firstline=48,lastline=53]{code/buoyantBoussinesqPimpleFoam/buoyantBoussinesqPimpleFoam-edited.C}
@@ -2357,3 +2349,4 @@ This definition relies entirely on a shell script foamLab.sh, which for brevity'
 For more complete code documentation, and to download the source code, visit the GitHub repository: \url{https://github.com/andyreagan}.
 
 \end{document}
+
