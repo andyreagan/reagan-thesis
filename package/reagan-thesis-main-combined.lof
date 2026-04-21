@@ -1,37 +1,37 @@
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {1.1}{\ignorespaces A schematic of the Energy Balance Model (EBM), a conceptual climate model based on the conservation of energy}}{9}
-\contentsline {figure}{\numberline {1.2}{\ignorespaces The ``kitchen-sink'' Earth System Model captures as many known processes as computationally feasible}}{10}
+\contentsline {figure}{\numberline {1.1}{\ignorespaces A schematic of the Energy Balance Model (EBM), a conceptual climate model based on the conservation of energy}}{8}{}%
+\contentsline {figure}{\numberline {1.2}{\ignorespaces The ``kitchen-sink'' Earth System Model captures as many known processes as computationally feasible}}{10}{}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces The Lorenz 63 attractor colored by the norm of the analysis increment}}{13}
-\contentsline {figure}{\numberline {2.2}{\ignorespaces A 1-dimensional example of this data assimilation cycle}}{16}
-\contentsline {figure}{\numberline {2.3}{\ignorespaces An explanation of how and why the best way to obtain a TLM is with a differentiated numerical scheme}}{26}
-\contentsline {figure}{\numberline {2.4}{\ignorespaces The future error predicted by the TLM is compared to the error growth in Lorenz 63 system for an initial perturbation with standard deviation of 0.1, averaged over 1000 TLM integrations}}{27}
-\contentsline {figure}{\numberline {2.5}{\ignorespaces The difference of ensemble forecasts from the analysis is reported for 760 assimilation windows in one model run of length 200, with 10 ensemble members and an assimilation window of length 0.261}}{29}
-\contentsline {figure}{\numberline {2.6}{\ignorespaces A sample time-series of the ensembles used in the EnKF}}{30}
-\contentsline {figure}{\numberline {2.7}{\ignorespaces The algorithm for the LEKF as described by Ott (2004)}}{35}
-\contentsline {figure}{\numberline {2.8}{\ignorespaces For near-perfect initial knowledge of the atmospheric state, the running average RMS error of a prediction using DA is compared against a prediction that does not}}{42}
-\contentsline {figure}{\numberline {2.9}{\ignorespaces The RMS error is reported for our EKF and EnKF filters}}{43}
-\contentsline {figure}{\numberline {2.10}{\ignorespaces The RMS error averaged over 100 model runs of length 1000 windows is reported for the ETKF for varying additive and multiplicative inflation factors}}{45}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces The Lorenz 63 attractor colored by the norm of the analysis increment}}{13}{}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces A 1-dimensional example of this data assimilation cycle}}{16}{}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces An explanation of how and why the best way to obtain a TLM is with a differentiated numerical scheme}}{26}{}%
+\contentsline {figure}{\numberline {2.4}{\ignorespaces The future error predicted by the TLM is compared to the error growth in Lorenz 63 system for an initial perturbation with standard deviation of 0.1, averaged over 1000 TLM integrations}}{27}{}%
+\contentsline {figure}{\numberline {2.5}{\ignorespaces The difference of ensemble forecasts from the analysis is reported for 760 assimilation windows in one model run of length 200, with 10 ensemble members and an assimilation window of length 0.261}}{29}{}%
+\contentsline {figure}{\numberline {2.6}{\ignorespaces A sample time-series of the ensembles used in the EnKF}}{30}{}%
+\contentsline {figure}{\numberline {2.7}{\ignorespaces The algorithm for the LEKF as described by Ott (2004)}}{35}{}%
+\contentsline {figure}{\numberline {2.8}{\ignorespaces For near-perfect initial knowledge of the atmospheric state, the running average RMS error of a prediction using DA is compared against a prediction that does not}}{42}{}%
+\contentsline {figure}{\numberline {2.9}{\ignorespaces The RMS error is reported for our EKF and EnKF filters}}{43}{}%
+\contentsline {figure}{\numberline {2.10}{\ignorespaces The RMS error averaged over 100 model runs of length 1000 windows is reported for the ETKF for varying additive and multiplicative inflation factors}}{45}{}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Here we see many different thermosyphon applications}}{47}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Thermosyphons flank a Federal Aviation Administration building in Fairbanks, Alaska}}{48}
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Schematic of the experimental, and computational, setup from Harris et al (2012)}}{49}
-\contentsline {figure}{\numberline {3.4}{\ignorespaces A time series of the physical thermosyphon, from the Undergraduate Honor's Thesis of Darcy Glenn {\shortcite {glenn2013}}}}{50}
-\contentsline {figure}{\numberline {3.5}{\ignorespaces The Thermal Convection Loop experiment}}{51}
-\contentsline {figure}{\numberline {3.6}{\ignorespaces A snapshot of the mesh used for CFD simulations}}{54}
-\contentsline {figure}{\numberline {3.7}{\ignorespaces The 3D mesh viewed as a wireframe from within}}{55}
-\contentsline {figure}{\numberline {3.8}{\ignorespaces The 2D mesh Adjacency matrix for a local radius of 1.0cm}}{56}
-\contentsline {figure}{\numberline {3.9}{\ignorespaces The 2D mesh adjacency matrix, zoomed in}}{57}
-\contentsline {figure}{\numberline {3.10}{\ignorespaces A screenshot of the whole simulated loop}}{60}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Here we see many different thermosyphon applications}}{47}{}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Thermosyphons flank a Federal Aviation Administration building in Fairbanks, Alaska}}{48}{}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Schematic of the experimental, and computational, setup from Harris et al (2012)}}{49}{}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces A time series of the physical thermosyphon, from the Undergraduate Honor's Thesis of Darcy Glenn {\shortcite {glenn2013}}}}{50}{}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces The Thermal Convection Loop experiment}}{51}{}%
+\contentsline {figure}{\numberline {3.6}{\ignorespaces A snapshot of the mesh used for CFD simulations}}{54}{}%
+\contentsline {figure}{\numberline {3.7}{\ignorespaces The 3D mesh viewed as a wireframe from within}}{55}{}%
+\contentsline {figure}{\numberline {3.8}{\ignorespaces The 2D mesh Adjacency matrix for a local radius of 1.0cm}}{56}{}%
+\contentsline {figure}{\numberline {3.9}{\ignorespaces The 2D mesh adjacency matrix, zoomed in}}{57}{}%
+\contentsline {figure}{\numberline {3.10}{\ignorespaces A screenshot of the whole simulated loop}}{60}{}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces A schematic of the modelDAinterface.m functionality}}{62}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Long-term behavior for different meshes}}{63}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces A schematic of covariance localized by slice is shown for example slices $X_{\{i,j\}}$ and localization radius $r$ where $i,j$ are indexed within the number of slices}}{64}
-\contentsline {figure}{\numberline {4.4}{\ignorespaces A schematic of covariance localized by a radial distance from cell centers is shown for cells $x_{\{i,j\}}$ where $i,j$ are indexed by the number of cells and $r$ is any float}}{65}
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Prediction skill over time for synthetic temperature sensors}}{67}
-\contentsline {figure}{\numberline {4.6}{\ignorespaces Prediction skill over time for complete observations of temperature}}{68}
-\contentsline {figure}{\numberline {4.7}{\ignorespaces The RMSE of forecasts at the end of 40 assimilation cycles for differing observational density is plotted}}{69}
-\contentsline {figure}{\numberline {4.8}{\ignorespaces A snapshot of the thermosyphon flow with a sample grid superimposed}}{70}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces A schematic of the modelDAinterface.m functionality}}{62}{}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Long-term behavior for different meshes}}{63}{}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces A schematic of covariance localized by slice is shown for example slices $X_{\{i,j\}}$ and localization radius $r$ where $i,j$ are indexed within the number of slices}}{64}{}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces A schematic of covariance localized by a radial distance from cell centers is shown for cells $x_{\{i,j\}}$ where $i,j$ are indexed by the number of cells and $r$ is any float}}{65}{}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Prediction skill over time for synthetic temperature sensors}}{67}{}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Prediction skill over time for complete observations of temperature}}{68}{}%
+\contentsline {figure}{\numberline {4.7}{\ignorespaces The RMSE of forecasts at the end of 40 assimilation cycles for differing observational density is plotted}}{69}{}%
+\contentsline {figure}{\numberline {4.8}{\ignorespaces A snapshot of the thermosyphon flow with a sample grid superimposed}}{70}{}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
