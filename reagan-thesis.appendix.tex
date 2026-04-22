@@ -13,7 +13,7 @@ The inflation parameters shown here are those which minimize the RMS forecast er
 \caption[Specific constants used for thermal properties of water]{
   Specific constants used for thermal properties of water.
   For temperature dependent quantities, the value is evaluated at the reference temperature $T_\text{ref}  = 300K$.
-  Derivation of the Boussineq condition is presented in Equation \ref{eq:bouss}.
+  Derivation of the Boussinesq condition is presented in Equation \ref{eq:bouss}.
   }
 \begin{center}
 \begin{tabular}{ll}
@@ -33,9 +33,9 @@ Thermal expansion $\beta$ & $0.303\cdot 10^{-3} \,1/\text{K}$\\
 \hline
 Density $\rhoref$ & $995.65 \text{kg}/\text{m}^3$\\
 \hline
-Kinematic Viscoscity $\nu$ & $0.801\cdot 10^{-6} \text{m}^2/\text{s}$\\
+Kinematic Viscosity $\nu$ & $0.801\cdot 10^{-6} \text{m}^2/\text{s}$\\
 \hline
-Dynamic Viscoscity $\mu$ & $0.798$\\
+Dynamic Viscosity $\mu$ & $0.798$\\
 \hline
 Laminar Prandtl number & $5.43$\\
 \hline
@@ -243,7 +243,7 @@ We integrate this equation over $\phi$ to eliminate many of the terms, specifica
 & \int _{0} ^{2\pi} -\dphi \rhoref \beta T_\text{ref} g \sin (\phi) \rightarrow 0.\end{align*}
 Since $u$ (and hence $\diff{u}{\phi}$) and $f_w$ do not depend on $\phi$, we can pull these outside an integral over $\phi$ and therefore the momentum equation is now 
 \begin{equation*} 2\pi f_w \rho _0 + \int _{0} ^{2\pi} \dphi \rhoref \beta T g \sin (\phi) = 2\pi \diff{u}{\phi} \rhoref .\end{equation*}
-Diving out $2\pi$ and pull constants out of the integral we have our final form of the momentum equation
+Dividing out $2\pi$ and pulling constants out of the integral we have our final form of the momentum equation
 \begin{equation} f_w \rhoref + \frac{\rhoref \beta g }{2 \pi} \int _{0} ^{2\pi} \dphi T \sin (\phi) = \diff{u}{\phi} \rhoref \label{eq:EM10}.\end{equation}
 Now considering the conservation of energy within the thermosyphon, the energy change within a finite volume must be balanced by transfer within the thermosyphon and to the walls.
 The internal energy change is given by
@@ -347,7 +347,7 @@ Therefore the momentum flux is
 Similarly, with the additional consideration of the change within the volume, the momentum flux leaving through the opposite side is
 \begin{equation*} - \left ( u\rho u + \frac{\partial}{\partial x} \left( u\rho u\right ) \Delta x \right ) \Delta y \Delta z .\end{equation*}
 
-The $y$ and $z$ direction momemtum flux (of $x$ direction momentum) is found in the same way and we have the fluxes in those directions as
+The $y$ and $z$ direction momentum flux (of $x$ direction momentum) is found in the same way and we have the fluxes in those directions as
 \begin{align*} u \times \rho v (\Delta x \Delta z) & ~~~\& ~~~ - \left ( u\rho v + \frac{\partial}{\partial y} \left( u\rho v\right ) \Delta y \right ) \Delta x \Delta z \\
 u \times \rho w (\Delta x \Delta y) & ~~~\& ~~~ - \left ( u\rho w + \frac{\partial}{\partial z} \left( u\rho w\right ) \Delta z \right ) \Delta x \Delta y . \end{align*}
 
@@ -384,7 +384,7 @@ Thus for general fluids the sum of the forces in the $x$ direction is
 \begin{equation*} \left ( \frac{\partial p }{\partial x} + \frac{\partial \tau _{xx}}{\partial x} + \frac{\partial \tau _{yx}}{\partial y} + \frac{\partial \tau _{zx}}{\partial z} \right ) \Delta x \Delta y \Delta z . \end{equation*}
 
 Since the thermosyphon is filled with water, not blood, we can happily assume that the fluid is Newtonian, and the rapture has been avoided.
-This means that we can relate the viscous stress to the local rate of deformation linearly, by the viscocity $\mu$:
+This means that we can relate the viscous stress to the local rate of deformation linearly, by the viscosity $\mu$:
 \begin{align*} \tau _{xx} &= 2 \mu \frac{\partial u}{\partial x} \\
 \tau _{yx} &= \mu \left ( \frac{\partial v}{\partial x} + \frac{\partial u}{\partial y} \right )\\
 \tau _{zx} &= \mu \left ( \frac{\partial w}{\partial x} + \frac{\partial u}{\partial z} \right )\end{align*}
@@ -395,7 +395,7 @@ Putting this together for our Newtonian fluid we have by the equality of mixed p
 & = \left (-\frac{\partial p}{\partial x} + \mu \frac{\partial u}{\partial x^2} + \mu\frac{\partial u}{\partial y^2} + \mu \frac{\partial u}{\partial z^2}  + \mu \frac{\partial }{\partial x}\left ( \frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} + \frac{\partial w}{\partial z} \right ) \right ) \Delta x \Delta y \Delta z\\
 & = \left ( -\frac{\partial p}{\partial x} + \mu \frac{\partial u}{\partial x^2} + \mu\frac{\partial u}{\partial y^2} + \mu \frac{\partial u}{\partial z^2}\right ) \Delta x \Delta y \Delta z\end{align*}
 
-Thus the momemtum equation for $x$ is
+Thus the momentum equation for $x$ is
 \begin{align}  \rho \left ( \frac{\partial u }{\partial t} + u \frac{\partial u }{\partial x} + v \frac{\partial u}{\partial y} + w \frac{\partial u}{\partial z} \right ) &= -\frac{\partial p}{\partial x} + \mu \frac{\partial u}{\partial x^2} + \mu\frac{\partial u}{\partial y^2} + \mu \frac{\partial u}{\partial z^2}\end{align}
 
 In tensor notation this is often written for all three equations (recall, the above is only for $x$):
@@ -410,7 +410,7 @@ Since we will be relying on the use of a turbulence model, we reintroduce the st
 In tensor notation the mean stress tensor can be written
 \begin{equation*} \tau _{ij} = \mu \left ( \left ( \frac{\partial \bar{u} _i}{\partial x_j} + \frac{\partial \bar{u} _j }{\partial x_i} \right) - \frac{2}{3} \frac{\partial \bar{u}_k} {\partial x_k} \delta _{ij} \right ) \end{equation*}
 for $\delta _{ij} = 0$ if and only if $i=j$.
-Assume constant viscocity $\mu = \mu _0$, divide by $\rho _0$ and incorporate the latter for the stress tensor and we now have the momentum equation as
+Assume constant viscosity $\mu = \mu _0$, divide by $\rho _0$ and incorporate the latter for the stress tensor and we now have the momentum equation as
 \begin{equation*} \frac{\partial \bar{u}_i}{\partial t} + \frac{\partial}{\partial x_j} \left( \bar{u}_j \bar{u}_i \right) 
 = -\frac{\partial } {\partial{x_i}} \frac{\bar{p}}{\rho_0} + \frac{\partial }{\partial x_j} \left ( \nu _0 \left ( \left ( \frac{\partial \bar{u}_i} {\partial x_j} + \frac{\partial \bar{u} _j}{\partial x_i} \right ) - \frac{2}{3}\left ( \frac{\partial \bar{u} _k}{\partial x_k }\right ) \delta _{ij}\right ) - \tau ^* _{ij} \right ) + \bar{\rho} g_i \end{equation*}
 where $\nu _0 = \mu _0 /\rho _0$.

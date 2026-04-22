@@ -19,7 +19,7 @@ We employ a toy climate experiment as a testbed for improving numerical weather 
 This approach is akin to the historical development of current methodologies, and provides a tractable system for rigorous analysis.
 The experiment is a thermal convection loop, which by design simplifies our problem into the prediction of convection.
 The dynamics of thermal convection loops have been explored under both periodic \shortcite{keller1966} and chaotic \shortcite{welander1967,creveling1975stability,gorman1984,gorman1986,ehrhard1990dynamical,yuen1999,jiang2003,burroughs2005reduced,desrayaud2006numerical,yang2006,ridouane2010} regimes.
-A full characterization of the computational behaivor of a loop under flux boundary conditions by Louisos et. al. describes four regimes: chaotic convection with reversals, high Ra aperiodic stable convection, steady stable convection, and conduction/quasi-conduction \shortcite{louisos2013}.
+A full characterization of the computational behavior of a loop under flux boundary conditions by Louisos et al. describes four regimes: chaotic convection with reversals, high Ra aperiodic stable convection, steady stable convection, and conduction/quasi-conduction \shortcite{louisos2013}.
 For the remainder of this work, we focus on the chaotic flow regime.
 
 Computational simulations of the thermal convection loop are performed with the open-source finite volume C++ library OpenFOAM \shortcite{jasak2007}.
@@ -32,16 +32,16 @@ The importance of Vilhelm Bjerknes in early developments in NWP is described by 
 \begin{quote}
 It was not until 1904 that Vilhelm Bjerknes - in a remarkable manifesto and testament of deterministic faith - stated the central problem of NWP.
 This was the first explicit, coherent, recognition that the future state of the atmosphere is, \emph{in principle}, completely determined by its detailed initial state and known boundary conditions, together with Newton's equations of motion, the Boyle-Charles-Dalton equation of state, the equation of mass continuity, and the thermodynamic energy equation.
-Bjerknes went further: he outlined an ambitious, but logical program of observation, graphical analysis of meterological data and graphical solution of the governing equations.
+Bjerknes went further: he outlined an ambitious, but logical program of observation, graphical analysis of meteorological data and graphical solution of the governing equations.
 He succeeded in persuading the Norwegians to support an expanded network of surface observation stations, founded the famous Bergen School of synoptic and dynamic meteorology, and ushered in the famous polar front theory of cyclone formation.
-Beyond providing a clear goal and a sound physical approach to dynamical weather prediction, V. Bjerknes instilled his ideas in the minds of his students and their students in Bergen and in Oslo, three of of whom were later to write important chapters in the development of NWP in the US (Rossby, Eliassen, and Fj\"{o}rtoft).
+Beyond providing a clear goal and a sound physical approach to dynamical weather prediction, V. Bjerknes instilled his ideas in the minds of his students and their students in Bergen and in Oslo, three of whom were later to write important chapters in the development of NWP in the US (Rossby, Eliassen, and Fj\"{o}rtoft).
 \end{quote}
 
 It then wasn't until 1922 that Lewis Richardson suggested a practical way to solve these equations.
 Richardson used a horizontal grid of about 200km, and 4 vertical layers in a computational mesh of Germany and was able to solve this system by hand \shortcite{richardson1965}.
 Using the observations available, he computed the time derivative of pressure in the central box, predicting a change of 146 hPa, whereas in reality there was almost no change.
 This discrepancy was due mostly to the fact that his initial conditions (ICs) were not balanced, and therefore included fast-moving gravity waves which masked the true climate signal \shortcite{kalnay2003}.
-Regardless, had the integration had continued, it would have ``exploded,'' because together his mesh and timestep did not satisfy the Courant-Friedrichs-Lewy (CFL) condition, defined as follows.
+Regardless, had the integration continued, it would have ``exploded,'' because together his mesh and timestep did not satisfy the Courant-Friedrichs-Lewy (CFL) condition, defined as follows.
 Solving a partial differential equation using finite differences, the CFL requires the Courant number to be less than one for a convergent solution.
 The dimensionless Courant number relates the movement of a quantity to the size of the mesh, written for a one-dimensional problem as $C = u \Delta t/\Delta x $ for $u$ the velocity, $\Delta t$ the timestep, and $\Delta x$ the mesh size.
 
@@ -63,14 +63,14 @@ One such data assimilation algorithm, the Kalman filter, was originally implemen
 Data assimilation algorithms consist of a 3-part cycle: predict, observe, and assimilate.
 Formally, the data assimilation problem is solved by minimizing the initial condition error in the presence of specific constraints.
 The prediction step involves making a prediction of the future state of the system, as well as the error of the model, in some capacity.
-Observing systems come in many flavors: rawindsomes and satellite irradiance for the atmosphere, temperature and velocity reconstruction from sensors in experiments, and sampling the market in finance.
+Observing systems come in many flavors: rawinsondes and satellite irradiance for the atmosphere, temperature and velocity reconstruction from sensors in experiments, and sampling the market in finance.
 Assimilation is the combination of these observations and the predictive model in such a way that minimizes the error of the initial condition state, which we denote the analysis.
 
 The difficulties of this process are multifaceted, and are addressed by parameter adjustments of existing algorithms or new approaches altogether.
 The first problem is ensuring the analysis respects the core balances of the model.
 In the atmosphere this is the balance of Coriolis force and pressure gradient (geostrophic balance), and in other systems this can arise in the conservation of physical (or otherwise) quantities.
 
-In real applications, observations are made with irregular spacing in time and often can be made much more frequently than the length of data assimilation cycle.
+In real applications, observations are made with irregular spacing in time and often can be made much more frequently than the length of the data assimilation cycle.
 However the incorporation of more observations will not always improve forecasts: in the case where these observations can only be incorporated at the assimilation time, the forecasts can degrade in quality \shortcite{kalnay20074}.
 Algorithms which are capable of assimilating observations at the time they are made have a distinct advantage in this respect.
 In addition, the observations are not always direct measurements of the variables of the model. 
@@ -110,9 +110,9 @@ In weather models, where grid sizes for global models are in the 1-5km range hor
 In addition to the laminar equations, to account for turbulence, we explore include the $k-\epsilon$ model, $k-\omega$ model, and large eddy simulations (in 3-dimensions only).
 
 Secondly, the choice of solving technique is a source of numerical and algorithmic uncertainty.
-The schemes which OpenFOAM has available are dissapative and are limited in scope.
-That is, small perturbations experience damping (such as the analysis perturbations to an ensemble members in ensemble Kalman filters).
-Without consideration this problem, the ensemble does not adequately sample the uncertainty of the model to obtain an approximation of the model error growth.
+The schemes which OpenFOAM has available are dissipative and are limited in scope.
+That is, small perturbations experience damping (such as the analysis perturbations to ensemble members in ensemble Kalman filters).
+Without consideration of this problem, the ensemble does not adequately sample the uncertainty of the model to obtain an approximation of the model error growth.
 
 We investigate these meshing and solving techniques in greater detail in Chapter 3.
 
@@ -129,7 +129,7 @@ An example of such a conceptual model used to study climate is the energy balanc
     A schematic of the Energy Balance Model (EBM), a conceptual climate model based on the conservation of energy.
     $S_0$, represented by the yellow arrow, represents energy coming from the sun absorbed by Earth's surface (horizontal green bar).
     The red, dashed arrow represents energy radiating out of Earth's surface, of which some is reflected back by the atmosphere (horizontal gray line).
-    Since energy is conserved in the EBM, the parameterizations of surface albedo (amount reflected by Earth's surface), atmospheric absorbivity, and radiation rate determine the long term behaivor of internal energy (temperature).
+    Since energy is conserved in the EBM, the parameterizations of surface albedo (amount reflected by Earth's surface), atmospheric absorbivity, and radiation rate determine the long term behavior of internal energy (temperature).
     This schematic was provided in a lecture given by Dr. Chris Jones {\protect \shortcite{MCRN501}}.
   }
   \label{fig:EBM}
@@ -141,9 +141,9 @@ The ``kitchen-sink'' models, like the Earth System Models (ESMs) used to study c
 In the ESM case, the simulations represent our computational laboratory.
 
 We study a model that is more complex than the EBM, but is still analytically tractable, known as the Lorenz 1963 system (Lorenz 63 for short).
-In 1962, Barry Saltzmann attempted to model convection in a Rayleigh-B\'{e}rnard cell  by reducing the equations of motion into their core processes \shortcite{saltzman1962finite}.
+In 1962, Barry Saltzmann attempted to model convection in a Rayleigh-B\'{e}nard cell by reducing the equations of motion into their core processes \shortcite{saltzman1962finite}.
 Then in 1963 Edward Lorenz reduced this system ever further to 3 equations, leading to his landmark discovery of deterministic non-periodic flow \shortcite{lorenz1963}.
-These equations have since been the subject of intense study and have changed the way we view prediction and determinism, remaining the simple system of choice for examining nonlinear behaivor today \cite{kalnay20074}.
+These equations have since been the subject of intense study and have changed the way we view prediction and determinism, remaining the simple system of choice for examining nonlinear behavior today \cite{kalnay20074}.
 
 Thermal convection loops are one of the few known experimental implementations of Lorenz's 1963 system of equations.
 Put simply, a thermal convection loop is a hula-hoop shaped tube filled with water, heated on the bottom half and cooled on the top half.
@@ -165,7 +165,7 @@ Our particular experiment consists of a plastic tube, heated on the bottom by a 
 
 Varying the forcing of temperature applied to the bottom half of the loop, there are three experimentally accessible flow regimes of interest to us: conduction, steady convection, and unsteady convection.
 The latter regime exhibits the much studied phenomenon of chaos in its changes of rotational direction.
-This regime is analytically equivalent the Lorenz 1963 system with the canonical parameter values listed in Table \ref{table:lorenz63params}.
+This regime is analytically equivalent to the Lorenz 1963 system with the canonical parameter values listed in Table \ref{table:lorenz63params}.
 Edward Lorenz discovered and studied chaos most of his life, and is said to have jotted this simple description on a visit to the University of Maryland \cite{danforth2013blog}:
 \begin{quote}
 Chaos: When the present determines the future, but the approximate present does not approximately determine the future.

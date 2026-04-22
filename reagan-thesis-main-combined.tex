@@ -15,7 +15,6 @@
 \usepackage{cite}
 \usepackage{tabularx}
 \usepackage[makeroom]{cancel}
-
 \newcommand{\todo}[1]{\noindent\textcolor{red}{{$\Box$ #1}}} 
 \usepackage{titletoc}
 
@@ -25,12 +24,16 @@
 
 \usepackage{currfile}
 \title{Predicting Flow Reversals in a Computational Fluid Dynamics Simulated Thermosyphon using Data Assimilation}
-\author{Andrew Reagan}
+\author{Andrew J. Reagan}
 \defensedate{November 15, 2013}
-\thesis                             \masterscience                      \apma                                 \jangrad                            \def\gradyear{2014}
+\thesis                             
+\masterscience                      
+\apma                                 
+\jangrad                            
+\def\gradyear{2014}
 
-\advisor{Chris Danforth, Ph.D.}
-\readerone{Peter Dodds, Ph.D.}
+\advisor{Christopher M. Danforth, Ph.D.}
+\readerone{Peter Sheridan Dodds, Ph.D.}
 \chair{Darren Hitt, Ph.D.}
 
 \newcommand{\dee}[1]{\mbox{d}#1}
@@ -74,7 +77,8 @@ The results contribute to a testbed for algorithm development.
 {\it in dedication to } 
 \\
 \vskip 2em
-my parents, Donna and Kevin Reagan, for their unwavering support. \end{dedication}
+my parents, Donna and Kevin Reagan, for their unwavering support. 
+\end{dedication}
 
 \begin{acknowledgements}
 I would like to thank Professors Chris Danforth and Peter Dodds for their outstanding advising, as well as Professors Darren Hitt and Yves Dubief for their valuable feedback.
@@ -114,7 +118,7 @@ We employ a toy climate experiment as a testbed for improving numerical weather 
 This approach is akin to the historical development of current methodologies, and provides a tractable system for rigorous analysis.
 The experiment is a thermal convection loop, which by design simplifies our problem into the prediction of convection.
 The dynamics of thermal convection loops have been explored under both periodic \shortcite{keller1966} and chaotic \shortcite{welander1967,creveling1975stability,gorman1984,gorman1986,ehrhard1990dynamical,yuen1999,jiang2003,burroughs2005reduced,desrayaud2006numerical,yang2006,ridouane2010} regimes.
-A full characterization of the computational behaivor of a loop under flux boundary conditions by Louisos et. al. describes four regimes: chaotic convection with reversals, high Ra aperiodic stable convection, steady stable convection, and conduction/quasi-conduction \shortcite{louisos2013}.
+A full characterization of the computational behavior of a loop under flux boundary conditions by Louisos et al. describes four regimes: chaotic convection with reversals, high Ra aperiodic stable convection, steady stable convection, and conduction/quasi-conduction \shortcite{louisos2013}.
 For the remainder of this work, we focus on the chaotic flow regime.
 
 Computational simulations of the thermal convection loop are performed with the open-source finite volume C++ library OpenFOAM \shortcite{jasak2007}.
@@ -127,16 +131,16 @@ The importance of Vilhelm Bjerknes in early developments in NWP is described by 
 \begin{quote}
 It was not until 1904 that Vilhelm Bjerknes - in a remarkable manifesto and testament of deterministic faith - stated the central problem of NWP.
 This was the first explicit, coherent, recognition that the future state of the atmosphere is, \emph{in principle}, completely determined by its detailed initial state and known boundary conditions, together with Newton's equations of motion, the Boyle-Charles-Dalton equation of state, the equation of mass continuity, and the thermodynamic energy equation.
-Bjerknes went further: he outlined an ambitious, but logical program of observation, graphical analysis of meterological data and graphical solution of the governing equations.
+Bjerknes went further: he outlined an ambitious, but logical program of observation, graphical analysis of meteorological data and graphical solution of the governing equations.
 He succeeded in persuading the Norwegians to support an expanded network of surface observation stations, founded the famous Bergen School of synoptic and dynamic meteorology, and ushered in the famous polar front theory of cyclone formation.
-Beyond providing a clear goal and a sound physical approach to dynamical weather prediction, V. Bjerknes instilled his ideas in the minds of his students and their students in Bergen and in Oslo, three of of whom were later to write important chapters in the development of NWP in the US (Rossby, Eliassen, and Fj\"{o}rtoft).
+Beyond providing a clear goal and a sound physical approach to dynamical weather prediction, V. Bjerknes instilled his ideas in the minds of his students and their students in Bergen and in Oslo, three of whom were later to write important chapters in the development of NWP in the US (Rossby, Eliassen, and Fj\"{o}rtoft).
 \end{quote}
 
 It then wasn't until 1922 that Lewis Richardson suggested a practical way to solve these equations.
 Richardson used a horizontal grid of about 200km, and 4 vertical layers in a computational mesh of Germany and was able to solve this system by hand \shortcite{richardson1965}.
 Using the observations available, he computed the time derivative of pressure in the central box, predicting a change of 146 hPa, whereas in reality there was almost no change.
 This discrepancy was due mostly to the fact that his initial conditions (ICs) were not balanced, and therefore included fast-moving gravity waves which masked the true climate signal \shortcite{kalnay2003}.
-Regardless, had the integration had continued, it would have ``exploded,'' because together his mesh and timestep did not satisfy the Courant-Friedrichs-Lewy (CFL) condition, defined as follows.
+Regardless, had the integration continued, it would have ``exploded,'' because together his mesh and timestep did not satisfy the Courant-Friedrichs-Lewy (CFL) condition, defined as follows.
 Solving a partial differential equation using finite differences, the CFL requires the Courant number to be less than one for a convergent solution.
 The dimensionless Courant number relates the movement of a quantity to the size of the mesh, written for a one-dimensional problem as $C = u \Delta t/\Delta x $ for $u$ the velocity, $\Delta t$ the timestep, and $\Delta x$ the mesh size.
 
@@ -151,21 +155,21 @@ In this direction, we make use of advanced computational resources in the contex
 
 \section{IC determination: data assimilation}
 
-Areas as disparate as quadcopter stabilization \shortcite{achtelik2009visual} to the tracking of ballistic missle re-entry \shortcite{siouris1997tracking} use data assimilation.
+Areas as disparate as quadcopter stabilization \shortcite{achtelik2009visual} to the tracking of ballistic missile re-entry \shortcite{siouris1997tracking} use data assimilation.
 The purpose of data assimilation in weather prediction is defined by Talagrand as ``using all the available information, to determine as accurately as possible the state of the atmospheric (or oceanic) flow.'' \shortcite{talagrand1997assimilation}
 One such data assimilation algorithm, the Kalman filter, was originally implemented in the navigation system of Apollo program \shortcite{kalman1961new,savely1972}.
 
 Data assimilation algorithms consist of a 3-part cycle: predict, observe, and assimilate.
 Formally, the data assimilation problem is solved by minimizing the initial condition error in the presence of specific constraints.
 The prediction step involves making a prediction of the future state of the system, as well as the error of the model, in some capacity.
-Observing systems come in many flavors: rawindsomes and satellite irradiance for the atmosphere, temperature and velocity reconstruction from sensors in experiments, and sampling the market in finance.
+Observing systems come in many flavors: rawinsondes and satellite irradiance for the atmosphere, temperature and velocity reconstruction from sensors in experiments, and sampling the market in finance.
 Assimilation is the combination of these observations and the predictive model in such a way that minimizes the error of the initial condition state, which we denote the analysis.
 
 The difficulties of this process are multifaceted, and are addressed by parameter adjustments of existing algorithms or new approaches altogether.
 The first problem is ensuring the analysis respects the core balances of the model.
 In the atmosphere this is the balance of Coriolis force and pressure gradient (geostrophic balance), and in other systems this can arise in the conservation of physical (or otherwise) quantities.
 
-In real applications, observations are made with irregular spacing in time and often can be made much more frequently than the length of data assimilation cycle.
+In real applications, observations are made with irregular spacing in time and often can be made much more frequently than the length of the data assimilation cycle.
 However the incorporation of more observations will not always improve forecasts: in the case where these observations can only be incorporated at the assimilation time, the forecasts can degrade in quality \shortcite{kalnay20074}.
 Algorithms which are capable of assimilating observations at the time they are made have a distinct advantage in this respect.
 In addition, the observations are not always direct measurements of the variables of the model. 
@@ -203,9 +207,9 @@ In weather models, where grid sizes for global models are in the 1-5km range hor
 In addition to the laminar equations, to account for turbulence, we explore include the $k-\epsilon$ model, $k-\omega$ model, and large eddy simulations (in 3-dimensions only).
 
 Secondly, the choice of solving technique is a source of numerical and algorithmic uncertainty.
-The schemes which OpenFOAM has available are dissapative and are limited in scope.
-That is, small perturbations experience damping (such as the analysis perturbations to an ensemble members in ensemble Kalman filters).
-Without consideration this problem, the ensemble does not adequately sample the uncertainty of the model to obtain an approximation of the model error growth.
+The schemes which OpenFOAM has available are dissipative and are limited in scope.
+That is, small perturbations experience damping (such as the analysis perturbations to ensemble members in ensemble Kalman filters).
+Without consideration of this problem, the ensemble does not adequately sample the uncertainty of the model to obtain an approximation of the model error growth.
 
 We investigate these meshing and solving techniques in greater detail in Chapter 3.
 
@@ -222,7 +226,7 @@ An example of such a conceptual model used to study climate is the energy balanc
     A schematic of the Energy Balance Model (EBM), a conceptual climate model based on the conservation of energy.
     $S_0$, represented by the yellow arrow, represents energy coming from the sun absorbed by Earth's surface (horizontal green bar).
     The red, dashed arrow represents energy radiating out of Earth's surface, of which some is reflected back by the atmosphere (horizontal gray line).
-    Since energy is conserved in the EBM, the parameterizations of surface albedo (amount reflected by Earth's surface), atmospheric absorbivity, and radiation rate determine the long term behaivor of internal energy (temperature).
+    Since energy is conserved in the EBM, the parameterizations of surface albedo (amount reflected by Earth's surface), atmospheric absorbivity, and radiation rate determine the long term behavior of internal energy (temperature).
     This schematic was provided in a lecture given by Dr. Chris Jones {\protect \shortcite{MCRN501}}.
   }
   \label{fig:EBM}
@@ -234,9 +238,9 @@ The ``kitchen-sink'' models, like the Earth System Models (ESMs) used to study c
 In the ESM case, the simulations represent our computational laboratory.
 
 We study a model that is more complex than the EBM, but is still analytically tractable, known as the Lorenz 1963 system (Lorenz 63 for short).
-In 1962, Barry Saltzmann attempted to model convection in a Rayleigh-B\'{e}rnard cell  by reducing the equations of motion into their core processes \shortcite{saltzman1962finite}.
+In 1962, Barry Saltzmann attempted to model convection in a Rayleigh-B\'{e}nard cell by reducing the equations of motion into their core processes \shortcite{saltzman1962finite}.
 Then in 1963 Edward Lorenz reduced this system ever further to 3 equations, leading to his landmark discovery of deterministic non-periodic flow \shortcite{lorenz1963}.
-These equations have since been the subject of intense study and have changed the way we view prediction and determinism, remaining the simple system of choice for examining nonlinear behaivor today \cite{kalnay20074}.
+These equations have since been the subject of intense study and have changed the way we view prediction and determinism, remaining the simple system of choice for examining nonlinear behavior today \cite{kalnay20074}.
 
 Thermal convection loops are one of the few known experimental implementations of Lorenz's 1963 system of equations.
 Put simply, a thermal convection loop is a hula-hoop shaped tube filled with water, heated on the bottom half and cooled on the top half.
@@ -258,7 +262,7 @@ Our particular experiment consists of a plastic tube, heated on the bottom by a 
 
 Varying the forcing of temperature applied to the bottom half of the loop, there are three experimentally accessible flow regimes of interest to us: conduction, steady convection, and unsteady convection.
 The latter regime exhibits the much studied phenomenon of chaos in its changes of rotational direction.
-This regime is analytically equivalent the Lorenz 1963 system with the canonical parameter values listed in Table \ref{table:lorenz63params}.
+This regime is analytically equivalent to the Lorenz 1963 system with the canonical parameter values listed in Table \ref{table:lorenz63params}.
 Edward Lorenz discovered and studied chaos most of his life, and is said to have jotted this simple description on a visit to the University of Maryland \cite{danforth2013blog}:
 \begin{quote}
 Chaos: When the present determines the future, but the approximate present does not approximately determine the future.
@@ -291,15 +295,17 @@ And finally, we present ``foamLab,'' a test-bed for DA which links models, DA te
 
 \chapter{Data Assimilation}
 \chaptermark{Data Assimilation} 
+
 The goal of this chapter is to introduce and detail the practical implementation of state-of-the-art data assimilation algorithms.
 We derive the general form for the problem, and then talk about how each filter works.
 Starting with the simplest examples, we formulate the most advanced 4-dimensional Variational Filter and 4-dimensional Local Ensemble Transform Kalman Filter to implement with a computational fluid dynamics model.
-For a selection of these algorithms, we illustrate some of their properties with a MATLAB implementation of the Lorenz 1963 three-variable model: \begin{align*}
+For a selection of these algorithms, we illustrate some of their properties with a MATLAB implementation of the Lorenz 1963 three-variable model: 
+\begin{align*}
 \frac{dx}{dt} &= \sigma (y-x)\\
 \frac{dy}{dt} &= \rho x - y -xz \\
 \frac{dz}{dt} &= xy -  \beta z\end{align*}
 
-The cannonical choice of $\sigma = 10, \beta = 8/3$ and $\rho = 28$, produce the well known butterfly attractor, is used for all examples here (Figure \ref{fig:lorenzattractor}).
+The canonical choice of $\sigma = 10, \beta = 8/3$ and $\rho = 28$, produce the well known butterfly attractor, is used for all examples here (Figure \ref{fig:lorenzattractor}).
 
 \begin{figure}[h!]
   \centering
@@ -359,11 +365,11 @@ This last formula says that given accurate statistical knowledge of $U_{1,2}$, t
 
 \begin{figure}[t!]
   \centering
-      \includegraphics[width=0.75\textwidth]{figures/DA-example03-labels.pdf}
+  \includegraphics[width=0.75\textwidth]{figures/DA-example03-labels.pdf}
   \caption[A 1-dimensional example of this data assimilation cycle]{
     A 1-dimensional example of this data assimilation cycle.
     First, a forecast is made with mean 0 and variance 1, labeled $u_f$.
-    An observation denoted $u_o$ is the made with mean 2 and variance 2.
+    An observation denoted $u_o$ is then made with mean 2 and variance 2.
     From this information and Equation \ref{eq:1dda} we compute the analysis $u_f$ with mean 2/3, noting the greater reliance on the lower variance input $u_f$.
   }
   \label{fig:DAexample1D}
@@ -373,19 +379,22 @@ We can now formulate the simplest data assimilation cycle by using our forecast 
 We then assimilate the observations $U_o$ by setting $U_2 = U_o$ and solving for the analysis velocity $U_a$ as
 \begin{equation} U_a = U_b + W (U_o - U_b) .\end{equation}
 
-The difference $U_o - U_b$ is commonly reffered to as the ``innovation'' and represents the new knowledge from the observations with respect to the background forecast.
+The difference $U_o - U_b$ is commonly referred to as the ``innovation'' and represents the new knowledge from the observations with respect to the background forecast.
 The optimal weight $W$ is then given by \ref{eq:analprec} as
 \begin{equation} W = \frac{\sigma _b ^2}{\sigma_b ^2 - \sigma _o ^2} = \sigma_b ^2 (\sigma_b^2 - \sigma_o^2) ^{-1} \label{eq:1dda}.\end{equation}
 
-The analysis error variance and precision are defined as before, and following Kalnay (2003) for convenience we can rewrite this in terms of $W$ as:
+The analysis error variance and precision are defined as before, and following Kalnay (2003) 
+for convenience we can rewrite this in terms of $W$ as:
 \begin{equation} \sigma _a ^2 = (1-W ) \sigma_b^2 .\end{equation}
 
 We now generalize the above description for models of more than one variable to obtain the full equations for OI.
-This was originally done by Aerology et al (1960), and independently by Gandin (1965). The following notation will be used for the OI and the other multivariate filters.
+This was originally done by Aerology et al (1960), and independently by Gandin (1965). 
+The following notation will be used for the OI and the other multivariate filters.
 Consider a field of grid points, where there may be $\mbx_i = (p,p_{\text{rgh}},T,u_x,u_y,u_z)$ variables at each point for pressure, hydrostatic pressure, temperature, and three dimensions of velocity.
 We combine all the variables into one list $\mbx$ of length $n$ where $n$ is the product of the number of grid points and the number of model variables.
 This list is ordered by grid point and then by variable (e.g. $\mbx = (p_1,T_1,p_2,T_2,\ldots,p_{n/2},T_{n/2})$ for a field with just variables pressure $p$ and temperature $T$).
-Denote the observations as $\mby_0$, where the ordering is the same as $\mbx$ but the dimension is much smaller (e.g. by a factor of $10^3$ for NWP) and the observations are not strictly at the locations of $\mbx$ or even direct measurements of the variables in $\mbx$.
+Denote the observations as $\mby_0$, where the ordering is the same as $\mbx$ but the dimension is much smaller (e.g. by a factor of $10^3$ for NWP) 
+and the observations are not strictly at the locations of $\mbx$ or even direct measurements of the variables in $\mbx$.
 In our experiment, temperature measurements are in the model variable $T$, but are understood as the average of the temperature of the grid points surrounding it within some chosen radius.
 Examples of indirect and spatially heterogeneous observations in NWP are radar reflectivities, Doppler shifts, satellite radiances, and global positioning system atmospheric refractivities \shortcite{kalnay2003}.
 
@@ -545,7 +554,7 @@ We can apply our numerical method to the $d\mbx/dt = F(\mbx)$ to obtain $M$ expl
 This method is, however, prohibitively costly, since Runge-Kutta methods are implicit.
 It is therefore desirable to take the derivative of the numerical scheme directly, and apply this differentiated numerical scheme to the system of equations $F(\mbx)$ to obtain the TLM.
 A schematic of this scenario is illustrated in Figure \ref{fig:TLMscheme}.
-To that the derivative of numerical code for implementing the EKF on models larger than 3 dimensions (i.e. global weather models written in Fortan), automatic code differentiation is used \shortcite{autodiff1981}.
+To take the derivative of numerical code for implementing the EKF on models larger than 3 dimensions (i.e. global weather models written in Fortran), automatic code differentiation is used \shortcite{autodiff1981}.
 
 To verify our implementation of the TLM, we propagate a small error in the Lorenz 63 system and plot the difference between that error and the TLM predicted error, for each variable (Figure \ref{fig:TLMverification}).
 
@@ -569,7 +578,7 @@ In the limit of infinite ensemble size, ensemble methods are equivalent to the E
 There are two prevailing methodologies for maintaining independent ensemble members: (1) adding errors to the observation used by each forecast and assimilating each ensemble individually or (2) distributing ensemble initial conditions from the analysis prediction.
 In the first method, the random error added to the observation can be truly random \shortcite{harris2011predicting} or be drawn from a distribution related to the analysis covariance.
 The second method distributes ensemble members around the analysis forecast with a distribution drawn to sample the analysis covariance deterministically.
-It has been show that the perturbed observation approach introduces additional sampling error that reduces the analysis covariance accuracy and increases the probability of of underestimating analysis error covariance \shortcite{hamill2001distance}.
+It has been shown that the perturbed observation approach introduces additional sampling error that reduces the analysis covariance accuracy and increases the probability of underestimating analysis error covariance \shortcite{hamill2001distance}.
 For the examples given, we demonstrate both methods.
 
 With a finite ensemble size this method is only an approximation and therefore in practice it often fails to capture the full spread of error.
@@ -638,10 +647,10 @@ In the SRF approach, the ``Potter Method'' provides a deterministic update by re
 &= \mbZ_f\left(\mathbf{I}-\mbZ_f\mbH^T(\mbH\mbZ_f\mbZ_f^T\mbH^T+\mbR)^{-1}\mbH\mbZ_f\right)\mbZ_f^T\\
 &= \mbZ_f\left(\mathbf{I}-\mathbf{V}\mathbf{D}^{-1}\mathbf{Z}^T\right)\mbZ_f^T. \end{align}
 We have defined $\mathbf{V}\equiv(\mbH\mbZ_f)^T$ and $\mathbf{D}\equiv\mathbf{V}^T\mathbf{V}+\mbR$.
-Now for the ETFK step, we use the Sherman-Morrison-Woodbury identity to show
+Now for the ETKF step, we use the Sherman-Morrison-Woodbury identity to show
 \begin{equation} \mathbf{I} - \mathbf{Z}\mathbf{D}^{-1}\mathbf{Z}^T = (\mathbf{I}+\mathbf{Z}_f\mathbf{H}^T\mathbf{R}^{-1}\mathbf{H}\mathbf{Z}_f)^{-1}.\end{equation}
 The matrix on the right hand side is practical to compute because it is of dimension of the rank of the ensemble, assuming that the matrix inverse $\mbR^{-1}$ is available.
-This is the case in our experiment, as the observation are uncorrelated.
+This is the case in our experiment, as the observations are uncorrelated.
 The analysis update is thus
 \begin{equation} \mbZ_a = \mbZ_f \mathbf{C}(\mathbf{\Gamma} +\mathbf{I})^{-1/2} ,\end{equation}
 where $\mathbf{C}\mathbf{\Gamma}\mathbf{C}^T$ is the eigenvalue decomposition of $\mbZ_f^T\mbH^T\mbR^{-1}\mbH\mbZ_f$.
@@ -651,7 +660,7 @@ Then the analysis perturbation is calculated from
 \begin{equation} \mbZ_a = \mbZ_f \mathbf{X} \mathbf{U}, \end{equation}
 where $\mathbf{X}\mathbf{X}^T = (\mathbf{I}-\mathbf{Z}\mathbf{D}^{-1}\mathbf{V}^T)$ and $\mathbf{U}$ is an arbitrary orthogonal matrix.
 
-In this filter, the analysis perturbations are assumed to be equal to the backgroud perturbations post-multiplied by a transformation matrix $\mathbf{T}$ so that that the analysis error covariance satisfies
+In this filter, the analysis perturbations are assumed to be equal to the background perturbations post-multiplied by a transformation matrix $\mathbf{T}$ so that the analysis error covariance satisfies
 $$ \mbP_a = (1- \mbK \mbH ) \mbP_f .$$
 
 The analysis covariance is also written
@@ -700,8 +709,9 @@ To ensure a unique solution of local analysis perturbations that respects this b
 \subsection{Local Ensemble Transform Kalman Filter (LETKF)}
 
 Proposed by Hunt in 2007 with the stated objective of computational efficiency, the LETKF is named from its most similar algorithms from which it draws \shortcite{hunt2007efficient}.
-With the formulation of the LEKF and the ETKF given, the LETKF can be  described as a synthesis of the advantages of both of these approaches.
+With the formulation of the LEKF and the ETKF given, the LETKF can be described as a synthesis of the advantages of both of these approaches.
 This is the method that was sufficiently efficient for implementation on the full OpenFOAM CFD model of 240,000 model variables, and so we present it in more detail and follow the notation of Hunt et al (2007). 
+
 As in the LEKF, we explicitly perform the analysis for each grid point of the model.
 The choice of observations to use for each grid point can be selected a priori, and tuned adaptively.
 The simplest choice is to define a radius of influence for each point, and use observations within that.
@@ -767,11 +777,12 @@ The formulation of 4D-Var aims to incorporate observations at the time they are 
 This inclusion of observations has resulted in significant improvements in forecast skill, cite.
 The next generation of supercomputers that will be used in numerical weather prediction will allow for increased model resolution.
 The main issues with the 4D-Var approach include attempting to parallelize what is otherwise a sequential algorithm, and the computational difficulty of the strong-constraint formulation with many TLM integrations, with work being done by Fisher and Andersson (2001). 
+
 The formulation of 4D-Var is not so different from 3D-Var, with the inclusion of a TLM and adjoint model to assimilation observations made within the assimilation window.
 At the ECMWF, 4D-Var is run on a long-window cycle (24 and 48 hours) so that many observations are made within the time window.
-Generally, there are two main 4D-Var formulations in use: strong-constraint and weak-constaint.
+Generally, there are two main 4D-Var formulations in use: strong-constraint and weak-constraint.
 The strong-constraint formulation uses the forecast model as a strong constraint, and is therefore easier to solve.
-From Kalnay (2007) we have the standard weak-constaint formulation with superscript denoting the timestep within the assimilation window (say there are $0,\ldots,N$ observation time steps within the assimilation window):
+From Kalnay (2007) we have the standard weak-constraint formulation with superscript denoting the timestep within the assimilation window (say there are $0,\ldots,N$ observation time steps within the assimilation window):
 \begin{align*} J(\mbx^0) = &\frac{1}{2} (\mbx^0 - \mbx^0_b) ^T \mbB ^{-1} (\mbx^0 - \mbx_b^0 \frac{1}{2} \sum _{i=0}^N \left( H^i(\mbx^i)-\mby^i\right)^T\\
 &(\mbR^i) ^{-1} \left( H^i(\mbx^i)-\mby^i \right ) .\end{align*}
 
@@ -781,7 +792,7 @@ This is \shortcite{kalnay20074}:
 & \left(H^i(\mbx^i+\beta)-\mby^i\right)^T (\mbR^i)^{-1} \left(H^i(\mbx^i+\beta)-\mby^i\right) \\
 &+\frac{1}{2}\beta^T\mathbf{Q}^{-1}\beta = J_b +J_o+J_\beta.\end{align*}
 
-Future directions of operational data assimilation combine what is best about 4D-Var and ensemble-based algorithms, and these methods are reffered to as ensemble-variational hybrids.
+Future directions of operational data assimilation combine what is best about 4D-Var and ensemble-based algorithms, and these methods are referred to as ensemble-variational hybrids.
 We have already discussed a few such related approaches: the use of the Kalman gain matrix $\mbK$ used within the 3D-Var cost function, the ``NCEP'' method for 3D-Var, and inflating the ETKF covariance with the 3D-Var static (climatological) covariance $\mbB$.
 
 \subsection{Ensemble-variational hybrids}
@@ -820,23 +831,23 @@ The ensemble filter begins to out-perform the extended Kalman filter for longer 
   \centering
   \includegraphics[width=0.79\textwidth]{../2013-05data-assimilation/src/experiments/windowExperiment/window_experiment_plot002.pdf}
   \caption[The RMS error is reported for our EKF and EnKF filters]{
-    The RMS error (not scaled by climatology) is reported for our EKF and EnKF filters, measured as the difference between forecast and truth at the end of an assimiliation window for the latter 2500 assimiliation windows in a 3000 assimilation window model run.
+    The RMS error (not scaled by climatology) is reported for our EKF and EnKF filters, measured as the difference between forecast and truth at the end of an assimilation window for the latter 2500 assimilation windows in a 3000 assimilation window model run.
     Error is measured in the only observed variable, $x_1$.
-    Increasing the assimilation window led to an decrease in predictive skill, as expected.
-    Additive and multiplicative covariance inflation is the same as Harris et. al (2011).
+    Increasing the assimilation window led to a decrease in predictive skill, as expected.
+    Additive and multiplicative covariance inflation is the same as Harris et al. (2011).
   }
   \label{fig:window_test}
 \end{figure}
 
 Each of the filters is sensitive to the size of the covariance matrix, and in some cases to maintain the numerical stability of the assimilation it is necessary to use additive and/or multiplicative covariance inflation.
-In all filters multiplicative error is performed with inflaction factor $\Delta$ by
+In all filters multiplicative error is performed with inflation factor $\Delta$ by
 \begin{equation} \mbK \leftarrow (1+\Delta) \mbK .\end{equation}
 Additive inflation is performed for the EKF as in Yang et al (2006) and Harris et al (2011) where uniformly distributed random numbers in $[0,\mu]$ are added to the diagonal.
-This is accomplished in MATLAB by drawing a vector  $\nu$ of length $n$ of uniformly distributed numbers in $[0,1]$, multiplying it by $\mu$, and adding it to the diagonal:
+This is accomplished in MATLAB by drawing a vector $\nu$ of length $n$ of uniformly distributed numbers in $[0,1]$, multiplying it by $\mu$, and adding it to the diagonal:
 \begin{equation} \mbK \leftarrow \mbK + \text{diag}(\mu\cdot \nu).\end{equation}
 For the EnKF we perform additive covariance inflation to the analysis state itself for each ensemble:
 \begin{equation} \mbx \leftarrow \mbx + \nu .\end{equation}
-The result of searching over these parameters for the optimal values to minimize the analysis RMS error differs for each window length, so here here we present the result for a window of length 390 seconds for the ETKF.
+The result of searching over these parameters for the optimal values to minimize the analysis RMS error differs for each window length, so here we present the result for a window of length 390 seconds for the ETKF.
 In Figure \ref{fig:ETKF_cov_tuning_390s} we see that there is a clear region of parameter space for which the filter performs with lower RMS, although this region appears to extend into values of $\Delta > 3$.
 
 \begin{figure}[h!]
@@ -854,6 +865,7 @@ In Figure \ref{fig:ETKF_cov_tuning_390s} we see that there is a clear region of 
 
 \chapter{Thermal Convection Loop Experiment}
 \chaptermark{Thermosyphon} 
+
 \begin{quote}
 The thermosyphon, a type of natural convection loop or non-mechanical heat pump, can be likened to a toy model of climate \shortcite{harris2011predicting}.
 In this chapter we present both physical and computationally simulated thermosyphons, the equations governing their behavior, and results of the computational experiment.
@@ -901,13 +913,13 @@ The author notes that these systems rely on natural convection, and when augment
     The loop radius is given by $R$ and inner radius by $r$.
     The top temperature is labeled $T_c$ and bottom temperature $T_h$, gravity $g$ is defined downward, the angle $\phi$ is prescribed from the 6 o'clock position, and temperature difference $\Delta T_{3-9}$ is labeled.
   }
-  \label{fig:thermosyphons}
+  \label{fig:loopschematic}
 \end{figure}
 
 The reduced order system describing a thermal convection loop was originally derived by Gorman \shortcite{gorman1986} and Ehrhard and M\"{u}ller \shortcite{ehrhard1990dynamical}.
 Here we present this three dimensional system in non-dimensionalized form.
 In Appendix B we present a more complete derivation of these equations, following the derivation of Harris \shortcite{harris2011predicting}.
-For $x_{\{1,2,3\}}$ the mean fluid velocity, temperature different $\Delta T_{3-9}$, and deviation from conductive temperature profile, respectively, these equations are:
+For $x_{\{1,2,3\}}$ the mean fluid velocity, temperature difference $\Delta T_{3-9}$, and deviation from conductive temperature profile, respectively, these equations are:
 \begin{align}
 & \diff{x_1}{t} = \alpha (x_2 - x_1),\\
 & \diff{x_2}{t} = \beta x_1 - x_2 (1 + Kh(|x_1|)) - x_1x_3,\\
@@ -941,8 +953,8 @@ For a more complete attempt to predict thermosyphon flow reversals using this re
     Fluorescent balls are lit by a black-light and move with the flow.
     As the timeseries indicates, the flow changes direction aperiodically, giving rise to the chaotic behavior that we model.
     A video of the loop, from which this is a snapshot, can be viewed at \url{http://www.youtube.com/watch?feature=player_embedded&v=Vbni-7veJ-c}.
-          }
-  \label{fig:chrisLoop}
+  }
+  \label{fig:chrisLoopVideo}
 \end{figure}
 
 Originally built (and subsequently melted) by Dr. Chris Danforth at Bates College, the University of Vermont maintains experimental thermosyphons.
@@ -982,7 +994,7 @@ In standard notation, for $u,v,w$ the velocity in the $x,y,z$ direction, respect
 The momentum equations, presented compactly in tensor notation with bars representing averaged quantities, are given by
 \begin{equation} \rho_\text{ref} \left ( \frac{\partial \bar{u}_i}{\partial t} + \frac{\partial}{\partial x_j} \left( \bar{u}_j \bar{u}_i \right) \right )
 = -\frac{\partial \bar{p}} {\partial{x_i}} +  \mu \frac{\partial \bar{u}_i}{\partial x_j^2} + \bar{\rho} g_i \end{equation}
-for $\rho_\text{ref}$ the reference density, $\rho$ the density from the Boussinesq approximation, $p$ the pressure, $\mu$ the viscocity, and $g_i$ gravity in the $i$-direction.
+for $\rho_\text{ref}$ the reference density, $\rho$ the density from the Boussinesq approximation, $p$ the pressure, $\mu$ the viscosity, and $g_i$ gravity in the $i$-direction.
 Note that $g_i = 0$ for $i \in \{ x,y\}$ since gravity is assumed to be the $z$ direction.
 The energy equation is given by
 \begin{equation} \frac{\partial }{\partial t} \left ( \rho \overline{e}\right ) + \frac{\partial}{\partial x_j} \left ( \rho \overline{e} \overline{u}_j \right ) 
@@ -1095,8 +1107,7 @@ Solving is accomplished by the Pressure-Implicit Split Operator (PISO) algorithm
 Modification of the code was necessary for laminar operation.
 In Table \ref{tb:ofsolution}, we note the choices of schemes for time-stepping, numerical methods and interpolation.
 
-
-The Boussinesq approximation makes the assumption that density changes due to temperature differences are sufficiently small so that they can be neglected without effecting the flow, except when multiplied by gravity.
+The Boussinesq approximation makes the assumption that density changes due to temperature differences are sufficiently small so that they can be neglected without affecting the flow, except when multiplied by gravity.
 The non-dimensionalized density difference $\Delta \rho / \rho$ depends on the value of heat flux into the loop, but remains small even for large values of flux.
 Below, we approximate the validity of the Boussinesq approximation, which is generally valid for values of $\beta(T-T_\text{ref})\rhoref \ll 1$:
 \begin{equation} \frac{\beta(T - T_\text{ref})}{\rhoref} \simeq 7.6 \cdot 10^{-6} \ll 1 \label{eq:bouss} \end{equation}
@@ -1157,28 +1168,6 @@ Here is a picture of the thermosyphon colored by temperature.
   \label{fig:CFDloopSS}
 \end{figure}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 \chapter{Results}
 \chaptermark{} 
 
@@ -1221,7 +1210,7 @@ From these timeseries, we then select the BC, BC values, and turbulence model em
 
 \begin{figure}[h!]
   \centering
-    \includegraphics[width=0.79\textwidth]{/Users/andyreagan/work/2013/2013-05data-assimilation/src/experiments/meshVerification/Flux-end-20-times.pdf}
+  \includegraphics[width=0.79\textwidth]{/Users/andyreagan/work/2013/2013-05data-assimilation/src/experiments/meshVerification/Flux-end-20-times.pdf}
   \caption[Long-term behavior for different meshes]
   {
     With a fixed choice of solver, boundary conditions, and initial conditions that lead to a stable convective state, we present the long-term behavior of the velocity face flux at the top slice for different meshes.
@@ -1259,7 +1248,7 @@ We focus on considering the effect of observations and observational locations o
   \caption[A schematic of covariance localized by a radial distance from cell centers is shown for cells $x_{\{i,j\}}$ where $i,j$ are indexed by the number of cells and $r$ is any float]{
     A schematic of covariance localized by a radial distance from cell centers is shown for cells $x_{\{i,j\}}$ where $i,j$ are indexed by the number of cells and $r$ is any float.
     Cells are local to one another if the Euclidean distance between their cell centers is less than $r$.
-    Assimilation is performed for each cell, so there are as many individual assimilations are cells in the mesh.
+    Assimilation is performed for each cell, so there are as many individual assimilations as cells in the mesh.
     Since observations are assumed to be independent, this assimilation can be performed in parallel for efficiency.
   }
   \label{fig:localcovradii}
@@ -1272,7 +1261,7 @@ Computationally this scheme is the simplest to implement, and results in the few
 Next, we consider localization by distance from center.
 Data assimilation is performed for each grid point, considering neighboring cells and observations with cell center within a radius $r$ from each point (e.g. $r = 0.5$cm).
 The difficulty of this approach is the localization itself which is mesh dependent and nontrivial, see Figure \ref{fig:CFDmeshAdj2}.
-For our simulations, we perform the assimilations sequentially, and note that there many be gains in efficiency from parallelization.
+For our simulations, we perform the assimilations sequentially, and note that there may be gains in efficiency from parallelization.
 
 \subsubsection{Generation of Synthetic Data}
 
@@ -1308,7 +1297,7 @@ With too few observations, the data assimilation is unable to recover the underl
   \caption[Prediction skill over time for synthetic temperature sensors]{
     Prediction skill over time for synthetic temperature sensors.
     With these observations, our DA scheme is unable to predict the model run at all.
-    Compared with operational NWP, we are observing far less model variables in this situation, with $10^5$ times more model variables than observations, even for the 32 sensors.
+    Compared with operational NWP, we are observing far fewer model variables in this situation, with $10^5$ times more model variables than observations, even for the 32 sensors.
   }
   \label{fig:TsensorExp}
 \end{figure}
@@ -1323,14 +1312,14 @@ Regardless, in Figure \ref{fig:fullObsExp} we verify directly that our assimilat
     Prediction skill over time for complete observations of temperature.
     With these observations, our DA scheme is able to predict the model run well.
     Increasing the number of ensemble members $N$ leads to a decrease in the forecast error, as one would hope with a more complete sampling of model uncertainty.
-    Note that although we may full observations of temperature, it is only one of five model variables assimilated.
+    Note that although we have full observations of temperature, it is only one of five model variables assimilated.
   }
   \label{fig:fullObsExp}
 \end{figure}
 
 With success at predicting flow direction given full temperature observations, we now ask the question: just how many observations are necessary?
 The aforementioned generation of observational data considers the different possible observational network approaches for given number of observations $N_\text{obs}$.
-From these approaches, we select the best method available to assimilation $N_\text{obs}$ for each $N$.
+From these approaches, we select the best method available to assimilate $N_\text{obs}$ for each $N$.
 Our results initially indicate that the averaging of temperature over many cells for the synthetic temperature sensors up to 32 sensors degraded prediction skill.
 
 \begin{figure}[h!]
@@ -1344,7 +1333,6 @@ Our results initially indicate that the averaging of temperature over many cells
   }
   \label{fig:obsexp}
 \end{figure}
-
 
 \section{Conclusion}
 
@@ -1377,13 +1365,10 @@ This allows the possibility of running $N$ ensemble methods using $4N$ cores, al
 \end{figure}
 
 Beyond real-time prediction, it is now possible to design and test new methods of data assimilation for large scale systems.
-New methods specific to CFD, possibly using principle mode decomposition of flow fields have the potential to greatly improve the skill of real-time CFD applications.
+New methods specific to CFD, possibly using principal mode decomposition of flow fields have the potential to greatly improve the skill of real-time CFD applications.
 In Figure \ref{fig:localcovadaptive}, flow structures present in our computational experiment demonstrate the potential for adaptive covariance localization.
 
 The numerical coupling of CFD to experiment by DA should be generally useful to improve the skill of CFD predictions in even data-poor experiments, which can provide better knowledge of unobservable quantities of interest in fluid flow.
-
-
-
 
 \bibliographystyle{chicago}
 \begin{thebibliography}{}
@@ -1853,7 +1838,7 @@ The inflation parameters shown here are those which minimize the RMS forecast er
 \caption[Specific constants used for thermal properties of water]{
   Specific constants used for thermal properties of water.
   For temperature dependent quantities, the value is evaluated at the reference temperature $T_\text{ref}  = 300K$.
-  Derivation of the Boussineq condition is presented in Equation \ref{eq:bouss}.
+  Derivation of the Boussinesq condition is presented in Equation \ref{eq:bouss}.
   }
 \begin{center}
 \begin{tabular}{ll}
@@ -1873,9 +1858,9 @@ Thermal expansion $\beta$ & $0.303\cdot 10^{-3} \,1/\text{K}$\\
 \hline
 Density $\rhoref$ & $995.65 \text{kg}/\text{m}^3$\\
 \hline
-Kinematic Viscoscity $\nu$ & $0.801\cdot 10^{-6} \text{m}^2/\text{s}$\\
+Kinematic Viscosity $\nu$ & $0.801\cdot 10^{-6} \text{m}^2/\text{s}$\\
 \hline
-Dynamic Viscoscity $\mu$ & $0.798$\\
+Dynamic Viscosity $\mu$ & $0.798$\\
 \hline
 Laminar Prandtl number & $5.43$\\
 \hline
@@ -2030,12 +2015,17 @@ Boussinesq condition & $7.6\cdot 10^{-6}$\\
   }
 \label{table:lorenz63params}
 \begin{center}
-\begin{tabular}{ll} \hline
-Parameter & Value \\ \hline
+\begin{tabular}{ll} 
 \hline
-$\sigma$ & 10 \\\hline
-$\beta$ & 8/3 \\\hline
-$\rho$ & 28 \\\hline
+Parameter & Value \\ 
+\hline
+\hline
+$\sigma$ & 10 \\
+\hline
+$\beta$ & 8/3 \\
+\hline
+$\rho$ & 28 \\
+\hline
 \end{tabular}
 \end{center}
 \end{table}
@@ -2073,7 +2063,7 @@ We integrate this equation over $\phi$ to eliminate many of the terms, specifica
 & \int _{0} ^{2\pi} -\dphi \rhoref \beta T_\text{ref} g \sin (\phi) \rightarrow 0.\end{align*}
 Since $u$ (and hence $\diff{u}{\phi}$) and $f_w$ do not depend on $\phi$, we can pull these outside an integral over $\phi$ and therefore the momentum equation is now 
 \begin{equation*} 2\pi f_w \rho _0 + \int _{0} ^{2\pi} \dphi \rhoref \beta T g \sin (\phi) = 2\pi \diff{u}{\phi} \rhoref .\end{equation*}
-Diving out $2\pi$ and pull constants out of the integral we have our final form of the momentum equation
+Dividing out $2\pi$ and pulling constants out of the integral we have our final form of the momentum equation
 \begin{equation} f_w \rhoref + \frac{\rhoref \beta g }{2 \pi} \int _{0} ^{2\pi} \dphi T \sin (\phi) = \diff{u}{\phi} \rhoref \label{eq:EM10}.\end{equation}
 Now considering the conservation of energy within the thermosyphon, the energy change within a finite volume must be balanced by transfer within the thermosyphon and to the walls.
 The internal energy change is given by
@@ -2160,7 +2150,7 @@ Therefore the momentum flux is
 Similarly, with the additional consideration of the change within the volume, the momentum flux leaving through the opposite side is
 \begin{equation*} - \left ( u\rho u + \frac{\partial}{\partial x} \left( u\rho u\right ) \Delta x \right ) \Delta y \Delta z .\end{equation*}
 
-The $y$ and $z$ direction momemtum flux (of $x$ direction momentum) is found in the same way and we have the fluxes in those directions as
+The $y$ and $z$ direction momentum flux (of $x$ direction momentum) is found in the same way and we have the fluxes in those directions as
 \begin{align*} u \times \rho v (\Delta x \Delta z) & ~~~\& ~~~ - \left ( u\rho v + \frac{\partial}{\partial y} \left( u\rho v\right ) \Delta y \right ) \Delta x \Delta z \\
 u \times \rho w (\Delta x \Delta y) & ~~~\& ~~~ - \left ( u\rho w + \frac{\partial}{\partial z} \left( u\rho w\right ) \Delta z \right ) \Delta x \Delta y . \end{align*}
 
@@ -2197,7 +2187,7 @@ Thus for general fluids the sum of the forces in the $x$ direction is
 \begin{equation*} \left ( \frac{\partial p }{\partial x} + \frac{\partial \tau _{xx}}{\partial x} + \frac{\partial \tau _{yx}}{\partial y} + \frac{\partial \tau _{zx}}{\partial z} \right ) \Delta x \Delta y \Delta z . \end{equation*}
 
 Since the thermosyphon is filled with water, not blood, we can happily assume that the fluid is Newtonian, and the rapture has been avoided.
-This means that we can relate the viscous stress to the local rate of deformation linearly, by the viscocity $\mu$:
+This means that we can relate the viscous stress to the local rate of deformation linearly, by the viscosity $\mu$:
 \begin{align*} \tau _{xx} &= 2 \mu \frac{\partial u}{\partial x} \\
 \tau _{yx} &= \mu \left ( \frac{\partial v}{\partial x} + \frac{\partial u}{\partial y} \right )\\
 \tau _{zx} &= \mu \left ( \frac{\partial w}{\partial x} + \frac{\partial u}{\partial z} \right )\end{align*}
@@ -2208,7 +2198,7 @@ Putting this together for our Newtonian fluid we have by the equality of mixed p
 & = \left (-\frac{\partial p}{\partial x} + \mu \frac{\partial u}{\partial x^2} + \mu\frac{\partial u}{\partial y^2} + \mu \frac{\partial u}{\partial z^2}  + \mu \frac{\partial }{\partial x}\left ( \frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} + \frac{\partial w}{\partial z} \right ) \right ) \Delta x \Delta y \Delta z\\
 & = \left ( -\frac{\partial p}{\partial x} + \mu \frac{\partial u}{\partial x^2} + \mu\frac{\partial u}{\partial y^2} + \mu \frac{\partial u}{\partial z^2}\right ) \Delta x \Delta y \Delta z\end{align*}
 
-Thus the momemtum equation for $x$ is
+Thus the momentum equation for $x$ is
 \begin{align}  \rho \left ( \frac{\partial u }{\partial t} + u \frac{\partial u }{\partial x} + v \frac{\partial u}{\partial y} + w \frac{\partial u}{\partial z} \right ) &= -\frac{\partial p}{\partial x} + \mu \frac{\partial u}{\partial x^2} + \mu\frac{\partial u}{\partial y^2} + \mu \frac{\partial u}{\partial z^2}\end{align}
 
 In tensor notation this is often written for all three equations (recall, the above is only for $x$):
@@ -2223,7 +2213,7 @@ Since we will be relying on the use of a turbulence model, we reintroduce the st
 In tensor notation the mean stress tensor can be written
 \begin{equation*} \tau _{ij} = \mu \left ( \left ( \frac{\partial \bar{u} _i}{\partial x_j} + \frac{\partial \bar{u} _j }{\partial x_i} \right) - \frac{2}{3} \frac{\partial \bar{u}_k} {\partial x_k} \delta _{ij} \right ) \end{equation*}
 for $\delta _{ij} = 0$ if and only if $i=j$.
-Assume constant viscocity $\mu = \mu _0$, divide by $\rho _0$ and incorporate the latter for the stress tensor and we now have the momentum equation as
+Assume constant viscosity $\mu = \mu _0$, divide by $\rho _0$ and incorporate the latter for the stress tensor and we now have the momentum equation as
 \begin{equation*} \frac{\partial \bar{u}_i}{\partial t} + \frac{\partial}{\partial x_j} \left( \bar{u}_j \bar{u}_i \right) 
 = -\frac{\partial } {\partial{x_i}} \frac{\bar{p}}{\rho_0} + \frac{\partial }{\partial x_j} \left ( \nu _0 \left ( \left ( \frac{\partial \bar{u}_i} {\partial x_j} + \frac{\partial \bar{u} _j}{\partial x_i} \right ) - \frac{2}{3}\left ( \frac{\partial \bar{u} _k}{\partial x_k }\right ) \delta _{ij}\right ) - \tau ^* _{ij} \right ) + \bar{\rho} g_i \end{equation*}
 where $\nu _0 = \mu _0 /\rho _0$.
@@ -2298,8 +2288,10 @@ The main code is straight forward, relying on include statements to load the lib
         morecomment=[l][\color{magenta}]{\#},
         frame=L,
         xleftmargin=\parindent,
-                                numbersep=5pt,
-        breaklines=true,                breakatwhitespace=false,            escapeinside={\%*}{*)} 
+        numbersep=5pt,
+        breaklines=true,        
+        breakatwhitespace=false,    
+        escapeinside={\%*}{*)} 
 }
 
 \lstinputlisting[language=C++,firstline=48,lastline=53]{code/buoyantBoussinesqPimpleFoam/buoyantBoussinesqPimpleFoam-edited.C}
@@ -2357,3 +2349,4 @@ This definition relies entirely on a shell script foamLab.sh, which for brevity'
 For more complete code documentation, and to download the source code, visit the GitHub repository: \url{https://github.com/andyreagan}.
 
 \end{document}
+

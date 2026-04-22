@@ -48,13 +48,13 @@ The author notes that these systems rely on natural convection, and when augment
     The loop radius is given by $R$ and inner radius by $r$.
     The top temperature is labeled $T_c$ and bottom temperature $T_h$, gravity $g$ is defined downward, the angle $\phi$ is prescribed from the 6 o'clock position, and temperature difference $\Delta T_{3-9}$ is labeled.
   }
-  \label{fig:thermosyphons}
+  \label{fig:loopschematic}
 \end{figure}
 
 The reduced order system describing a thermal convection loop was originally derived by Gorman \shortcite{gorman1986} and Ehrhard and M\"{u}ller \shortcite{ehrhard1990dynamical}.
 Here we present this three dimensional system in non-dimensionalized form.
 In Appendix B we present a more complete derivation of these equations, following the derivation of Harris \shortcite{harris2011predicting}.
-For $x_{\{1,2,3\}}$ the mean fluid velocity, temperature different $\Delta T_{3-9}$, and deviation from conductive temperature profile, respectively, these equations are:
+For $x_{\{1,2,3\}}$ the mean fluid velocity, temperature difference $\Delta T_{3-9}$, and deviation from conductive temperature profile, respectively, these equations are:
 \begin{align}
 & \diff{x_1}{t} = \alpha (x_2 - x_1),\\
 & \diff{x_2}{t} = \beta x_1 - x_2 (1 + Kh(|x_1|)) - x_1x_3,\\
@@ -91,7 +91,7 @@ For a more complete attempt to predict thermosyphon flow reversals using this re
     %% Professor Chris Danforth with the Thermal Convection Loop.
     %% Photo credit Tim Johnson, Burlington Free Press {\protect\shortcite{danforthFP}}.
   }
-  \label{fig:chrisLoop}
+  \label{fig:chrisLoopVideo}
 \end{figure}
 
 Originally built (and subsequently melted) by Dr. Chris Danforth at Bates College, the University of Vermont maintains experimental thermosyphons.
@@ -132,7 +132,7 @@ The momentum equations, presented compactly in tensor notation with bars represe
 \begin{equation} \rho_\text{ref} \left ( \frac{\partial \bar{u}_i}{\partial t} + \frac{\partial}{\partial x_j} \left( \bar{u}_j \bar{u}_i \right) \right )
 = -\frac{\partial \bar{p}} {\partial{x_i}} +  \mu \frac{\partial \bar{u}_i}{\partial x_j^2} + \bar{\rho} g_i \end{equation}
 %% \begin{equation*} g_i\frac{\bar{\rho}}{\rho _0} = g_i \left ( 1 + \frac{\bar{\rho} - \rho _0}{\rho _0} \right ) = g_i \rho _k  = g_i \left (1 - \beta \left (\overline{T} - T _0\right ) \right ) .\end{equation*}
-for $\rho_\text{ref}$ the reference density, $\rho$ the density from the Boussinesq approximation, $p$ the pressure, $\mu$ the viscocity, and $g_i$ gravity in the $i$-direction.
+for $\rho_\text{ref}$ the reference density, $\rho$ the density from the Boussinesq approximation, $p$ the pressure, $\mu$ the viscosity, and $g_i$ gravity in the $i$-direction.
 Note that $g_i = 0$ for $i \in \{ x,y\}$ since gravity is assumed to be the $z$ direction.
 The energy equation is given by
 \begin{equation} \frac{\partial }{\partial t} \left ( \rho \overline{e}\right ) + \frac{\partial}{\partial x_j} \left ( \rho \overline{e} \overline{u}_j \right ) 
@@ -249,7 +249,7 @@ In Table \ref{tb:ofsolution}, we note the choices of schemes for time-stepping, 
 %% \url{http://www.openfoam.org/docs/user/compiling-applications.php}
 %% \url{http://www.openfoam.org/docs/cpp/}
 
-The Boussinesq approximation makes the assumption that density changes due to temperature differences are sufficiently small so that they can be neglected without effecting the flow, except when multiplied by gravity.
+The Boussinesq approximation makes the assumption that density changes due to temperature differences are sufficiently small so that they can be neglected without affecting the flow, except when multiplied by gravity.
 The non-dimensionalized density difference $\Delta \rho / \rho$ depends on the value of heat flux into the loop, but remains small even for large values of flux.
 Below, we approximate the validity of the Boussinesq approximation, which is generally valid for values of $\beta(T-T_\text{ref})\rhoref \ll 1$:
 \begin{equation} \frac{\beta(T - T_\text{ref})}{\rhoref} \simeq 7.6 \cdot 10^{-6} \ll 1 \label{eq:bouss} \end{equation}
